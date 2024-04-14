@@ -1,0 +1,5 @@
+#!/usr/bin/env nu
+
+leftwm command $'LoadTheme ($env.HOME)/.config/leftwm/themes/current/theme.ron'
+hsetroot -fill $'($env.HOME)/.local/share/backgrounds/default.jpg'
+xsetroot -cursor_name left_ptr

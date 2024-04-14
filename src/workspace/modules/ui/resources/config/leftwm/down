@@ -1,0 +1,4 @@
+#!/usr/bin/env nu
+
+leftwm command 'UnloadTheme'
+hsetroot -solid '#000000'

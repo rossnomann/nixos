@@ -1,0 +1,15 @@
+#![enable(implicit_some)]
+(
+    border_width: 1,
+    default_border_color: "#9399b2",
+    floating_border_color: "#7f849c",
+    focused_border_color: "#a6e3a1",
+    margin: 6,
+    workpace_magin: 0,
+    gutter: [
+        (side: Top, value: 12,),
+        (side: Right, value: 12,),
+        (side: Bottom, value: 12,),
+        (side: Left, value: 12,),
+    ],
+)
