@@ -129,123 +129,121 @@
     };
   };
 
-  workspace = {
+  home-manager.users.${config.workspace.user.name} = {
+    gtk =
+      let
+        extraCss = ''
+          * {
+            border-radius: 0 0 0 0;
+            box-shadow: none;
+          }
+        '';
+        extraConfig = {
+          gtk-decoration-layout = ":";
+        };
+      in
+      {
+        enable = true;
+
+        font =
+          let
+            fontSansSerif = config.workspace.theme.font.sansSerif;
+          in
+          {
+            name = fontSansSerif.family;
+            size = fontSansSerif.defaultSize;
+          };
+        gtk2.configLocation =
+          let
+            homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
+          in
+          "${homeDirectory}/.config/gtk-2.0/gtkrc";
+        gtk3.extraConfig = extraConfig;
+        gtk3.extraCss = extraCss;
+        gtk4.extraConfig = extraConfig;
+        gtk4.extraCss = extraCss;
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+        theme = {
+          name = "Catppuccin-Mocha-Compact-Green-Dark";
+          package = pkgs.catppuccin-gtk.override {
+            accents = [ "green" ];
+            size = "compact";
+            tweaks = [ "rimless" ];
+            variant = "mocha";
+          };
+        };
+      };
+
     home = {
-      gtk =
-        let
-          extraCss = ''
-            * {
-              border-radius: 0 0 0 0;
-              box-shadow: none;
-            }
-          '';
-          extraConfig = {
-            gtk-decoration-layout = ":";
-          };
-        in
-        {
-          enable = true;
+      file.".local/bin".source = ./resources/bin;
+      packages = [
+        (pkgs.catppuccin-kvantum.override {
+          accent = "Green";
+          variant = "Mocha";
+        })
+      ];
+      pointerCursor = {
+        gtk.enable = true;
+        x11.enable = false;
 
-          font =
-            let
-              fontSansSerif = config.workspace.theme.font.sansSerif;
-            in
-            {
-              name = fontSansSerif.family;
-              size = fontSansSerif.defaultSize;
-            };
-          gtk2.configLocation =
-            let
-              homeDirectory = config.workspace.home.home.homeDirectory;
-            in
-            "${homeDirectory}/.config/gtk-2.0/gtkrc";
-          gtk3.extraConfig = extraConfig;
-          gtk3.extraCss = extraCss;
-          gtk4.extraConfig = extraConfig;
-          gtk4.extraCss = extraCss;
-          iconTheme = {
-            name = "Papirus-Dark";
-            package = pkgs.papirus-icon-theme;
-          };
-          theme = {
-            name = "Catppuccin-Mocha-Compact-Green-Dark";
-            package = pkgs.catppuccin-gtk.override {
-              accents = [ "green" ];
-              size = "compact";
-              tweaks = [ "rimless" ];
-              variant = "mocha";
-            };
-          };
-        };
-
-      home = {
-        file.".local/bin".source = ./resources/bin;
-        packages = [
-          (pkgs.catppuccin-kvantum.override {
-            accent = "Green";
-            variant = "Mocha";
-          })
-        ];
-        pointerCursor = {
-          gtk.enable = true;
-          x11.enable = false;
-
-          name = "Catppuccin-Mocha-Green-Cursors";
-          package = pkgs.catppuccin-cursors.mochaGreen;
-          size = 16;
-        };
-      };
-
-      qt = {
-        enable = true;
-
-        platformTheme = "gnome";
-        style.name = "kvantum";
-      };
-
-      services.picom = {
-        enable = true;
-
-        backend = "glx";
-        fade = true;
-      };
-
-      xdg = {
-        configFile = {
-          "leftwm/config.ron".source = ./resources/config/leftwm/config.ron;
-          "leftwm/down".source = ./resources/config/leftwm/down;
-          "leftwm/up".source = ./resources/config/leftwm/up;
-          "leftwm/themes/current".source = ./resources/config/leftwm/themes/current;
-          "sx".source = ./resources/config/sx;
-          "Kvantum/kvantum.kvconfig".source = ./resources/config/kvantum/kvconfig;
-          "rlaunch".source = ./resources/config/rlaunch;
-        };
-        dataFile = {
-          "backgrounds/default.jpg".source = ./resources/data/backgrounds/default.jpg;
-          "backgrounds/default-empty.jpg".source = ./resources/data/backgrounds/default-empty.jpg;
-        };
+        name = "Catppuccin-Mocha-Green-Cursors";
+        package = pkgs.catppuccin-cursors.mochaGreen;
+        size = 16;
       };
     };
 
-    theme.font =
-      let
-        defaultSize = 10;
-      in
-      {
-        monospace = {
-          family = "Fira Code";
-          inherit defaultSize;
-        };
-        sansSerif = {
-          family = "Roboto";
-          inherit defaultSize;
-        };
-        serif = {
-          family = "Roboto Serif";
-          inherit defaultSize;
-        };
+    qt = {
+      enable = true;
+
+      platformTheme = "gnome";
+      style.name = "kvantum";
+    };
+
+    services.picom = {
+      enable = true;
+
+      backend = "glx";
+      fade = true;
+    };
+
+    xdg = {
+      configFile = {
+        "leftwm/config.ron".source = ./resources/config/leftwm/config.ron;
+        "leftwm/down".source = ./resources/config/leftwm/down;
+        "leftwm/up".source = ./resources/config/leftwm/up;
+        "leftwm/themes/current".source = ./resources/config/leftwm/themes/current;
+        "sx".source = ./resources/config/sx;
+        "Kvantum/kvantum.kvconfig".source = ./resources/config/kvantum/kvconfig;
+        "rlaunch".source = ./resources/config/rlaunch;
       };
+      dataFile = {
+        "backgrounds/default.jpg".source = ./resources/data/backgrounds/default.jpg;
+        "backgrounds/default-empty.jpg".source = ./resources/data/backgrounds/default-empty.jpg;
+      };
+    };
   };
+
+  workspace.theme.font =
+    let
+      defaultSize = 10;
+    in
+    {
+      monospace = {
+        family = "Fira Code";
+        inherit defaultSize;
+      };
+      sansSerif = {
+        family = "Roboto";
+        inherit defaultSize;
+      };
+      serif = {
+        family = "Roboto Serif";
+        inherit defaultSize;
+      };
+    };
 
   xdg.portal = {
     enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  workspace.home.home.packages = [ pkgs.telegram-desktop ];
+  home-manager.users.${config.workspace.user.name}.home.packages = [ pkgs.telegram-desktop ];
 }

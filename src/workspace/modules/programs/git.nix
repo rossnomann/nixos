@@ -4,7 +4,7 @@
     pkgs.git
     pkgs.delta
   ];
-  workspace.home.xdg.configFile =
+  home-manager.users.${config.workspace.user.name}.xdg.configFile =
     let
       user = config.workspace.user;
     in

@@ -1,10 +1,7 @@
 {
-  deviceName,
   config,
   home-manager,
   lib,
-  options,
-  pkgs,
   ...
 }:
 {
@@ -14,13 +11,6 @@
   ];
   options = with lib; {
     workspace = {
-      deviceName = mkOption {
-        type = types.enum [
-          "legion"
-          "yoga"
-        ];
-      };
-      home = mkOption { type = options.home-manager.users.type.functor.wrapped; };
       theme = {
         font = {
           monospace = {
@@ -50,9 +40,8 @@
     };
   };
   config = {
-    workspace = {
-      inherit deviceName;
-      home = (lib.mkAliasDefinitions config.home-manager.users."${config.workspace.user.name}") // {
+    home-manager = {
+      users.${config.workspace.user.name} = {
         home.stateVersion = config.system.stateVersion;
         xdg.enable = true;
       };

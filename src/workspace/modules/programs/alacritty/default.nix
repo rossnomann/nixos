@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  workspace.home.programs.alacritty = {
+  home-manager.users.${config.workspace.user.name}.programs.alacritty = {
     enable = true;
     settings = {
       colors = (import ./colors.nix { palette = config.workspace.theme.palette; });

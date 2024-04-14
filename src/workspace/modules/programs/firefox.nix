@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  workspace.home.programs.firefox = {
+  home-manager.users.${config.workspace.user.name}.programs.firefox = {
     enable = true;
 
     profiles = {

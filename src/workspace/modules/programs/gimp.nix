@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  workspace.home.home.packages = [ pkgs.gimp ];
+  home-manager.users.${config.workspace.user.name}.home.packages = [ pkgs.gimp ];
 }
