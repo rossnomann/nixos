@@ -4,7 +4,6 @@ if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
 fi
 systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
 dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-xset -dpms
 xrdb -merge ~/.config/sx/xresources
 . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 exec leftwm
