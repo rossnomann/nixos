@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   environment = {
     sessionVariables = {
@@ -14,6 +14,27 @@
       HISTFILE = "$XDG_DATA_HOME/bash/history";
       INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
       LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
+    };
+  };
+
+  home-manager.users.${config.workspace.user.name} = {
+    xdg = {
+      enable = true;
+
+      userDirs = let
+        homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
+      in {
+        enable = true;
+
+        desktop = "${homeDirectory}/workspace";
+        documents = "${homeDirectory}/workspace/documents";
+        download = "${homeDirectory}/workspace/downloads";
+        music = "${homeDirectory}/workspace/music";
+        pictures = "${homeDirectory}/workspace/pictures";
+        publicShare = "${homeDirectory}/workspace/sync";
+        templates = "${homeDirectory}/workspace/templates";
+        videos = "${homeDirectory}/workspace/videos";
+      };
     };
   };
 

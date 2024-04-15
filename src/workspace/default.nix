@@ -43,7 +43,6 @@
     home-manager = {
       users.${config.workspace.user.name} = {
         home.stateVersion = config.system.stateVersion;
-        xdg.enable = true;
       };
     };
   };
