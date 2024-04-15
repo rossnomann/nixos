@@ -57,6 +57,7 @@
       pkgs.greetd.tuigreet
       pkgs.hsetroot
       pkgs.leftwm
+      pkgs.libnotify
       pkgs.rlaunch
       pkgs.shotgun
       pkgs.slop
@@ -202,11 +203,43 @@
       style.name = "kvantum";
     };
 
-    services.picom = {
-      enable = true;
+    services = {
+      dunst = {
+        enable = true;
 
-      backend = "glx";
-      fade = true;
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+        settings = let
+          fontSansSerif = config.workspace.theme.font.sansSerif;
+          palette = config.workspace.theme.palette;
+        in {
+          global = {
+            background = palette.base;
+            font = "${fontSansSerif.family} ${builtins.toString fontSansSerif.defaultSize}";
+            follow = "keyboard";
+            foreground = palette.text;
+            frame_color = palette.green;
+            frame_width = 1;
+            gap_size = 12;
+            offset = "24x24";
+            origin = "top-right";
+          };
+          urgency_low = {
+            frame_color = palette.blue;
+          };
+          urgency_critical = {
+            frame_color = palette.red;
+          };
+        };
+      };
+      picom = {
+        enable = true;
+
+        backend = "glx";
+        fade = true;
+      };
     };
 
     xdg = {
@@ -218,6 +251,7 @@
         "sx".source = ./resources/config/sx;
         "Kvantum/kvantum.kvconfig".source = ./resources/config/kvantum/kvconfig;
         "rlaunch".source = ./resources/config/rlaunch;
+        "systemd/user/leftwm-session.target".source = ./resources/config/systemd/user/leftwm-session.target;
       };
       dataFile = {
         "backgrounds/default.jpg".source = ./resources/data/backgrounds/default.jpg;
