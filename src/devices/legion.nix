@@ -1,5 +1,5 @@
 # Lenovo Legion 5 15IAH7H
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   boot = {
     initrd = {
@@ -21,6 +21,9 @@
       };
     };
   };
+  environment.systemPackages = [
+    pkgs.blueman
+  ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/74befeea-8d73-49e7-a803-e12cd7154a68";
@@ -46,6 +49,9 @@
     hostPlatform = lib.mkDefault "x86_64-linux";
   };
   hardware = {
+    bluetooth = {
+      enable = true;
+    };
     cpu = {
       intel = {
         updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
