@@ -239,6 +239,9 @@
 
         backend = "glx";
         fade = true;
+        settings = {
+          vsync = true;
+        };
       };
     };
 
