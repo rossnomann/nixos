@@ -2,6 +2,8 @@
 {
   imports = [
     ./audio.nix
+    ./avahi.nix
+    ./cups.nix
     ./env.nix
     ./net.nix
     ./nixos.nix
