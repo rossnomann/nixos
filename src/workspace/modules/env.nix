@@ -34,7 +34,7 @@
           download = "${homeDirectory}/workspace/downloads";
           music = "${homeDirectory}/workspace/music";
           pictures = "${homeDirectory}/workspace/pictures";
-          publicShare = "${homeDirectory}/workspace/sync";
+          publicShare = "${homeDirectory}/workspace/exchange";
           templates = "${homeDirectory}/workspace/templates";
           videos = "${homeDirectory}/workspace/videos";
         };
