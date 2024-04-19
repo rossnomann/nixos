@@ -10,6 +10,7 @@
     ./mc
     ./mpv.nix
     ./nushell
+    ./qview
     ./sublime
     ./syncplay.nix
     ./telegram.nix
