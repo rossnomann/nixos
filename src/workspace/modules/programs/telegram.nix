@@ -10,7 +10,7 @@
       in
       {
         associations.added = assoc;
-        defaultApplications = { };
+        defaultApplications = assoc;
       };
   };
 }
