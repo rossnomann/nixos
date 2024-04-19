@@ -5,6 +5,7 @@
     ./firefox.nix
     ./gimp.nix
     ./git.nix
+    ./libreoffice.nix
     ./macchina
     ./mc
     ./mpv.nix
