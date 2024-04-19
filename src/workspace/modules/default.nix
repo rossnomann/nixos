@@ -10,6 +10,7 @@
     ./palette.nix
     ./power.nix
     ./programs
+    ./sane.nix
     ./security.nix
     ./ui
     ./users.nix
