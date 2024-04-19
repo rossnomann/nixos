@@ -20,6 +20,7 @@
   home-manager.users.${config.workspace.user.name} = {
     xdg = {
       enable = true;
+      mimeApps.enable = true;
 
       userDirs =
         let
