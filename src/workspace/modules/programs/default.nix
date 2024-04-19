@@ -6,6 +6,7 @@
     ./gimp.nix
     ./git.nix
     ./macchina
+    ./mc
     ./mpv.nix
     ./nushell
     ./sublime
