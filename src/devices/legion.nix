@@ -1,5 +1,10 @@
 # Lenovo Legion 5 15IAH7H
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot = {
     initrd = {
@@ -21,9 +26,7 @@
       };
     };
   };
-  environment.systemPackages = [
-    pkgs.blueman
-  ];
+  environment.systemPackages = [ pkgs.blueman ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/74befeea-8d73-49e7-a803-e12cd7154a68";

@@ -211,28 +211,30 @@
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
         };
-        settings = let
-          fontSansSerif = config.workspace.theme.font.sansSerif;
-          palette = config.workspace.theme.palette;
-        in {
-          global = {
-            background = palette.base;
-            font = "${fontSansSerif.family} ${builtins.toString fontSansSerif.defaultSize}";
-            follow = "keyboard";
-            foreground = palette.text;
-            frame_color = palette.green;
-            frame_width = 1;
-            gap_size = 12;
-            offset = "24x24";
-            origin = "top-right";
+        settings =
+          let
+            fontSansSerif = config.workspace.theme.font.sansSerif;
+            palette = config.workspace.theme.palette;
+          in
+          {
+            global = {
+              background = palette.base;
+              font = "${fontSansSerif.family} ${builtins.toString fontSansSerif.defaultSize}";
+              follow = "keyboard";
+              foreground = palette.text;
+              frame_color = palette.green;
+              frame_width = 1;
+              gap_size = 12;
+              offset = "24x24";
+              origin = "top-right";
+            };
+            urgency_low = {
+              frame_color = palette.blue;
+            };
+            urgency_critical = {
+              frame_color = palette.red;
+            };
           };
-          urgency_low = {
-            frame_color = palette.blue;
-          };
-          urgency_critical = {
-            frame_color = palette.red;
-          };
-        };
       };
       picom = {
         enable = true;

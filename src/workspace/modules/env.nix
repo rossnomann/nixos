@@ -21,20 +21,22 @@
     xdg = {
       enable = true;
 
-      userDirs = let
-        homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
-      in {
-        enable = true;
+      userDirs =
+        let
+          homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
+        in
+        {
+          enable = true;
 
-        desktop = "${homeDirectory}/workspace";
-        documents = "${homeDirectory}/workspace/documents";
-        download = "${homeDirectory}/workspace/downloads";
-        music = "${homeDirectory}/workspace/music";
-        pictures = "${homeDirectory}/workspace/pictures";
-        publicShare = "${homeDirectory}/workspace/sync";
-        templates = "${homeDirectory}/workspace/templates";
-        videos = "${homeDirectory}/workspace/videos";
-      };
+          desktop = "${homeDirectory}/workspace";
+          documents = "${homeDirectory}/workspace/documents";
+          download = "${homeDirectory}/workspace/downloads";
+          music = "${homeDirectory}/workspace/music";
+          pictures = "${homeDirectory}/workspace/pictures";
+          publicShare = "${homeDirectory}/workspace/sync";
+          templates = "${homeDirectory}/workspace/templates";
+          videos = "${homeDirectory}/workspace/videos";
+        };
     };
   };
 
