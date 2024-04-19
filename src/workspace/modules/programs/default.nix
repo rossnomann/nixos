@@ -12,5 +12,6 @@
     ./sublime
     ./syncplay.nix
     ./telegram.nix
+    ./zathura
   ];
 }
