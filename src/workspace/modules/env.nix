@@ -22,6 +22,7 @@
       enable = true;
       mimeApps.enable = true;
 
+      configFile."mimeapps.list".force = true;
       userDirs =
         let
           homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
