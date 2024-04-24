@@ -9,7 +9,7 @@
     ./libreoffice.nix
     ./macchina
     ./mc
-    ./mpv.nix
+    ./mpv
     ./nushell
     ./qview
     ./sublime
