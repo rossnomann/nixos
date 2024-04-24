@@ -13,6 +13,7 @@
     ./nushell
     ./obsidian.nix
     ./qview
+    ./slack.nix
     ./sublime
     ./syncplay.nix
     ./telegram.nix
