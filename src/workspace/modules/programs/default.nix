@@ -2,6 +2,7 @@
 {
   imports = [
     ./alacritty
+    ./cplay-ng.nix
     ./firefox.nix
     ./gimp.nix
     ./git.nix
