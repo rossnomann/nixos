@@ -11,6 +11,7 @@
     ./mc
     ./mpv
     ./nushell
+    ./obsidian.nix
     ./qview
     ./sublime
     ./syncplay.nix
