@@ -6,6 +6,7 @@
     profiles = {
       default = {
         extensions = with config.nur.repos.rycee.firefox-addons; [
+          bitwarden
           enhancer-for-youtube
           firefox-color
           multi-account-containers
