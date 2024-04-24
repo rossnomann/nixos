@@ -126,6 +126,7 @@
       xkb = {
         layout = "us,ru";
         options = "grp:win_space_toggle";
+        variant = "qwerty";
       };
     };
   };
