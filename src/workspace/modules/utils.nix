@@ -6,6 +6,7 @@
     pkgs.htop
     pkgs.lshw
     pkgs.nixfmt-rfc-style
+    pkgs.pinentry
     pkgs.pciutils
     pkgs.trash-cli
     pkgs.usbutils

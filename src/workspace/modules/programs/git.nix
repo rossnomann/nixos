@@ -13,6 +13,7 @@
         [user]
         email = ${user.email}
         name = ${user.description}
+        signingkey = 56D1FCBF
         [core]
         autocrlf = input
         editor = nano
