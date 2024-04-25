@@ -65,6 +65,7 @@
       pkgs.wmctrl
       pkgs.xclip
       pkgs.xorg.xdpyinfo
+      pkgs.xorg.xkill
     ];
   };
 
