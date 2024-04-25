@@ -15,6 +15,7 @@
     ./obsidian.nix
     ./qview
     ./slack.nix
+    ./steam.nix
     ./sublime
     ./syncplay.nix
     ./telegram.nix
