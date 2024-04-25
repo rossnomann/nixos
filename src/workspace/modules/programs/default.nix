@@ -3,6 +3,7 @@
   imports = [
     ./alacritty
     ./cplay-ng.nix
+    ./deadbeef.nix
     ./discord.nix
     ./firefox.nix
     ./gimp.nix
