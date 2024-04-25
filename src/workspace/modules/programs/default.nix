@@ -7,6 +7,7 @@
     ./firefox.nix
     ./gimp.nix
     ./git.nix
+    ./gnupg.nix
     ./libreoffice.nix
     ./macchina
     ./mc
