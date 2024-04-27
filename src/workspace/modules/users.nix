@@ -10,6 +10,7 @@
     name = "ross";
     description = "Ross Nomann";
     email = "rossnomann@protonmail.com";
+    gpg_signing_key = "56D1FCBF";
     groups = [
       "networkmanager"
       "wheel"

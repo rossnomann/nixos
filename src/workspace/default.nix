@@ -36,6 +36,7 @@
         description = mkOption { type = types.str; };
         email = mkOption { type = types.str; };
         groups = mkOption { type = types.listOf lib.types.str; };
+        gpg_signing_key = mkOption { type = types.str; };
       };
     };
   };

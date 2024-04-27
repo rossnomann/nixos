@@ -7,7 +7,7 @@
     ./discord.nix
     ./firefox.nix
     ./gimp.nix
-    ./git.nix
+    ./git
     ./gnupg.nix
     ./libreoffice.nix
     ./macchina

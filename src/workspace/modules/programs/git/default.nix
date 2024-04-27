@@ -13,7 +13,7 @@
         [user]
         email = ${user.email}
         name = ${user.description}
-        signingkey = 56D1FCBF
+        signingkey = ${user.gpg_signing_key}
         [core]
         autocrlf = input
         editor = nano
@@ -28,9 +28,10 @@
         ff = only
         [init]
         defaultBranch = master
+        [include]
+        path = ~/.config/git/delta
       '';
-      "git/ignore".text = ''
-        .envrc
-      '';
+      "git/delta".source = ./resources/delta;
+      "git/ignore".source = ./resources/ignore;
     };
 }
