@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Midnight Commander
+Exec=alacritty --command mc %U
