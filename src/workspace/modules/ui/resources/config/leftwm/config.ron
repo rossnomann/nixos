@@ -9,7 +9,7 @@
     focus_new_windows: true,
     insert_behavior: Bottom,
     scratchpad: [],
-    sloppy_mouse_follows_focus: false,
+    sloppy_mouse_follows_focus: true,
     state_path: None,
     keybind: [
         (command: Execute, value: "$HOME/.local/bin/rlaunch-wrapper", modifier: ["modkey"], key: "r"),
@@ -21,6 +21,8 @@
 
         (command: FocusNextTag, value: "ignore_empty", modifier: ["modkey"], key: "Down"),
         (command: FocusPreviousTag, value: "ignore_empty", modifier: ["modkey"], key: "Up"),
+        (command: FocusWorkspacePrevious, value: "", modifier: ["modkey", "Control"], key: "Up"),
+        (command: FocusWorkspaceNext, value: "", modifier: ["modkey", "Control"], key: "Down"),
         (command: MoveToLastWorkspace, value: "", modifier: ["modkey", "Shift"], key: "w"),
 
         (command: GotoTag, value: "1", modifier: ["modkey"], key: "1"),
