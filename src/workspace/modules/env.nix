@@ -10,10 +10,17 @@
     };
     variables = {
       __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+      CARGO_HOME = "$XDG_DATA_HOME/cargo";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
       HISTFILE = "$XDG_DATA_HOME/bash/history";
       INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
       LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
+      PGPASSFILE = "$XDG_CONFIG_HOME/psql/pass";
+      PGSERVICEFILE = "$XDG_CONFIG_HOME/psql/service.conf";
+      PSQL_HISTORY = "$XDG_DATA_HOME/psql/history";
+      PSQLRC = "$XDG_CONFIG_HOME/psql/config";
+      REDISCLI_HISTFILE = "$XDG_DATA_HOME/redis/history";
+      REDISCLI_RCFILE = "$XDG_CONFIG_HOME/redis/config";
     };
   };
 

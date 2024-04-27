@@ -11,6 +11,7 @@
     ./palette.nix
     ./power.nix
     ./programs
+    ./python
     ./sane.nix
     ./security.nix
     ./syncthing.nix
