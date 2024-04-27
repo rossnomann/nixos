@@ -29,5 +29,11 @@
       nixosConfigurations = {
         legion = nixosWorkspace "legion";
       };
+      templates = {
+        rust = {
+          path = ./src/templates/rust;
+          description = "Rust flake";
+        };
+      };
     };
 }
