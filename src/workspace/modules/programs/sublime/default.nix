@@ -5,7 +5,10 @@
     "openssl-1.1.1w"
   ];
   home-manager.users.${config.workspace.user.name} = {
-    home.packages = [ pkgs.sublime4 pkgs.sublime-merge ];
+    home.packages = [
+      pkgs.sublime4
+      pkgs.sublime-merge
+    ];
     # Contains only simple packages without deps, e.g. preferences, syntax highlighting, color schemes, etc...
     xdg = {
       configFile = {

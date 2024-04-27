@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   environment.variables = {
     PYTHONSTARTUP = "$XDG_CONFIG_HOME/python/pythonrc";
     PYTHON_HISTORY = "$XDG_DATA_HOME/python/history";
