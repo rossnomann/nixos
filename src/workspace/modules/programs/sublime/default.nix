@@ -5,7 +5,7 @@
     "openssl-1.1.1w"
   ];
   home-manager.users.${config.workspace.user.name} = {
-    home.packages = [ pkgs.sublime4 ];
+    home.packages = [ pkgs.sublime4 pkgs.sublime-merge ];
     # Contains only simple packages without deps, e.g. preferences, syntax highlighting, color schemes, etc...
     xdg = {
       configFile = {
@@ -58,7 +58,7 @@
               "theme": "Adaptive.sublime-theme",
             }
           '';
-        "sublime-text/Packages/NixOS".source = ./resources/packages/NixOS;
+        "sublime-text/Packages/NixOS".source = ./resources/text/packages/NixOS;
       };
       mimeApps.defaultApplications =
         let
