@@ -4,20 +4,18 @@
     ./alacritty
     ./android.nix
     ./audio
+    ./documents
     ./firefox.nix
     ./git
     ./gnupg.nix
     ./graphics
     ./im.nix
-    ./libreoffice.nix
     ./macchina
     ./mc
     ./nushell
-    ./obsidian.nix
     ./steam.nix
     ./sublime
     ./transmission.nix
     ./video
-    ./zathura
   ];
 }
