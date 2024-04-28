@@ -3,6 +3,7 @@
   imports = [
     ./alacritty
     ./android.nix
+    ./audio
     ./cplay-ng.nix
     ./deadbeef.nix
     ./discord.nix
