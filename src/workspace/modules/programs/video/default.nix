@@ -1,10 +1,13 @@
 { config, pkgs, ... }:
 {
   home-manager.users.${config.workspace.user.name} = {
-    home.packages = [ pkgs.mpv ];
+    home.packages = [
+      pkgs.mpv
+      pkgs.syncplay
+    ];
     xdg = {
-      configFile."mpv/mpv.conf".source = ./resources/mpv.conf;
-      configFile."mpv/script-opts/stats.conf".source = ./resources/script-opts/stats.conf;
+      configFile."mpv/mpv.conf".source = ./resources/mpv/mpv.conf;
+      configFile."mpv/script-opts/stats.conf".source = ./resources/mpv/script-opts/stats.conf;
       mimeApps.defaultApplications =
         let
           defaults = [ "mpv.desktop" ];

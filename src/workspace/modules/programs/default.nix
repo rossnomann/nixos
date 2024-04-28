@@ -12,15 +12,14 @@
     ./libreoffice.nix
     ./macchina
     ./mc
-    ./mpv
     ./nushell
     ./obsidian.nix
     ./slack.nix
     ./steam.nix
     ./sublime
-    ./syncplay.nix
     ./telegram.nix
     ./transmission.nix
+    ./video
     ./zathura
   ];
 }
