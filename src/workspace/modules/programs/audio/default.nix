@@ -4,6 +4,8 @@
     home.packages = [
       pkgs.ardour
       pkgs.audacity
+      pkgs.cplay-ng
+      pkgs.deadbeef
       pkgs.guitarix
       pkgs.gxplugins-lv2
       pkgs.hydrogen
