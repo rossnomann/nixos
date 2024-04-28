@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.qview ];
   home-manager.users.${config.workspace.user.name} = {
+    home.packages = [
+      (pkgs.gimp-with-plugins.override { plugins = [ pkgs.gimpPlugins.gmic ]; })
+      pkgs.inkscape
+      pkgs.qview
+    ];
     xdg = {
       dataFile."applications/com.interversehq.qView.desktop".source = ./resources/com.interversehq.qView.desktop;
       mimeApps.defaultApplications =

@@ -6,17 +6,15 @@
     ./audio
     ./discord.nix
     ./firefox.nix
-    ./gimp.nix
     ./git
     ./gnupg.nix
-    ./inkscape.nix
+    ./graphics
     ./libreoffice.nix
     ./macchina
     ./mc
     ./mpv
     ./nushell
     ./obsidian.nix
-    ./qview
     ./slack.nix
     ./steam.nix
     ./sublime
