@@ -2,6 +2,7 @@
 {
   imports = [
     ./alacritty
+    ./android.nix
     ./cplay-ng.nix
     ./deadbeef.nix
     ./discord.nix
