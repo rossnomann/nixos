@@ -10,6 +10,7 @@
     ./gimp.nix
     ./git
     ./gnupg.nix
+    ./inkscape.nix
     ./libreoffice.nix
     ./macchina
     ./mc
