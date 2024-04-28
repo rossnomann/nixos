@@ -9,20 +9,20 @@
       PATH = [ "$HOME/.local/bin" ];
     };
     variables = {
-       _JAVA_OPTIONS="-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME\"/java";
+      _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME\"/java";
       __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-      ANDROID_HOME="$XDG_DATA_HOME/android/sdk";
-      ANDROID_USER_HOME="$XDG_DATA_HOME/android";
-      ANSIBLE_HOME="$XDG_DATA_HOME/ansible";
-      AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config";
-      AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials";
-      AWS_VAULT_FILE_DIR="$XDG_DATA_HOME/awsvault";
+      ANDROID_HOME = "$XDG_DATA_HOME/android/sdk";
+      ANDROID_USER_HOME = "$XDG_DATA_HOME/android";
+      ANSIBLE_HOME = "$XDG_DATA_HOME/ansible";
+      AWS_CONFIG_FILE = "$XDG_CONFIG_HOME/aws/config";
+      AWS_SHARED_CREDENTIALS_FILE = "$XDG_CONFIG_HOME/aws/credentials";
+      AWS_VAULT_FILE_DIR = "$XDG_DATA_HOME/awsvault";
       CARGO_HOME = "$XDG_DATA_HOME/cargo";
       CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-      DOCKER_CONFIG="$XDG_CONFIG_HOME/docker";
-      DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet";
-      FFMPEG_DATADIR="$XDG_CONFIG_HOME/ffmpeg";
-      GNUPGHOME="$XDG_DATA_HOME/gnupg";
+      DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
+      DOTNET_CLI_HOME = "$XDG_DATA_HOME/dotnet";
+      FFMPEG_DATADIR = "$XDG_CONFIG_HOME/ffmpeg";
+      GNUPGHOME = "$XDG_DATA_HOME/gnupg";
       HISTFILE = "$XDG_DATA_HOME/bash/history";
       INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
       LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
@@ -32,8 +32,8 @@
       PSQLRC = "$XDG_CONFIG_HOME/psql/config";
       REDISCLI_HISTFILE = "$XDG_DATA_HOME/redis/history";
       REDISCLI_RCFILE = "$XDG_CONFIG_HOME/redis/config";
-      SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history";
-      WINEPREFIX="$XDG_DATA_HOME/wine";
+      SQLITE_HISTORY = "$XDG_DATA_HOME/sqlite/history";
+      WINEPREFIX = "$XDG_DATA_HOME/wine";
     };
   };
 

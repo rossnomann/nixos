@@ -7,11 +7,11 @@
     dataFile."applications/mc.desktop".source = ./resources/mc.desktop;
     dataFile."mc/skins/catppuccin.ini".source = ./resources/catppuccin.ini;
     mimeApps.defaultApplications =
-        let
-          defaults = [ "mc.desktop" ];
-        in
-        {
-          "inode/directory" = defaults;
-        };
+      let
+        defaults = [ "mc.desktop" ];
+      in
+      {
+        "inode/directory" = defaults;
+      };
   };
 }
