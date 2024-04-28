@@ -2,7 +2,7 @@
 {
   environment.systemPackages = [ pkgs.gnupg ];
   home-manager.users.${config.workspace.user.name} = {
-    home.file.".gnupg/gpg.conf".text = ''
+    xdg.dataFile."gnupg/gpg.conf".text = ''
       no-greeting
       use-agent
       pinentry-mode loopback
