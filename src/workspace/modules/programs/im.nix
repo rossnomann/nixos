@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 {
   home-manager.users.${config.workspace.user.name} = {
-    home.packages = [ pkgs.telegram-desktop ];
+    home.packages = [
+      pkgs.discord
+      pkgs.slack
+      pkgs.telegram-desktop
+    ];
     xdg.mimeApps =
       let
         assoc = {
