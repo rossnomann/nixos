@@ -17,5 +17,6 @@
     ./sublime
     ./transmission.nix
     ./video
+    ./xarchiver.nix
   ];
 }
