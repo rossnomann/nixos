@@ -29,10 +29,16 @@
         (command: GotoTag, value: "2", modifier: ["modkey"], key: "2"),
         (command: GotoTag, value: "3", modifier: ["modkey"], key: "3"),
         (command: GotoTag, value: "4", modifier: ["modkey"], key: "4"),
+        (command: GotoTag, value: "5", modifier: ["modkey"], key: "5"),
+        (command: GotoTag, value: "6", modifier: ["modkey"], key: "6"),
+        (command: GotoTag, value: "7", modifier: ["modkey"], key: "7"),
         (command: MoveToTag, value: "1", modifier: ["modkey", "Shift"], key: "1"),
         (command: MoveToTag, value: "2", modifier: ["modkey", "Shift"], key: "2"),
         (command: MoveToTag, value: "3", modifier: ["modkey", "Shift"], key: "3"),
         (command: MoveToTag, value: "4", modifier: ["modkey", "Shift"], key: "4"),
+        (command: MoveToTag, value: "5", modifier: ["modkey", "Shift"], key: "5"),
+        (command: MoveToTag, value: "6", modifier: ["modkey", "Shift"], key: "6"),
+        (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "7"),
         (command: SwapTags, value: "", modifier: ["modkey"], key: "w"),
 
         (command: NextLayout, value: "", modifier: ["modkey", "Control"], key: "Right"),
@@ -51,17 +57,49 @@
     layout_mode: Tag,
     layouts: [
         "MainAndVertStack",
-        "MainAndHorizontalStack",
         "Monocle",
     ],
     modkey: "Mod4",
     mousekey: "Mod4",
-    tags: ["terminal", "work", "relaxed", "music"],
+    tags: ["alacritty", "main", "secondary", "audio", "graphics", "documents", "steam"],
     window_rules: [
-        (window_class: ".syncplay-wrapped", spawn_floating: true, spawn_on_tag: 3),
         (window_class: "Alacritty", spawn_on_tag: 1),
+
+        // main
+        (window_class: "firefox", spawn_on_tag: 2),
+        (window_title: "Picture-in-Picture", spawn_as_type: Normal, spawn_sticky: true),
         (window_class: "sublime_text", spawn_on_tag: 2),
+        (window_class: "sublime_merge", spawn_on_tag: 2),
+
+        // secondary
+        (window_class: "deadbeef", spawn_on_tag: 3),
         (window_class: "telegram-desktop", spawn_on_tag: 3),
+        (window_class: "mpv", spawn_fullscreen: true, spawn_on_tag: 3),
+        (window_class: ".syncplay-wrapped", spawn_floating: true, spawn_on_tag: 3),
+
+        // audio
+        (window_class: "ardour-8.4.0", spawn_on_tag: 4),
+        (window_class: "ardour_ardour", spawn_on_tag: 4),
+        (window_class: "audacity", spawn_on_tag: 4),
+        (window_class: "guitarix", spawn_floating: true, spawn_on_tag: 4),
+        (window_class: "helvum", spawn_on_tag: 4),
+        (window_class: "hydrogen", spawn_on_tag: 4),
+        (window_class: "pavucontrol", spawn_on_tag: 4),
+        (window_class: "TuxGuitar", spawn_on_tag: 4),
+
+        // graphics
+        (window_class: ".gimp-2.10-wrapped_", spawn_on_tag: 5),
+        (window_class: "gmic_qt", spawn_on_tag: 5),
+        (window_class: "org.inkscape.Inkscape", spawn_on_tag: 5),
+        (window_class: "qview", spawn_on_tag: 5),
+
+        // documents
+        (window_class: "org.pwmt.zathura", spawn_on_tag: 6),
+        (window_class: "libreoffice", spawn_on_tag: 6),
+        (window_class: "obsidian", spawn_on_tag: 6),
+        (window_class: "simple-scan", spawn_on_tag: 6),
+
+        (window_class: "steam", spawn_floating: true, spawn_on_tag: 7),
     ],
     workspaces: [],
 )
