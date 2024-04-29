@@ -12,6 +12,7 @@
     email = "rossnomann@protonmail.com";
     gpg_signing_key = "56D1FCBF";
     groups = [
+      "audio"
       "docker"
       "networkmanager"
       "wheel"
