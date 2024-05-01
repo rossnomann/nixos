@@ -45,21 +45,11 @@
       fsType = "ext4";
     };
   };
-  networking = {
-    useDHCP = lib.mkDefault true;
-  };
-  nixpkgs = {
-    hostPlatform = lib.mkDefault "x86_64-linux";
-  };
+  networking.useDHCP = lib.mkDefault true;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
-    bluetooth = {
-      enable = true;
-    };
-    cpu = {
-      intel = {
-        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-      };
-    };
+    bluetooth.enable = true;
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
     nvidia = {
       modesetting.enable = true;
