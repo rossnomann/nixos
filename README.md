@@ -20,7 +20,7 @@ The GTK file chooser goes out of screen bounds in LeftWM.
 Despite the corresponding [issue](https://github.com/leftwm/leftwm/issues/680) being resolved,
 it doesn't appear to be fixed.
 The only solution is to lock the file chooser size (see ./src/workspace/modules/ui/default.nix).
-After every change in `/etc/dconf`, `dconf` update needs to be executed manually to apply settings.
+After every change in `/etc/dconf`, `dconf update` needs to be executed manually to apply settings.
 
 #### TUIGREET
 
