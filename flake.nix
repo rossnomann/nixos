@@ -28,6 +28,7 @@
     {
       nixosConfigurations = {
         legion = nixosWorkspace "legion";
+        yoga = nixosWorkspace "yoga";
       };
       templates = {
         rust = {
