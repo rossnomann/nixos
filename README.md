@@ -1,33 +1,36 @@
 # NixOS configuration
 
+My distraction free NixOS config based on X11 and LeftWM.
+
+![preview](./resources/preview.png)
+
 ## USAGE
 
 ```sh
 nixos-rebuild switch --flake '.#%device%'
 ```
 
-Available devices:
+See `outpus.nixosConfigurations` in `flake.nix` for the list of available devices.
 
-- legion
-- yoga
+### QUIRKS
 
-### DCONF
+#### GTK FILE CHOOSER
 
-dconf configuration is locked in
-src/workspace/system/environment.nix
-Don't forget to run `dconf update` as root
-after every change in `/etc/dconf`.
+The GTK file chooser goes out of screen bounds in LeftWM.
+Despite the corresponding [issue](https://github.com/leftwm/leftwm/issues/680) being resolved,
+it doesn't appear to be fixed.
+The only solution is to lock the file chooser size (see ./src/workspace/modules/ui/default.nix).
+After every change in `/etc/dconf`, `dconf` update needs to be executed manually to apply settings.
 
-Currently it locks `/org/gtk/settings/file-chooser/window-size` only
-to prevent getting a file dialog out of screen bounds.
+#### TUIGREET
 
-### THEME
+https://github.com/apognu/tuigreet/issues/126
 
-Default theme is `Catppuccin Mocha Green`.
+#### THEME
 
-You need to install additional themes for Telegram and Firefox.
-Also don't forget about userstyles.
+Almost every program uses a Catppuccin theme. However not all of them can be configured using nix or have such theme at all.
 
-- [Telegram](https://t.me/addtheme/ctpmochaimproved)
-- [Firefox](https://github.com/catppuccin/firefox)
-- [Userstyles](https://github.com/catppuccin/userstyles)
+For Telegram install theme using the following link: https://t.me/addtheme/ctpmochaimproved
+For [Firefox](https://github.com/catppuccin/firefox) and [Userstyles](https://github.com/catppuccin/userstyles) choose the "mocha" flavor with "green" accent.
+There is no theme for Hydrogen, DeaDBeeF and TuxGuitar, but they can be configured manually.
+Ardour, Ocenaudio and Sublime Merge do not have Catppuccin themes at all, at least for now.
