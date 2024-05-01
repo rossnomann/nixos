@@ -14,7 +14,6 @@
     ./python
     ./sane.nix
     ./security.nix
-    ./syncthing.nix
     ./ui
     ./users.nix
     ./utils.nix
