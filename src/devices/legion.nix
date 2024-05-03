@@ -160,6 +160,11 @@
 
         settings = {
           devices = {
+            "pixel" = {
+              id = "NWMRLOG-ZLN76CU-HOOHCNS-5PG7IAO-G7EQMYJ-CNKX6LM-7GXC6YP-2PD7IQT";
+              name = "Pixel";
+              autoAcceptFolders = false;
+            };
             "yoga" = {
               id = "KLZAHUM-6HCYKBW-UVKYQSM-L5PMTUN-W6UHD5R-M5VZIRC-2JGZ3OM-AYPP2QO";
               name = "Yoga";
@@ -172,21 +177,30 @@
               ignorePerms = false;
               label = "Backup";
               path = "${homeDirectory}/workspace/backup";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
             "books" = {
               enable = true;
               ignorePerms = false;
               label = "Books";
               path = "${homeDirectory}/workspace/books";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
             "documents" = {
               enable = true;
               ignorePerms = false;
               label = "Documents";
               path = "${homeDirectory}/workspace/documents";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
             "music" = {
               enable = true;
@@ -200,14 +214,20 @@
               ignorePerms = false;
               label = "Obsidian";
               path = "${homeDirectory}/workspace/obsidian";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
             "pictures" = {
               enable = true;
               label = "Pictures";
               ignorePerms = false;
               path = "${homeDirectory}/workspace/pictures";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
             "exchange" = {
               enable = true;
@@ -221,7 +241,10 @@
               label = "Videos";
               ignorePerms = false;
               path = "${homeDirectory}/workspace/videos";
-              devices = [ "yoga" ];
+              devices = [
+                "pixel"
+                "yoga"
+              ];
             };
           };
           options = {

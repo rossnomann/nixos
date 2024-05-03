@@ -80,6 +80,11 @@
               name = "Legion";
               autoAcceptFolders = false;
             };
+            "pixel" = {
+              id = "NWMRLOG-ZLN76CU-HOOHCNS-5PG7IAO-G7EQMYJ-CNKX6LM-7GXC6YP-2PD7IQT";
+              name = "Pixel";
+              autoAcceptFolders = false;
+            };
           };
           folders = {
             "backup" = {
@@ -87,21 +92,30 @@
               ignorePerms = false;
               label = "Backup";
               path = "${homeDirectory}/workspace/backup";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
             "books" = {
               enable = true;
               ignorePerms = false;
               label = "Books";
               path = "${homeDirectory}/workspace/books";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
             "documents" = {
               enable = true;
               ignorePerms = false;
               label = "Documents";
               path = "${homeDirectory}/workspace/documents";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
             "music" = {
               enable = true;
@@ -115,14 +129,20 @@
               ignorePerms = false;
               label = "Obsidian";
               path = "${homeDirectory}/workspace/obsidian";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
             "pictures" = {
               enable = true;
               label = "Pictures";
               ignorePerms = false;
               path = "${homeDirectory}/workspace/pictures";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
             "exchange" = {
               enable = true;
@@ -136,7 +156,10 @@
               label = "Videos";
               ignorePerms = false;
               path = "${homeDirectory}/workspace/videos";
-              devices = [ "legion" ];
+              devices = [
+                "legion"
+                "pixel"
+              ];
             };
           };
           options = {
