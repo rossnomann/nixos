@@ -224,7 +224,11 @@
               devices = [ "yoga" ];
             };
           };
-          options.urAccepted = -1;
+          options = {
+            globalAnnounceEnabled = false;
+            relaysEnabled = false;
+            urAccepted = -1;
+          };
         };
       };
     xserver.videoDrivers = [ "nvidia" ];
