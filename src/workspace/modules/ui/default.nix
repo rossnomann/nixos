@@ -103,6 +103,7 @@
         };
       };
     };
+    libinput.enable = true;
     xserver = {
       enable = true;
 
@@ -117,7 +118,6 @@
           Option "DPMS" "false"
         EndSection
       '';
-      libinput.enable = true;
       serverFlagsSection = ''
         Option "BlankTime" "0"
         Option "StandbyTime" "0"
