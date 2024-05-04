@@ -8,9 +8,8 @@
       pkgs.guitarix
       pkgs.gxplugins-lv2
       pkgs.hydrogen
+      pkgs.musescore
       pkgs.ocenaudio
-      pkgs.tuxguitar
     ];
-    xdg.dataFile."applications/tuxguitar.desktop".source = ./resources/tuxguitar.desktop;
   };
 }

@@ -84,8 +84,8 @@
         (window_class: "guitarix", spawn_floating: true, spawn_on_tag: 4),
         (window_class: "helvum", spawn_on_tag: 4),
         (window_class: "hydrogen", spawn_on_tag: 4),
+        (window_class: "mscore", spawn_on_tag: 4),
         (window_class: "pavucontrol", spawn_on_tag: 4),
-        (window_class: "TuxGuitar", spawn_on_tag: 4),
 
         // graphics
         (window_class: ".gimp-2.10-wrapped_", spawn_on_tag: 5),

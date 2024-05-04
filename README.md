@@ -32,5 +32,5 @@ Almost every program uses a Catppuccin theme. However not all of them can be con
 
 For Telegram install theme using the following link: https://t.me/addtheme/ctpmochaimproved
 For [Firefox](https://github.com/catppuccin/firefox) and [Userstyles](https://github.com/catppuccin/userstyles) choose the "mocha" flavor with "green" accent.
-There is no theme for Hydrogen, DeaDBeeF and TuxGuitar, but they can be configured manually.
-Ardour, Ocenaudio and Sublime Merge do not have Catppuccin themes at all, at least for now.
+There is no theme for Hydrogen and DeaDBeeF, but they can be configured manually.
+Ardour, Musescore, Ocenaudio and Sublime Merge do not have Catppuccin themes at all, at least for now.

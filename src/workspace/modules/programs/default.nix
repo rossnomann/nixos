@@ -3,7 +3,7 @@
   imports = [
     ./alacritty
     ./android.nix
-    ./audio
+    ./audio.nix
     ./documents
     ./firefox.nix
     ./git
