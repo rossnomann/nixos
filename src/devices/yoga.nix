@@ -58,6 +58,7 @@
   };
   services = {
     hardware.bolt.enable = true;
+    fstrim.enable = true;
     syncthing =
       let
         user = config.workspace.user.name;

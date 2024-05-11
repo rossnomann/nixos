@@ -139,6 +139,7 @@
         };
       };
     };
+    fstrim.enable = true;
     hardware.bolt.enable = true;
     syncthing =
       let
