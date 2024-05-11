@@ -7,8 +7,10 @@
       pkgs.deadbeef
       pkgs.guitarix
       pkgs.gxplugins-lv2
+      pkgs.helvum
       pkgs.hydrogen
       pkgs.musescore
+      pkgs.pavucontrol
       pkgs.ocenaudio
     ];
   };

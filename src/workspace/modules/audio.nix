@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [
-    pkgs.alsa-utils
-    pkgs.helvum
-    pkgs.pavucontrol
-  ];
+  environment.systemPackages = [ pkgs.alsa-utils ];
   services.pipewire = {
     alsa = {
       enable = true;
