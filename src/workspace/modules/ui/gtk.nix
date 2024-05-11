@@ -16,24 +16,6 @@ let
   iconTheme = ui.iconTheme;
 in
 {
-  environment = {
-    # TODO: try to use nixos-generated profile
-    # Lock dconf settings.
-    # Note that you need to run
-    # dconf update as root manually
-    # to create the /etc/dconf/db/local file.
-    etc."dconf/profile/user".text = ''
-      user-db:user
-      system-db:local
-    '';
-    etc."dconf/db/local.d/00-filechooser".text = ''
-      [org/gtk/settings/file-chooser]
-      window-size=(800, 500)
-    '';
-    etc."dconf/db/local.d/locks/00-filechooser".text = ''
-      /org/gtk/settings/file-chooser/window-size
-    '';
-  };
   home-manager.users.${config.workspace.user.name} = {
     gtk = {
       enable = true;
