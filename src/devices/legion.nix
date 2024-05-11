@@ -26,10 +26,7 @@
       };
     };
   };
-  environment.systemPackages = [
-    pkgs.blueman
-    pkgs.powertop
-  ];
+  environment.systemPackages = [ pkgs.powertop ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/74befeea-8d73-49e7-a803-e12cd7154a68";
@@ -51,7 +48,13 @@
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General.Experimental = true;
+      };
+    };
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
     nvidia = {

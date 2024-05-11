@@ -16,6 +16,7 @@
     ./mc
     ./nohup-xdg-open.nix
     ./nushell
+    ./overskride.nix
     ./simple-scan.nix
     ./steam.nix
     ./sublime
