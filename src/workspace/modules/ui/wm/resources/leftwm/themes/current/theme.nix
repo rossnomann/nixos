@@ -1,4 +1,8 @@
-{ palette }:
+{ palette, wm }:
+let
+  gutterSize = builtins.toString wm.gutterSize;
+  marginSize = builtins.toString wm.marginSize;
+in
 ''
   #![enable(implicit_some)]
   (
@@ -6,13 +10,13 @@
       default_border_color: "${palette.overlay2}",
       floating_border_color: "${palette.overlay1}",
       focused_border_color: "${palette.green}",
-      margin: 6,
+      margin: ${marginSize},
       workpace_magin: 0,
       gutter: [
-          (side: Top, value: 12,),
-          (side: Right, value: 12,),
-          (side: Bottom, value: 12,),
-          (side: Left, value: 12,),
+          (side: Top, value: ${gutterSize},),
+          (side: Right, value: ${gutterSize},),
+          (side: Bottom, value: ${gutterSize},),
+          (side: Left, value: ${gutterSize},),
       ],
   )
 ''

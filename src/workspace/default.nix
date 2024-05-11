@@ -53,6 +53,10 @@
             package = mkOption { type = types.package; };
           };
         };
+        wm = {
+          gutterSize = mkOption { type = types.int; };
+          marginSize = mkOption { type = types.int; };
+        };
       };
       user = {
         name = mkOption { type = types.str; };

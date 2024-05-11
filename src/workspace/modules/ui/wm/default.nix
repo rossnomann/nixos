@@ -31,6 +31,7 @@
         let
           ui = config.workspace.ui;
           palette = ui.palette;
+          wm = ui.wm;
         in
         {
           "leftwm/config.ron".source = ./resources/leftwm/config.ron;
@@ -38,7 +39,10 @@
           "leftwm/up".source = ./resources/leftwm/up;
           "leftwm/themes/current/down".source = ./resources/leftwm/themes/current/down;
           "leftwm/themes/current/theme.ron".text = (
-            import ./resources/leftwm/themes/current/theme.nix { inherit palette; }
+            import ./resources/leftwm/themes/current/theme.nix {
+              inherit palette;
+              inherit wm;
+            }
           );
           "leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
           "rlaunch/args".text = (

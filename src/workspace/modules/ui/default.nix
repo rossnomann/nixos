@@ -69,6 +69,10 @@
         platformThemeName = "adwaita";
         styleName = "kvantum";
       };
+      wm = {
+        gutterSize = 12;
+        marginSize = 6;
+      };
     };
   };
 }

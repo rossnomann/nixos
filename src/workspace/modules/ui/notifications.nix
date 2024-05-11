@@ -4,6 +4,8 @@ let
   font = ui.font.sansSerif;
   iconTheme = ui.iconTheme;
   palette = ui.palette;
+  wm = ui.wm;
+  globalOffset = builtins.toString (wm.gutterSize * 2);
 in
 {
   environment.systemPackages = [ pkgs.libnotify ];
@@ -26,8 +28,8 @@ in
               foreground = palette.text;
               frame_color = palette.green;
               frame_width = 1;
-              gap_size = 12;
-              offset = "24x24";
+              gap_size = wm.gutterSize;
+              offset = "${globalOffset}x${globalOffset}";
               origin = "top-right";
             };
             urgency_low = {
