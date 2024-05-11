@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  font = config.workspace.theme.font;
+  font = config.workspace.ui.font;
 in
 {
   fonts = {

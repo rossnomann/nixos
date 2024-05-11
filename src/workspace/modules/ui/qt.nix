@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  qtTheme = config.workspace.theme.qtTheme;
+  qtTheme = config.workspace.ui.qtTheme;
 in
 {
   home-manager.users.${config.workspace.user.name} = {

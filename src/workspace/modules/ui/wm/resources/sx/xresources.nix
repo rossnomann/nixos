@@ -1,13 +1,13 @@
-{ theme }:
+{ ui }:
 let
-  palette = theme.palette;
+  palette = ui.palette;
 in
 ''
-  Xcursor.size: ${builtins.toString theme.cursorTheme.size}
-  Xcursor.theme: ${theme.cursorTheme.name}
+  Xcursor.size: ${builtins.toString ui.cursorTheme.size}
+  Xcursor.theme: ${ui.cursorTheme.name}
 
   Xft.autohint: 0
-  Xft.dpi: ${builtins.toString theme.dpi}
+  Xft.dpi: ${builtins.toString ui.dpi}
   Xft.lcdfilter: lcddefault
   Xft.hintstyle: hintfull
   Xft.hinting: 1

@@ -1,5 +1,6 @@
 { config, ... }:
 let
+  ui = config.workspace.ui;
   extraCss = ''
     * {
       border-radius: 0 0 0 0;
@@ -9,10 +10,10 @@ let
   extraConfig = {
     gtk-decoration-layout = ":";
   };
-  font = config.workspace.theme.font.sansSerif;
-  gtkTheme = config.workspace.theme.gtkTheme;
+  font = ui.font.sansSerif;
+  gtkTheme = ui.gtkTheme;
   homeDirectory = config.home-manager.users.${config.workspace.user.name}.home.homeDirectory;
-  iconTheme = config.workspace.theme.iconTheme;
+  iconTheme = ui.iconTheme;
 in
 {
   environment = {

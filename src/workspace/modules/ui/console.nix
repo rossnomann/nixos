@@ -9,7 +9,7 @@
   console =
     let
       getColor = value: builtins.substring 1 (-1) value;
-      palette = config.workspace.theme.palette;
+      palette = config.workspace.ui.palette;
     in
     {
       colors = map getColor [

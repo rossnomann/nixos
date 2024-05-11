@@ -29,8 +29,8 @@
     xdg = {
       configFile =
         let
-          theme = config.workspace.theme;
-          palette = theme.palette;
+          ui = config.workspace.ui;
+          palette = ui.palette;
         in
         {
           "leftwm/config.ron".source = ./resources/leftwm/config.ron;
@@ -42,10 +42,10 @@
           );
           "leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
           "rlaunch/args".text = (
-            lib.concatStringsSep " " (import ./resources/rlaunch/args.nix { inherit theme; })
+            lib.concatStringsSep " " (import ./resources/rlaunch/args.nix { inherit ui; })
           );
           "sx/sxrc".source = ./resources/sx/sxrc;
-          "sx/xresources".text = (import ./resources/sx/xresources.nix { inherit theme; });
+          "sx/xresources".text = (import ./resources/sx/xresources.nix { inherit ui; });
           "systemd/user/leftwm-session.target".source = ./resources/systemd/leftwm-session.target;
         };
       dataFile = {

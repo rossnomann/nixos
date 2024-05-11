@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  cursorTheme = config.workspace.theme.cursorTheme;
+  cursorTheme = config.workspace.ui.cursorTheme;
 in
 {
   home-manager.users.${config.workspace.user.name} = {

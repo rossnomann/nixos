@@ -1,4 +1,10 @@
 { config, pkgs, ... }:
+let
+  ui = config.workspace.ui;
+  font = ui.font.sansSerif;
+  iconTheme = ui.iconTheme;
+  palette = ui.palette;
+in
 {
   environment.systemPackages = [ pkgs.libnotify ];
   home-manager.users.${config.workspace.user.name} = {
@@ -6,18 +12,16 @@
       dunst = {
         enable = true;
         iconTheme = {
-          name = config.workspace.theme.iconTheme.name;
-          package = config.workspace.theme.iconTheme.package;
+          name = iconTheme.name;
+          package = iconTheme.package;
         };
         settings =
           let
-            fontSansSerif = config.workspace.theme.font.sansSerif;
-            palette = config.workspace.theme.palette;
           in
           {
             global = {
               background = palette.base;
-              font = "${fontSansSerif.family} ${builtins.toString fontSansSerif.defaultSize}";
+              font = "${font.family} ${builtins.toString font.defaultSize}";
               follow = "keyboard";
               foreground = palette.text;
               frame_color = palette.green;

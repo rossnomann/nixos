@@ -1,7 +1,7 @@
-{ theme }:
+{ ui }:
 let
-  font = theme.font.sansSerif;
-  palette = theme.palette;
+  font = ui.font.sansSerif;
+  palette = ui.palette;
 in
 [
   "-f '${font.family}:size=${builtins.toString (font.defaultSize - 2)}'"

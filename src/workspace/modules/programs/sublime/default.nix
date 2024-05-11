@@ -51,7 +51,7 @@
         };
         "sublime-text/Packages/Catppuccin/Preferences.sublime-settings".text =
           let
-            font = config.workspace.theme.font.monospace;
+            font = config.workspace.ui.font.monospace;
           in
           ''
             {

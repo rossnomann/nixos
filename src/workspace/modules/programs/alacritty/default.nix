@@ -1,25 +1,26 @@
 { config, ... }:
+let
+  ui = config.workspace.ui;
+  font = ui.font.monospace;
+  palette = ui.palette;
+in
 {
   home-manager.users.${config.workspace.user.name}.programs.alacritty = {
     enable = true;
     settings = {
-      colors = (import ./colors.nix { palette = config.workspace.theme.palette; });
+      colors = (import ./colors.nix { inherit palette; });
       cursor = {
         style = {
           shape = "Beam";
           blinking = "On";
         };
       };
-      font =
-        let
-          fontMonospace = config.workspace.theme.font.monospace;
-        in
-        {
-          normal = {
-            family = fontMonospace.family;
-          };
-          size = fontMonospace.defaultSize;
+      font = {
+        normal = {
+          family = font.family;
         };
+        size = font.defaultSize;
+      };
       scrolling = {
         history = 100000;
       };

@@ -12,7 +12,7 @@
     ./wm
   ];
   config = {
-    workspace.theme = {
+    workspace.ui = {
       cursorTheme = {
         name = "Catppuccin-Mocha-Green-Cursors";
         package = pkgs.catppuccin-cursors.mochaGreen;

@@ -11,7 +11,7 @@
   ];
   options = with lib; {
     workspace = {
-      theme = {
+      ui = {
         cursorTheme = {
           name = mkOption { type = types.str; };
           package = mkOption { type = types.package; };
