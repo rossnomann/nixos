@@ -25,7 +25,10 @@
       configurationLimit = 10;
     };
   };
-  environment.systemPackages = [ pkgs.blueman ];
+  environment.systemPackages = [
+    pkgs.blueman
+    pkgs.powertop
+  ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/fbfb4ceb-d9fc-4e0b-b51e-25a6b237cd36";
@@ -56,6 +59,7 @@
       driSupport32Bit = true;
     };
   };
+  powerManagement.powertop.enable = true;
   services = {
     hardware.bolt.enable = true;
     fstrim.enable = true;

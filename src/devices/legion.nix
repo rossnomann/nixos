@@ -26,7 +26,10 @@
       };
     };
   };
-  environment.systemPackages = [ pkgs.blueman ];
+  environment.systemPackages = [
+    pkgs.blueman
+    pkgs.powertop
+  ];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/74befeea-8d73-49e7-a803-e12cd7154a68";
@@ -86,6 +89,7 @@
       driSupport32Bit = true;
     };
   };
+  powerManagement.powertop.enable = true;
   services = {
     autorandr = {
       enable = true;
