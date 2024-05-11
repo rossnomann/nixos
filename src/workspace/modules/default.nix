@@ -8,7 +8,6 @@
     ./env.nix
     ./net.nix
     ./nixos.nix
-    ./palette.nix
     ./power.nix
     ./programs
     ./python

@@ -14,6 +14,7 @@
     ./im.nix
     ./macchina
     ./mc
+    ./nohup-xdg-open.nix
     ./nushell
     ./steam.nix
     ./sublime
