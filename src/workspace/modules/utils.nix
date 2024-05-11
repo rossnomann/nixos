@@ -2,6 +2,7 @@
 {
   environment.systemPackages = [
     pkgs.curl
+    pkgs.file
     pkgs.htop
     pkgs.lshw
     pkgs.nixfmt-rfc-style
