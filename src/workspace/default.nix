@@ -1,5 +1,6 @@
 {
   config,
+  deviceName,
   home-manager,
   lib,
   ...
@@ -7,7 +8,17 @@
 {
   imports = [
     home-manager.nixosModules.home-manager
-    ./modules
+    (./devices + "/${deviceName}.nix")
+    ./env.nix
+    ./net.nix
+    ./nixos.nix
+    ./programs
+    ./security.nix
+    ./services.nix
+    ./ui
+    ./users.nix
+    ./utils.nix
+    ./vt.nix
   ];
   options = with lib; {
     workspace = {

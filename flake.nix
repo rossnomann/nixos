@@ -17,7 +17,6 @@
           system = "x86_64-linux";
           modules = [
             inputs.nur.nixosModules.nur
-            (./src/devices + "/${deviceName}.nix")
             ./src/workspace
           ];
           specialArgs = inputs // {
