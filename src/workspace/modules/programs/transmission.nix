@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.transmission-gtk ];
   home-manager.users.${config.workspace.user.name} = {
+    home.packages = [ pkgs.transmission-gtk ];
     xdg = {
       dataFile = {
         "applications/transmission.dekstop".text = ''
