@@ -14,6 +14,14 @@ See `outpus.nixosConfigurations` in `flake.nix` for the list of available device
 
 ### QUIRKS
 
+#### BAT
+
+Rebuild bat cache to make "Catppuccin Mocha" theme available:
+
+```
+bat cache --build
+```
+
 #### GTK FILE CHOOSER
 
 The GTK file chooser goes out of screen bounds in LeftWM.

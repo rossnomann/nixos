@@ -4,6 +4,7 @@
     ./alacritty
     ./android.nix
     ./audio.nix
+    ./bat
     ./direnv.nix
     ./documents
     ./firefox.nix
