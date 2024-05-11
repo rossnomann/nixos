@@ -1,4 +1,0 @@
-{ ... }:
-{
-  services.saned.enable = true;
-}
