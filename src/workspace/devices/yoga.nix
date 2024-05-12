@@ -36,6 +36,7 @@
       pkgs.xf86_input_wacom
     ];
     variables = {
+      MOZ_USE_XINPUT2 = "1";
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
     };
   };
