@@ -29,7 +29,10 @@
     };
   };
   environment = {
-    systemPackages = [ pkgs.powertop pkgs.xf86_input_wacom ];
+    systemPackages = [
+      pkgs.powertop
+      pkgs.xf86_input_wacom
+    ];
     variables = {
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
     };
@@ -223,7 +226,12 @@
           };
         };
       };
-    xserver.videoDrivers = [ "intel" ];
+    xserver = {
+      serverFlagsSection = ''
+        Option "RandRRotation" "on"
+      '';
+      videoDrivers = [ "intel" ];
+    };
   };
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
