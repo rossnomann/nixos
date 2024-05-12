@@ -2,11 +2,22 @@
 {
   environment.systemPackages = [ pkgs.powertop ];
   powerManagement.powertop.enable = true;
-  services.logind.lidSwitch = "ignore";
+  services.logind = {
+    extraConfig = ''
+    IdleAction=ignore
+    '';
+    killUserProcesses = true;
+    lidSwitch = "suspend-then-hibernate";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "suspend";
+    powerKey = "ignore";
+    powerKeyLongPress = "poweroff";
+  };
   systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowHybridSleep=yes
+    AllowSuspendThenHibernate=yes
+    HibernateMode=shutdown
   '';
 }
