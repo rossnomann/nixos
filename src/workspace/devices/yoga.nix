@@ -29,7 +29,7 @@
     };
   };
   environment = {
-    systemPackages = [ pkgs.powertop ];
+    systemPackages = [ pkgs.powertop pkgs.xf86_input_wacom ];
     variables = {
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
     };
