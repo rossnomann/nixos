@@ -31,6 +31,7 @@
   environment = {
     systemPackages = [
       pkgs.powertop
+      pkgs.rot8
       pkgs.xf86_input_wacom
     ];
     variables = {
@@ -76,6 +77,22 @@
         pkgs.intel-vaapi-driver
         pkgs.libvdpau-va-gl
       ];
+    };
+  };
+  home-manager.users.${config.workspace.user.name}.systemd.user.services.rot8 = {
+    Unit = {
+      After = [ "leftwm-session.target" ];
+      Description = "Automatic display rotation";
+    };
+    Service = {
+      PassEnvironment = [
+        "DISPLAY"
+        "PATH"
+      ];
+      ExecStart = "${pkgs.rot8}/bin/rot8 -d eDP1 --touchscreen 'Wacom HID 5250 Finger'";
+    };
+    Install = {
+      WantedBy = [ "leftwm-session.target" ];
     };
   };
   powerManagement.powertop.enable = true;
