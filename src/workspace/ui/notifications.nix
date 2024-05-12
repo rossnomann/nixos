@@ -11,6 +11,7 @@ in
   environment.systemPackages = [ pkgs.libnotify ];
   home-manager.users.${config.workspace.user.name} = {
     services = {
+      batsignal.enable = true;
       dunst = {
         enable = true;
         iconTheme = {
