@@ -103,6 +103,8 @@
         (window_class: "simple-scan", spawn_on_tag: 6),
 
         (window_class: "steam", spawn_floating: true, spawn_on_tag: 7),
+
+        (window_class: "onboard", spawn_as_type: Normal, spawn_floating: true, spawn_sticky: true),
     ],
     workspaces: [],
 )

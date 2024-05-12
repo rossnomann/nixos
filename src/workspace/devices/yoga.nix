@@ -30,6 +30,7 @@
   };
   environment = {
     systemPackages = [
+      pkgs.onboard
       pkgs.powertop
       pkgs.rot8
       pkgs.xf86_input_wacom
