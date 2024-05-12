@@ -8,7 +8,7 @@
 {
   imports = [
     home-manager.nixosModules.home-manager
-    (./devices + "/${deviceName}.nix")
+    (./devices + "/${deviceName}")
     ./env.nix
     ./net.nix
     ./nixos.nix
