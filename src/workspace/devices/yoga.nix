@@ -231,4 +231,27 @@
     AllowHybridSleep=no
     AllowSuspendThenHibernate=no
   '';
+  workspace.ui = {
+    cursorTheme.size = 14;
+    dpi = 144;
+    font =
+      let
+        defaultSize = 8;
+      in
+      {
+        monospace = {
+          inherit defaultSize;
+        };
+        sansSerif = {
+          inherit defaultSize;
+        };
+        serif = {
+          inherit defaultSize;
+        };
+      };
+    wm = {
+      gutterSize = 6;
+      marginSize = 3;
+    };
+  };
 }

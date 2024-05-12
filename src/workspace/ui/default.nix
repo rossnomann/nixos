@@ -16,33 +16,24 @@
       cursorTheme = {
         name = "Catppuccin-Mocha-Green-Cursors";
         package = pkgs.catppuccin-cursors.mochaGreen;
-        size = 16;
       };
-      dpi = 144;
-      font =
-        let
-          defaultSize = 10;
-        in
-        {
-          packages = [
-            pkgs.roboto
-            pkgs.roboto-serif
-            pkgs.fira-code
-            pkgs.fira-code-symbols
-          ];
-          monospace = {
-            family = "Fira Code";
-            inherit defaultSize;
-          };
-          sansSerif = {
-            family = "Roboto";
-            inherit defaultSize;
-          };
-          serif = {
-            family = "Roboto Serif";
-            inherit defaultSize;
-          };
+      font = {
+        packages = [
+          pkgs.roboto
+          pkgs.roboto-serif
+          pkgs.fira-code
+          pkgs.fira-code-symbols
+        ];
+        monospace = {
+          family = "Fira Code";
         };
+        sansSerif = {
+          family = "Roboto";
+        };
+        serif = {
+          family = "Roboto Serif";
+        };
+      };
       gtkTheme = {
         name = "Catppuccin-Mocha-Compact-Green-Dark";
         package = pkgs.catppuccin-gtk.override {
@@ -68,10 +59,6 @@
         };
         platformThemeName = "adwaita";
         styleName = "kvantum";
-      };
-      wm = {
-        gutterSize = 12;
-        marginSize = 6;
       };
     };
   };
