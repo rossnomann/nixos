@@ -19,13 +19,21 @@
       ];
       verbose = false;
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [
+      "i915"
+      "kvm-intel"
+    ];
     loader.systemd-boot = {
       enable = true;
       configurationLimit = 10;
     };
   };
-  environment.systemPackages = [ pkgs.powertop ];
+  environment = {
+    systemPackages = [ pkgs.powertop ];
+    variables = {
+      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    };
+  };
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/fbfb4ceb-d9fc-4e0b-b51e-25a6b237cd36";
@@ -60,6 +68,11 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = [
+        pkgs.intel-media-driver
+        pkgs.intel-vaapi-driver
+        pkgs.libvdpau-va-gl
+      ];
     };
   };
   powerManagement.powertop.enable = true;
