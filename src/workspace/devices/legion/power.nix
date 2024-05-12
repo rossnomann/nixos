@@ -4,7 +4,7 @@
   powerManagement.powertop.enable = true;
   services.logind = {
     extraConfig = ''
-    IdleAction=ignore
+      IdleAction=ignore
     '';
     killUserProcesses = true;
     lidSwitch = "ignore";
