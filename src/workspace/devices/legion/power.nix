@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.powertop ];
-  powerManagement.powertop.enable = true;
   services.logind = {
     extraConfig = ''
       IdleAction=ignore
