@@ -13,6 +13,7 @@
           defaults = [ "mpv.desktop" ];
         in
         {
+          "audio/vnd.wave" = defaults;
           "video/3gpp" = defaults;
           "video/3gpp2" = defaults;
           "video/mp2t" = defaults;
