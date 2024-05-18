@@ -5,6 +5,7 @@
       pkgs.ardour
       pkgs.cplay-ng
       pkgs.deadbeef
+      pkgs.easyeffects
       pkgs.guitarix
       pkgs.gxplugins-lv2
       pkgs.helvum
