@@ -7,6 +7,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v3
+        with:
+          remove-android: true
+          remove-cached-tools: true
+          remove-docker-images: true
+          remove-dotnet: true
+          remove-codeql: true
+          remove-haskell: true
+          remove-large-packages: true
+          remove-swapfile: false
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install nix
