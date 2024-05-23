@@ -2,35 +2,119 @@
 {
   home-manager.users.${config.workspace.user.name}.programs.firefox = {
     enable = true;
-
-    profiles = {
-      default = {
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          bitwarden
-          enhancer-for-youtube
-          firefox-color
-          multi-account-containers
-          react-devtools
-          stylus
-          ublock-origin
+    policies = {
+      AppAutoUpdate = false;
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      BackgroundAppUpdate = false;
+      Containers = {
+        Default = [
+          {
+            name = "RS";
+            icon = "circle";
+            color = "green";
+          }
+          {
+            name = "Ross";
+            icon = "circle";
+            color = "blue";
+          }
+          {
+            name = "Work";
+            icon = "circle";
+            color = "orange";
+          }
+          {
+            name = "Trash";
+            icon = "fence";
+            color = "purple";
+          }
         ];
-        settings = {
-          browser.aboutConfig.showWarning = false;
-          browser.download.autohideButton = false;
-          browser.newtabpage.enabled = false;
-          browser.startup.homepage = "about:blank";
-          browser.tabs.closeWindowWithLastTab = false;
-          browser.tabs.inTitleBar = 1;
-          browser.tools.bookmarks.visibility = "never";
-          browser.urlbar.shortcuts.bookmarks = false;
-          browser.urlbar.shortcuts.history = false;
-          browser.urlbar.shortcuts.tabs = false;
-          browser.urlbar.trimURLs = false;
-          browser.warnOnQuitShortcut = false;
-          general.autoScroll = true;
-          intl.accept_languages = "ru,en-us,en";
-          pref.privacy.disable_button.view_passwords = false;
+      };
+      DefaultDownloadDirectory = "\${home}/workspace/downloads";
+      DisableAppUpdate = true;
+      DisableFirefoxScreenshots = true;
+      DisableFirefoxStudies = true;
+      DisableMasterPasswordCreation = true;
+      DisablePocket = true;
+      DisableSetDesktopBackground = true;
+      DisableTelemetry = true;
+      DisplayBookmarksToolbar = "never";
+      DisplayMenuBar = "default-off";
+      DownloadDirectory = "\${home}/workspace/downloads";
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      PasswordManagerEnabled = false;
+      Preferences = {
+        browser.aboutConfig.showWarning = {
+          Status = "default";
+          Value = false;
         };
+        browser.download.autohideButton = {
+          Status = "default";
+          Value = false;
+        };
+        browser.newtabpage.enabled = {
+          Status = "default";
+          Value = false;
+        };
+        browser.startup.homepage = {
+          Status = "default";
+          Value = "about:blank";
+        };
+        browser.tabs.closeWindowWithLastTab = {
+          Status = "default";
+          Value = false;
+        };
+        browser.tabs.inTitleBar = {
+          Status = "default";
+          Type = "number";
+          Value = 1;
+        };
+        browser.tools.bookmarks.visibility = {
+          Status = "user";
+          Value = "never";
+        };
+        browser.urlbar.shortcuts.bookmarks = {
+          Status = "user";
+          Value = false;
+        };
+        browser.urlbar.shortcuts.history = {
+          Status = "user";
+          Value = false;
+        };
+        browser.urlbar.shortcuts.tabs = {
+          Status = "user";
+          Value = false;
+        };
+        browser.urlbar.trimURLs = {
+          Status = "user";
+          Value = false;
+        };
+        browser.warnOnQuitShortcut = {
+          Status = "user";
+          Value = false;
+        };
+        general.autoScroll = {
+          Status = "user";
+          Value = true;
+        };
+        intl.accept_languages = {
+          Status = "user";
+          Value = "ru,en-us,en";
+        };
+        pref.privacy.disable_button.view_passwords = {
+          Status = "user";
+          Value = false;
+        };
+      };
+      UserMessaging = {
+        FeatureRecommendations = false;
+        ExtensionRecommendations = false;
+        MoreFromMozilla = false;
+        SkipOnboarding = true;
+        WhatsNew = false;
       };
     };
   };
