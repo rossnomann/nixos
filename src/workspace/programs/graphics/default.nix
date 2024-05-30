@@ -2,6 +2,7 @@
 {
   home-manager.users.${config.workspace.user.name} = {
     home.packages = [
+      pkgs.exiftool
       (pkgs.gimp-with-plugins.override { plugins = [ pkgs.gimpPlugins.gmic ]; })
       pkgs.inkscape
       pkgs.qview
