@@ -8,6 +8,7 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/6299-4FAF";
       fsType = "vfat";
+      options = [ "umask=0077" ];
     };
     "/home" = {
       device = "/dev/disk/by-uuid/c86adc1b-f716-4a9b-933d-9c3461e03903";
