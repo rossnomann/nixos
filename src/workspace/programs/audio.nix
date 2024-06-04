@@ -27,6 +27,7 @@
       pkgs.lsp-plugins
       pkgs.noise-repellent
       pkgs.oxefmsynth
+      pkgs.rkrlv2
       pkgs.tap-plugins
       pkgs.x42-avldrums
       pkgs.x42-plugins
