@@ -4,6 +4,7 @@
     home.packages = [
       pkgs.exiftool
       (pkgs.gimp-with-plugins.override { plugins = [ pkgs.gimpPlugins.gmic ]; })
+      pkgs.imagemagick
       pkgs.inkscape
       pkgs.qview
     ];
