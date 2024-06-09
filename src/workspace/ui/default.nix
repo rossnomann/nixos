@@ -14,7 +14,7 @@
   config = {
     workspace.ui = {
       cursorTheme = {
-        name = "Catppuccin-Mocha-Green-Cursors";
+        name = "catppuccin-mocha-green-cursors";
         package = pkgs.catppuccin-cursors.mochaGreen;
       };
       font = {
