@@ -26,6 +26,7 @@
       fade = true;
       settings.vsync = true;
     };
+    systemd.user.services.picom.Service.Restart = lib.mkForce "no";
     xdg = {
       configFile =
         let
