@@ -11,6 +11,7 @@
     pkgs.greetd.tuigreet
     pkgs.hsetroot
     pkgs.leftwm
+    pkgs.picom
     pkgs.rlaunch
     pkgs.sx
     pkgs.wmctrl
@@ -20,13 +21,6 @@
   ];
   home-manager.users.${config.workspace.user.name} = {
     home.file.".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
-    services.picom = {
-      enable = true;
-      backend = "glx";
-      fade = true;
-      settings.vsync = true;
-    };
-    systemd.user.services.picom.Service.Restart = lib.mkForce "no";
     xdg = {
       configFile =
         let
@@ -46,6 +40,7 @@
             }
           );
           "leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
+          "picom/picom.conf".source = ./resources/picom/picom.conf;
           "rlaunch/args".text = (
             lib.concatStringsSep " " (import ./resources/rlaunch/args.nix { inherit ui; })
           );

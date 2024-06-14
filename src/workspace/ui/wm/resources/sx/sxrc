@@ -7,4 +7,5 @@ dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SE
 xrdb -merge ~/.config/sx/xresources
 . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 systemctl --user start leftwm-session.target
+picom &
 exec leftwm
