@@ -21,10 +21,13 @@
 
       # plugins
       pkgs.calf
+      pkgs.caps
       pkgs.distrho
       pkgs.eq10q
       pkgs.gxplugins-lv2
+      pkgs.kapitonov-plugins-pack
       pkgs.lsp-plugins
+      pkgs.neural-amp-modeler-lv2
       pkgs.noise-repellent
       pkgs.oxefmsynth
       pkgs.rkrlv2
