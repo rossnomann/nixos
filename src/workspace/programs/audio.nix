@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
-  environment.sessionVariables.LV2_PATH = "$HOME/.nix-profile/lib/lv2";
+  environment.sessionVariables = {
+    LADSPA_PATH = "$HOME/.nix-profile/lib/ladspa";
+    LV2_PATH = "$HOME/.nix-profile/lib/lv2";
+  };
   home-manager.users.${config.workspace.user.name} = {
     home.packages = [
       # composing/recording
