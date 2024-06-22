@@ -6,7 +6,7 @@
 }:
 {
   environment.variables = {
-    VDPAU_DRIVER = lib.mkIf config.hardware.graphics.enable (lib.mkDefault "va_gl");
+    VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };
   hardware = {
     bluetooth = {
@@ -18,9 +18,10 @@
     };
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    graphics = {
+    opengl = {
       enable = true;
-      enable32Bit = true;
+      driSupport = true;
+      driSupport32Bit = true;
       extraPackages = [
         pkgs.intel-media-driver
         pkgs.intel-vaapi-driver

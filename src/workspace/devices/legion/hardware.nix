@@ -10,10 +10,6 @@
     };
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
     nvidia = {
       modesetting.enable = true;
 
@@ -42,6 +38,11 @@
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
     };
   };
   services = {
