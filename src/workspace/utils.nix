@@ -9,6 +9,7 @@
     pkgs.pciutils
     pkgs.trash-cli
     pkgs.usbutils
+    pkgs.unrar
     pkgs.wget
   ];
 }
