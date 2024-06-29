@@ -35,7 +35,7 @@
         };
       };
       gtkTheme = {
-        name = "Catppuccin-Mocha-Compact-Green-Dark";
+        name = "catppuccin-mocha-green-compact+rimless";
         package = pkgs.catppuccin-gtk.override {
           accents = [ "green" ];
           size = "compact";
