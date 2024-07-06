@@ -3,6 +3,7 @@
   home-manager.users.${config.workspace.user.name} = {
     home.packages = [
       pkgs.mpv
+      pkgs.shotcut
       pkgs.syncplay
     ];
     xdg = {
