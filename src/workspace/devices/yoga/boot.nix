@@ -1,6 +1,7 @@
 { ... }:
 {
   boot = {
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     initrd = {
       availableKernelModules = [
         "xhci_pci"
@@ -16,6 +17,7 @@
     kernelModules = [
       "i915"
       "kvm-intel"
+      "v4l2loopback"
     ];
     loader.systemd-boot = {
       enable = true;
