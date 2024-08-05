@@ -11,16 +11,18 @@
       let
         overlays = [ inputs.rust-overlay.overlays.default ];
         pkgs = import inputs.nixpkgs { inherit system overlays; };
-        rust-dev = (pkgs.rust-bin.selectLatestNightlyWith (
-          toolchain:
-          toolchain.minimal.override {
-            extensions = [
-              "rust-analyzer"
-              "rust-src"
-              "rustfmt"
-            ];
-          }
-        ));
+        rust-dev = (
+          pkgs.rust-bin.selectLatestNightlyWith (
+            toolchain:
+            toolchain.minimal.override {
+              extensions = [
+                "rust-analyzer"
+                "rust-src"
+                "rustfmt"
+              ];
+            }
+          )
+        );
       in
       {
         devShells.default = pkgs.mkShell {
