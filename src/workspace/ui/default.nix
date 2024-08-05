@@ -12,6 +12,13 @@
     ./wm
   ];
   config = {
+    modules.qt = {
+      enable = true;
+      kvantum = {
+        accent = "green";
+        variant = "mocha";
+      };
+    };
     workspace.ui = {
       cursorTheme = {
         name = "catppuccin-mocha-green-cursors";
@@ -47,19 +54,19 @@
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
       };
-      qtTheme = {
-        kvantumTheme = {
-          name = "Catppuccin-Mocha-Green";
-          package = (
-            pkgs.catppuccin-kvantum.override {
-              accent = "Green";
-              variant = "Mocha";
-            }
-          );
-        };
-        platformThemeName = "adwaita";
-        styleName = "kvantum";
-      };
+      # qtTheme = {
+      #   kvantumTheme = {
+      #     name = "Catppuccin-Mocha-Green";
+      #     package = (
+      #       pkgs.catppuccin-kvantum.override {
+      #         accent = "Green";
+      #         variant = "Mocha";
+      #       }
+      #     );
+      #   };
+      #   platformThemeName = "adwaita";
+      #   styleName = "kvantum";
+      # };
     };
   };
 }

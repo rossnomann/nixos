@@ -14,7 +14,10 @@
         deviceName:
         inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./src/workspace ];
+          modules = [
+            ./src/modules
+            ./src/workspace
+          ];
           specialArgs = inputs // {
             inherit deviceName;
           };
