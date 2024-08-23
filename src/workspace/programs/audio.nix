@@ -14,6 +14,9 @@
       pkgs.musescore
       pkgs.ocenaudio
 
+      # encoding
+      pkgs.lame
+
       # playing
       pkgs.cplay-ng
       pkgs.deadbeef
