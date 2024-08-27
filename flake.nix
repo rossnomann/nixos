@@ -10,13 +10,21 @@
   outputs =
     inputs:
     let
+      lib = inputs.nixpkgs.lib.extend (final: prev: (import ./src/lib { lib = prev; }));
+      npins = import ./npins;
       nixosWorkspace =
         deviceName:
-        inputs.nixpkgs.lib.nixosSystem {
+        lib.nixosSystem {
+          inherit lib;
           system = "x86_64-linux";
-          modules = [ ./src/workspace ];
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            ./src/nih
+            ./src/config
+          ];
           specialArgs = inputs // {
             inherit deviceName;
+            inherit npins;
           };
         };
     in
@@ -27,7 +35,7 @@
       };
       templates = {
         rust = {
-          path = ./src/templates/rust;
+          path = ./templates/rust;
           description = "Rust flake";
         };
       };

@@ -1,0 +1,185 @@
+{
+  "pins": {
+    "catppuccin-bat": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "bat"
+      },
+      "branch": "main",
+      "revision": "d3feec47b16a8e99eabb34cdfbaa115541d374fc",
+      "url": "https://github.com/catppuccin/bat/archive/d3feec47b16a8e99eabb34cdfbaa115541d374fc.tar.gz",
+      "hash": "1g73x0p8pbzb8d1g1x1fwhwf05sj3nzhbhb65811752p5178fh5k"
+    },
+    "catppuccin-delta": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "delta"
+      },
+      "branch": "main",
+      "revision": "b88f87aedbeb7dc74c38831cf385819b69b78cbe",
+      "url": "https://github.com/catppuccin/delta/archive/b88f87aedbeb7dc74c38831cf385819b69b78cbe.tar.gz",
+      "hash": "0rb8m10zp8qkfg2cw54xbkrsmplvcv8h038mwbw9x4akzb2y8cpz"
+    },
+    "catppuccin-kvantum": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "Kvantum"
+      },
+      "branch": "main",
+      "revision": "128d4d233d3b8d678c3b7b5ac844c72420ca6e14",
+      "url": "https://github.com/catppuccin/Kvantum/archive/128d4d233d3b8d678c3b7b5ac844c72420ca6e14.tar.gz",
+      "hash": "18z7hsrpj3avayasah0a1zgy3s2fkqfmr5rv7sj1ffpgfcnng71v"
+    },
+    "catppuccin-mc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "mc"
+      },
+      "branch": "main",
+      "revision": "f1c78f183764cd43e6dd4e325513ef5547a8f28f",
+      "url": "https://github.com/catppuccin/mc/archive/f1c78f183764cd43e6dd4e325513ef5547a8f28f.tar.gz",
+      "hash": "0fkjs2fdb52dq61jg6lgrdr4gfjk7kzdd1jsnl9qjqgr1p8hx8wv"
+    },
+    "catppuccin-mpv": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "mpv"
+      },
+      "branch": "main",
+      "revision": "7b93fb0febd0490a8ccfe3077ab7741a9b4ef44a",
+      "url": "https://github.com/catppuccin/mpv/archive/7b93fb0febd0490a8ccfe3077ab7741a9b4ef44a.tar.gz",
+      "hash": "1wzahqxqrblalkcxi4ll05vi5rhmsm3z4mk7d96rfka2c38wc5wj"
+    },
+    "catppuccin-sublime-text": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "sublime-text"
+      },
+      "branch": "main",
+      "revision": "fc1e5005fdea1e74b0b872f85c7acaed49f8e102",
+      "url": "https://github.com/catppuccin/sublime-text/archive/fc1e5005fdea1e74b0b872f85c7acaed49f8e102.tar.gz",
+      "hash": "12v5q19w865i8hznhd3c7ldqjy1rbcwqvlbsc647ccvjjhmkan76"
+    },
+    "catppuccin-zathura": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "zathura"
+      },
+      "branch": "main",
+      "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
+      "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
+      "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre670565.ae815cee91b4/nixexprs.tar.xz",
+      "hash": "1h87v5729fz27a1k90b0iy5c4bzs8b7dg747v777iss8wn4jljpb"
+    },
+    "sublime-text-docker": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "asbjornenge",
+        "repo": "Docker.tmbundle"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v1.6.5",
+      "revision": "c001fb280561d7c16f0f2837d76af493cf6c3bf8",
+      "url": "https://api.github.com/repos/asbjornenge/Docker.tmbundle/tarball/v1.6.5",
+      "hash": "06ykjmq8cmqx0j6viwdp282c1dd6ydzwr10cikx9mn8z33445fw8"
+    },
+    "sublime-text-git-gutter": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jisaacks",
+        "repo": "GitGutter"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "1.11.12",
+      "revision": "2749dea35db751ea304314b2324e25874646be2a",
+      "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.12",
+      "hash": "01andiyjpbsp2c9dkwwql5z7qsj20lzpl7bv8md8imd7baarvygc"
+    },
+    "sublime-text-jinja": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Sublime-Instincts",
+        "repo": "BetterJinja"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v1.1.0",
+      "revision": "6a5d96b2e48f8f227cebbb04a12b0c97e829e7f0",
+      "url": "https://api.github.com/repos/Sublime-Instincts/BetterJinja/tarball/v1.1.0",
+      "hash": "1xaa8vrjf9n669b3x2jmd2ym8s7dr2d5jgmwfzkc4dnf15zlyinc"
+    },
+    "sublime-text-nix": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "wmertens",
+        "repo": "sublime-nix"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v2.3.2",
+      "revision": "ebf06571f3cc2b30a7f88bbd4eb371b72ce828c2",
+      "url": "https://api.github.com/repos/wmertens/sublime-nix/tarball/v2.3.2",
+      "hash": "1pkfmnqmxj72aw7lsajcllgs0wn85nww6v7wq2m7zrf52fbflmyl"
+    },
+    "sublime-text-nushell": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "stevenxxiu",
+        "repo": "sublime_text_nushell"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v1.11.0",
+      "revision": "66b00ff639dc8cecb688a0e1d81d13613b772f66",
+      "url": "https://api.github.com/repos/stevenxxiu/sublime_text_nushell/tarball/v1.11.0",
+      "hash": "1n5xw7m7lm1v64xcslrjlm65rrqpxghr7fsnkv3drylgzrjb59m5"
+    },
+    "sublime-text-toml": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jasonwilliams",
+        "repo": "sublime_toml_highlighting"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "v2.5.0",
+      "revision": "ed38438900d6b128353cd1aa1364e2e3b8ffb8a2",
+      "url": "https://api.github.com/repos/jasonwilliams/sublime_toml_highlighting/tarball/v2.5.0",
+      "hash": "02zcxidbkkk54y34pbyl71iy6pa0r9vpwjlyvphp32bc1fjyc3nw"
+    }
+  },
+  "version": 3
+}
