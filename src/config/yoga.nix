@@ -1,5 +1,5 @@
 # Lenovo Yoga 7 14ITL5
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   boot = {
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
