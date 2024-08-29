@@ -92,7 +92,5 @@ in
       description = cfgUser.description;
       isNormalUser = true;
     };
-
-    home-manager.users.${cfgUser.name}.home.stateVersion = config.system.stateVersion;
   };
 }
