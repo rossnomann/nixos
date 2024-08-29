@@ -24,21 +24,18 @@ in
     services.xserver.serverFlagsSection = ''
       Option "RandRRotation" "on"
     '';
-    home-manager.users.${cfgUser.name}.systemd.user.services.rot8 = {
-      Unit = {
-        After = [ "leftwm-session.target" ];
-        Description = "Automatic display rotation";
-      };
-      Service = {
-        PassEnvironment = [
-          "DISPLAY"
-          "PATH"
-        ];
-        ExecStart = "${pkgs.rot8}/bin/rot8 -d eDP1 --touchscreen 'Wacom HID 5250 Finger'";
-      };
-      Install = {
-        WantedBy = [ "leftwm-session.target" ];
-      };
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".config/systemd/user/rot8.service".text = ''
+        [Install]
+        WantedBy=leftwm-session.target
+        [Service]
+        ExecStart=${pkgs.rot8}/bin/rot8 -d eDP1 --touchscreen 'Wacom HID 5250 Finger'
+        PassEnvironment=DISPLAY
+        PassEnvironment=PATH
+        [Unit]
+        After=leftwm-session.target
+        Description=Automatic display rotation
+      '';
     };
   };
 }
