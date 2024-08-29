@@ -72,9 +72,6 @@ in
 
         $env.PROMPT_COMMAND = {|| create_left_prompt }
         $env.PROMPT_COMMAND_RIGHT = {|| }
-
-        # Load home-manager environment variables
-        cat ~/.nix-profile/etc/profile.d/hm-session-vars.sh | lines | parse "export {name}=\"{value}\"" | transpose -r | into record | load-env
       '';
     };
   };
