@@ -7,84 +7,166 @@
 let
   cfg = config.nih;
   cfgUser = cfg.user;
+  cfgXdg = cfg.xdg;
 in
 {
+  options.nih.xdg = {
+    userDirs = {
+      desktop = lib.mkOption { type = lib.types.str; };
+      documents = lib.mkOption { type = lib.types.str; };
+      download = lib.mkOption { type = lib.types.str; };
+      music = lib.mkOption { type = lib.types.str; };
+      pictures = lib.mkOption { type = lib.types.str; };
+      publicShare = lib.mkOption { type = lib.types.str; };
+      templates = lib.mkOption { type = lib.types.str; };
+      videos = lib.mkOption { type = lib.types.str; };
+    };
+    mime = {
+      archives = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      audio = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      directories = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      documents = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      images = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      text = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      torrents = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+      videos = lib.mkOption {
+        internal = true;
+        type = lib.types.str;
+      };
+    };
+  };
   config = lib.mkIf cfg.enable {
-    environment =
+    environment = {
+      etc = {
+        "xdg/user-dirs.conf".text = ''
+          enabled=False
+        '';
+        "xdg/user-dirs.defaults".text = ''
+          XDG_DESKTOP_DIR="${cfgXdg.userDirs.desktop}"
+          XDG_DOCUMENTS_DIR="${cfgXdg.userDirs.documents}"
+          XDG_DOWNLOAD_DIR="${cfgXdg.userDirs.download}"
+          XDG_MUSIC_DIR="${cfgXdg.userDirs.music}"
+          XDG_PICTURES_DIR="${cfgXdg.userDirs.pictures}"
+          XDG_PUBLICSHARE_DIR="${cfgXdg.userDirs.publicShare}"
+          XDG_TEMPLATES_DIR="${cfgXdg.userDirs.templates}"
+          XDG_VIDEOS_DIR="${cfgXdg.userDirs.videos}"
+        '';
+      };
+      sessionVariables = {
+        XDG_CACHE_HOME = "$HOME/.cache";
+        XDG_CONFIG_HOME = "$HOME/.config";
+        XDG_DATA_HOME = "$HOME/.local/share";
+        XDG_STATE_HOME = "$HOME/.local/state";
+        XDG_DESKTOP_DIR = cfgXdg.userDirs.desktop;
+        XDG_DOCUMENTS_DIR = cfgXdg.userDirs.documents;
+        XDG_DOWNLOAD_DIR = cfgXdg.userDirs.download;
+        XDG_MUSIC_DIR = cfgXdg.userDirs.music;
+        XDG_PICTURES_DIR = cfgXdg.userDirs.pictures;
+        XDG_PUBLICSHARE_DIR = cfgXdg.userDirs.publicShare;
+        XDG_TEMPLATES_DIR = cfgXdg.userDirs.templates;
+        XDG_VIDEOS_DIR = cfgXdg.userDirs.videos;
+        PATH = [ "$HOME/.local/bin" ];
+      };
+      variables = {
+        _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME\"/java";
+        __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+        ANDROID_HOME = "$XDG_DATA_HOME/android/sdk";
+        ANDROID_USER_HOME = "$XDG_DATA_HOME/android";
+        ANSIBLE_HOME = "$XDG_DATA_HOME/ansible";
+        AWS_CONFIG_FILE = "$XDG_CONFIG_HOME/aws/config";
+        AWS_SHARED_CREDENTIALS_FILE = "$XDG_CONFIG_HOME/aws/credentials";
+        AWS_VAULT_FILE_DIR = "$XDG_DATA_HOME/awsvault";
+        CARGO_HOME = "$XDG_DATA_HOME/cargo";
+        CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+        DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
+        DOTNET_CLI_HOME = "$XDG_DATA_HOME/dotnet";
+        FFMPEG_DATADIR = "$XDG_CONFIG_HOME/ffmpeg";
+        GNUPGHOME = "$XDG_DATA_HOME/gnupg";
+        HISTFILE = "$XDG_DATA_HOME/bash/history";
+        INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
+        LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
+        PGPASSFILE = "$XDG_CONFIG_HOME/psql/pass";
+        PGSERVICEFILE = "$XDG_CONFIG_HOME/psql/service.conf";
+        PSQL_HISTORY = "$XDG_DATA_HOME/psql/history";
+        PSQLRC = "$XDG_CONFIG_HOME/psql/config";
+        PYTHONSTARTUP = "$XDG_CONFIG_HOME/python/pythonrc";
+        PYTHON_HISTORY = "$XDG_DATA_HOME/python/history";
+        REDISCLI_HISTFILE = "$XDG_DATA_HOME/redis/history";
+        REDISCLI_RCFILE = "$XDG_CONFIG_HOME/redis/config";
+        SQLITE_HISTORY = "$XDG_DATA_HOME/sqlite/history";
+        WINEPREFIX = "$XDG_DATA_HOME/wine";
+      };
+    };
+    xdg.mime =
       let
-        userDirs = {
-          desktop = "$HOME/workspace";
-          documents = "$HOME/workspace";
-          download = "$HOME/workspace/downloads";
-          music = "$HOME/workspace/music";
-          pictures = "$HOME/workspace/pictures";
-          publicShare = "$HOME/workspace/exchange";
-          templates = "$HOME/workspace/templates";
-          videos = "$HOME/workspace/videos";
-        };
+        mkAssoc =
+          { entry, mimes }:
+          builtins.listToAttrs (
+            (map (v: {
+              name = v;
+              value = entry;
+            }) mimes)
+          );
+        assoc =
+          (mkAssoc {
+            entry = cfgXdg.mime.archives;
+            mimes = lib.nih.mimeTypes.archives;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.audio;
+            mimes = lib.nih.mimeTypes.audio;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.directories;
+            mimes = lib.nih.mimeTypes.directories;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.documents;
+            mimes = lib.nih.mimeTypes.documents;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.images;
+            mimes = lib.nih.mimeTypes.images;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.text;
+            mimes = lib.nih.mimeTypes.text;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.torrents;
+            mimes = lib.nih.mimeTypes.torrents;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.videos;
+            mimes = lib.nih.mimeTypes.videos;
+          });
       in
       {
-        etc = {
-          "xdg/user-dirs.conf".text = ''
-            enabled=False
-          '';
-          "xdg/user-dirs.defaults".text = ''
-            XDG_DESKTOP_DIR="${userDirs.desktop}"
-            XDG_DOCUMENTS_DIR="${userDirs.documents}"
-            XDG_DOWNLOAD_DIR="${userDirs.download}"
-            XDG_MUSIC_DIR="${userDirs.music}"
-            XDG_PICTURES_DIR="${userDirs.pictures}"
-            XDG_PUBLICSHARE_DIR="${userDirs.publicShare}"
-            XDG_TEMPLATES_DIR="${userDirs.templates}"
-            XDG_VIDEOS_DIR="${userDirs.videos}"
-          '';
-        };
-        sessionVariables = {
-          XDG_CACHE_HOME = "$HOME/.cache";
-          XDG_CONFIG_HOME = "$HOME/.config";
-          XDG_DATA_HOME = "$HOME/.local/share";
-          XDG_STATE_HOME = "$HOME/.local/state";
-          XDG_DESKTOP_DIR = userDirs.desktop;
-          XDG_DOCUMENTS_DIR = userDirs.documents;
-          XDG_DOWNLOAD_DIR = userDirs.download;
-          XDG_MUSIC_DIR = userDirs.music;
-          XDG_PICTURES_DIR = userDirs.pictures;
-          XDG_PUBLICSHARE_DIR = userDirs.publicShare;
-          XDG_TEMPLATES_DIR = userDirs.templates;
-          XDG_VIDEOS_DIR = userDirs.videos;
-          PATH = [ "$HOME/.local/bin" ];
-        };
-        variables = {
-          _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"$XDG_CONFIG_HOME\"/java";
-          __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-          ANDROID_HOME = "$XDG_DATA_HOME/android/sdk";
-          ANDROID_USER_HOME = "$XDG_DATA_HOME/android";
-          ANSIBLE_HOME = "$XDG_DATA_HOME/ansible";
-          AWS_CONFIG_FILE = "$XDG_CONFIG_HOME/aws/config";
-          AWS_SHARED_CREDENTIALS_FILE = "$XDG_CONFIG_HOME/aws/credentials";
-          AWS_VAULT_FILE_DIR = "$XDG_DATA_HOME/awsvault";
-          CARGO_HOME = "$XDG_DATA_HOME/cargo";
-          CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-          DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
-          DOTNET_CLI_HOME = "$XDG_DATA_HOME/dotnet";
-          FFMPEG_DATADIR = "$XDG_CONFIG_HOME/ffmpeg";
-          GNUPGHOME = "$XDG_DATA_HOME/gnupg";
-          HISTFILE = "$XDG_DATA_HOME/bash/history";
-          INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
-          LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";
-          PGPASSFILE = "$XDG_CONFIG_HOME/psql/pass";
-          PGSERVICEFILE = "$XDG_CONFIG_HOME/psql/service.conf";
-          PSQL_HISTORY = "$XDG_DATA_HOME/psql/history";
-          PSQLRC = "$XDG_CONFIG_HOME/psql/config";
-          PYTHONSTARTUP = "$XDG_CONFIG_HOME/python/pythonrc";
-          PYTHON_HISTORY = "$XDG_DATA_HOME/python/history";
-          REDISCLI_HISTFILE = "$XDG_DATA_HOME/redis/history";
-          REDISCLI_RCFILE = "$XDG_CONFIG_HOME/redis/config";
-          SQLITE_HISTORY = "$XDG_DATA_HOME/sqlite/history";
-          WINEPREFIX = "$XDG_DATA_HOME/wine";
-        };
+        enable = true;
+        addedAssociations = assoc;
+        defaultApplications = assoc;
       };
-
     home-manager.users.${cfgUser.name} = {
       home.file = {
         ".config/python/pythonrc" = {
@@ -127,11 +209,7 @@ in
           '';
         };
       };
-      xdg = {
-        enable = true;
-        configFile."mimeapps.list".force = true;
-        mimeApps.enable = true;
-      };
+      xdg.enable = true;
     };
   };
 }

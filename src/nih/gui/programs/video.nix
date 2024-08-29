@@ -34,28 +34,16 @@ in
       pkgs.kdePackages.kdenlive
       pkgs.syncplay
     ];
-    home-manager.users.${cfgUser.name} = {
-      xdg = {
-        configFile."mpv/mpv.conf".source = "${cfgGui.programs.video.mpv.theme.package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
-        mimeApps.defaultApplications =
-          let
-            defaults = [ "mpv.desktop" ];
-          in
-          {
-            "audio/vnd.wave" = defaults;
-            "video/3gpp" = defaults;
-            "video/3gpp2" = defaults;
-            "video/mp2t" = defaults;
-            "video/mp4" = defaults;
-            "video/mpeg" = defaults;
-            "video/ogg" = defaults;
-            "video/quicktime" = defaults;
-            "video/webm" = defaults;
-            "video/x-matroska" = defaults;
-            "video/x-msvideo" = defaults;
-            "video/x-ms-wmv" = defaults;
-          };
+    nih.xdg.mime =
+      let
+        entry = "mpv.desktop";
+      in
+      {
+        audio = entry;
+        videos = entry;
       };
+    home-manager.users.${cfgUser.name} = {
+      xdg.configFile."mpv/mpv.conf".source = "${cfgGui.programs.video.mpv.theme.package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
     };
   };
 }

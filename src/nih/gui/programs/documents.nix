@@ -18,25 +18,13 @@ in
       pkgs.simple-scan
       pkgs.zathura
     ];
+    nih.xdg.mime.documents = "org.pwmt.zathura.desktop";
     home-manager.users.${cfgUser.name} = {
-      xdg = {
-        configFile = {
-          "zathura/zathurarc".text = ''
-            include catppuccin
-          '';
-          "zathura/catppuccin".source = "${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}";
-        };
-        mimeApps.defaultApplications =
-          let
-            defaults = [ "org.pwmt.zathura.desktop" ];
-          in
-          {
-            "application/epub+zip" = defaults;
-            "application/pdf" = defaults;
-            "image/vnd.djvu" = defaults;
-            "image/x-djvu" = defaults;
-            "text/fb2+xml" = defaults;
-          };
+      xdg.configFile = {
+        "zathura/zathurarc".text = ''
+          include catppuccin
+        '';
+        "zathura/catppuccin".source = "${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}";
       };
     };
   };

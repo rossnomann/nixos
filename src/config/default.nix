@@ -50,6 +50,16 @@
         email = "rossnomann@protonmail.com";
         gpg_signing_key = "56D1FCBF";
       };
+      xdg.userDirs = {
+        desktop = "$HOME/workspace";
+        documents = "$HOME/workspace";
+        download = "$HOME/workspace/downloads";
+        music = "$HOME/workspace/music";
+        pictures = "$HOME/workspace/pictures";
+        publicShare = "$HOME/workspace/exchange";
+        templates = "$HOME/workspace/templates";
+        videos = "$HOME/workspace/videos";
+      };
     };
   };
 }

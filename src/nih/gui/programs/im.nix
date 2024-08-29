@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -15,17 +14,15 @@ in
       pkgs.slack
       pkgs.telegram-desktop
     ];
-    home-manager.users.${config.nih.user.name} = {
-      xdg.mimeApps =
-        let
-          assoc = {
-            "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
-          };
-        in
-        {
-          associations.added = assoc;
-          defaultApplications = assoc;
+    xdg.mime =
+      let
+        assoc = {
+          "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
         };
-    };
+      in
+      {
+        addedAssociations = assoc;
+        defaultApplications = assoc;
+      };
   };
 }
