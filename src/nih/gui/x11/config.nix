@@ -51,6 +51,7 @@ in
         settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'sx'";
       };
       libinput.enable = true;
+
       xserver = {
         enable = true;
         autorun = false;
@@ -76,6 +77,18 @@ in
           variant = "qwerty";
         };
       };
+    };
+    systemd.user.units."leftwm-session.target" = {
+      name = "leftwm-session.target";
+      enable = true;
+      text = ''
+        [Unit]
+        Description=LeftWM session
+        Documentation=man:systemd.special
+        BindsTo=graphical-session.target
+        Wants=graphical-session-pre.target
+        After=graphical-session-pre.target
+      '';
     };
 
     home-manager.users.${cfgUser.name}.home.file =
@@ -112,7 +125,6 @@ in
             cursorThemeName = cfgGui.style.cursors.name;
           }
         );
-        ".config/systemd/user/leftwm-session.target".source = ./resources/systemd/leftwm-session.target;
         ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
         ".local/bin/screenshot".source = ./resources/screenshot;
       };
