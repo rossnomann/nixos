@@ -1,5 +1,17 @@
 {
   "pins": {
+    "catppuccin-alacritty": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "alacritty"
+      },
+      "branch": "main",
+      "revision": "343cf8d65459ac8f6449cc98dd3648bcbd7e3766",
+      "url": "https://github.com/catppuccin/alacritty/archive/343cf8d65459ac8f6449cc98dd3648bcbd7e3766.tar.gz",
+      "hash": "1nh29kkviqp0mz0w7cjmxcp5lgmd4hg5r67fzrvgkg9wgcfidig4"
+    },
     "catppuccin-bat": {
       "type": "Git",
       "repository": {

@@ -1,4 +1,10 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  npins,
+  pkgs,
+  ...
+}:
 let
   cfg = config.nih;
   cfgGui = cfg.gui;
@@ -7,37 +13,29 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    home-manager.users.${cfgUser.name}.programs.alacritty = {
-      enable = true;
-      settings = {
-        colors = (import ./colors.nix { palette = cfgPalette.current; });
-        cursor = {
-          style = {
-            shape = "Beam";
-            blinking = "On";
-          };
-        };
-        font =
-          let
-            fontMonospace = cfgGui.style.fonts.monospace;
-          in
-          {
-            normal = {
-              family = fontMonospace.family;
-            };
-            size = fontMonospace.defaultSize;
-          };
-        scrolling = {
-          history = 100000;
-        };
-        window = {
-          decorations = "None";
-          padding = {
-            x = 20;
-            y = 10;
-          };
-        };
-      };
+    environment.systemPackages = [ pkgs.alacritty ];
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".config/alacritty/alacritty.toml".text =
+        let
+          fontMonospace = cfgGui.style.fonts.monospace;
+        in
+        ''
+          import = ["${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml"]
+          [cursor.style]
+          blinking = "Always"
+          shape = "Beam"
+          [font]
+          size = ${builtins.toString fontMonospace.defaultSize}
+          [font.normal]
+          family = "${fontMonospace.family}"
+          [scrolling]
+          history = 100000
+          [window]
+          decorations = "None"
+          [window.padding]
+          x = 20
+          y = 10
+        '';
     };
   };
 }
