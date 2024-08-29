@@ -3,7 +3,6 @@ let
   cfg = config.nih;
   cfgSync = cfg.sync;
   cfgUser = cfg.user;
-  homeDirectory = config.home-manager.users.${cfgUser.name}.home.homeDirectory;
 in
 {
   options.nih.sync = {
@@ -24,7 +23,7 @@ in
       enable = true;
       relay.enable = false;
       user = cfgUser.name;
-      dataDir = homeDirectory;
+      dataDir = cfgUser.home;
       guiAddress = "127.0.0.1:8384";
       openDefaultPorts = true;
       overrideDevices = true;
@@ -37,56 +36,56 @@ in
             enable = true;
             ignorePerms = false;
             label = "Backup";
-            path = "${homeDirectory}/workspace/backup";
+            path = "${cfgUser.home}/workspace/backup";
             devices = cfgSync.folders.backup;
           };
           "books" = {
             enable = true;
             ignorePerms = false;
             label = "Books";
-            path = "${homeDirectory}/workspace/books";
+            path = "${cfgUser.home}/workspace/books";
             devices = cfgSync.folders.books;
           };
           "documents" = {
             enable = true;
             ignorePerms = false;
             label = "Documents";
-            path = "${homeDirectory}/workspace/documents";
+            path = "${cfgUser.home}/workspace/documents";
             devices = cfgSync.folders.documents;
           };
           "music" = {
             enable = true;
             ignorePerms = false;
             label = "Music";
-            path = "${homeDirectory}/workspace/music";
+            path = "${cfgUser.home}/workspace/music";
             devices = cfgSync.folders.music;
           };
           "obsidian" = {
             enable = true;
             ignorePerms = false;
             label = "Obsidian";
-            path = "${homeDirectory}/workspace/obsidian";
+            path = "${cfgUser.home}/workspace/obsidian";
             devices = cfgSync.folders.obsidian;
           };
           "pictures" = {
             enable = true;
             label = "Pictures";
             ignorePerms = false;
-            path = "${homeDirectory}/workspace/pictures";
+            path = "${cfgUser.home}/workspace/pictures";
             devices = cfgSync.folders.pictures;
           };
           "exchange" = {
             enable = true;
             label = "Exchange";
             ignorePerms = false;
-            path = "${homeDirectory}/workspace/exchange";
+            path = "${cfgUser.home}/workspace/exchange";
             devices = cfgSync.folders.exchange;
           };
           "videos" = {
             enable = true;
             label = "Videos";
             ignorePerms = false;
-            path = "${homeDirectory}/workspace/videos";
+            path = "${cfgUser.home}/workspace/videos";
             devices = cfgSync.folders.videos;
           };
         };

@@ -19,13 +19,10 @@ in
       pkgs.zathura
     ];
     nih.xdg.mime.documents = "org.pwmt.zathura.desktop";
-    home-manager.users.${cfgUser.name} = {
-      xdg.configFile = {
-        "zathura/zathurarc".text = ''
-          include catppuccin
-        '';
-        "zathura/catppuccin".source = "${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}";
-      };
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".config/zathura/zathurarc".text = ''
+        include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
+      '';
     };
   };
 }

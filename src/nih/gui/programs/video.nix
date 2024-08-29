@@ -42,8 +42,12 @@ in
         audio = entry;
         videos = entry;
       };
-    home-manager.users.${cfgUser.name} = {
-      xdg.configFile."mpv/mpv.conf".source = "${cfgGui.programs.video.mpv.theme.package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".config/mpv/mpv.conf".source =
+        let
+          package = cfgGui.programs.video.mpv.theme.package;
+        in
+        "${package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
     };
   };
 }

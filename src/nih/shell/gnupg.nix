@@ -10,7 +10,12 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.gnupg ];
+    environment = {
+      systemPackages = [ pkgs.gnupg ];
+      variables = {
+        GNUPGHOME = "$XDG_DATA_HOME/gnupg";
+      };
+    };
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -19,8 +24,8 @@ in
         allow-loopback-pinentry = "";
       };
     };
-    home-manager.users.${cfgUser.name} = {
-      xdg.dataFile."gnupg/gpg.conf".text = ''
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".local/share/gnupg/gpg.conf".text = ''
         no-greeting
         use-agent
         pinentry-mode loopback

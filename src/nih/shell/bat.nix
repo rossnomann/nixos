@@ -9,6 +9,7 @@ let
   cfg = config.nih;
   cfgPalette = cfg.palette;
   cfgUser = cfg.user;
+  batThemeName = "Catppuccin ${lib.nih.capStr cfgPalette.variant}";
 in
 {
   config = lib.mkIf cfg.enable {
@@ -18,17 +19,11 @@ in
       cd "${pkgs.emptyDirectory}"
       ${lib.getExe pkgs.bat} cache --build
     '';
-    home-manager.users.${cfgUser.name} =
-      let
-        themeName = "Catppuccin ${lib.nih.capStr cfgPalette.variant}";
-      in
-      {
-        xdg.configFile = {
-          "bat/config".text = ''
-            --theme='${themeName}'
-          '';
-          "bat/themes/${themeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${themeName}.tmTheme";
-        };
-      };
+    home-manager.users.${cfgUser.name}.home.file = {
+      ".config/bat/config".text = ''
+        --theme='${batThemeName}'
+      '';
+      "bat/themes/${batThemeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
+    };
   };
 }

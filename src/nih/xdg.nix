@@ -102,7 +102,6 @@ in
         DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
         DOTNET_CLI_HOME = "$XDG_DATA_HOME/dotnet";
         FFMPEG_DATADIR = "$XDG_CONFIG_HOME/ffmpeg";
-        GNUPGHOME = "$XDG_DATA_HOME/gnupg";
         HISTFILE = "$XDG_DATA_HOME/bash/history";
         INPUTRC = "$XDG_CONFIG_HOME/readline/inputrc";
         LESSHISTFILE = "$XDG_CACHE_HOME/lesshst";

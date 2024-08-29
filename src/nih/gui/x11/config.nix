@@ -72,10 +72,44 @@ in
     };
 
     home-manager.users.${cfgUser.name} = {
-      home.file = {
-        ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
-        ".local/bin/screenshot".source = ./resources/screenshot;
-      };
+      home.file =
+        let
+          palette = cfgPalette.current;
+        in
+        {
+          ".config/leftwm/config.ron".source = ./resources/leftwm/config.ron;
+          ".config/leftwm/down".source = ./resources/leftwm/down;
+          ".config/leftwm/up".source = ./resources/leftwm/up;
+          ".config/leftwm/themes/current/down".source = ./resources/leftwm/themes/current/down;
+          ".config/leftwm/themes/current/theme.ron".text = (
+            import ./resources/leftwm/themes/current/theme.nix {
+              inherit palette;
+              wm = cfgGui.x11.wm;
+            }
+          );
+          ".config/leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
+          ".config/picom/picom.conf".source = ./resources/picom/picom.conf;
+          ".config/rlaunch/args".text = (
+            lib.concatStringsSep " " (
+              import ./resources/rlaunch/args.nix {
+                inherit palette;
+                font = cfgGui.style.fonts.sansSerif;
+              }
+            )
+          );
+          ".config/sx/sxrc".source = ./resources/sx/sxrc;
+          ".config/sx/xresources".text = (
+            import ./resources/sx/xresources.nix {
+              inherit palette;
+              dpi = cfgGui.dpi;
+              cursorSize = cfgGui.style.cursors.size;
+              cursorThemeName = cfgGui.style.cursors.name;
+            }
+          );
+          ".config/systemd/user/leftwm-session.target".source = ./resources/systemd/leftwm-session.target;
+          ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
+          ".local/bin/screenshot".source = ./resources/screenshot;
+        };
       services = {
         batsignal.enable = true;
         dunst = {
@@ -115,44 +149,6 @@ in
               };
             };
         };
-      };
-      xdg = {
-        configFile =
-          let
-            palette = cfgPalette.current;
-          in
-          {
-            "leftwm/config.ron".source = ./resources/leftwm/config.ron;
-            "leftwm/down".source = ./resources/leftwm/down;
-            "leftwm/up".source = ./resources/leftwm/up;
-            "leftwm/themes/current/down".source = ./resources/leftwm/themes/current/down;
-            "leftwm/themes/current/theme.ron".text = (
-              import ./resources/leftwm/themes/current/theme.nix {
-                inherit palette;
-                wm = cfgGui.x11.wm;
-              }
-            );
-            "leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
-            "picom/picom.conf".source = ./resources/picom/picom.conf;
-            "rlaunch/args".text = (
-              lib.concatStringsSep " " (
-                import ./resources/rlaunch/args.nix {
-                  inherit palette;
-                  font = cfgGui.style.fonts.sansSerif;
-                }
-              )
-            );
-            "sx/sxrc".source = ./resources/sx/sxrc;
-            "sx/xresources".text = (
-              import ./resources/sx/xresources.nix {
-                inherit palette;
-                dpi = cfgGui.dpi;
-                cursorSize = cfgGui.style.cursors.size;
-                cursorThemeName = cfgGui.style.cursors.name;
-              }
-            );
-            "systemd/user/leftwm-session.target".source = ./resources/systemd/leftwm-session.target;
-          };
       };
     };
   };
