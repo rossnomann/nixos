@@ -14,13 +14,15 @@ in
     description = lib.mkOption { type = lib.types.str; };
     email = lib.mkOption { type = lib.types.str; };
     gpg_signing_key = lib.mkOption { type = lib.types.str; };
-    home = lib.mkOption {
-      internal = true;
-      type = lib.types.path;
+    home = {
+      root = lib.mkOption {
+        internal = true;
+        type = lib.types.path;
+      };
     };
   };
   config = lib.mkIf cfg.enable {
-    nih.user.home = config.users.users.${cfgUser.name}.home;
+    nih.user.home.root = config.users.users.${cfgUser.name}.home;
 
     users.users.${cfgUser.name} = {
       description = cfgUser.description;
