@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -16,6 +15,13 @@ in
         GNUPGHOME = "$XDG_DATA_HOME/gnupg";
       };
     };
+    nih.user.home.file = {
+      ".local/share/gnupg/gpg.conf".source.text = ''
+        no-greeting
+        use-agent
+        pinentry-mode loopback
+      '';
+    };
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -23,13 +29,6 @@ in
       settings = {
         allow-loopback-pinentry = "";
       };
-    };
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".local/share/gnupg/gpg.conf".text = ''
-        no-greeting
-        use-agent
-        pinentry-mode loopback
-      '';
     };
   };
 }

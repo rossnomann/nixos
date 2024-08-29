@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {

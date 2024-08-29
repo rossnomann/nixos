@@ -8,8 +8,7 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUser = cfg.user;
-  batThemeName = "Catppuccin ${lib.nih.capStr cfgPalette.variant}";
+  batThemeName = "Catppuccin ${lib.nih.strings.capitalize cfgPalette.variant}";
 in
 {
   config = lib.mkIf cfg.enable {
@@ -19,11 +18,11 @@ in
       cd "${pkgs.emptyDirectory}"
       ${lib.getExe pkgs.bat} cache --build
     '';
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".config/bat/config".text = ''
+    nih.user.home.file = {
+      ".config/bat/config".source.text = ''
         --theme='${batThemeName}'
       '';
-      ".config/bat/themes/${batThemeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
+      ".config/bat/themes/${batThemeName}.tmTheme".source.path = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
     };
   };
 }

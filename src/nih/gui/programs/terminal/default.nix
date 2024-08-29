@@ -9,13 +9,12 @@ let
   cfg = config.nih;
   cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.alacritty ];
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".config/alacritty/alacritty.toml".text =
+    nih.user.home.file = {
+      ".config/alacritty/alacritty.toml".source.text =
         let
           fontMonospace = cfgGui.style.fonts.monospace;
         in

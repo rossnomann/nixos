@@ -7,7 +7,6 @@
 let
   cfg = config.nih;
   cfgGui = cfg.gui;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf (cfg.enable && cfgGui.x11.tablet.enable) {
@@ -21,11 +20,8 @@ in
         MOZ_USE_XINPUT2 = "1";
       };
     };
-    services.xserver.serverFlagsSection = ''
-      Option "RandRRotation" "on"
-    '';
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".config/systemd/user/rot8.service".text = ''
+    nih.user.home.file = {
+      ".config/systemd/user/rot8.service".source.text = ''
         [Install]
         WantedBy=leftwm-session.target
         [Service]
@@ -37,5 +33,8 @@ in
         Description=Automatic display rotation
       '';
     };
+    services.xserver.serverFlagsSection = ''
+      Option "RandRRotation" "on"
+    '';
   };
 }

@@ -10,21 +10,27 @@
   outputs =
     inputs:
     let
-      lib = inputs.nixpkgs.lib.extend (final: prev: (import ./src/lib { lib = prev; }));
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      lib = pkgs.lib.extend (
+        final: prev:
+        (import ./src/lib {
+          writeTextFile = pkgs.writeTextFile;
+          lib = prev;
+        })
+      );
       npins = import ./npins;
       nixosWorkspace =
         deviceName:
-        lib.nixosSystem {
-          inherit lib;
-          system = "x86_64-linux";
+        inputs.nixpkgs.lib.nixosSystem {
+          inherit lib system;
           modules = [
             inputs.home-manager.nixosModules.home-manager
             ./src/nih
             ./src/config
           ];
           specialArgs = inputs // {
-            inherit deviceName;
-            inherit npins;
+            inherit deviceName npins;
           };
         };
     in

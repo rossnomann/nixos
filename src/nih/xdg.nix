@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgUser = cfg.user;
   cfgXdg = cfg.xdg;
 in
 {
@@ -117,59 +116,10 @@ in
         WINEPREFIX = "$XDG_DATA_HOME/wine";
       };
     };
-    xdg.mime =
-      let
-        mkAssoc =
-          { entry, mimes }:
-          builtins.listToAttrs (
-            (map (v: {
-              name = v;
-              value = entry;
-            }) mimes)
-          );
-        assoc =
-          (mkAssoc {
-            entry = cfgXdg.mime.archives;
-            mimes = lib.nih.mimeTypes.archives;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.audio;
-            mimes = lib.nih.mimeTypes.audio;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.directories;
-            mimes = lib.nih.mimeTypes.directories;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.documents;
-            mimes = lib.nih.mimeTypes.documents;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.images;
-            mimes = lib.nih.mimeTypes.images;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.text;
-            mimes = lib.nih.mimeTypes.text;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.torrents;
-            mimes = lib.nih.mimeTypes.torrents;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.videos;
-            mimes = lib.nih.mimeTypes.videos;
-          });
-      in
-      {
-        enable = true;
-        addedAssociations = assoc;
-        defaultApplications = assoc;
-      };
-    home-manager.users.${cfgUser.name}.home.file = {
+    nih.user.home.file = {
       ".config/python/pythonrc" = {
         executable = true;
-        text = ''
+        source.text = ''
           #!/usr/bin/env python
 
 
@@ -207,5 +157,54 @@ in
         '';
       };
     };
+    xdg.mime =
+      let
+        mkAssoc =
+          { entry, mimes }:
+          builtins.listToAttrs (
+            (map (v: {
+              name = v;
+              value = entry;
+            }) mimes)
+          );
+        assoc =
+          (mkAssoc {
+            entry = cfgXdg.mime.archives;
+            mimes = lib.nih.mime.types.archives;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.audio;
+            mimes = lib.nih.mime.types.audio;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.directories;
+            mimes = lib.nih.mime.types.directories;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.documents;
+            mimes = lib.nih.mime.types.documents;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.images;
+            mimes = lib.nih.mime.types.images;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.text;
+            mimes = lib.nih.mime.types.text;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.torrents;
+            mimes = lib.nih.mime.types.torrents;
+          })
+          // (mkAssoc {
+            entry = cfgXdg.mime.videos;
+            mimes = lib.nih.mime.types.videos;
+          });
+      in
+      {
+        enable = true;
+        addedAssociations = assoc;
+        defaultApplications = assoc;
+      };
   };
 }

@@ -8,7 +8,6 @@ let
   cfg = config.nih;
   cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
-  cfgUser = cfg.user;
   package = pkgs.dunst;
 in
 {
@@ -42,13 +41,13 @@ in
         PartOf=graphical-session.target
       '';
     };
-    home-manager.users.${cfgUser.name}.home.file =
+    nih.user.home.file =
       let
         palette = cfgPalette.current;
         dbusServicePath = "${package}/share/dbus-1/services/org.knopwob.dunst.service";
       in
       {
-        ".config/dunst/dunstrc".text =
+        ".config/dunst/dunstrc".source.text =
           let
             font = cfgGui.style.fonts.sansSerif;
             fontName = "${font.family} ${builtins.toString font.defaultSize}";
@@ -56,7 +55,7 @@ in
             gap = builtins.toString dunst.gap;
             offset = builtins.toString dunst.offset;
             iconTheme = cfgGui.style.icons;
-            iconPath = lib.nih.mkIconPath {
+            iconPath = lib.nih.paths.mkIconPath {
               themePackage = iconTheme.package;
               themeName = iconTheme.name;
               iconsSize =
@@ -83,7 +82,7 @@ in
             [urgency_low]
             frame_color="${palette.blue}"
           '';
-        ".local/share/dbus-1/services/org.knopwob.dunst.service".source = dbusServicePath;
+        ".local/share/dbus-1/services/org.knopwob.dunst.service".source.path = dbusServicePath;
       };
   };
 }

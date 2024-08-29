@@ -8,7 +8,6 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -18,11 +17,13 @@ in
       pkgs.simple-scan
       pkgs.zathura
     ];
-    nih.xdg.mime.documents = "org.pwmt.zathura.desktop";
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".config/zathura/zathurarc".text = ''
-        include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
-      '';
+    nih = {
+      user.home.file = {
+        ".config/zathura/zathurarc".source.text = ''
+          include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
+        '';
+      };
+      xdg.mime.documents = "org.pwmt.zathura.desktop";
     };
   };
 }

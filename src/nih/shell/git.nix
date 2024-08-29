@@ -16,8 +16,8 @@ in
       pkgs.delta
       pkgs.git
     ];
-    home-manager.users.${cfgUser.name}.home.file = {
-      ".config/git/config".text = ''
+    nih.user.home.file = {
+      ".config/git/config".source.text = ''
         [user]
         email = ${cfgUser.email}
         name = ${cfgUser.description}
@@ -41,7 +41,7 @@ in
         [delta]
         features = catppuccin-${cfgPalette.variant}
       '';
-      ".config/git/ignore".text = ''
+      ".config/git/ignore".source.text = ''
         .direnv
         .envrc
       '';

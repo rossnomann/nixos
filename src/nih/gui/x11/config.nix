@@ -8,7 +8,6 @@ let
   cfg = config.nih;
   cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
-  cfgUser = cfg.user;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -28,14 +27,53 @@ in
       pkgs.xorg.xdpyinfo
       pkgs.xorg.xkill
     ];
-    nih.gui.services.dunst =
-      let
-        gutter = cfgGui.x11.wm.gutterSize;
-      in
-      {
-        gap = gutter;
-        offset = gutter * 2;
-      };
+    nih = {
+      gui.services.dunst =
+        let
+          gutter = cfgGui.x11.wm.gutterSize;
+        in
+        {
+          gap = gutter;
+          offset = gutter * 2;
+        };
+      user.home.file =
+        let
+          palette = cfgPalette.current;
+        in
+        {
+          ".config/leftwm/config.ron".source.path = ./resources/leftwm/config.ron;
+          ".config/leftwm/down".source.path = ./resources/leftwm/down;
+          ".config/leftwm/up".source.path = ./resources/leftwm/up;
+          ".config/leftwm/themes/current/down".source.path = ./resources/leftwm/themes/current/down;
+          ".config/leftwm/themes/current/theme.ron".source.text = (
+            import ./resources/leftwm/themes/current/theme.nix {
+              inherit palette;
+              wm = cfgGui.x11.wm;
+            }
+          );
+          ".config/leftwm/themes/current/up".source.path = ./resources/leftwm/themes/current/up;
+          ".config/picom/picom.conf".source.path = ./resources/picom/picom.conf;
+          ".config/rlaunch/args".source.text = (
+            lib.concatStringsSep " " (
+              import ./resources/rlaunch/args.nix {
+                inherit palette;
+                font = cfgGui.style.fonts.sansSerif;
+              }
+            )
+          );
+          ".config/sx/sxrc".source.path = ./resources/sx/sxrc;
+          ".config/sx/xresources".source.text = (
+            import ./resources/sx/xresources.nix {
+              inherit palette;
+              dpi = cfgGui.dpi;
+              cursorSize = cfgGui.style.cursors.size;
+              cursorThemeName = cfgGui.style.cursors.name;
+            }
+          );
+          ".local/bin/rlaunch-wrapper".source.path = ./resources/rlaunch/wrapper.nu;
+          ".local/bin/screenshot".source.path = ./resources/screenshot;
+        };
+    };
     services = {
       autorandr = {
         enable = true;
@@ -90,43 +128,5 @@ in
         After=graphical-session-pre.target
       '';
     };
-
-    home-manager.users.${cfgUser.name}.home.file =
-      let
-        palette = cfgPalette.current;
-      in
-      {
-        ".config/leftwm/config.ron".source = ./resources/leftwm/config.ron;
-        ".config/leftwm/down".source = ./resources/leftwm/down;
-        ".config/leftwm/up".source = ./resources/leftwm/up;
-        ".config/leftwm/themes/current/down".source = ./resources/leftwm/themes/current/down;
-        ".config/leftwm/themes/current/theme.ron".text = (
-          import ./resources/leftwm/themes/current/theme.nix {
-            inherit palette;
-            wm = cfgGui.x11.wm;
-          }
-        );
-        ".config/leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
-        ".config/picom/picom.conf".source = ./resources/picom/picom.conf;
-        ".config/rlaunch/args".text = (
-          lib.concatStringsSep " " (
-            import ./resources/rlaunch/args.nix {
-              inherit palette;
-              font = cfgGui.style.fonts.sansSerif;
-            }
-          )
-        );
-        ".config/sx/sxrc".source = ./resources/sx/sxrc;
-        ".config/sx/xresources".text = (
-          import ./resources/sx/xresources.nix {
-            inherit palette;
-            dpi = cfgGui.dpi;
-            cursorSize = cfgGui.style.cursors.size;
-            cursorThemeName = cfgGui.style.cursors.name;
-          }
-        );
-        ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
-        ".local/bin/screenshot".source = ./resources/screenshot;
-      };
   };
 }
