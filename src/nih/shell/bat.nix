@@ -23,7 +23,7 @@ in
       ".config/bat/config".text = ''
         --theme='${batThemeName}'
       '';
-      "bat/themes/${batThemeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
+      ".config/bat/themes/${batThemeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
     };
   };
 }
