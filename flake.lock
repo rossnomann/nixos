@@ -1,6 +1,43 @@
 {
   "nodes": {
+    "makky": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1725322240,
+        "narHash": "sha256-WsrASpgG25J9hFsk3YE4nYPOwMktJRRN2CQws1xgfyk=",
+        "owner": "rossnomann",
+        "repo": "makky",
+        "rev": "1da7cc1421bf27f9c2889ff5b342899b310e9c91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rossnomann",
+        "repo": "makky",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1718428119,
+        "narHash": "sha256-WdWDpNaq6u1IPtxtYHHWpl5BmabtpmLnMAx0RdJ/vo8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e6cea36f83499eb4e9cd184c8a8e823296b50ad5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1723175592,
         "narHash": "sha256-M0xJ3FbDUc4fRZ84dPGx5VvgFsOzds77KiBMW/mMTnI=",
@@ -18,7 +55,26 @@
     },
     "root": {
       "inputs": {
+        "makky": "makky",
+        "nixpkgs": "nixpkgs_2"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
         "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1724984647,
+        "narHash": "sha256-BC6MUq0CTdmAu/cueVcdWTI+S95s0mJcn19SoEgd7gU=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "87b6cffc276795b46ef544d7ed8d7fed6ad9c8e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     }
   },

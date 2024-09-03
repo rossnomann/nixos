@@ -19,7 +19,7 @@ in
     ];
     nih = {
       user.home.file = {
-        ".config/zathura/zathurarc".source.text = ''
+        ".config/zathura/zathurarc".text = ''
           include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
         '';
       };

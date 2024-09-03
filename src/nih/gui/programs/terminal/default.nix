@@ -14,7 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.alacritty ];
     nih.user.home.file = {
-      ".config/alacritty/alacritty.toml".source.text =
+      ".config/alacritty/alacritty.toml".text =
         let
           fontMonospace = cfgGui.style.fonts.monospace;
         in

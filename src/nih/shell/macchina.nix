@@ -11,7 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.macchina ];
     nih.user.home.file = {
-      ".config/macchina/macchina.toml".source.text = ''
+      ".config/macchina/macchina.toml".text = ''
         # Toggle between displaying the current shell or your user's default one.
         current_shell = true
 
@@ -42,7 +42,7 @@ in
             "Uptime",
         ]
       '';
-      ".config/macchina/themes/default.toml".source.text = ''
+      ".config/macchina/themes/default.toml".text = ''
         key_color = "Green"
         hide_ascii = true
         padding = 2

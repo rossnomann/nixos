@@ -19,10 +19,10 @@ in
       ${lib.getExe pkgs.bat} cache --build
     '';
     nih.user.home.file = {
-      ".config/bat/config".source.text = ''
+      ".config/bat/config".text = ''
         --theme='${batThemeName}'
       '';
-      ".config/bat/themes/${batThemeName}.tmTheme".source.path = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
+      ".config/bat/themes/${batThemeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${batThemeName}.tmTheme";
     };
   };
 }

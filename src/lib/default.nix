@@ -3,10 +3,7 @@ let
   mime = import ./mime.nix;
   paths = import ./paths.nix { inherit lib; };
   strings = import ./strings.nix { inherit lib; };
-  types = import ./types.nix {
-    inherit lib writeTextFile;
-    inherit (paths) mkStoreFileName;
-  };
+  store = import ./store.nix { inherit lib writeTextFile; };
 in
 {
   nih = {
@@ -14,7 +11,7 @@ in
       mime
       paths
       strings
-      types
+      store
       ;
   };
 }

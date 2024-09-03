@@ -17,7 +17,7 @@ in
       pkgs.git
     ];
     nih.user.home.file = {
-      ".config/git/config".source.text = ''
+      ".config/git/config".text = ''
         [user]
         email = ${cfgUser.email}
         name = ${cfgUser.description}
@@ -41,7 +41,7 @@ in
         [delta]
         features = catppuccin-${cfgPalette.variant}
       '';
-      ".config/git/ignore".source.text = ''
+      ".config/git/ignore".text = ''
         .direnv
         .envrc
       '';

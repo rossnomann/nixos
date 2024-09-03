@@ -21,7 +21,7 @@ in
       };
     };
     nih.user.home.file = {
-      ".config/systemd/user/rot8.service".source.text = ''
+      ".config/systemd/user/rot8.service".text = ''
         [Install]
         WantedBy=leftwm-session.target
         [Service]

@@ -14,12 +14,12 @@ in
       pkgs.nix-direnv
     ];
     nih.user.home.file = {
-      ".config/direnv/direnv.toml".source.text = ''
+      ".config/direnv/direnv.toml".text = ''
         [global]
         hide_env_diff = true
         warn_timeout = 0
       '';
-      ".config/direnv/lib/nix-direnv.sh".source.path = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
+      ".config/direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
     };
   };
 }

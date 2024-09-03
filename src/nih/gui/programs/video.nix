@@ -43,7 +43,7 @@ in
           videos = entry;
         };
       user.home.file = {
-        ".config/mpv/mpv.conf".source.path =
+        ".config/mpv/mpv.conf".source =
           let
             package = cfgGui.programs.video.mpv.theme.package;
           in

@@ -29,23 +29,23 @@ in
     nih = {
       gui.style.cursors.name = cursors.name;
       user.home.file = {
-        ".config/Kvantum/kvantum.kvconfig".source.text = ''
+        ".config/Kvantum/kvantum.kvconfig".text = ''
           theme=${kvantum.themeName}
         '';
-        ".config/gtk-2.0/gtkrc".source.text = ''
+        ".config/gtk-2.0/gtkrc".text = ''
           gtk-cursor-theme-name = "${cursors.name}"
           gtk-cursor-theme-size = ${builtins.toString cursors.size}
           gtk-font-name = "${gtk.fontName}"
           gtk-icon-theme-name = "${icons.name}"
           gtk-theme-name = "${gtk.themeName}"
         '';
-        ".config/gtk-3.0/gtk.css".source.text = ''
+        ".config/gtk-3.0/gtk.css".text = ''
           * {
             border-radius: 0 0 0 0;
             box-shadow: none;
           }
         '';
-        ".config/gtk-3.0/settings.ini".source.text = ''
+        ".config/gtk-3.0/settings.ini".text = ''
           [Settings]
           gtk-cursor-theme-name=${cursors.name}
           gtk-cursor-theme-size=${builtins.toString cursors.size}
@@ -54,7 +54,7 @@ in
           gtk-icon-theme-name=${icons.name}
           gtk-theme-name=${gtk.themeName}
         '';
-        ".config/gtk-4.0/gtk.css".source.text = ''
+        ".config/gtk-4.0/gtk.css".text = ''
           /**
            * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
            * It does however respect user CSS, so import the theme from here.
@@ -65,7 +65,7 @@ in
             box-shadow: none;
           }
         '';
-        ".config/gtk-4.0/settings.ini".source.text = ''
+        ".config/gtk-4.0/settings.ini".text = ''
           [Settings]
           gtk-cursor-theme-name=${cursors.name}
           gtk-cursor-theme-size=${builtins.toString cursors.size}
@@ -74,12 +74,12 @@ in
           gtk-icon-theme-name=${icons.name}
           gtk-theme-name=${gtk.themeName}
         '';
-        ".icons/default/index.theme".source.path = "${cfgGui.style.packages.index}/share/icons/default/index.theme";
-        ".icons/${cursors.name}".source.path = "${cfgGui.style.packages.cursors}/share/icons/${cursors.name}";
-        ".local/share/backgrounds/default.jpg".source.path = ./resources/backgrounds/default.jpg;
-        ".local/share/backgrounds/default-empty.jpg".source.path = ./resources/backgrounds/default-empty.jpg;
-        ".local/share/icons/default/index.theme".source.path = "${cfgGui.style.packages.index}/share/icons/default/index.theme";
-        ".local/share/icons/${cursors.name}".source.path = "${cfgGui.style.packages.cursors}/share/icons/${cursors.name}";
+        ".icons/default/index.theme".source = "${cfgGui.style.packages.index}/share/icons/default/index.theme";
+        ".icons/${cursors.name}".source = "${cfgGui.style.packages.cursors}/share/icons/${cursors.name}";
+        ".local/share/backgrounds/default.jpg".source = ./resources/backgrounds/default.jpg;
+        ".local/share/backgrounds/default-empty.jpg".source = ./resources/backgrounds/default-empty.jpg;
+        ".local/share/icons/default/index.theme".source = "${cfgGui.style.packages.index}/share/icons/default/index.theme";
+        ".local/share/icons/${cursors.name}".source = "${cfgGui.style.packages.cursors}/share/icons/${cursors.name}";
       };
     };
     fonts = {

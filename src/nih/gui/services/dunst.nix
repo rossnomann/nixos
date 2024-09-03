@@ -47,7 +47,7 @@ in
         dbusServicePath = "${package}/share/dbus-1/services/org.knopwob.dunst.service";
       in
       {
-        ".config/dunst/dunstrc".source.text =
+        ".config/dunst/dunstrc".text =
           let
             font = cfgGui.style.fonts.sansSerif;
             fontName = "${font.family} ${builtins.toString font.defaultSize}";
@@ -82,7 +82,7 @@ in
             [urgency_low]
             frame_color="${palette.blue}"
           '';
-        ".local/share/dbus-1/services/org.knopwob.dunst.service".source.path = dbusServicePath;
+        ".local/share/dbus-1/services/org.knopwob.dunst.service".source = dbusServicePath;
       };
   };
 }

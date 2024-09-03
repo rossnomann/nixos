@@ -16,7 +16,7 @@ in
       };
     };
     nih.user.home.file = {
-      ".local/share/gnupg/gpg.conf".source.text = ''
+      ".local/share/gnupg/gpg.conf".text = ''
         no-greeting
         use-agent
         pinentry-mode loopback

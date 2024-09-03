@@ -119,7 +119,7 @@ in
     nih.user.home.file = {
       ".config/python/pythonrc" = {
         executable = true;
-        source.text = ''
+        text = ''
           #!/usr/bin/env python
 
 

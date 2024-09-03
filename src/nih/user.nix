@@ -7,7 +7,6 @@
 let
   cfg = config.nih;
   cfgUser = cfg.user;
-  nihFilesPackage = config.nih.user.home.files;
 in
 {
   options.nih.user = {
@@ -22,72 +21,60 @@ in
       };
       file = lib.mkOption {
         internal = true;
-        type = lib.nih.types.file;
-      };
-      files = lib.mkOption {
-        internal = true;
-        type = lib.types.package;
+        type = lib.types.attrsOf (
+          lib.types.submodule (
+            { name, config, ... }:
+            {
+              options = {
+                source = lib.mkOption { type = lib.types.path; };
+                text = lib.mkOption {
+                  type = lib.types.nullOr lib.types.lines;
+                  default = null;
+                };
+                target = lib.mkOption { type = lib.types.str; };
+                executable = lib.mkOption {
+                  type = lib.types.bool;
+                  default = false;
+                };
+              };
+              config = {
+                target = lib.mkDefault name;
+                source = lib.mkIf (config.text != null) (
+                  lib.mkDefault (
+                    lib.nih.store.writeFile {
+                      name = config.target;
+                      text = config.text;
+                      executable = config.executable == true;
+                    }
+                  )
+                );
+              };
+            }
+          )
+        );
       };
     };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ nihFilesPackage ];
-    nih.user.home = {
-      root = config.users.users.${cfgUser.name}.home;
+    makky = {
+      enable = true;
+      targetRoot = "$HOME";
+      metadataPath = "$HOME/.config/makky.metadata";
       files =
         let
-          fileConfig = config.nih.user.home.file;
+          attrs = [
+            "source"
+            "target"
+          ];
+          filterValue = n: v: builtins.elem n attrs;
+          mapValue = value: lib.attrsets.filterAttrs filterValue value;
+          mapFiles = files: builtins.mapAttrs (name: value: (mapValue value)) files;
         in
-        pkgs.runCommandLocal "nih-files" { } (
-          ''
-            mkdir -p $out
-            nih_reference="$out/nih_reference"
-            touch $nih_reference
-
-            function addPath() {
-              local source="$1"
-              local target="$2"
-              echo $source >> $nih_reference
-              echo $target >> $nih_reference
-            }
-          ''
-          + lib.strings.concatStrings (
-            lib.mapAttrsToList (n: v: ''
-              addPath ${
-                lib.escapeShellArgs [
-                  (builtins.path {
-                    path = v.source.path;
-                    name = v.storeName;
-                  })
-                  v.target
-                ]
-              }
-            '') fileConfig
-          )
-        );
+        mapFiles cfgUser.home.file;
     };
-    system.userActivationScripts.nihFiles = ''
-      echo "Creating nih links in $HOME"
-      function createNihLinks() {
-        while read -r source; do
-          read -r target
-          target=$HOME/$target
-          echo "Setting link: $source -> $target"
-          mkdir -p "$(dirname "''${target}")"
-          if [ -L "''${target}" ] ; then
-              rm "''${target}"
-              ln -s "''${source}" "''${target}"
-              echo "Link replaced"
-          elif [ -e "''${target}" ] ; then
-              echo "Not a link: $target"
-          else
-              ln -s "''${source}" "''${target}"
-              echo "Link created"
-          fi
-        done < ${nihFilesPackage}/nih_reference
-      }
-      createNihLinks
-    '';
+    nih.user.home = {
+      root = config.users.users.${cfgUser.name}.home;
+    };
     users.users.${cfgUser.name} = {
       description = cfgUser.description;
       isNormalUser = true;

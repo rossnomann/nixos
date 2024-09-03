@@ -1,12 +1,17 @@
 {
   description = "NixOS configuration";
-  # TODO: use nixpkgs from npins
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # TODO: use nixpkgs from npins
+    makky = {
+      url = "github:rossnomann/makky";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
     inputs:
     let
       system = "x86_64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      pkgs = import inputs.nixpkgs { inherit system; };
       lib = pkgs.lib.extend (
         final: prev:
         (import ./src/lib {
@@ -20,6 +25,7 @@
         inputs.nixpkgs.lib.nixosSystem {
           inherit lib system;
           modules = [
+            inputs.makky.nixosModules.default
             ./src/nih
             ./src/config
           ];
