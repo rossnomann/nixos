@@ -12,6 +12,13 @@ nixos-rebuild switch --flake '.#%device%'
 
 See `outpus.nixosConfigurations` in `flake.nix` for the list of available devices.
 
+### UPDATE
+
+```sh
+nix flake update
+npins update
+```
+
 ### QUIRKS
 
 #### THEME

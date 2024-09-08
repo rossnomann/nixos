@@ -1,7 +1,7 @@
 {
   description = "NixOS configuration";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # TODO: use nixpkgs from npins
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     makky = {
       url = "github:rossnomann/makky";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +29,7 @@
             ./src/nih
             ./src/config
           ];
-          specialArgs = inputs // {
+          specialArgs = {
             inherit deviceName npins;
           };
         };

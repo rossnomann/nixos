@@ -32,9 +32,9 @@
         "repo": "delta"
       },
       "branch": "main",
-      "revision": "b88f87aedbeb7dc74c38831cf385819b69b78cbe",
-      "url": "https://github.com/catppuccin/delta/archive/b88f87aedbeb7dc74c38831cf385819b69b78cbe.tar.gz",
-      "hash": "0rb8m10zp8qkfg2cw54xbkrsmplvcv8h038mwbw9x4akzb2y8cpz"
+      "revision": "5c2c59991b950ce230f48cb3f2546e37ca65597b",
+      "url": "https://github.com/catppuccin/delta/archive/5c2c59991b950ce230f48cb3f2546e37ca65597b.tar.gz",
+      "hash": "0fpv7vkbc70h4bds77amxqidwacgzf55mrqj615hnwk7l13v366q"
     },
     "catppuccin-kvantum": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre670565.ae815cee91b4/nixexprs.tar.xz",
-      "hash": "1h87v5729fz27a1k90b0iy5c4bzs8b7dg747v777iss8wn4jljpb"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre676884.9bb1e7571aad/nixexprs.tar.xz",
+      "hash": "1fxm0xyw4c7kjpxn1hvcxmxhpcnsdz77v2i3575j9yrz1pzj35hk"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -187,10 +187,10 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
-      "version": "v2.5.0",
-      "revision": "ed38438900d6b128353cd1aa1364e2e3b8ffb8a2",
-      "url": "https://api.github.com/repos/jasonwilliams/sublime_toml_highlighting/tarball/v2.5.0",
-      "hash": "02zcxidbkkk54y34pbyl71iy6pa0r9vpwjlyvphp32bc1fjyc3nw"
+      "version": "v2.6.0",
+      "revision": "f5a57e8bff694a4e6c52a491dae579aabc7427cf",
+      "url": "https://api.github.com/repos/jasonwilliams/sublime_toml_highlighting/tarball/v2.6.0",
+      "hash": "08p4qb9rqd81zy98w451sjagjjbx8bmyzyrl5rc73gj9xnlxfhrm"
     }
   },
   "version": 3
