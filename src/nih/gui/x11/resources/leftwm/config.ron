@@ -13,7 +13,7 @@
     state_path: None,
     keybind: [
         (command: Execute, value: "$HOME/.local/bin/rlaunch-wrapper", modifier: ["modkey"], key: "r"),
-        (command: Execute, value: "$HOME/.local/bin/screenshot", modifier: [], key: "Print"),
+        (command: Execute, value: "screenshot", modifier: [], key: "Print"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["Control", "Alt"], key: "End"),
         (command: Execute, value: "setxkbmap -layout us,ge -option grp:win_space_toggle", modifier: ["Control", "Alt"], key: "g"),

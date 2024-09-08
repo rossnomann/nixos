@@ -19,8 +19,6 @@ in
       pkgs.leftwm
       pkgs.picom
       pkgs.rlaunch
-      pkgs.shotgun
-      pkgs.slop
       pkgs.sx
       pkgs.wmctrl
       pkgs.xclip
@@ -71,7 +69,6 @@ in
             }
           );
           ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
-          ".local/bin/screenshot".source = ./resources/screenshot;
         };
     };
     services = {

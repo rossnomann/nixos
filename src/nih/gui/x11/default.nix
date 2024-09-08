@@ -2,6 +2,7 @@
 {
   imports = [
     ./config.nix
+    ./screenshot.nix
     ./tablet.nix
   ];
   options.nih.gui.x11 = {
