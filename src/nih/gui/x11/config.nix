@@ -18,7 +18,6 @@ in
       pkgs.hsetroot
       pkgs.leftwm
       pkgs.picom
-      pkgs.rlaunch
       pkgs.sx
       pkgs.wmctrl
       pkgs.xclip
@@ -51,14 +50,6 @@ in
           );
           ".config/leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
           ".config/picom/picom.conf".source = ./resources/picom/picom.conf;
-          ".config/rlaunch/args".text = (
-            lib.concatStringsSep " " (
-              import ./resources/rlaunch/args.nix {
-                inherit palette;
-                font = cfgGui.style.fonts.sansSerif;
-              }
-            )
-          );
           ".config/sx/sxrc".source = ./resources/sx/sxrc;
           ".config/sx/xresources".text = (
             import ./resources/sx/xresources.nix {
@@ -68,7 +59,6 @@ in
               cursorThemeName = cfgGui.style.cursors.name;
             }
           );
-          ".local/bin/rlaunch-wrapper".source = ./resources/rlaunch/wrapper.nu;
         };
     };
     services = {
