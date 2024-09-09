@@ -86,7 +86,7 @@ in
             "show_line_column": "compact",
             "show_line_endings": true,
             "show_tab_close_buttons": false,
-            "sublime_merge_path": "${pkgs.sublime-merge}/bin/sublime_merge",
+            "sublime_merge_path": "/run/current-system/sw/bin/sublime_merge",
             "translate_tabs_to_spaces": true,
             "trim_trailing_white_space_on_save": "all",
             "update_system_recent_files": false,
