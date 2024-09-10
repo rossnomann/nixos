@@ -12,11 +12,8 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.greetd.greetd
-      pkgs.greetd.tuigreet
       pkgs.hsetroot
       pkgs.leftwm
-      pkgs.sx
     ];
     nih = {
       gui.services.dunst =
@@ -27,7 +24,6 @@ in
           gap = gutter;
           offset = gutter * 2;
         };
-      login.command = "'sx'";
       user.home.file =
         let
           palette = cfgPalette.current;
@@ -44,15 +40,6 @@ in
             }
           );
           ".config/leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
-          ".config/sx/sxrc".source = ./resources/sx/sxrc;
-          ".config/sx/xresources".text = (
-            import ./resources/sx/xresources.nix {
-              inherit palette;
-              dpi = cfgGui.dpi;
-              cursorSize = cfgGui.style.cursors.size;
-              cursorThemeName = cfgGui.style.cursors.name;
-            }
-          );
         };
     };
 
