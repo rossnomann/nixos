@@ -43,11 +43,6 @@
     };
   };
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-      settings.General.Experimental = true;
-    };
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;
     graphics = {
@@ -84,13 +79,9 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
-  services = {
-    fstrim.enable = true;
-    hardware.bolt.enable = true;
-    xserver.videoDrivers = [ "nvidia" ];
-  };
   networking.useDHCP = lib.mkDefault true;
   nih = {
+    bluetooth.enable = true;
     gui =
       let
         dpi = 144;
@@ -210,5 +201,10 @@
         ];
       };
     };
+  };
+  services = {
+    fstrim.enable = true;
+    hardware.bolt.enable = true;
+    xserver.videoDrivers = [ "nvidia" ];
   };
 }

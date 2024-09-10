@@ -53,13 +53,6 @@
     };
   };
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = false;
-      settings = {
-        General.Experimental = true;
-      };
-    };
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
@@ -79,6 +72,7 @@
   };
   networking.useDHCP = lib.mkDefault true;
   nih = {
+    bluetooth.enable = true;
     gui =
       let
         dpi = 144;

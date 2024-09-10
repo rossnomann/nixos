@@ -4,6 +4,7 @@
     ./gui
     ./shell
     ./audio.nix
+    ./bluetooth.nix
     ./console.nix
     ./locale.nix
     ./net.nix
