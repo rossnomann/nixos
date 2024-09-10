@@ -1,5 +1,6 @@
 { lib, writeTextFile }:
 let
+  leftwm = import ./leftwm.nix { inherit lib; };
   mime = import ./mime.nix;
   paths = import ./paths.nix { inherit lib; };
   strings = import ./strings.nix { inherit lib; };
@@ -8,6 +9,7 @@ in
 {
   nih = {
     inherit
+      leftwm
       mime
       paths
       strings

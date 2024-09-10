@@ -25,7 +25,7 @@ in
             systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
             dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
             xrdb -merge ~/.config/sx/xresources
-            systemctl --user start leftwm-session.target
+            systemctl --user start wm-session.target
             exec leftwm
           '';
         };
@@ -106,6 +106,18 @@ in
         options = "grp:win_space_toggle";
         variant = "qwerty";
       };
+    };
+    systemd.user.units."wm-session.target" = {
+      name = "wm-session.target";
+      enable = true;
+      text = ''
+        [Unit]
+        Description=A window manager session
+        Documentation=man:systemd.special
+        BindsTo=graphical-session.target
+        Wants=graphical-session-pre.target
+        After=graphical-session-pre.target nixos-activation.service
+      '';
     };
   };
 }

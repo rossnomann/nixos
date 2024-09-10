@@ -23,13 +23,13 @@ in
     nih.user.home.file = {
       ".config/systemd/user/rot8.service".text = ''
         [Install]
-        WantedBy=leftwm-session.target
+        WantedBy=wm-session.target
         [Service]
         ExecStart=${pkgs.rot8}/bin/rot8 -d eDP1 --touchscreen 'Wacom HID 5250 Finger'
         PassEnvironment=DISPLAY
         PassEnvironment=PATH
         [Unit]
-        After=leftwm-session.target
+        After=wm-session.target
         Description=Automatic display rotation
       '';
     };
