@@ -17,7 +17,6 @@ in
       pkgs.greetd.tuigreet
       pkgs.hsetroot
       pkgs.leftwm
-      pkgs.picom
       pkgs.sx
       pkgs.wmctrl
       pkgs.xclip
@@ -49,7 +48,6 @@ in
             }
           );
           ".config/leftwm/themes/current/up".source = ./resources/leftwm/themes/current/up;
-          ".config/picom/picom.conf".source = ./resources/picom/picom.conf;
           ".config/sx/sxrc".source = ./resources/sx/sxrc;
           ".config/sx/xresources".text = (
             import ./resources/sx/xresources.nix {

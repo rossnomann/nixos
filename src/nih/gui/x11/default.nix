@@ -2,6 +2,7 @@
 {
   imports = [
     ./config.nix
+    ./picom.nix
     ./rlaunchx.nix
     ./screenshot.nix
     ./tablet.nix
