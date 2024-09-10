@@ -112,7 +112,7 @@ in
         Documentation=man:systemd.special
         BindsTo=graphical-session.target
         Wants=graphical-session-pre.target
-        After=graphical-session-pre.target
+        After=graphical-session-pre.target nixos-activation.service
       '';
     };
   };
