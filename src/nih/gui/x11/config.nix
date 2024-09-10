@@ -12,16 +12,11 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.arandr
       pkgs.greetd.greetd
       pkgs.greetd.tuigreet
       pkgs.hsetroot
       pkgs.leftwm
       pkgs.sx
-      pkgs.wmctrl
-      pkgs.xclip
-      pkgs.xorg.xdpyinfo
-      pkgs.xorg.xkill
     ];
     nih = {
       gui.services.dunst =
@@ -32,6 +27,7 @@ in
           gap = gutter;
           offset = gutter * 2;
         };
+      login.command = "'sx'";
       user.home.file =
         let
           palette = cfgPalette.current;
@@ -59,48 +55,7 @@ in
           );
         };
     };
-    services = {
-      autorandr = {
-        enable = true;
-        hooks.postswitch."dpi" = ''
-          xrandr --dpi ${builtins.toString cfgGui.dpi}
-          leftwm command SoftReload
-        '';
-        ignoreLid = true;
-        profiles = cfgGui.x11.autorandr.profiles;
-      };
-      greetd = {
-        enable = true;
-        settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd 'sx'";
-      };
-      libinput.enable = true;
 
-      xserver = {
-        enable = true;
-        autorun = false;
-        exportConfiguration = true;
-        excludePackages = [
-          pkgs.xorg.xinit
-          pkgs.xterm
-        ];
-        extraConfig = ''
-          Section "Extensions"
-            Option "DPMS" "false"
-          EndSection
-        '';
-        serverFlagsSection = ''
-          Option "BlankTime" "0"
-          Option "StandbyTime" "0"
-          Option "SuspendTime" "0"
-          Option "OffTime" "0"
-        '';
-        xkb = {
-          layout = "us,ru";
-          options = "grp:win_space_toggle";
-          variant = "qwerty";
-        };
-      };
-    };
     systemd.user.units."leftwm-session.target" = {
       name = "leftwm-session.target";
       enable = true;

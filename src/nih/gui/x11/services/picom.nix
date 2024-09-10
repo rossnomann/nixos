@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -16,11 +15,17 @@ in
       backend = "glx";
       fade = true;
       fadeDelta = 10;
-      fadeSteps = [0.028 0.03];
+      fadeSteps = [
+        2.8e-2
+        3.0e-2
+      ];
       inactiveOpacity = 1.0;
       menuOpacity = 1.0;
       shadow = false;
-      shadowOffsets = [(-15) (-15)];
+      shadowOffsets = [
+        (-15)
+        (-15)
+      ];
       shadowOpacity = 0.75;
       vSync = true;
     };

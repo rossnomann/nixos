@@ -7,6 +7,7 @@
     ./bluetooth.nix
     ./console.nix
     ./locale.nix
+    ./login.nix
     ./net.nix
     ./nixos.nix
     ./palette.nix

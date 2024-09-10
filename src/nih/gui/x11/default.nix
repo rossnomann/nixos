@@ -1,10 +1,9 @@
 { lib, ... }:
 {
   imports = [
+    ./programs
+    ./services
     ./config.nix
-    ./picom.nix
-    ./rlaunchx.nix
-    ./screenshot.nix
     ./tablet.nix
   ];
   options.nih.gui.x11 = {
