@@ -16,6 +16,26 @@ in
       pkgs.inkscape
       pkgs.qview
     ];
-    nih.xdg.mime.images = "com.interversehq.qView.desktop";
+    nih = {
+      gui.x11.wm.windowRules = [
+        {
+          windowClass = ".gimp-2.10-wrapped_";
+          spawnOnTag = "graphics";
+        }
+        {
+          windowClass = "gmic_qt";
+          spawnOnTag = "graphics";
+        }
+        {
+          windowClass = "org.inkscape.Inkscape";
+          spawnOnTag = "graphics";
+        }
+        {
+          windowClass = "qview";
+          spawnOnTag = "graphics";
+        }
+      ];
+      xdg.mime.images = "com.interversehq.qView.desktop";
+    };
   };
 }

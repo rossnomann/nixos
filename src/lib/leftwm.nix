@@ -21,7 +21,8 @@ let
         key: ${mkString key}
       )
     '';
-  mkWindowRule =
+  mkWindowRuleBase =
+    tags:
     {
       windowClass ? null,
       windowTitle ? null,
@@ -31,12 +32,20 @@ let
       spawnFullscreen ? null,
       spawnFloating ? null,
     }:
+    let
+      findTagIndex = value: lib.lists.findFirstIndex (x: x == value) null tags;
+      assertTagFound =
+        value:
+        assert (lib.assertMsg (value != null) "tag ${builtins.toString spawnOnTag} is not found");
+        value + 1;
+      spawnOnTagInt = if spawnOnTag == null then null else assertTagFound (findTagIndex spawnOnTag);
+    in
     ''
       (
         spawn_as_type: ${optValue spawnAsType},
         spawn_floating: ${optBool spawnFloating},
         spawn_fullscreen: ${optBool spawnFullscreen},
-        spawn_on_tag: ${optInt spawnOnTag},
+        spawn_on_tag: ${optInt spawnOnTagInt},
         spawn_sticky: ${optBool spawnSticky},
         window_class: ${optString windowClass},
         window_title: ${optString windowTitle}
@@ -64,6 +73,9 @@ in
       tags,
       windowRules,
     }:
+    let
+      mkWindowRule = (mkWindowRuleBase tags);
+    in
     ''
       #![enable(implicit_some)]
       (

@@ -51,4 +51,30 @@ in
       pkgs.pavucontrol
     ] ++ plugins;
   };
+  nih.gui.x11.wm.windowRules = [
+    {
+      windowClass = "deadbeef";
+      spawnOnTag = "secondary";
+    }
+    {
+      windowClass = "ardour-8.4.0";
+      spawnOnTag = "audio";
+    }
+    {
+      windowClass = "ardour_ardour";
+      spawnOnTag = "audio";
+    }
+    {
+      windowClass = "helvum";
+      spawnOnTag = "audio";
+    }
+    {
+      windowClass = "hydrogen";
+      spawnOnTag = "audio";
+    }
+    {
+      windowClass = "pavucontrol";
+      spawnOnTag = "audio";
+    }
+  ];
 }

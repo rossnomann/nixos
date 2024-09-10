@@ -18,6 +18,10 @@ in
       type = lib.types.package;
       default = package;
     };
+    windowRules = lib.mkOption {
+      type = lib.types.listOf lib.types.attrs;
+      default = [ ];
+    };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ package ];
@@ -378,110 +382,7 @@ in
               "documents"
               "steam"
             ];
-            windowRules = [
-              {
-                windowClass = "Alacritty";
-                spawnOnTag = 1;
-              }
-              {
-                windowClass = "firefox";
-                spawnOnTag = 2;
-              }
-              {
-                windowTitle = "Picture-in-Picture";
-                spawnAsType = "Normal";
-                spawnSticky = true;
-              }
-              {
-                windowClass = "sublime_text";
-                spawnOnTag = 2;
-              }
-              {
-                windowClass = "sublime_merge";
-                spawnOnTag = 2;
-              }
-              {
-                windowClass = "deadbeef";
-                spawnOnTag = 3;
-              }
-              {
-                windowClass = "telegram-desktop";
-                spawnOnTag = 3;
-              }
-              {
-                windowClass = "mpv";
-                spawnFullscreen = true;
-                spawnOnTag = 3;
-              }
-              {
-                windowClass = ".syncplay-wrapped";
-                spawnFloating = true;
-                spawnOnTag = 3;
-              }
-              {
-                windowClass = "ardour-8.4.0";
-                spawnOnTag = 4;
-              }
-              {
-                windowClass = "ardour_ardour";
-                spawnOnTag = 4;
-              }
-              {
-                windowClass = "helvum";
-                spawnOnTag = 4;
-              }
-              {
-                windowClass = "hydrogen";
-                spawnOnTag = 4;
-              }
-              {
-                windowClass = "pavucontrol";
-                spawnOnTag = 4;
-              }
-              {
-                windowClass = ".gimp-2.10-wrapped_";
-                spawnOnTag = 5;
-              }
-              {
-                windowClass = "gmic_qt";
-                spawnOnTag = 5;
-              }
-              {
-                windowClass = "org.inkscape.Inkscape";
-                spawnOnTag = 5;
-              }
-              {
-                windowClass = "qview";
-                spawnOnTag = 5;
-              }
-              {
-                windowClass = "org.pwmt.zathura";
-                spawnOnTag = 6;
-              }
-              {
-                windowClass = "libreoffice";
-                spawnOnTag = 6;
-              }
-              {
-                windowClass = "obsidian";
-                spawnOnTag = 6;
-              }
-              {
-                windowClass = "simple-scan";
-                spawnOnTag = 6;
-              }
-              {
-                windowClass = "steam";
-                spawnFloating = true;
-                spawnOnTag = 7;
-              }
-              {
-                windowClass = "onboard";
-                spawnAsType = "Normal";
-                spawnFloating = true;
-                spawnSticky = true;
-              }
-            ];
+            windowRules = cfgGui.x11.wm.windowRules;
           };
           ".config/leftwm/down" = {
             executable = true;

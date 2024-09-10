@@ -22,17 +22,31 @@ in
       pkgs.syncplay
     ];
     nih = {
-      gui.programs.video.mpv.theme.package = pkgs.stdenvNoCC.mkDerivation {
-        pname = "catppuccin-mpv";
-        version = npins.catppuccin-mpv.revision;
-        src = npins.catppuccin-mpv;
-        installPhase = ''
-          runHook preInstall
-          mkdir -p $out
-          find themes/*.conf -type f -exec sed -i "s/^background-color=.*$/background-color=\'#000000\'/g" {} +
-          cp -a themes/* $out
-          runHook postInstall
-        '';
+      gui = {
+        programs.video.mpv.theme.package = pkgs.stdenvNoCC.mkDerivation {
+          pname = "catppuccin-mpv";
+          version = npins.catppuccin-mpv.revision;
+          src = npins.catppuccin-mpv;
+          installPhase = ''
+            runHook preInstall
+            mkdir -p $out
+            find themes/*.conf -type f -exec sed -i "s/^background-color=.*$/background-color=\'#000000\'/g" {} +
+            cp -a themes/* $out
+            runHook postInstall
+          '';
+        };
+        x11.wm.windowRules = [
+          {
+            windowClass = "mpv";
+            spawnFullscreen = true;
+            spawnOnTag = "secondary";
+          }
+          {
+            windowClass = ".syncplay-wrapped";
+            spawnFloating = true;
+            spawnOnTag = "secondary";
+          }
+        ];
       };
       xdg.mime =
         let

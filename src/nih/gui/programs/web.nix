@@ -125,5 +125,16 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ (pkgs.firefox.override { inherit extraPolicies; }) ];
+    nih.gui.x11.wm.windowRules = [
+      {
+        windowClass = "firefox";
+        spawnOnTag = "main";
+      }
+      {
+        windowTitle = "Picture-in-Picture";
+        spawnAsType = "Normal";
+        spawnSticky = true;
+      }
+    ];
   };
 }

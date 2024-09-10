@@ -24,5 +24,11 @@ in
         addedAssociations = assoc;
         defaultApplications = assoc;
       };
+    nih.gui.x11.wm.windowRules = [
+      {
+        windowClass = "telegram-desktop";
+        spawnOnTag = "secondary";
+      }
+    ];
   };
 }

@@ -18,6 +18,24 @@ in
       pkgs.zathura
     ];
     nih = {
+      gui.x11.wm.windowRules = [
+        {
+          windowClass = "libreoffice";
+          spawnOnTag = "documents";
+        }
+        {
+          windowClass = "obsidian";
+          spawnOnTag = "documents";
+        }
+        {
+          windowClass = "org.pwmt.zathura";
+          spawnOnTag = "documents";
+        }
+        {
+          windowClass = "simple-scan";
+          spawnOnTag = "documents";
+        }
+      ];
       user.home.file = {
         ".config/zathura/zathurarc".text = ''
           include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}

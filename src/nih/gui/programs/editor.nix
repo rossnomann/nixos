@@ -17,6 +17,16 @@ in
       pkgs.sublime-merge
     ];
     nih = {
+      gui.x11.wm.windowRules = [
+        {
+          windowClass = "sublime_text";
+          spawnOnTag = "main";
+        }
+        {
+          windowClass = "sublime_merge";
+          spawnOnTag = "main";
+        }
+      ];
       # Contains only simple packages without deps, e.g. preferences, syntax highlighting, color schemes, etc...
       user.home.file = {
         # TODO: write a nix package and use npins
