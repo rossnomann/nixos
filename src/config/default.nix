@@ -8,31 +8,7 @@
   config = {
     nih = {
       enable = true;
-      ui = {
-        style = {
-          fonts = {
-            packages = [
-              pkgs.roboto
-              pkgs.roboto-serif
-              pkgs.fira-code
-              pkgs.fira-code-symbols
-            ];
-            monospace = {
-              family = "Fira Code";
-            };
-            sansSerif = {
-              family = "Roboto";
-            };
-            serif = {
-              family = "Roboto Serif";
-            };
-          };
-          icons = {
-            name = "Papirus-Dark";
-            package = pkgs.papirus-icon-theme;
-          };
-        };
-      };
+
       locale = {
         default = "en_US.UTF-8";
         extra = "ru_RU.UTF-8";
@@ -41,6 +17,29 @@
       palette = {
         accent = "green";
         variant = "mocha";
+      };
+      style = {
+        fonts = {
+          packages = [
+            pkgs.roboto
+            pkgs.roboto-serif
+            pkgs.fira-code
+            pkgs.fira-code-symbols
+          ];
+          monospace = {
+            family = "Fira Code";
+          };
+          sansSerif = {
+            family = "Roboto";
+          };
+          serif = {
+            family = "Roboto Serif";
+          };
+        };
+        icons = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
       };
       user = {
         name = "ross";

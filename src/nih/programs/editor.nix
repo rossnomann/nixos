@@ -8,7 +8,7 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUi = cfg.ui;
+  cfgStyle = cfg.style;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -53,7 +53,7 @@ in
           "${npins.catppuccin-sublime-text}/build/${themeName}";
         ".config/sublime-text/Packages/Catppuccin/Preferences.sublime-settings".text =
           let
-            font = cfgUi.style.fonts.monospace;
+            font = cfgStyle.fonts.monospace;
           in
           ''
             {

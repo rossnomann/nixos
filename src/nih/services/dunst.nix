@@ -8,7 +8,7 @@ let
   cfg = config.nih;
   cfgPalette = cfg.palette;
   cfgServices = cfg.services;
-  cfgUi = cfg.ui;
+  cfgStyle = cfg.style;
   package = pkgs.dunst;
 in
 {
@@ -50,12 +50,12 @@ in
       {
         ".config/dunst/dunstrc".text =
           let
-            font = cfgUi.style.fonts.sansSerif;
+            font = cfgStyle.fonts.sansSerif;
             fontName = "${font.family} ${builtins.toString font.defaultSize}";
             dunst = cfgServices.dunst;
             gap = builtins.toString dunst.gap;
             offset = builtins.toString dunst.offset;
-            iconTheme = cfgUi.style.icons;
+            iconTheme = cfgStyle.icons;
             iconPath = lib.nih.paths.mkIconPath {
               themePackage = iconTheme.package;
               themeName = iconTheme.name;

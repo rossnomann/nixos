@@ -4,6 +4,7 @@
     ./programs
     ./services
     ./shell
+    ./style
     ./ui
     ./audio.nix
     ./bluetooth.nix

@@ -8,7 +8,7 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUi = cfg.ui;
+  cfgStyle = cfg.style;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -23,7 +23,7 @@ in
       user.home.file = {
         ".config/alacritty/alacritty.toml".text =
           let
-            fontMonospace = cfgUi.style.fonts.monospace;
+            fontMonospace = cfgStyle.fonts.monospace;
           in
           ''
             import = ["${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml"]

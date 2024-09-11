@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./style
     ./x11
   ];
   options.nih.ui = {

@@ -7,18 +7,18 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUi = cfg.ui;
+  cfgStyle = cfg.style;
   cursors = {
     name = "catppuccin-${cfgPalette.variant}-${cfgPalette.accent}-cursors";
-    size = cfgUi.style.cursors.size;
+    size = cfgStyle.cursors.size;
   };
   gtk = {
     decorationLayout = ":";
-    fontName = "${cfgUi.style.fonts.sansSerif.family} ${builtins.toString cfgUi.style.fonts.sansSerif.defaultSize}";
+    fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
     themeName = "catppuccin-${cfgPalette.variant}-${cfgPalette.accent}-compact+rimless";
   };
   icons = {
-    name = cfgUi.style.icons.name;
+    name = cfgStyle.icons.name;
   };
   kvantum = {
     themeName = "catppuccin-${cfgPalette.variant}-${cfgPalette.accent}";
@@ -27,7 +27,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     nih = {
-      ui.style.cursors.name = cursors.name;
+      style.cursors.name = cursors.name;
       user.home.file = {
         ".config/Kvantum/kvantum.kvconfig".text = ''
           theme=${kvantum.themeName}
@@ -59,7 +59,7 @@ in
            * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
            * It does however respect user CSS, so import the theme from here.
           **/
-          @import url("file://${cfgUi.style.packages.gtk}/share/themes/${gtk.themeName}/gtk-4.0/gtk.css");
+          @import url("file://${cfgStyle.packages.gtk}/share/themes/${gtk.themeName}/gtk-4.0/gtk.css");
           * {
             border-radius: 0 0 0 0;
             box-shadow: none;
@@ -74,22 +74,22 @@ in
           gtk-icon-theme-name=${icons.name}
           gtk-theme-name=${gtk.themeName}
         '';
-        ".icons/default/index.theme".source = "${cfgUi.style.packages.index}/share/icons/default/index.theme";
-        ".icons/${cursors.name}".source = "${cfgUi.style.packages.cursors}/share/icons/${cursors.name}";
+        ".icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
+        ".icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
         ".local/share/backgrounds/default.jpg".source = ./resources/backgrounds/default.jpg;
         ".local/share/backgrounds/default-empty.jpg".source = ./resources/backgrounds/default-empty.jpg;
-        ".local/share/icons/default/index.theme".source = "${cfgUi.style.packages.index}/share/icons/default/index.theme";
-        ".local/share/icons/${cursors.name}".source = "${cfgUi.style.packages.cursors}/share/icons/${cursors.name}";
+        ".local/share/icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
+        ".local/share/icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
       };
     };
     fonts = {
-      packages = cfgUi.style.fonts.packages;
+      packages = cfgStyle.fonts.packages;
       fontconfig = {
         enable = true;
         defaultFonts = {
-          monospace = [ cfgUi.style.fonts.monospace.family ];
-          sansSerif = [ cfgUi.style.fonts.sansSerif.family ];
-          serif = [ cfgUi.style.fonts.serif.family ];
+          monospace = [ cfgStyle.fonts.monospace.family ];
+          sansSerif = [ cfgStyle.fonts.sansSerif.family ];
+          serif = [ cfgStyle.fonts.serif.family ];
         };
       };
     };
@@ -119,11 +119,11 @@ in
         ];
       };
       systemPackages = [
-        cfgUi.style.icons.package
-        cfgUi.style.packages.cursors
-        cfgUi.style.packages.gtk
-        cfgUi.style.packages.index
-        cfgUi.style.packages.qt
+        cfgStyle.icons.package
+        cfgStyle.packages.cursors
+        cfgStyle.packages.gtk
+        cfgStyle.packages.index
+        cfgStyle.packages.qt
         pkgs.libsForQt5.qtstyleplugin-kvantum
         pkgs.qt6Packages.qtstyleplugin-kvantum
       ];

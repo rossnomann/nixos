@@ -82,30 +82,30 @@
   networking.useDHCP = lib.mkDefault true;
   nih = {
     bluetooth.enable = true;
+    style = {
+      cursors.size = 16;
+      fonts =
+        let
+          defaultSize = 10;
+        in
+        {
+          monospace = {
+            inherit defaultSize;
+          };
+          sansSerif = {
+            inherit defaultSize;
+          };
+          serif = {
+            inherit defaultSize;
+          };
+        };
+    };
     ui =
       let
         dpi = 144;
       in
       {
         inherit dpi;
-        style = {
-          cursors.size = 16;
-          fonts =
-            let
-              defaultSize = 10;
-            in
-            {
-              monospace = {
-                inherit defaultSize;
-              };
-              sansSerif = {
-                inherit defaultSize;
-              };
-              serif = {
-                inherit defaultSize;
-              };
-            };
-        };
         x11 = {
           autorandr.profiles = {
             "desktop" = {

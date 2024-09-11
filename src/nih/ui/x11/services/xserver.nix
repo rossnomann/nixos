@@ -7,6 +7,7 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
+  cfgStyle = cfg.style;
   cfgUi = cfg.ui;
 in
 {
@@ -38,8 +39,8 @@ in
             colors = cfgPalette.colors;
           in
           ''
-            Xcursor.size: ${builtins.toString cfgUi.style.cursors.size}
-            Xcursor.theme: ${cfgUi.style.cursors.name}
+            Xcursor.size: ${builtins.toString cfgStyle.cursors.size}
+            Xcursor.theme: ${cfgStyle.cursors.name}
 
             Xft.autohint: 0
             Xft.dpi: ${builtins.toString cfgUi.dpi}
