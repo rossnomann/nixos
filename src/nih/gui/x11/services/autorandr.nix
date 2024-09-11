@@ -15,11 +15,11 @@ in
       hooks.postswitch."dpi" =
         let
           xrandr = "${pkgs.xorg.xrandr}/bin/xrandr";
-          leftwm = "${pkgs.leftwm}/bin/leftwm"; # TODO: package from config
+          wmReload = cfgGui.x11.wm.commands.reload;
         in
         ''
           ${xrandr} --dpi ${builtins.toString cfgGui.dpi}
-          ${leftwm} command SoftReload
+          ${wmReload}
         '';
       ignoreLid = true;
       profiles = cfgGui.x11.autorandr.profiles;

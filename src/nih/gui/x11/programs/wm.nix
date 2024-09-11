@@ -9,6 +9,7 @@ let
   cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
   package = pkgs.leftwm;
+  executable = "${package}/bin/leftwm";
 in
 {
   options.nih.gui.x11.wm = {
@@ -17,6 +18,16 @@ in
     package = lib.mkOption {
       type = lib.types.package;
       default = package;
+    };
+    executable = lib.mkOption {
+      type = lib.types.str;
+      default = executable;
+    };
+    commands = {
+      reload = lib.mkOption {
+        type = lib.types.str;
+        default = "${executable} command SoftReload";
+      };
     };
     windowRules = lib.mkOption {
       type = lib.types.listOf lib.types.attrs;
@@ -37,7 +48,6 @@ in
       user.home.file =
         let
           hsetroot = "${pkgs.hsetroot}/bin/hsetroot";
-          leftwm = "${package}/bin/leftwm";
           nushell = "${pkgs.nushell}/bin/nu";
           xsetroot = "${pkgs.xorg.xsetroot}/bin/xsetroot";
         in
@@ -111,7 +121,7 @@ in
             text = ''
               #!${nushell}
 
-              ${leftwm} command 'UnloadTheme'
+              ${executable} command 'UnloadTheme'
               ${hsetroot} -solid '#000000'
             '';
           };
@@ -120,7 +130,7 @@ in
             text = ''
               #!${nushell}
 
-              ${leftwm} command $'LoadTheme ($env.HOME)/.config/leftwm/themes/current/theme.ron'
+              ${executable} command $'LoadTheme ($env.HOME)/.config/leftwm/themes/current/theme.ron'
               ${hsetroot} -fill $'($env.HOME)/.local/share/backgrounds/default.jpg'
               ${xsetroot} -cursor_name left_ptr
             '';

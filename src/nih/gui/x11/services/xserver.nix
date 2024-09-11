@@ -17,17 +17,21 @@ in
       user.home.file = {
         ".config/sx/sxrc" = {
           executable = true;
-          text = ''
-            #!/usr/bin/env bash
-            if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-                eval $(dbus-launch --exit-with-session --sh-syntax)
-            fi
-            systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-            dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-            xrdb -merge ~/.config/sx/xresources
-            systemctl --user start wm-session.target
-            exec leftwm
-          '';
+          text =
+            let
+              wm = cfgGui.x11.wm.executable;
+            in
+            ''
+              #!/usr/bin/env bash
+              if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+                  eval $(dbus-launch --exit-with-session --sh-syntax)
+              fi
+              systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+              dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+              xrdb -merge ~/.config/sx/xresources
+              systemctl --user start wm-session.target
+              exec ${wm}
+            '';
         };
         ".config/sx/xresources".text =
           let
