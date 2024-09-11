@@ -8,7 +8,7 @@ let
   cfg = config.nih;
   cfgPalette = cfg.palette;
   cfgStyle = cfg.style;
-  cfgUi = cfg.ui;
+  cfgX11 = cfg.x11;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -20,7 +20,7 @@ in
           executable = true;
           text =
             let
-              wm = cfgUi.x11.wm.executable;
+              wm = cfgX11.wm.executable;
             in
             ''
               #!/usr/bin/env bash
@@ -43,7 +43,7 @@ in
             Xcursor.theme: ${cfgStyle.cursors.name}
 
             Xft.autohint: 0
-            Xft.dpi: ${builtins.toString cfgUi.dpi}
+            Xft.dpi: ${builtins.toString cfgX11.dpi}
             Xft.lcdfilter: lcddefault
             Xft.hintstyle: hintfull
             Xft.hinting: 1

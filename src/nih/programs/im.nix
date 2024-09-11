@@ -24,7 +24,7 @@ in
         addedAssociations = assoc;
         defaultApplications = assoc;
       };
-    nih.ui.x11.wm.windowRules = [
+    nih.x11.wm.windowRules = [
       {
         windowClass = "telegram-desktop";
         spawnOnTag = "secondary";

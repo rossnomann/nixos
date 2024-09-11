@@ -33,20 +33,18 @@ in
           runHook postInstall
         '';
       };
-      ui = {
-        x11.wm.windowRules = [
-          {
-            windowClass = "mpv";
-            spawnFullscreen = true;
-            spawnOnTag = "secondary";
-          }
-          {
-            windowClass = ".syncplay-wrapped";
-            spawnFloating = true;
-            spawnOnTag = "secondary";
-          }
-        ];
-      };
+      x11.wm.windowRules = [
+        {
+          windowClass = "mpv";
+          spawnFullscreen = true;
+          spawnOnTag = "secondary";
+        }
+        {
+          windowClass = ".syncplay-wrapped";
+          spawnFloating = true;
+          spawnOnTag = "secondary";
+        }
+      ];
       xdg.mime =
         let
           entry = "mpv.desktop";

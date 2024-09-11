@@ -7,12 +7,12 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUi = cfg.ui;
+  cfgX11 = cfg.x11;
   package = pkgs.leftwm;
   executable = "${package}/bin/leftwm";
 in
 {
-  options.nih.ui.x11.wm = {
+  options.nih.x11.wm = {
     gutterSize = lib.mkOption { type = lib.types.int; };
     marginSize = lib.mkOption { type = lib.types.int; };
     package = lib.mkOption {
@@ -39,7 +39,7 @@ in
     nih = {
       services.dunst =
         let
-          gutter = cfgUi.x11.wm.gutterSize;
+          gutter = cfgX11.wm.gutterSize;
         in
         {
           gap = gutter;
@@ -114,7 +114,7 @@ in
               "documents"
               "steam"
             ];
-            windowRules = cfgUi.x11.wm.windowRules;
+            windowRules = cfgX11.wm.windowRules;
           };
           ".config/leftwm/down" = {
             executable = true;
@@ -150,11 +150,11 @@ in
               defaultBorderColor = colors.overlay2;
               floatingBorderColor = colors.overlay1;
               focusedBorderColor = colors.green;
-              gutterTop = cfgUi.x11.wm.gutterSize;
-              gutterRight = cfgUi.x11.wm.gutterSize;
-              gutterBottom = cfgUi.x11.wm.gutterSize;
-              gutterLeft = cfgUi.x11.wm.gutterSize;
-              margin = cfgUi.x11.wm.marginSize;
+              gutterTop = cfgX11.wm.gutterSize;
+              gutterRight = cfgX11.wm.gutterSize;
+              gutterBottom = cfgX11.wm.gutterSize;
+              gutterLeft = cfgX11.wm.gutterSize;
+              margin = cfgX11.wm.marginSize;
               workspaceMargin = 0;
             };
           ".config/leftwm/themes/current/up" = {

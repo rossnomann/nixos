@@ -125,7 +125,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ (pkgs.firefox.override { inherit extraPolicies; }) ];
-    nih.ui.x11.wm.windowRules = [
+    nih.x11.wm.windowRules = [
       {
         windowClass = "firefox";
         spawnOnTag = "main";

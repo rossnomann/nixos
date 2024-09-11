@@ -14,12 +14,6 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.alacritty ];
     nih = {
-      ui.x11.wm.windowRules = [
-        {
-          windowClass = "Alacritty";
-          spawnOnTag = "alacritty";
-        }
-      ];
       user.home.file = {
         ".config/alacritty/alacritty.toml".text =
           let
@@ -43,6 +37,12 @@ in
             y = 10
           '';
       };
+      x11.wm.windowRules = [
+        {
+          windowClass = "Alacritty";
+          spawnOnTag = "alacritty";
+        }
+      ];
     };
   };
 }

@@ -18,7 +18,12 @@ in
       pkgs.zathura
     ];
     nih = {
-      ui.x11.wm.windowRules = [
+      user.home.file = {
+        ".config/zathura/zathurarc".text = ''
+          include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
+        '';
+      };
+      x11.wm.windowRules = [
         {
           windowClass = "libreoffice";
           spawnOnTag = "documents";
@@ -36,11 +41,6 @@ in
           spawnOnTag = "documents";
         }
       ];
-      user.home.file = {
-        ".config/zathura/zathurarc".text = ''
-          include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
-        '';
-      };
       xdg.mime.documents = "org.pwmt.zathura.desktop";
     };
   };

@@ -5,8 +5,9 @@
     ./services
     ./tablet.nix
   ];
-  options.nih.ui.x11 = {
+  options.nih.x11 = {
     autorandr.profiles = lib.mkOption { type = lib.types.attrs; };
+    dpi = lib.mkOption { type = lib.types.int; };
     tablet.enable = lib.mkEnableOption "Tablet mode support";
   };
 }

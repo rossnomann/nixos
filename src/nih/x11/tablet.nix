@@ -6,10 +6,10 @@
 }:
 let
   cfg = config.nih;
-  cfgUi = cfg.ui;
+  cfgX11 = cfg.x11;
 in
 {
-  config = lib.mkIf (cfg.enable && cfgUi.x11.tablet.enable) {
+  config = lib.mkIf (cfg.enable && cfgX11.tablet.enable) {
     environment = {
       systemPackages = [
         pkgs.onboard
@@ -21,14 +21,6 @@ in
       };
     };
     nih = {
-      ui.x11.wm.windowRules = [
-        {
-          windowClass = "onboard";
-          spawnAsType = "Normal";
-          spawnFloating = true;
-          spawnSticky = true;
-        }
-      ];
       user.home.file = {
         ".config/systemd/user/rot8.service".text = ''
           [Install]
@@ -42,6 +34,14 @@ in
           Description=Automatic display rotation
         '';
       };
+      x11.wm.windowRules = [
+        {
+          windowClass = "onboard";
+          spawnAsType = "Normal";
+          spawnFloating = true;
+          spawnSticky = true;
+        }
+      ];
     };
     services.xserver.serverFlagsSection = ''
       Option "RandRRotation" "on"

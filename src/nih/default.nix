@@ -5,7 +5,7 @@
     ./services
     ./shell
     ./style
-    ./ui
+    ./x11
     ./audio.nix
     ./bluetooth.nix
     ./console.nix
