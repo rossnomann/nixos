@@ -3,8 +3,12 @@
   nixpkgs.overlays = [
     (final: prev: {
       nih = {
-        catppuccin-kvantum = prev.callPackage ./catppuccin-kvantum.nix { src = npins.catppuccin-kvantum; };
-        catppuccin-mpv = prev.callPackage ./catppuccin-mpv.nix { src = npins.catppuccin-mpv; };
+        catppuccin-kvantum = prev.callPackage ./catppuccin-kvantum.nix {
+          src = npins.catppuccin-kvantum;
+        };
+        catppuccin-mpv = prev.callPackage ./catppuccin-mpv.nix {
+          src = npins.catppuccin-mpv;
+        };
         mc =
           {
             commandTerminal,
@@ -22,6 +26,17 @@
             mc = prev.mc;
           };
         nohup-xdg-open = prev.callPackage ./nohup-xdg-open.nix { };
+        rlaunchx =
+          {
+            arguments,
+            shellPath,
+          }:
+          prev.callPackage ./rlaunchx.nix {
+            inherit
+              arguments
+              shellPath
+              ;
+          };
       };
     })
   ];

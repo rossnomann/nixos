@@ -7,6 +7,7 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
+  cfgPrograms = cfg.programs;
   cfgX11 = cfg.x11;
   package = pkgs.leftwm;
   executable = "${package}/bin/leftwm";
@@ -70,9 +71,9 @@ in
                 tags = map builtins.toString (lib.range 1 7);
               in
               [
-                (kb.mkExecute mod.win "r" "rlaunchx")
+                (kb.mkExecute mod.win "r" cfgX11.programs.rlaunchx.executable)
                 (kb.mkExecute mod.empty "Print" "screenshot")
-                (kb.mkExecute mod.win "Return" "alacritty")
+                (kb.mkExecute mod.win "Return" cfgPrograms.terminal.executable)
                 (kb.mkExecute mod.ctrl_alt "End" "loginctl kill-session $XDG_SESSION_ID")
                 (kb.mkExecute mod.ctrl_alt "g" "setxkbmap -layout us,ge -option grp:win_space_toggle")
                 (kb.mkExecute mod.ctrl_alt "r" "setxkbmap -layout us,ru -option grp:win_space_toggle")

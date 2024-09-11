@@ -10,7 +10,7 @@ let
   cfgPrograms = cfg.programs;
   package = (
     pkgs.nih.mc {
-      commandTerminal = "alacritty --command"; # TODO: value from config
+      commandTerminal = cfgPrograms.terminal.runCommand;
       configIni = lib.nih.mc.mkIni {
         general = lib.nih.mc.defaults.ini.general // {
           skin = "catppuccin";
@@ -25,7 +25,7 @@ let
   );
 in
 {
-  options.nih.programs.mc = {
+  options.nih.programs.commander = {
     package = lib.mkOption {
       type = lib.types.package;
       default = package;
@@ -35,7 +35,7 @@ in
     environment = {
       pathsToLink = [ "/share/mc" ];
       systemPackages = [
-        cfgPrograms.mc.package
+        cfgPrograms.commander.package
       ];
     };
     nih.xdg.mime.directories = "mc.desktop";

@@ -8,19 +8,37 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
+  cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
+  package = pkgs.alacritty;
+  executable = "${package}/bin/alacritty";
 in
 {
+  options.nih.programs.terminal = {
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = package;
+    };
+    executable = lib.mkOption {
+      type = lib.types.str;
+      default = executable;
+    };
+    runCommand = lib.mkOption {
+      type = lib.types.str;
+      default = "${executable} --command";
+    };
+  };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.alacritty ];
+    environment.systemPackages = [ cfgPrograms.terminal.package ];
     nih = {
       user.home.file = {
         ".config/alacritty/alacritty.toml".text =
           let
             fontMonospace = cfgStyle.fonts.monospace;
+            themePath = "${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml";
           in
           ''
-            import = ["${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml"]
+            import = ["${themePath}"]
             [cursor.style]
             blinking = "Always"
             shape = "Beam"
