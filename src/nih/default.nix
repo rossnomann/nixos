@@ -1,8 +1,8 @@
 { lib, ... }:
 {
   imports = [
-    ./gui
     ./shell
+    ./ui
     ./audio.nix
     ./bluetooth.nix
     ./console.nix

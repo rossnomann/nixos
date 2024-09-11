@@ -7,14 +7,14 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.alacritty ];
     nih = {
-      gui.x11.wm.windowRules = [
+      ui.x11.wm.windowRules = [
         {
           windowClass = "Alacritty";
           spawnOnTag = "alacritty";
@@ -23,7 +23,7 @@ in
       user.home.file = {
         ".config/alacritty/alacritty.toml".text =
           let
-            fontMonospace = cfgGui.style.fonts.monospace;
+            fontMonospace = cfgUi.style.fonts.monospace;
           in
           ''
             import = ["${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml"]

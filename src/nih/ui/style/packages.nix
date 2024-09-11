@@ -7,12 +7,12 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
-    nih.gui.style.packages = {
+    nih.ui.style.packages = {
       cursors = (
         lib.getAttr "${cfgPalette.variant}${lib.nih.strings.capitalize cfgPalette.accent}" pkgs.catppuccin-cursors
       );
@@ -30,7 +30,7 @@ in
           [Icon Theme]
           Name=Default
           Comment=Default Cursor Theme
-          Inherits=${cfgGui.style.cursors.name}
+          Inherits=${cfgUi.style.cursors.name}
         '';
       };
       qt = pkgs.stdenvNoCC.mkDerivation {

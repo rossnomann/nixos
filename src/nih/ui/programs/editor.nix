@@ -7,8 +7,8 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -17,7 +17,7 @@ in
       pkgs.sublime-merge
     ];
     nih = {
-      gui.x11.wm.windowRules = [
+      ui.x11.wm.windowRules = [
         {
           windowClass = "sublime_text";
           spawnOnTag = "main";
@@ -53,7 +53,7 @@ in
           "${npins.catppuccin-sublime-text}/build/${themeName}";
         ".config/sublime-text/Packages/Catppuccin/Preferences.sublime-settings".text =
           let
-            font = cfgGui.style.fonts.monospace;
+            font = cfgUi.style.fonts.monospace;
           in
           ''
             {

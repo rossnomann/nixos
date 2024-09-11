@@ -73,7 +73,7 @@
   networking.useDHCP = lib.mkDefault true;
   nih = {
     bluetooth.enable = true;
-    gui =
+    ui =
       let
         dpi = 144;
       in

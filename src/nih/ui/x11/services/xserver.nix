@@ -6,8 +6,8 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -19,7 +19,7 @@ in
           executable = true;
           text =
             let
-              wm = cfgGui.x11.wm.executable;
+              wm = cfgUi.x11.wm.executable;
             in
             ''
               #!/usr/bin/env bash
@@ -38,11 +38,11 @@ in
             colors = cfgPalette.colors;
           in
           ''
-            Xcursor.size: ${builtins.toString cfgGui.style.cursors.size}
-            Xcursor.theme: ${cfgGui.style.cursors.name}
+            Xcursor.size: ${builtins.toString cfgUi.style.cursors.size}
+            Xcursor.theme: ${cfgUi.style.cursors.name}
 
             Xft.autohint: 0
-            Xft.dpi: ${builtins.toString cfgGui.dpi}
+            Xft.dpi: ${builtins.toString cfgUi.dpi}
             Xft.lcdfilter: lcddefault
             Xft.hintstyle: hintfull
             Xft.hinting: 1

@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -15,14 +15,14 @@ in
       hooks.postswitch."dpi" =
         let
           xrandr = "${pkgs.xorg.xrandr}/bin/xrandr";
-          wmReload = cfgGui.x11.wm.commands.reload;
+          wmReload = cfgUi.x11.wm.commands.reload;
         in
         ''
-          ${xrandr} --dpi ${builtins.toString cfgGui.dpi}
+          ${xrandr} --dpi ${builtins.toString cfgUi.dpi}
           ${wmReload}
         '';
       ignoreLid = true;
-      profiles = cfgGui.x11.autorandr.profiles;
+      profiles = cfgUi.x11.autorandr.profiles;
     };
   };
 }

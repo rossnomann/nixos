@@ -4,7 +4,7 @@
     ./config.nix
     ./packages.nix
   ];
-  options.nih.gui.style = {
+  options.nih.ui.style = {
     cursors = {
       name = lib.mkOption { type = lib.types.str; };
       size = lib.mkOption { type = lib.types.int; };

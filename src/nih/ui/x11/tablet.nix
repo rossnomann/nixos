@@ -6,10 +6,10 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
+  cfgUi = cfg.ui;
 in
 {
-  config = lib.mkIf (cfg.enable && cfgGui.x11.tablet.enable) {
+  config = lib.mkIf (cfg.enable && cfgUi.x11.tablet.enable) {
     environment = {
       systemPackages = [
         pkgs.onboard
@@ -21,7 +21,7 @@ in
       };
     };
     nih = {
-      gui.x11.wm.windowRules = [
+      ui.x11.wm.windowRules = [
         {
           windowClass = "onboard";
           spawnAsType = "Normal";

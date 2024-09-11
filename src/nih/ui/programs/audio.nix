@@ -50,7 +50,7 @@ in
       pkgs.pavucontrol
     ] ++ plugins;
   };
-  nih.gui.x11.wm.windowRules = [
+  nih.ui.x11.wm.windowRules = [
     {
       windowClass = "deadbeef";
       spawnOnTag = "secondary";

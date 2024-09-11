@@ -6,7 +6,7 @@
     ./style
     ./x11
   ];
-  options.nih.gui = {
+  options.nih.ui = {
     dpi = lib.mkOption { type = lib.types.int; };
   };
 }

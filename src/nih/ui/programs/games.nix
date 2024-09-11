@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = [ pkgs.steam ];
-  nih.gui.x11.wm.windowRules = [
+  nih.ui.x11.wm.windowRules = [
     {
       windowClass = "steam";
       spawnFloating = true;

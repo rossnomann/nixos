@@ -17,7 +17,7 @@ in
       pkgs.qview
     ];
     nih = {
-      gui.x11.wm.windowRules = [
+      ui.x11.wm.windowRules = [
         {
           windowClass = ".gimp-2.10-wrapped_";
           spawnOnTag = "graphics";

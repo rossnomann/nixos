@@ -7,11 +7,11 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
-  options.nih.gui.programs.video.mpv.theme.package = lib.mkOption { type = lib.types.package; };
+  options.nih.ui.programs.video.mpv.theme.package = lib.mkOption { type = lib.types.package; };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.mpv
@@ -19,7 +19,7 @@ in
       pkgs.syncplay
     ];
     nih = {
-      gui = {
+      ui = {
         programs.video.mpv.theme.package = pkgs.stdenvNoCC.mkDerivation {
           pname = "catppuccin-mpv";
           version = npins.catppuccin-mpv.revision;
@@ -56,7 +56,7 @@ in
       user.home.file = {
         ".config/mpv/mpv.conf".source =
           let
-            package = cfgGui.programs.video.mpv.theme.package;
+            package = cfgUi.programs.video.mpv.theme.package;
           in
           "${package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
       };

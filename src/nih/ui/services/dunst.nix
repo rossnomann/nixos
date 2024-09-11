@@ -6,12 +6,12 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
   package = pkgs.dunst;
 in
 {
-  options.nih.gui.services.dunst = {
+  options.nih.ui.services.dunst = {
     iconSize = lib.mkOption {
       type = lib.types.int;
       default = 16;
@@ -49,12 +49,12 @@ in
       {
         ".config/dunst/dunstrc".text =
           let
-            font = cfgGui.style.fonts.sansSerif;
+            font = cfgUi.style.fonts.sansSerif;
             fontName = "${font.family} ${builtins.toString font.defaultSize}";
-            dunst = cfgGui.services.dunst;
+            dunst = cfgUi.services.dunst;
             gap = builtins.toString dunst.gap;
             offset = builtins.toString dunst.offset;
-            iconTheme = cfgGui.style.icons;
+            iconTheme = cfgUi.style.icons;
             iconPath = lib.nih.paths.mkIconPath {
               themePackage = iconTheme.package;
               themeName = iconTheme.name;

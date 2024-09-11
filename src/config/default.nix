@@ -8,7 +8,7 @@
   config = {
     nih = {
       enable = true;
-      gui = {
+      ui = {
         style = {
           fonts = {
             packages = [

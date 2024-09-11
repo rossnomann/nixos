@@ -18,7 +18,7 @@ in
       pkgs.zathura
     ];
     nih = {
-      gui.x11.wm.windowRules = [
+      ui.x11.wm.windowRules = [
         {
           windowClass = "libreoffice";
           spawnOnTag = "documents";

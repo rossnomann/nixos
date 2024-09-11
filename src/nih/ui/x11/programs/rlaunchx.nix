@@ -6,8 +6,8 @@
 }:
 let
   cfg = config.nih;
-  cfgGui = cfg.gui;
   cfgPalette = cfg.palette;
+  cfgUi = cfg.ui;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -16,7 +16,7 @@ in
         nushell = "${pkgs.nushell}/bin/nu";
         rlaunch = "${pkgs.rlaunch}/bin/rlaunch";
         alacritty = "${pkgs.alacritty}/bin/alacritty";
-        font = cfgGui.style.fonts.sansSerif;
+        font = cfgUi.style.fonts.sansSerif;
         colors = cfgPalette.colors;
         args = (
           lib.escapeShellArgs [
