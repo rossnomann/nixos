@@ -20,38 +20,14 @@ in
       videos = lib.mkOption { type = lib.types.str; };
     };
     mime = {
-      archives = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      audio = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      directories = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      documents = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      images = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      text = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      torrents = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
-      videos = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
+      archives = lib.mkOption { type = lib.types.str; };
+      audio = lib.mkOption { type = lib.types.str; };
+      directories = lib.mkOption { type = lib.types.str; };
+      documents = lib.mkOption { type = lib.types.str; };
+      images = lib.mkOption { type = lib.types.str; };
+      text = lib.mkOption { type = lib.types.str; };
+      torrents = lib.mkOption { type = lib.types.str; };
+      videos = lib.mkOption { type = lib.types.str; };
     };
   };
   config = lib.mkIf cfg.enable {

@@ -11,10 +11,7 @@ let
   cfgPalette = cfg.palette;
 in
 {
-  options.nih.gui.programs.video.mpv.theme.package = lib.mkOption {
-    internal = true;
-    type = lib.types.package;
-  };
+  options.nih.gui.programs.video.mpv.theme.package = lib.mkOption { type = lib.types.package; };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.mpv

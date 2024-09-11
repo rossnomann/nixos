@@ -7,14 +7,8 @@ in
   options.nih.palette = {
     variant = lib.mkOption { type = lib.types.str; };
     accent = lib.mkOption { type = lib.types.str; };
-    colors = lib.mkOption {
-      internal = true;
-      type = lib.types.attrs;
-    };
-    current = lib.mkOption {
-      internal = true;
-      type = lib.types.attrs;
-    };
+    colors = lib.mkOption { type = lib.types.attrs; };
+    current = lib.mkOption { type = lib.types.attrs; };
   };
   config = lib.mkIf cfg.enable {
     nih.palette = {

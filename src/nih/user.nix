@@ -27,12 +27,7 @@ in
     description = lib.mkOption { type = lib.types.str; };
     email = lib.mkOption { type = lib.types.str; };
     gpg_signing_key = lib.mkOption { type = lib.types.str; };
-    home = {
-      root = lib.mkOption {
-        internal = true;
-        type = lib.types.path;
-      };
-    };
+    home.root = lib.mkOption { type = lib.types.path; };
   };
   config = lib.mkIf cfg.enable {
     makky = {

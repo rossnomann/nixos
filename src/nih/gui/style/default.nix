@@ -6,10 +6,7 @@
   ];
   options.nih.gui.style = {
     cursors = {
-      name = lib.mkOption {
-        internal = true;
-        type = lib.types.str;
-      };
+      name = lib.mkOption { type = lib.types.str; };
       size = lib.mkOption { type = lib.types.int; };
     };
 
@@ -35,22 +32,10 @@
     };
 
     packages = {
-      cursors = lib.mkOption {
-        internal = true;
-        type = lib.types.package;
-      };
-      gtk = lib.mkOption {
-        internal = true;
-        type = lib.types.package;
-      };
-      index = lib.mkOption {
-        internal = true;
-        type = lib.types.package;
-      };
-      qt = lib.mkOption {
-        internal = true;
-        type = lib.types.package;
-      };
+      cursors = lib.mkOption { type = lib.types.package; };
+      gtk = lib.mkOption { type = lib.types.package; };
+      index = lib.mkOption { type = lib.types.package; };
+      qt = lib.mkOption { type = lib.types.package; };
     };
   };
 }
