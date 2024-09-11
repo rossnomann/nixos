@@ -30,7 +30,7 @@
             ./src/config
           ];
           specialArgs = {
-            inherit deviceName npins;
+            inherit deviceName inputs npins;
           };
         };
     in

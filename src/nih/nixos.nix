@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -10,11 +11,13 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
+      pkgs.nixd
       pkgs.nixfmt-rfc-style
       pkgs.npins
     ];
     nix = {
       gc.automatic = true;
+      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
       optimise.automatic = true;
       settings.experimental-features = [
         "flakes"
