@@ -92,7 +92,7 @@ in
               Inherits=${cfgStyle.cursors.name}
             '';
           };
-          qt = pkgs.nih.catppuccin-kvantum;
+          qt = pkgs.nih.catppuccin.kvantum;
         };
       };
       user.home.file = {

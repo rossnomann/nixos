@@ -20,7 +20,7 @@ in
       pkgs.syncplay
     ];
     nih = {
-      programs.video.mpv.theme.package = pkgs.nih.catppuccin-mpv;
+      programs.video.mpv.theme.package = pkgs.nih.catppuccin.mpv;
       x11.wm.windowRules = [
         {
           windowClass = "mpv";
