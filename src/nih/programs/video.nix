@@ -6,7 +6,7 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
+  cfgStyle = cfg.style;
   cfgPrograms = cfg.programs;
 in
 {
@@ -46,7 +46,7 @@ in
           let
             package = cfgPrograms.video.mpv.theme.package;
           in
-          "${package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
+          "${package}/${cfgStyle.palette.variant}/${cfgStyle.palette.accent}.conf";
       };
     };
   };

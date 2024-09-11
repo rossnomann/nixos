@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
+  cfgStyle = cfg.style;
   cfgUser = cfg.user;
 in
 {
@@ -39,7 +39,7 @@ in
         [include]
         path = ${npins.catppuccin-delta}/catppuccin.gitconfig
         [delta]
-        features = catppuccin-${cfgPalette.variant}
+        features = catppuccin-${cfgStyle.palette.variant}
       '';
       ".config/git/ignore".text = ''
         .direnv

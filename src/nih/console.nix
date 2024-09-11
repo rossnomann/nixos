@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
+  cfgStyle = cfg.style;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -14,7 +14,7 @@ in
     console =
       let
         getColor = value: builtins.substring 1 (-1) value;
-        palette = cfgPalette.colors;
+        palette = cfgStyle.palette.colors;
       in
       {
         colors = map getColor [

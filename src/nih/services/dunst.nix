@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgServices = cfg.services;
   cfgStyle = cfg.style;
   package = pkgs.dunst;
@@ -44,7 +43,7 @@ in
     };
     nih.user.home.file =
       let
-        colors = cfgPalette.colors;
+        colors = cfgStyle.palette.colors;
         dbusServicePath = "${package}/share/dbus-1/services/org.knopwob.dunst.service";
       in
       {

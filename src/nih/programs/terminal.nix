@@ -7,7 +7,6 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
   package = pkgs.alacritty;
@@ -35,7 +34,7 @@ in
         ".config/alacritty/alacritty.toml".text =
           let
             fontMonospace = cfgStyle.fonts.monospace;
-            themePath = "${npins.catppuccin-alacritty}/catppuccin-${cfgPalette.variant}.toml";
+            themePath = "${npins.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
           in
           ''
             import = ["${themePath}"]

@@ -6,8 +6,8 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgPrograms = cfg.programs;
+  cfgStyle = cfg.style;
   cfgX11 = cfg.x11;
   package = pkgs.leftwm;
   executable = "${package}/bin/leftwm";
@@ -144,7 +144,7 @@ in
           };
           ".config/leftwm/themes/current/theme.ron".text =
             let
-              colors = cfgPalette.colors;
+              colors = cfgStyle.palette.colors;
             in
             lib.nih.leftwm.mkTheme {
               borderWidth = 1;

@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
+  cfgStyle = cfg.style;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -20,7 +20,7 @@ in
     nih = {
       user.home.file = {
         ".config/zathura/zathurarc".text = ''
-          include ${npins.catppuccin-zathura}/src/catppuccin-${cfgPalette.variant}
+          include ${npins.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
         '';
       };
       x11.wm.windowRules = [

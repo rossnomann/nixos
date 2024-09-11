@@ -14,10 +14,6 @@
         extra = "ru_RU.UTF-8";
         timeZone = "Europe/Bratislava";
       };
-      palette = {
-        accent = "green";
-        variant = "mocha";
-      };
       style = {
         fonts = {
           packages = [
@@ -39,6 +35,10 @@
         icons = {
           name = "Papirus-Dark";
           package = pkgs.papirus-icon-theme;
+        };
+        palette = {
+          accent = "green";
+          variant = "mocha";
         };
       };
       user = {

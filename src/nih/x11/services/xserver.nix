@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgStyle = cfg.style;
   cfgX11 = cfg.x11;
 in
@@ -36,7 +35,7 @@ in
         };
         ".config/sx/xresources".text =
           let
-            colors = cfgPalette.colors;
+            colors = cfgStyle.palette.colors;
           in
           ''
             Xcursor.size: ${builtins.toString cfgStyle.cursors.size}

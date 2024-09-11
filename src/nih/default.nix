@@ -13,7 +13,6 @@
     ./login.nix
     ./net.nix
     ./nixos.nix
-    ./palette.nix
     ./power.nix
     ./sync.nix
     ./user.nix

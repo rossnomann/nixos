@@ -7,8 +7,8 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
-  batThemeName = "Catppuccin ${lib.nih.strings.capitalize cfgPalette.variant}";
+  cfgStyle = cfg.style;
+  batThemeName = "Catppuccin ${lib.nih.strings.capitalize cfgStyle.palette.variant}";
 in
 {
   config = lib.mkIf cfg.enable {

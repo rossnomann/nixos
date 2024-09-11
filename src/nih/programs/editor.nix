@@ -7,7 +7,6 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgStyle = cfg.style;
 in
 {
@@ -38,7 +37,7 @@ in
         ".config/sublime-text/Packages/TOML".source = npins.sublime-text-toml;
         ".config/sublime-text/Packages/Catppuccin/catppuccin.sublime-color-scheme".source =
           let
-            themeName = "Catppuccin ${lib.nih.strings.capitalize cfgPalette.variant}.sublime-color-scheme";
+            themeName = "Catppuccin ${lib.nih.strings.capitalize cfgStyle.palette.variant}.sublime-color-scheme";
           in
           "${npins.catppuccin-sublime-text}/build/${themeName}";
         ".config/sublime-text/Packages/Catppuccin/Preferences.sublime-settings".text =

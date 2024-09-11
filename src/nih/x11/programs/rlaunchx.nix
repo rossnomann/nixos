@@ -6,11 +6,10 @@
 }:
 let
   cfg = config.nih;
-  cfgPalette = cfg.palette;
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
   cfgX11 = cfg.x11;
-  colors = cfgPalette.colors;
+  colors = cfgStyle.palette.colors;
   font = cfgStyle.fonts.sansSerif;
   package = (
     pkgs.nih.rlaunchx {
