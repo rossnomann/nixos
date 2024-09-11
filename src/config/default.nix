@@ -1,7 +1,5 @@
 {
-  config,
   deviceName,
-  lib,
   pkgs,
   ...
 }:

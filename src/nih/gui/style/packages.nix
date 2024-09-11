@@ -14,7 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     nih.gui.style.packages = {
       cursors = (
-        lib.getAttr ("${cfgPalette.variant}${lib.nih.strings.capitalize cfgPalette.accent}") pkgs.catppuccin-cursors
+        lib.getAttr "${cfgPalette.variant}${lib.nih.strings.capitalize cfgPalette.accent}" pkgs.catppuccin-cursors
       );
       gtk = pkgs.catppuccin-gtk.override {
         accents = [ cfgPalette.accent ];

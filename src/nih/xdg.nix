@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -162,10 +161,10 @@ in
         mkAssoc =
           { entry, mimes }:
           builtins.listToAttrs (
-            (map (v: {
+            map (v: {
               name = v;
               value = entry;
-            }) mimes)
+            }) mimes
           );
         assoc =
           (mkAssoc {

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = [ pkgs.steam ];
   nih.gui.x11.wm.windowRules = [
