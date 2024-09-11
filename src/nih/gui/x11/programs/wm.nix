@@ -53,319 +53,41 @@ in
             insertBehaviour = "Bottom";
             sloppyMouseFollowsFocus = true;
             statePath = "None";
-            keybind = [
-              {
-                command = "Execute";
-                value = "rlaunchx";
-                modifier = [ "modkey" ];
-                key = "r";
-              }
-              {
-                command = "Execute";
-                value = "screenshot";
-                modifier = [ ];
-                key = "Print";
-              }
-              {
-                command = "Execute";
-                value = "alacritty";
-                modifier = [ "modkey" ];
-                key = "Return";
-              }
-              {
-                command = "Execute";
-                value = "loginctl kill-session $XDG_SESSION_ID";
-                modifier = [
-                  "Control"
-                  "Alt"
-                ];
-                key = "End";
-              }
-              {
-                command = "Execute";
-                value = "setxkbmap -layout us,ge -option grp:win_space_toggle";
-                modifier = [
-                  "Control"
-                  "Alt"
-                ];
-                key = "g";
-              }
-              {
-                command = "Execute";
-                value = "setxkbmap -layout us,ru -option grp:win_space_toggle";
-                modifier = [
-                  "Control"
-                  "Alt"
-                ];
-                key = "r";
-              }
-              {
-                command = "Execute";
-                value = "setxkbmap -layout us,sk -option grp:win_space_toggle";
-                modifier = [
-                  "Control"
-                  "Alt"
-                ];
-                key = "s";
-              }
-
-              {
-                command = "SoftReload";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Control"
-                ];
-                key = "r";
-              }
-
-              {
-                command = "FocusNextTag";
-                value = "ignore_empty";
-                modifier = [ "modkey" ];
-                key = "Down";
-              }
-              {
-                command = "FocusPreviousTag";
-                value = "ignore_empty";
-                modifier = [ "modkey" ];
-                key = "Up";
-              }
-              {
-                command = "FocusWorkspacePrevious";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Control"
-                ];
-                key = "Up";
-              }
-              {
-                command = "FocusWorkspaceNext";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Control"
-                ];
-                key = "Down";
-              }
-              {
-                command = "MoveToLastWorkspace";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "w";
-              }
-
-              {
-                command = "GotoTag";
-                value = "1";
-                modifier = [ "modkey" ];
-                key = "1";
-              }
-              {
-                command = "GotoTag";
-                value = "2";
-                modifier = [ "modkey" ];
-                key = "2";
-              }
-              {
-                command = "GotoTag";
-                value = "3";
-                modifier = [ "modkey" ];
-                key = "3";
-              }
-              {
-                command = "GotoTag";
-                value = "4";
-                modifier = [ "modkey" ];
-                key = "4";
-              }
-              {
-                command = "GotoTag";
-                value = "5";
-                modifier = [ "modkey" ];
-                key = "5";
-              }
-              {
-                command = "GotoTag";
-                value = "6";
-                modifier = [ "modkey" ];
-                key = "6";
-              }
-              {
-                command = "GotoTag";
-                value = "7";
-                modifier = [ "modkey" ];
-                key = "7";
-              }
-              {
-                command = "MoveToTag";
-                value = "1";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "1";
-              }
-              {
-                command = "MoveToTag";
-                value = "2";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "2";
-              }
-              {
-                command = "MoveToTag";
-                value = "3";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "3";
-              }
-              {
-                command = "MoveToTag";
-                value = "4";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "4";
-              }
-              {
-                command = "MoveToTag";
-                value = "5";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "5";
-              }
-              {
-                command = "MoveToTag";
-                value = "6";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "6";
-              }
-              {
-                command = "MoveToTag";
-                value = "7";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "7";
-              }
-              {
-                command = "SwapTags";
-                value = "";
-                modifier = [ "modkey" ];
-                key = "w";
-              }
-
-              {
-                command = "NextLayout";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Control"
-                ];
-                key = "Right";
-              }
-              {
-                command = "PreviousLayout";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Control"
-                ];
-                key = "Left";
-              }
-
-              {
-                command = "CloseWindow";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "q";
-              }
-              {
-                command = "FocusWindowUp";
-                value = "";
-                modifier = [ "modkey" ];
-                key = "Left";
-              }
-              {
-                command = "FocusWindowDown";
-                value = "";
-                modifier = [ "modkey" ];
-                key = "Right";
-              }
-              {
-                command = "MoveWindowDown";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "Down";
-              }
-              {
-                command = "MoveWindowTop";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "Return";
-              }
-              {
-                command = "MoveWindowUp";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "Up";
-              }
-              {
-                command = "ToggleFullScreen";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "f";
-              }
-              {
-                command = "ToggleFloating";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "t";
-              }
-              {
-                command = "ToggleSticky";
-                value = "";
-                modifier = [
-                  "modkey"
-                  "Shift"
-                ];
-                key = "s";
-              }
-            ];
+            keybind =
+              let
+                kb = lib.nih.leftwm.keybind;
+                mod = kb.mod;
+                tags = map builtins.toString (lib.range 1 7);
+              in
+              [
+                (kb.mkExecute mod.win "r" "rlaunchx")
+                (kb.mkExecute mod.empty "Print" "screenshot")
+                (kb.mkExecute mod.win "Return" "alacritty")
+                (kb.mkExecute mod.ctrl_alt "End" "loginctl kill-session $XDG_SESSION_ID")
+                (kb.mkExecute mod.ctrl_alt "g" "setxkbmap -layout us,ge -option grp:win_space_toggle")
+                (kb.mkExecute mod.ctrl_alt "r" "setxkbmap -layout us,ru -option grp:win_space_toggle")
+                (kb.mkExecute mod.ctrl_alt "s" "setxkbmap -layout us,sk -option grp:win_space_toggle")
+                (kb.mkSoftReload mod.win_ctrl "r")
+                (kb.mkFocusNextTag mod.win "Down" "ignore_empty")
+                (kb.mkFocusPreviousTag mod.win "Up" "ignore_empty")
+                (kb.mkFocusWorkspacePrevious mod.win_ctrl "Up")
+                (kb.mkFocusWorkspaceNext mod.win_ctrl "Down")
+                (kb.mkMoveToLastWorkspace mod.win_shift "w")
+                (kb.mkSwapTags mod.win "w")
+                (kb.mkNextLayout mod.win_ctrl "Right")
+                (kb.mkPreviousLayout mod.win_ctrl "Left")
+                (kb.mkCloseWindow mod.win_shift "q")
+                (kb.mkFocusWindowDown mod.win "Right")
+                (kb.mkFocusWindowUp mod.win "Left")
+                (kb.mkMoveWindowDown mod.win_shift "Right")
+                (kb.mkMoveWindowTop mod.win_shift "Return")
+                (kb.mkMoveWindowUp mod.win_shift "Left")
+                (kb.mkToggleFloating mod.win_shift "t")
+                (kb.mkToggleFullScreen mod.win_shift "f")
+                (kb.mkToggleSticky mod.win_shift "s")
+              ]
+              ++ (map (idx: kb.mkGotoTag mod.win idx idx) tags)
+              ++ (map (idx: kb.mkMoveToTag mod.win_shift idx idx) tags);
             layoutMode = "Tag";
             layouts = [
               "MainAndVertStack"

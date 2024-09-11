@@ -6,21 +6,14 @@ let
   optInt = value: if value == null then "None" else builtins.toString value;
   optString = value: if value == null then "None" else mkString value;
   optValue = value: if value == null then "None" else value;
-  mkKeybind =
-    {
-      command,
-      value,
-      modifier,
-      key,
-    }:
-    ''
-      (
-        command: ${command},
-        value: ${mkString value},
-        modifier: ${mkList (map mkString modifier)},
-        key: ${mkString key}
-      )
-    '';
+  mkKeybind = command: modifier: key: value: ''
+    (
+      command: ${command},
+      value: ${mkString value},
+      modifier: ${mkList (map mkString modifier)},
+      key: ${mkString key}
+    )
+  '';
   mkWindowRuleBase =
     tags:
     {
@@ -51,8 +44,6 @@ let
         window_title: ${optString windowTitle}
       )
     '';
-in
-{
   mkConfig =
     {
       defaultHeight,
@@ -90,7 +81,7 @@ in
           scratchpad: [],
           sloppy_mouse_follows_focus: ${optBool sloppyMouseFollowsFocus},
           state_path: ${statePath},
-          keybind: ${mkList (map mkKeybind keybind)},
+          keybind: ${mkList keybind},
           layout_mode: ${layoutMode},
           layouts: ${mkList (map mkString layouts)},
           modkey: ${mkString modkey},
@@ -130,4 +121,46 @@ in
           ],
       )
     '';
+in
+{
+  inherit mkConfig mkTheme;
+  keybind = {
+    mod = {
+      ctrl_alt = [
+        "Control"
+        "Alt"
+      ];
+      empty = [ ];
+      win = [ "modkey" ];
+      win_ctrl = [
+        "modkey"
+        "Control"
+      ];
+      win_shift = [
+        "modkey"
+        "Shift"
+      ];
+    };
+    mkExecute = mkKeybind "Execute";
+    mkSoftReload = modifier: key: (mkKeybind "SoftReload" modifier key "");
+    mkFocusNextTag = mkKeybind "FocusNextTag";
+    mkFocusPreviousTag = mkKeybind "FocusPreviousTag";
+    mkFocusWorkspaceNext = modifier: key: (mkKeybind "FocusWorkspaceNext" modifier key "");
+    mkFocusWorkspacePrevious = modifier: key: (mkKeybind "FocusWorkspacePrevious" modifier key "");
+    mkMoveToLastWorkspace = modifier: key: (mkKeybind "MoveToLastWorkspace" modifier key "");
+    mkGotoTag = mkKeybind "GotoTag";
+    mkMoveToTag = mkKeybind "MoveToTag";
+    mkSwapTags = modifier: key: (mkKeybind "SwapTags" modifier key "");
+    mkNextLayout = modifier: key: (mkKeybind "NextLayout" modifier key "");
+    mkPreviousLayout = modifier: key: (mkKeybind "PreviousLayout" modifier key "");
+    mkCloseWindow = modifier: key: (mkKeybind "CloseWindow" modifier key "");
+    mkFocusWindowDown = modifier: key: (mkKeybind "FocusWindowDown" modifier key "");
+    mkFocusWindowUp = modifier: key: (mkKeybind "FocusWindowUp" modifier key "");
+    mkMoveWindowDown = modifier: key: (mkKeybind "MoveWindowDown" modifier key "");
+    mkMoveWindowTop = modifier: key: (mkKeybind "MoveWindowTop" modifier key "");
+    mkMoveWindowUp = modifier: key: (mkKeybind "MoveWindowUp" modifier key "");
+    mkToggleFloating = modifier: key: (mkKeybind "ToggleFloating" modifier key "");
+    mkToggleFullScreen = modifier: key: (mkKeybind "ToggleFullScreen" modifier key "");
+    mkToggleSticky = modifier: key: (mkKeybind "ToggleSticky" modifier key "");
+  };
 }
