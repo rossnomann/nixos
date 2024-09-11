@@ -8,10 +8,12 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
-  cfgUi = cfg.ui;
+  cfgPrograms = cfg.programs;
 in
 {
-  options.nih.ui.programs.video.mpv.theme.package = lib.mkOption { type = lib.types.package; };
+  options.nih.programs.video = {
+    mpv.theme.package = lib.mkOption { type = lib.types.package; };
+  };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.mpv
@@ -19,19 +21,19 @@ in
       pkgs.syncplay
     ];
     nih = {
+      programs.video.mpv.theme.package = pkgs.stdenvNoCC.mkDerivation {
+        pname = "catppuccin-mpv";
+        version = npins.catppuccin-mpv.revision;
+        src = npins.catppuccin-mpv;
+        installPhase = ''
+          runHook preInstall
+          mkdir -p $out
+          find themes/*.conf -type f -exec sed -i "s/^background-color=.*$/background-color=\'#000000\'/g" {} +
+          cp -a themes/* $out
+          runHook postInstall
+        '';
+      };
       ui = {
-        programs.video.mpv.theme.package = pkgs.stdenvNoCC.mkDerivation {
-          pname = "catppuccin-mpv";
-          version = npins.catppuccin-mpv.revision;
-          src = npins.catppuccin-mpv;
-          installPhase = ''
-            runHook preInstall
-            mkdir -p $out
-            find themes/*.conf -type f -exec sed -i "s/^background-color=.*$/background-color=\'#000000\'/g" {} +
-            cp -a themes/* $out
-            runHook postInstall
-          '';
-        };
         x11.wm.windowRules = [
           {
             windowClass = "mpv";
@@ -56,7 +58,7 @@ in
       user.home.file = {
         ".config/mpv/mpv.conf".source =
           let
-            package = cfgUi.programs.video.mpv.theme.package;
+            package = cfgPrograms.video.mpv.theme.package;
           in
           "${package}/${cfgPalette.variant}/${cfgPalette.accent}.conf";
       };

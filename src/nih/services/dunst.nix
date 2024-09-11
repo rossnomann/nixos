@@ -7,11 +7,12 @@
 let
   cfg = config.nih;
   cfgPalette = cfg.palette;
+  cfgServices = cfg.services;
   cfgUi = cfg.ui;
   package = pkgs.dunst;
 in
 {
-  options.nih.ui.services.dunst = {
+  options.nih.services.dunst = {
     iconSize = lib.mkOption {
       type = lib.types.int;
       default = 16;
@@ -51,7 +52,7 @@ in
           let
             font = cfgUi.style.fonts.sansSerif;
             fontName = "${font.family} ${builtins.toString font.defaultSize}";
-            dunst = cfgUi.services.dunst;
+            dunst = cfgServices.dunst;
             gap = builtins.toString dunst.gap;
             offset = builtins.toString dunst.offset;
             iconTheme = cfgUi.style.icons;

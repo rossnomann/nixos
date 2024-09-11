@@ -1,8 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./programs
-    ./services
     ./style
     ./x11
   ];

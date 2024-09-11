@@ -37,7 +37,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ package ];
     nih = {
-      ui.services.dunst =
+      services.dunst =
         let
           gutter = cfgUi.x11.wm.gutterSize;
         in

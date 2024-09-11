@@ -1,6 +1,8 @@
 { lib, ... }:
 {
   imports = [
+    ./programs
+    ./services
     ./shell
     ./ui
     ./audio.nix
@@ -12,7 +14,6 @@
     ./nixos.nix
     ./palette.nix
     ./power.nix
-    ./services.nix
     ./sync.nix
     ./user.nix
     ./vt.nix
