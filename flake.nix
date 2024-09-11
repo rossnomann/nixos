@@ -26,6 +26,7 @@
           inherit lib system;
           modules = [
             inputs.makky.nixosModules.default
+            ./src/packages
             ./src/nih
             ./src/config
           ];

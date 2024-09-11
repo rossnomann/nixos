@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
@@ -33,17 +32,7 @@ in
           Inherits=${cfgStyle.cursors.name}
         '';
       };
-      qt = pkgs.stdenvNoCC.mkDerivation {
-        pname = "catppuccin-kvantum";
-        version = npins.catppuccin-kvantum.revision;
-        src = npins.catppuccin-kvantum;
-        installPhase = ''
-          runHook preInstall
-          mkdir -p $out/share/Kvantum
-          cp -a themes/* $out/share/Kvantum
-          runHook postInstall
-        '';
-      };
+      qt = pkgs.nih.catppuccin-kvantum;
     };
   };
 }
