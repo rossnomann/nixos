@@ -14,7 +14,7 @@ in
     console =
       let
         getColor = value: builtins.substring 1 (-1) value;
-        palette = cfgPalette.current;
+        palette = cfgPalette.colors;
       in
       {
         colors = map getColor [

@@ -43,7 +43,7 @@ in
     };
     nih.user.home.file =
       let
-        palette = cfgPalette.current;
+        colors = cfgPalette.colors;
         dbusServicePath = "${package}/share/dbus-1/services/org.knopwob.dunst.service";
       in
       {
@@ -67,20 +67,20 @@ in
           in
           ''
             [global]
-            background="${palette.base}"
+            background="${colors.base}"
             follow="keyboard"
             font="${fontName}"
-            foreground="${palette.text}"
-            frame_color="${palette.green}"
+            foreground="${colors.text}"
+            frame_color="${colors.green}"
             frame_width=1
             gap_size=${gap}
             offset="${offset}x${offset}"
             origin="top-right"
             icon_path="${iconPath}"
             [urgency_critical]
-            frame_color="${palette.red}"
+            frame_color="${colors.red}"
             [urgency_low]
-            frame_color="${palette.blue}"
+            frame_color="${colors.blue}"
           '';
         ".local/share/dbus-1/services/org.knopwob.dunst.service".source = dbusServicePath;
       };

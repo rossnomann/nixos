@@ -35,7 +35,7 @@ in
         };
         ".config/sx/xresources".text =
           let
-            palette = cfgPalette.current;
+            colors = cfgPalette.colors;
           in
           ''
             Xcursor.size: ${builtins.toString cfgGui.style.cursors.size}
@@ -49,40 +49,40 @@ in
             Xft.antialias: 1
             Xft.rgba: rgb
 
-            *background: ${palette.base}
-            *foreground: ${palette.text}
+            *background: ${colors.base}
+            *foreground: ${colors.text}
 
             ! black
-            *color0: ${palette.surface1}
-            *color8: ${palette.surface2}
+            *color0: ${colors.surface1}
+            *color8: ${colors.surface2}
 
             ! red
-            *color1: ${palette.red}
-            *color9: ${palette.red}
+            *color1: ${colors.red}
+            *color9: ${colors.red}
 
             ! green
-            *color2: ${palette.green}
-            *color10: ${palette.green}
+            *color2: ${colors.green}
+            *color10: ${colors.green}
 
             ! yellow
-            *color3: ${palette.yellow}
-            *color11: ${palette.yellow}
+            *color3: ${colors.yellow}
+            *color11: ${colors.yellow}
 
             ! blue
-            *color4: ${palette.blue}
-            *color12: ${palette.blue}
+            *color4: ${colors.blue}
+            *color12: ${colors.blue}
 
             ! magenta
-            *color5: ${palette.pink}
-            *color13: ${palette.pink}
+            *color5: ${colors.pink}
+            *color13: ${colors.pink}
 
             ! cyan
-            *color6: ${palette.teal}
-            *color14: ${palette.teal}
+            *color6: ${colors.teal}
+            *color14: ${colors.teal}
 
             ! white
-            *color7: ${palette.subtext1}
-            *color15: ${palette.subtext0}
+            *color7: ${colors.subtext1}
+            *color15: ${colors.subtext0}
           '';
       };
     };

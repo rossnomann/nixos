@@ -143,13 +143,13 @@ in
           };
           ".config/leftwm/themes/current/theme.ron".text =
             let
-              palette = cfgPalette.current;
+              colors = cfgPalette.colors;
             in
             lib.nih.leftwm.mkTheme {
               borderWidth = 1;
-              defaultBorderColor = palette.overlay2;
-              floatingBorderColor = palette.overlay1;
-              focusedBorderColor = palette.green;
+              defaultBorderColor = colors.overlay2;
+              floatingBorderColor = colors.overlay1;
+              focusedBorderColor = colors.green;
               gutterTop = cfgGui.x11.wm.gutterSize;
               gutterRight = cfgGui.x11.wm.gutterSize;
               gutterBottom = cfgGui.x11.wm.gutterSize;

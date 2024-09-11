@@ -17,21 +17,21 @@ in
         rlaunch = "${pkgs.rlaunch}/bin/rlaunch";
         alacritty = "${pkgs.alacritty}/bin/alacritty";
         font = cfgGui.style.fonts.sansSerif;
-        palette = cfgPalette.current;
+        colors = cfgPalette.colors;
         args = (
           lib.escapeShellArgs [
             "-f"
             "${font.family}:size=${builtins.toString (font.defaultSize - 2)}"
             "--color0"
-            palette.surface0
+            colors.surface0
             "--color1"
-            palette.surface1
+            colors.surface1
             "--color2"
-            palette.text
+            colors.text
             "--color3"
-            palette.text
+            colors.text
             "--color4"
-            palette.surface0
+            colors.surface0
             "--terminal"
             alacritty
           ]
