@@ -72,26 +72,15 @@ in
       style = {
         cursors.name = cursors.name;
         packages = {
-          cursors = (
-            lib.getAttr "${cfgStyle.palette.variant}${lib.nih.strings.capitalize cfgStyle.palette.accent}" pkgs.catppuccin-cursors
-          );
-          gtk = pkgs.catppuccin-gtk.override {
-            accents = [ cfgStyle.palette.accent ];
-            size = "compact";
-            tweaks = [ "rimless" ];
+          cursors = pkgs.nih.catppuccin.cursors {
+            accent = cfgStyle.palette.accent;
             variant = cfgStyle.palette.variant;
           };
-          index = pkgs.writeTextFile {
-            # https://wiki.archlinux.org/title/Cursor_themes#XDG_specification
-            name = "index.theme";
-            destination = "/share/icons/default/index.theme";
-            text = ''
-              [Icon Theme]
-              Name=Default
-              Comment=Default Cursor Theme
-              Inherits=${cfgStyle.cursors.name}
-            '';
+          gtk = pkgs.nih.catppuccin.gtk {
+            accent = cfgStyle.palette.accent;
+            variant = cfgStyle.palette.variant;
           };
+          index = pkgs.nih.cursor-theme-default cfgStyle.cursors.name;
           qt = pkgs.nih.catppuccin.kvantum;
         };
       };
@@ -99,28 +88,27 @@ in
         ".config/Kvantum/kvantum.kvconfig".text = ''
           theme=${kvantum.themeName}
         '';
-        ".config/gtk-2.0/gtkrc".text = ''
-          gtk-cursor-theme-name = "${cursors.name}"
-          gtk-cursor-theme-size = ${builtins.toString cursors.size}
-          gtk-font-name = "${gtk.fontName}"
-          gtk-icon-theme-name = "${icons.name}"
-          gtk-theme-name = "${gtk.themeName}"
-        '';
+        ".config/gtk-2.0/gtkrc".text = lib.nih.gen.gtk.mkGtk2Settings {
+          cursorThemeName = cursors.name;
+          cursorThemeSize = cursors.size;
+          fontName = gtk.fontName;
+          iconThemeName = icons.name;
+          themeName = gtk.themeName;
+        };
         ".config/gtk-3.0/gtk.css".text = ''
           * {
             border-radius: 0 0 0 0;
             box-shadow: none;
           }
         '';
-        ".config/gtk-3.0/settings.ini".text = ''
-          [Settings]
-          gtk-cursor-theme-name=${cursors.name}
-          gtk-cursor-theme-size=${builtins.toString cursors.size}
-          gtk-decoration-layout=${gtk.decorationLayout}
-          gtk-font-name=${gtk.fontName}
-          gtk-icon-theme-name=${icons.name}
-          gtk-theme-name=${gtk.themeName}
-        '';
+        ".config/gtk-3.0/settings.ini".text = lib.nih.gen.gtk.mkGtk3Settings {
+          cursorThemeName = cursors.name;
+          cursorThemeSize = cursors.size;
+          decorationLayout = gtk.decorationLayout;
+          fontName = gtk.fontName;
+          iconThemeName = icons.name;
+          themeName = gtk.themeName;
+        };
         ".config/gtk-4.0/gtk.css".text = ''
           /**
            * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
@@ -132,15 +120,14 @@ in
             box-shadow: none;
           }
         '';
-        ".config/gtk-4.0/settings.ini".text = ''
-          [Settings]
-          gtk-cursor-theme-name=${cursors.name}
-          gtk-cursor-theme-size=${builtins.toString cursors.size}
-          gtk-decoration-layout=${gtk.decorationLayout}
-          gtk-font-name=${gtk.fontName}
-          gtk-icon-theme-name=${icons.name}
-          gtk-theme-name=${gtk.themeName}
-        '';
+        ".config/gtk-4.0/settings.ini".text = lib.nih.gen.gtk.mkGtk4Settings {
+          cursorThemeName = cursors.name;
+          cursorThemeSize = cursors.size;
+          decorationLayout = gtk.decorationLayout;
+          fontName = gtk.fontName;
+          iconThemeName = icons.name;
+          themeName = gtk.themeName;
+        };
         ".icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
         ".icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
         ".local/share/icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
