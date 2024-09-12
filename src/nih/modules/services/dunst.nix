@@ -50,38 +50,31 @@ in
         ".config/dunst/dunstrc".text =
           let
             font = cfgStyle.fonts.sansSerif;
-            fontName = "${font.family} ${builtins.toString font.defaultSize}";
-            dunst = cfgServices.dunst;
-            gap = builtins.toString dunst.gap;
-            offset = builtins.toString dunst.offset;
             iconTheme = cfgStyle.icons;
+          in
+          lib.nih.gen.dunst.mkConfig {
+            background = colors.base;
+            follow = "keyboard";
+            font = "${font.family} ${builtins.toString font.defaultSize}";
+            foreground = colors.text;
+            frameColor = colors.green;
+            frameColorCritical = colors.red;
+            frameColorLow = colors.blue;
+            frameWidth = 1;
+            gapSize = cfgServices.dunst.gap;
+            offsetX = cfgServices.dunst.offset;
+            offsetY = cfgServices.dunst.offset;
+            origin = "top-right";
             iconPath = lib.nih.gen.dunst.mkIconPath {
               themePackage = iconTheme.package;
               themeName = iconTheme.name;
               iconsSize =
                 let
-                  size = builtins.toString dunst.iconSize;
+                  size = builtins.toString cfgServices.dunst.iconSize;
                 in
                 "${size}x${size}";
             };
-          in
-          ''
-            [global]
-            background="${colors.base}"
-            follow="keyboard"
-            font="${fontName}"
-            foreground="${colors.text}"
-            frame_color="${colors.green}"
-            frame_width=1
-            gap_size=${gap}
-            offset="${offset}x${offset}"
-            origin="top-right"
-            icon_path="${iconPath}"
-            [urgency_critical]
-            frame_color="${colors.red}"
-            [urgency_low]
-            frame_color="${colors.blue}"
-          '';
+          };
         ".local/share/dbus-1/services/org.knopwob.dunst.service".source = dbusServicePath;
       };
   };
