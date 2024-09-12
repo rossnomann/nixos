@@ -4,7 +4,6 @@
     ./programs
     ./services
     ./shell
-    ./style
     ./x11
     ./audio.nix
     ./bluetooth.nix
@@ -14,6 +13,7 @@
     ./net.nix
     ./nixos.nix
     ./power.nix
+    ./style.nix
     ./sync.nix
     ./user.nix
     ./vt.nix
