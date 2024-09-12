@@ -36,54 +36,35 @@ in
         ".config/sx/xresources".text =
           let
             colors = cfgStyle.palette.colors;
+            gen = lib.nih.gen.xresources;
           in
-          ''
-            Xcursor.size: ${builtins.toString cfgStyle.cursors.size}
-            Xcursor.theme: ${cfgStyle.cursors.name}
-
-            Xft.autohint: 0
-            Xft.dpi: ${builtins.toString cfgX11.dpi}
-            Xft.lcdfilter: lcddefault
-            Xft.hintstyle: hintfull
-            Xft.hinting: 1
-            Xft.antialias: 1
-            Xft.rgba: rgb
-
-            *background: ${colors.base}
-            *foreground: ${colors.text}
-
-            ! black
-            *color0: ${colors.surface1}
-            *color8: ${colors.surface2}
-
-            ! red
-            *color1: ${colors.red}
-            *color9: ${colors.red}
-
-            ! green
-            *color2: ${colors.green}
-            *color10: ${colors.green}
-
-            ! yellow
-            *color3: ${colors.yellow}
-            *color11: ${colors.yellow}
-
-            ! blue
-            *color4: ${colors.blue}
-            *color12: ${colors.blue}
-
-            ! magenta
-            *color5: ${colors.pink}
-            *color13: ${colors.pink}
-
-            ! cyan
-            *color6: ${colors.teal}
-            *color14: ${colors.teal}
-
-            ! white
-            *color7: ${colors.subtext1}
-            *color15: ${colors.subtext0}
-          '';
+          gen.mkXresources {
+            xcursor = gen.mkXcursor {
+              size = cfgStyle.cursors.size;
+              theme = cfgStyle.cursors.name;
+            };
+            xft = gen.mkXft { dpi = cfgX11.dpi; };
+            colors = gen.mkColors {
+              background = colors.base;
+              foreground = colors.text;
+              black = colors.surface1;
+              blackBold = colors.surface2;
+              red = colors.red;
+              redBold = colors.red;
+              green = colors.green;
+              greenBold = colors.green;
+              yellow = colors.yellow;
+              yellowBold = colors.yellow;
+              blue = colors.blue;
+              blueBold = colors.blue;
+              magenta = colors.pink;
+              magentaBold = colors.pink;
+              cyan = colors.teal;
+              cyanBold = colors.teal;
+              white = colors.subtext1;
+              whiteBold = colors.subtext0;
+            };
+          };
       };
     };
     services.xserver = {
