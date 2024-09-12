@@ -6,6 +6,7 @@
     ./direnv.nix
     ./git.nix
     ./gnupg.nix
+    ./macchina.nix
     ./nushell.nix
   ];
 }
