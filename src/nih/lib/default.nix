@@ -1,4 +1,4 @@
-{ lib, writeTextFile }:
+{ lib }:
 let
   catppuccin = import ./catppuccin.nix;
   leftwm = import ./leftwm.nix { inherit lib; };
@@ -6,7 +6,6 @@ let
   mc = import ./mc.nix { inherit lib; };
   paths = import ./paths.nix { inherit lib; };
   strings = import ./strings.nix { inherit lib; };
-  store = import ./store.nix { inherit lib writeTextFile; };
 in
 {
   nih = {
@@ -17,7 +16,6 @@ in
       mime
       paths
       strings
-      store
       ;
   };
 }

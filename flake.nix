@@ -12,13 +12,7 @@
     let
       system = "x86_64-linux";
       pkgs = import inputs.nixpkgs { inherit system; };
-      lib = pkgs.lib.extend (
-        final: prev:
-        (import ./src/nih/lib {
-          writeTextFile = pkgs.writeTextFile;
-          lib = prev;
-        })
-      );
+      lib = pkgs.lib.extend (final: prev: (import ./src/nih/lib { lib = prev; }));
       npins = import ./npins;
       nixosWorkspace =
         deviceName:
