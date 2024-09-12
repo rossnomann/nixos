@@ -13,6 +13,10 @@ in
       pkgs.direnv
       pkgs.nix-direnv
     ];
+    nih.programs.git.ignore = [
+      ".direnv"
+      ".envrc"
+    ];
     nih.user.home.file = {
       ".config/direnv/direnv.toml".text = ''
         [global]

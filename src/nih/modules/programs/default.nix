@@ -9,6 +9,7 @@
     ./documents.nix
     ./editor.nix
     ./games.nix
+    ./git.nix
     ./graphics.nix
     ./im.nix
     ./nushell.nix
