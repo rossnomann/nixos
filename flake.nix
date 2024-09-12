@@ -14,7 +14,7 @@
       pkgs = import inputs.nixpkgs { inherit system; };
       lib = pkgs.lib.extend (
         final: prev:
-        (import ./src/lib {
+        (import ./src/nih/lib {
           writeTextFile = pkgs.writeTextFile;
           lib = prev;
         })
@@ -26,8 +26,8 @@
           inherit lib system;
           modules = [
             inputs.makky.nixosModules.default
-            ./src/packages
-            ./src/nih
+            ./src/nih/packages
+            ./src/nih/modules
             ./src/config
           ];
           specialArgs = {
