@@ -143,8 +143,6 @@ in
         '';
         ".icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
         ".icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
-        ".local/share/backgrounds/default.jpg".source = ./resources/backgrounds/default.jpg;
-        ".local/share/backgrounds/default-empty.jpg".source = ./resources/backgrounds/default-empty.jpg;
         ".local/share/icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
         ".local/share/icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
       };

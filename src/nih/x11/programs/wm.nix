@@ -126,16 +126,20 @@ in
               ${hsetroot} -solid '#000000'
             '';
           };
-          ".config/leftwm/up" = {
-            executable = true;
-            text = ''
-              #!${nushell}
+          ".config/leftwm/up" =
+            let
+              wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
+            in
+            {
+              executable = true;
+              text = ''
+                #!${nushell}
 
-              ${executable} command $'LoadTheme ($env.HOME)/.config/leftwm/themes/current/theme.ron'
-              ${hsetroot} -fill $'($env.HOME)/.local/share/backgrounds/default.jpg'
-              ${xsetroot} -cursor_name left_ptr
-            '';
-          };
+                ${executable} command $'LoadTheme ($env.HOME)/.config/leftwm/themes/current/theme.ron'
+                ${hsetroot} -fill '${wallpaper}'
+                ${xsetroot} -cursor_name left_ptr
+              '';
+            };
           ".config/leftwm/themes/current/down" = {
             executable = true;
             text = ''
