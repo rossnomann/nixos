@@ -3,7 +3,6 @@
   imports = [
     ./programs
     ./services
-    ./shell
     ./x11
     ./audio.nix
     ./bluetooth.nix
