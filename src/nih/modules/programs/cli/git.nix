@@ -12,20 +12,16 @@ let
   cfgUser = cfg.user;
 in
 {
-  options.nih.programs.git = {
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = pkgs.git;
-    };
-    executable = lib.mkOption {
-      type = lib.types.str;
-      default = "${cfgPrograms.git.package}/bin/git";
-    };
+  options.nih.programs.cli.git = {
+    package = lib.mkOption { type = lib.types.package; };
+    executable = lib.mkOption { type = lib.types.str; };
     gpgProgram = lib.mkOption { type = lib.types.str; };
     ignore = lib.mkOption { type = lib.types.listOf lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfgPrograms.git.package ];
+    environment.systemPackages = [ cfgPrograms.cli.git.package ];
+    nih.programs.cli.git.executable = "${cfgPrograms.cli.git.package}/bin/git";
+    nih.programs.cli.git.package = pkgs.git;
     nih.user.home.file = {
       ".config/git/config".text = lib.generators.toGitINI {
         user = {
@@ -48,13 +44,13 @@ in
           st = "status";
           ci = "commit";
         };
-        gpg.program = cfgPrograms.git.gpgProgram;
+        gpg.program = cfgPrograms.cli.git.gpgProgram;
         pull.ff = "only";
         init.defaultBranch = "master";
         include.path = "${npins.catppuccin-delta}/catppuccin.gitconfig";
         delta.features = "catppuccin-${cfgStyle.palette.variant}";
       };
-      ".config/git/ignore".text = lib.strings.concatStringsSep "\n" cfgPrograms.git.ignore;
+      ".config/git/ignore".text = lib.strings.concatStringsSep "\n" cfgPrograms.cli.git.ignore;
     };
   };
 }

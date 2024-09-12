@@ -49,7 +49,7 @@ in
       user.home.file =
         let
           hsetroot = "${pkgs.hsetroot}/bin/hsetroot";
-          nushell = cfgPrograms.nushell.executable;
+          nushell = cfgPrograms.cli.nushell.executable;
           xsetroot = "${pkgs.xorg.xsetroot}/bin/xsetroot";
         in
         {

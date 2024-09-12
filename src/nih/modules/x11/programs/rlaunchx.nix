@@ -29,7 +29,7 @@ let
         "--terminal"
         cfgPrograms.terminal.executable
       ];
-      shellPath = cfgPrograms.nushell.executable;
+      shellPath = cfgPrograms.cli.nushell.executable;
     }
   );
   executable = "${package}/bin/rlaunchx";

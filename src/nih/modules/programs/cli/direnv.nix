@@ -9,13 +9,13 @@ let
   cfgPrograms = cfg.programs;
 in
 {
-  options.nih.programs.direnv = {
+  options.nih.programs.cli.direnv = {
     package = lib.mkOption { type = lib.types.package; };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfgPrograms.direnv.package ];
-    nih.programs.direnv.package = pkgs.direnv;
-    nih.programs.git.ignore = [
+    environment.systemPackages = [ cfgPrograms.cli.direnv.package ];
+    nih.programs.cli.direnv.package = pkgs.direnv;
+    nih.programs.cli.git.ignore = [
       ".direnv"
       ".envrc"
     ];

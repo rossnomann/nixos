@@ -7,7 +7,7 @@
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
-  package = pkgs.nih.x11-screenshot cfgPrograms.nushell.executable;
+  package = pkgs.nih.x11-screenshot cfgPrograms.cli.nushell.executable;
   executable = "${package}/bin/screenshot";
 in
 {

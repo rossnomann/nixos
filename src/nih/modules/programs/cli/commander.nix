@@ -8,8 +8,17 @@
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
-  package = (
-    pkgs.nih.mc {
+in
+{
+  options.nih.programs.cli.commander = {
+    package = lib.mkOption { type = lib.types.package; };
+    executable = lib.mkOption { type = lib.types.str; };
+  };
+  config = lib.mkIf cfg.enable {
+    environment.pathsToLink = [ "/share/mc" ];
+    environment.systemPackages = [ cfgPrograms.cli.commander.package ];
+    nih.programs.cli.commander.executable = "${cfgPrograms.cli.commander.package}/bin/mc";
+    nih.programs.cli.commander.package = pkgs.nih.mc {
       commandTerminal = cfgPrograms.terminal.runCommand;
       configIni = lib.nih.gen.mc.mkIni {
         general = lib.nih.gen.mc.defaults.ini.general // {
@@ -21,22 +30,6 @@ let
         editImage = "gimp"; # TODO: value from config
       };
       pathSkin = "${npins.catppuccin-mc}/catppuccin.ini";
-    }
-  );
-in
-{
-  options.nih.programs.commander = {
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = package;
-    };
-  };
-  config = lib.mkIf cfg.enable {
-    environment = {
-      pathsToLink = [ "/share/mc" ];
-      systemPackages = [
-        cfgPrograms.commander.package
-      ];
     };
     nih.xdg.mime.directories = "mc.desktop";
   };

@@ -9,24 +9,16 @@ let
   cfgPrograms = cfg.programs;
 in
 {
-  options.nih.programs.gnupg = {
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = pkgs.gnupg;
-    };
-    executable = lib.mkOption {
-      type = lib.types.str;
-      default = "${cfgPrograms.gnupg.package}/bin/gpg";
-    };
+  options.nih.programs.cli.gnupg = {
+    package = lib.mkOption { type = lib.types.package; };
+    executable = lib.mkOption { type = lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
-    environment = {
-      systemPackages = [ cfgPrograms.gnupg.package ];
-      variables = {
-        GNUPGHOME = "$XDG_DATA_HOME/gnupg";
-      };
-    };
-    nih.programs.git.gpgProgram = cfgPrograms.gnupg.executable;
+    environment.systemPackages = [ cfgPrograms.cli.gnupg.package ];
+    environment.variables.GNUPGHOME = "$XDG_DATA_HOME/gnupg";
+    nih.programs.cli.git.gpgProgram = cfgPrograms.cli.gnupg.executable;
+    nih.programs.cli.gnupg.executable = "${cfgPrograms.cli.gnupg.package}/bin/gpg";
+    nih.programs.cli.gnupg.package = pkgs.gnupg;
     nih.user.home.file = {
       ".local/share/gnupg/gpg.conf".text = ''
         no-greeting
