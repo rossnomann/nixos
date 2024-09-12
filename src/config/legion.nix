@@ -42,6 +42,10 @@
       fsType = "ext4";
     };
   };
+  environment.variables = {
+    __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+    CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+  };
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     enableRedistributableFirmware = true;

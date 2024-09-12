@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./dev
     ./programs
     ./services
     ./x11
@@ -15,7 +16,6 @@
     ./style.nix
     ./sync.nix
     ./user.nix
-    ./vt.nix
     ./xdg.nix
   ];
   options.nih = {

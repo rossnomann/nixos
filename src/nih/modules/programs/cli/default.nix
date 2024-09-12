@@ -9,6 +9,7 @@
     ./git.nix
     ./gnupg.nix
     ./htop.nix
+    ./less.nix
     ./lshw.nix
     ./macchina.nix
     ./nushell.nix
