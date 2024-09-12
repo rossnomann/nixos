@@ -62,52 +62,23 @@ in
     };
     xdg.mime =
       let
-        mkAssoc =
-          { entry, mimes }:
-          builtins.listToAttrs (
-            map (v: {
-              name = v;
-              value = entry;
-            }) mimes
-          );
-        assoc =
-          (mkAssoc {
-            entry = cfgXdg.mime.archives;
-            mimes = lib.nih.mime.types.archives;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.audio;
-            mimes = lib.nih.mime.types.audio;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.directories;
-            mimes = lib.nih.mime.types.directories;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.documents;
-            mimes = lib.nih.mime.types.documents;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.images;
-            mimes = lib.nih.mime.types.images;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.text;
-            mimes = lib.nih.mime.types.text;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.torrents;
-            mimes = lib.nih.mime.types.torrents;
-          })
-          // (mkAssoc {
-            entry = cfgXdg.mime.videos;
-            mimes = lib.nih.mime.types.videos;
-          });
+        associations = lib.nih.mime.mkAssociations {
+          inherit (cfgXdg.mime)
+            archives
+            audio
+            directories
+            documents
+            images
+            text
+            torrents
+            videos
+            ;
+        };
       in
       {
         enable = true;
-        addedAssociations = assoc;
-        defaultApplications = assoc;
+        addedAssociations = associations;
+        defaultApplications = associations;
       };
   };
 }

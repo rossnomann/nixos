@@ -1,4 +1,12 @@
-{
+let
+  mkAssociation =
+    { entry, types }:
+    builtins.listToAttrs (
+      map (v: {
+        name = v;
+        value = entry;
+      }) types
+    );
   types = {
     archives = [
       "application/gzip"
@@ -114,4 +122,49 @@
       "video/x-ms-wmv"
     ];
   };
+in
+{
+  mkAssociations =
+    {
+      archives,
+      audio,
+      directories,
+      documents,
+      images,
+      text,
+      torrents,
+      videos,
+    }:
+    (mkAssociation {
+      entry = archives;
+      types = types.archives;
+    })
+    // (mkAssociation {
+      entry = audio;
+      types = types.audio;
+    })
+    // (mkAssociation {
+      entry = directories;
+      types = types.directories;
+    })
+    // (mkAssociation {
+      entry = documents;
+      types = types.documents;
+    })
+    // (mkAssociation {
+      entry = images;
+      types = types.images;
+    })
+    // (mkAssociation {
+      entry = text;
+      types = types.text;
+    })
+    // (mkAssociation {
+      entry = torrents;
+      types = types.torrents;
+    })
+    // (mkAssociation {
+      entry = videos;
+      types = types.videos;
+    });
 }
