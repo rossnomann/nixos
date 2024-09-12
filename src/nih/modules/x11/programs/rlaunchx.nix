@@ -29,7 +29,7 @@ let
         "--terminal"
         cfgPrograms.terminal.executable
       ];
-      shellPath = "${pkgs.nushell}/bin/nu"; # TODO: from config
+      shellPath = cfgPrograms.nushell.executable;
     }
   );
   executable = "${package}/bin/rlaunchx";

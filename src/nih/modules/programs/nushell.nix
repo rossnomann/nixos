@@ -6,9 +6,22 @@
 }:
 let
   cfg = config.nih;
+  cfgPrograms = cfg.programs;
   cfgUser = cfg.user;
+  package = pkgs.nushell;
+  executable = "${package}/bin/nu";
 in
 {
+  options.nih.programs.nushell = {
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = package;
+    };
+    executable = lib.mkOption {
+      type = lib.types.str;
+      default = executable;
+    };
+  };
   config = lib.mkIf cfg.enable {
     nih.user.home.file = {
       ".config/nushell/config.nu".text = ''
@@ -71,7 +84,7 @@ in
     };
     security.sudo.wheelNeedsPassword = false;
     users.users.${cfgUser.name} = {
-      shell = pkgs.nushell;
+      shell = cfgPrograms.nushell.package;
       extraGroups = [ "wheel" ];
     };
   };

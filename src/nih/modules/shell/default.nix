@@ -8,7 +8,6 @@
     ./gnupg.nix
     ./macchina.nix
     ./net.nix
-    ./nushell.nix
     ./sys.nix
   ];
 }

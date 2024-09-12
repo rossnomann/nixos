@@ -49,7 +49,7 @@ in
       user.home.file =
         let
           hsetroot = "${pkgs.hsetroot}/bin/hsetroot";
-          nushell = "${pkgs.nushell}/bin/nu";
+          nushell = cfgPrograms.nushell.executable;
           xsetroot = "${pkgs.xorg.xsetroot}/bin/xsetroot";
         in
         {
@@ -72,7 +72,7 @@ in
               in
               [
                 (kb.mkExecute mod.win "r" cfgX11.programs.rlaunchx.executable)
-                (kb.mkExecute mod.empty "Print" "screenshot")
+                (kb.mkExecute mod.empty "Print" cfgX11.programs.screenshot.executable)
                 (kb.mkExecute mod.win "Return" cfgPrograms.terminal.executable)
                 (kb.mkExecute mod.ctrl_alt "End" "loginctl kill-session $XDG_SESSION_ID")
                 (kb.mkExecute mod.ctrl_alt "g" "setxkbmap -layout us,ge -option grp:win_space_toggle")

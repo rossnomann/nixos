@@ -11,6 +11,7 @@
     ./games.nix
     ./graphics.nix
     ./im.nix
+    ./nushell.nix
     ./terminal.nix
     ./torrents.nix
     ./video.nix
