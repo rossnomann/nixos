@@ -6,6 +6,7 @@
     ./audio.nix
     ./bluetooth.nix
     ./commander.nix
+    ./direnv.nix
     ./documents.nix
     ./editor.nix
     ./games.nix
