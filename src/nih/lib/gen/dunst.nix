@@ -1,5 +1,4 @@
-{ lib }:
-{
+lib: {
   mkIconPath =
     let
       iconsCategories = [

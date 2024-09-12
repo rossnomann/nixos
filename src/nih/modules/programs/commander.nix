@@ -11,12 +11,12 @@ let
   package = (
     pkgs.nih.mc {
       commandTerminal = cfgPrograms.terminal.runCommand;
-      configIni = lib.nih.mc.mkIni {
-        general = lib.nih.mc.defaults.ini.general // {
+      configIni = lib.nih.gen.mc.mkIni {
+        general = lib.nih.gen.mc.defaults.ini.general // {
           skin = "catppuccin";
         };
       };
-      configExtIni = lib.nih.mc.mkExtIni {
+      configExtIni = lib.nih.gen.mc.mkExtIni {
         xdgOpen = "${pkgs.nih.nohup-xdg-open}/bin/nohup-xdg-open";
         editImage = "gimp"; # TODO: value from config
       };

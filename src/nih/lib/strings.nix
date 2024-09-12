@@ -1,5 +1,4 @@
-{ lib }:
-{
+lib: {
   capitalize =
     value:
     (lib.strings.concatStrings [

@@ -53,7 +53,7 @@ in
           xsetroot = "${pkgs.xorg.xsetroot}/bin/xsetroot";
         in
         {
-          ".config/leftwm/config.ron".text = lib.nih.leftwm.mkConfig {
+          ".config/leftwm/config.ron".text = lib.nih.gen.leftwm.mkConfig {
             defaultHeight = 300;
             defaultWidth = 400;
             disableCurrentTagSwap = true;
@@ -66,7 +66,7 @@ in
             statePath = "None";
             keybind =
               let
-                kb = lib.nih.leftwm.keybind;
+                kb = lib.nih.gen.leftwm.keybind;
                 mod = kb.mod;
                 tags = map builtins.toString (lib.range 1 7);
               in
@@ -150,7 +150,7 @@ in
             let
               colors = cfgStyle.palette.colors;
             in
-            lib.nih.leftwm.mkTheme {
+            lib.nih.gen.leftwm.mkTheme {
               borderWidth = 1;
               defaultBorderColor = colors.overlay2;
               floatingBorderColor = colors.overlay1;

@@ -55,7 +55,7 @@ in
             gap = builtins.toString dunst.gap;
             offset = builtins.toString dunst.offset;
             iconTheme = cfgStyle.icons;
-            iconPath = lib.nih.paths.mkIconPath {
+            iconPath = lib.nih.gen.dunst.mkIconPath {
               themePackage = iconTheme.package;
               themeName = iconTheme.name;
               iconsSize =

@@ -1,4 +1,4 @@
-{ lib }:
+lib:
 let
   mkList = items: "[${lib.strings.concatStringsSep ", " items}]";
   mkString = value: "\"${value}\"";
