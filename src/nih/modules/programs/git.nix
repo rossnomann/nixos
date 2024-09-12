@@ -10,18 +10,18 @@ let
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
   cfgUser = cfg.user;
-  package = pkgs.git;
 in
 {
   options.nih.programs.git = {
     package = lib.mkOption {
       type = lib.types.package;
-      default = package;
+      default = pkgs.git;
     };
     executable = lib.mkOption {
       type = lib.types.str;
       default = "${cfgPrograms.git.package}/bin/git";
     };
+    gpgProgram = lib.mkOption { type = lib.types.str; };
     ignore = lib.mkOption { type = lib.types.listOf lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
@@ -48,7 +48,7 @@ in
           st = "status";
           ci = "commit";
         };
-        gpg.program = "gpg2";
+        gpg.program = cfgPrograms.git.gpgProgram;
         pull.ff = "only";
         init.defaultBranch = "master";
         include.path = "${npins.catppuccin-delta}/catppuccin.gitconfig";

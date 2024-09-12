@@ -10,6 +10,7 @@
     ./editor.nix
     ./games.nix
     ./git.nix
+    ./gnupg.nix
     ./graphics.nix
     ./im.nix
     ./nushell.nix
