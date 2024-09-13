@@ -14,6 +14,20 @@ in
       pkgs.slack
       pkgs.telegram-desktop
     ];
+    nih.x11.wm.windowRules = [
+      {
+        windowClass = "discord";
+        spawnOnTag = "secondary";
+      }
+      {
+        windowClass = "slack";
+        spawnOnTag = "secondary";
+      }
+      {
+        windowClass = "telegram-desktop";
+        spawnOnTag = "secondary";
+      }
+    ];
     xdg.mime =
       let
         assoc = {
@@ -24,11 +38,5 @@ in
         addedAssociations = assoc;
         defaultApplications = assoc;
       };
-    nih.x11.wm.windowRules = [
-      {
-        windowClass = "telegram-desktop";
-        spawnOnTag = "secondary";
-      }
-    ];
   };
 }

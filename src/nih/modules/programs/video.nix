@@ -7,47 +7,45 @@
 let
   cfg = config.nih;
   cfgStyle = cfg.style;
-  cfgPrograms = cfg.programs;
 in
 {
-  options.nih.programs.video = {
-    mpv.theme.package = lib.mkOption { type = lib.types.package; };
-  };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.mpv
       pkgs.kdePackages.kdenlive
+      pkgs.mpv
       pkgs.syncplay
     ];
-    nih = {
-      programs.video.mpv.theme.package = pkgs.nih.catppuccin.mpv;
-      x11.wm.windowRules = [
-        {
-          windowClass = "mpv";
-          spawnFullscreen = true;
-          spawnOnTag = "secondary";
-        }
-        {
-          windowClass = ".syncplay-wrapped";
-          spawnFloating = true;
-          spawnOnTag = "secondary";
-        }
-      ];
-      xdg.mime =
-        let
-          entry = "mpv.desktop";
-        in
-        {
-          audio = entry;
-          videos = entry;
-        };
-      user.home.file = {
-        ".config/mpv/mpv.conf".source =
-          let
-            package = cfgPrograms.video.mpv.theme.package;
-          in
-          "${package}/${cfgStyle.palette.variant}/${cfgStyle.palette.accent}.conf";
+    nih.x11.wm.windowRules = [
+      {
+        windowClass = "kdenlive";
+        spawnOnTag = "main";
+      }
+      {
+        windowClass = "mpv";
+        spawnFullscreen = true;
+        spawnOnTag = "main";
+      }
+      {
+        windowClass = ".syncplay-wrapped";
+        spawnFloating = true;
+        spawnOnTag = "secondary";
+      }
+    ];
+    nih.xdg.mime =
+      let
+        entry = "mpv.desktop";
+      in
+      {
+        audio = entry;
+        videos = entry;
       };
+    nih.user.home.file = {
+      ".config/mpv/mpv.conf".source =
+        let
+          package = pkgs.nih.catppuccin.mpv;
+          palette = cfgStyle.palette;
+        in
+        "${package}/${palette.variant}/${palette.accent}.conf";
     };
   };
 }
