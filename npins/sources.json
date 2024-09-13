@@ -117,6 +117,18 @@
       "url": "https://api.github.com/repos/asbjornenge/Docker.tmbundle/tarball/v1.6.5",
       "hash": "06ykjmq8cmqx0j6viwdp282c1dd6ydzwr10cikx9mn8z33445fw8"
     },
+    "sublime-text-file-icons-mono": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "braver",
+        "repo": "FileIcons"
+      },
+      "branch": "mono",
+      "revision": "3f003394c526809713b027a8bac426d2bf8fef9c",
+      "url": "https://github.com/braver/FileIcons/archive/3f003394c526809713b027a8bac426d2bf8fef9c.tar.gz",
+      "hash": "0ax70npqlh1ib1fx0axd3wmb3csjq0rycysq9f53g3nbc68vq7x3"
+    },
     "sublime-text-git-gutter": {
       "type": "GitRelease",
       "repository": {
@@ -147,6 +159,30 @@
       "url": "https://api.github.com/repos/Sublime-Instincts/BetterJinja/tarball/v1.1.0",
       "hash": "1xaa8vrjf9n669b3x2jmd2ym8s7dr2d5jgmwfzkc4dnf15zlyinc"
     },
+    "sublime-text-lsp": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sublimelsp",
+        "repo": "LSP"
+      },
+      "branch": "main",
+      "revision": "f4223d6d13eb941370c0ac40b47a185befa3a852",
+      "url": "https://github.com/sublimelsp/LSP/archive/f4223d6d13eb941370c0ac40b47a185befa3a852.tar.gz",
+      "hash": "07lfaf9rzj1fpmjykqkj37hqvkgafk0271cxnriagz2cwnbz7759"
+    },
+    "sublime-text-markdown-preview": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "facelessuser",
+        "repo": "MarkdownPreview"
+      },
+      "branch": "master",
+      "revision": "c94a1e0465188b4b526d95adeef773b88f72b928",
+      "url": "https://github.com/facelessuser/MarkdownPreview/archive/c94a1e0465188b4b526d95adeef773b88f72b928.tar.gz",
+      "hash": "0c9p8l92jdbb87k40ajz8k0z8qbmvmlgvymfn2sqaxabs92m4gpl"
+    },
     "sublime-text-nix": {
       "type": "GitRelease",
       "repository": {
@@ -176,6 +212,42 @@
       "revision": "66b00ff639dc8cecb688a0e1d81d13613b772f66",
       "url": "https://api.github.com/repos/stevenxxiu/sublime_text_nushell/tarball/v1.11.0",
       "hash": "1n5xw7m7lm1v64xcslrjlm65rrqpxghr7fsnkv3drylgzrjb59m5"
+    },
+    "sublime-text-project-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "randy3k",
+        "repo": "ProjectManager"
+      },
+      "branch": "master",
+      "revision": "968867263c0b085c0840dc476f0ee25b81670c51",
+      "url": "https://github.com/randy3k/ProjectManager/archive/968867263c0b085c0840dc476f0ee25b81670c51.tar.gz",
+      "hash": "1g4anw963bz486xpdhvz7wda5h0xpsjnig3lnzr7qlp05bvh9c83"
+    },
+    "sublime-text-ron": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ron-rs",
+        "repo": "sublime-ron"
+      },
+      "branch": "master",
+      "revision": "41e3e37db9febbf9dfc4efad015934c61b3c8ef1",
+      "url": "https://github.com/ron-rs/sublime-ron/archive/41e3e37db9febbf9dfc4efad015934c61b3c8ef1.tar.gz",
+      "hash": "18gl395j3jrqr1jb6xxlig75zgvrchq3gdx71048l65ki2jhpcmp"
+    },
+    "sublime-text-rust-enhanced": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "rust-lang",
+        "repo": "rust-enhanced"
+      },
+      "branch": "master",
+      "revision": "ea0d68c074b1862ec83d608938763e2ac17bd1eb",
+      "url": "https://github.com/rust-lang/rust-enhanced/archive/ea0d68c074b1862ec83d608938763e2ac17bd1eb.tar.gz",
+      "hash": "10pa3svgiqi08kjkm6g5fbicmnsnz48k1ifwl9jdhkzrnddqn5gi"
     },
     "sublime-text-toml": {
       "type": "GitRelease",
