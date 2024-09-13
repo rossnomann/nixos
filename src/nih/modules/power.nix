@@ -16,27 +16,25 @@ in
   config = lib.mkIf cfg.enable {
     environment = lib.mkIf cfgPower.powertop.enable { systemPackages = [ pkgs.powertop ]; };
     powerManagement.powertop.enable = cfgPower.powertop.enable;
-    services = {
-      logind =
-        let
-          lidSwitch = if cfgPower.suspend.enable then "suspend-then-hibernate" else "ignore";
-          lidSwitchExternalPower = if cfgPower.suspend.enable then "suspend" else "ignore";
-        in
-        {
-          inherit lidSwitch;
-          inherit lidSwitchExternalPower;
-          extraConfig = ''
-            IdleAction=ignore
-          '';
-          killUserProcesses = true;
-          lidSwitchDocked = "ignore";
+    services.logind =
+      let
+        lidSwitch = if cfgPower.suspend.enable then "suspend-then-hibernate" else "ignore";
+        lidSwitchExternalPower = if cfgPower.suspend.enable then "suspend" else "ignore";
+      in
+      {
+        inherit lidSwitch;
+        inherit lidSwitchExternalPower;
+        extraConfig = ''
+          IdleAction=ignore
+        '';
+        killUserProcesses = true;
+        lidSwitchDocked = "ignore";
 
-          powerKey = "ignore";
-          powerKeyLongPress = "poweroff";
-        };
-      thermald.enable = true;
-      tlp.enable = true;
-    };
+        powerKey = "ignore";
+        powerKeyLongPress = "poweroff";
+      };
+    services.thermald.enable = true;
+    services.tlp.enable = true;
     systemd.sleep.extraConfig =
       let
         allow = if cfgPower.suspend.enable then "yes" else "no";

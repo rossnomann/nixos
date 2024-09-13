@@ -11,6 +11,33 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.alsa-utils ];
+    security.pam.loginLimits = [
+      {
+        domain = "@audio";
+        item = "memlock";
+        type = "-";
+        value = "unlimited";
+      }
+      {
+        domain = "@audio";
+        item = "rtprio";
+        type = "-";
+        value = "99";
+      }
+      {
+        domain = "@audio";
+        item = "nofile";
+        type = "soft";
+        value = "99999";
+      }
+      {
+        domain = "@audio";
+        item = "nofile";
+        type = "hard";
+        value = "99999";
+      }
+    ];
+    security.rtkit.enable = true;
     services.pipewire = {
       alsa = {
         enable = true;
@@ -21,35 +48,6 @@ in
       jack.enable = true;
       pulse.enable = true;
       wireplumber.enable = true;
-    };
-    security = {
-      pam.loginLimits = [
-        {
-          domain = "@audio";
-          item = "memlock";
-          type = "-";
-          value = "unlimited";
-        }
-        {
-          domain = "@audio";
-          item = "rtprio";
-          type = "-";
-          value = "99";
-        }
-        {
-          domain = "@audio";
-          item = "nofile";
-          type = "soft";
-          value = "99999";
-        }
-        {
-          domain = "@audio";
-          item = "nofile";
-          type = "hard";
-          value = "99999";
-        }
-      ];
-      rtkit.enable = true;
     };
     users.users.${cfgUser.name}.extraGroups = [ "audio" ];
   };
