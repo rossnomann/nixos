@@ -161,62 +161,88 @@ in
       Panels = panels;
     };
   mkExtIni =
-    { xdgOpen, editImage }:
-    lib.generators.toINI { } {
-      "mc.ext.ini" = {
-        Version = 4.0;
+    {
+      xdgOpen,
+      editRasterImage,
+      editVectorImage,
+    }:
+    let
+      documents = {
+        djvu = {
+          Regex = ''\\.djvu?$'';
+          RegexIgnoreCase = true;
+          Open = "${xdgOpen} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
+        ebook = {
+          Regex = ''\\.(epub|mobi|fb2)$'';
+          RegexIgnoreCase = true;
+          Open = "${xdgOpen} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
+        pdf = {
+          Regex = ''\\.pdf?$'';
+          RegexIgnoreCase = true;
+          Open = "${xdgOpen} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
       };
-      xcf = {
-        Shell = ".xcf";
-        Include = "image";
+      rasterImages = builtins.listToAttrs (
+        map
+          (ext: {
+            name = ext;
+            value = {
+              Shell = ".${ext}";
+              Include = "rasterImage";
+            };
+          })
+          [
+            "gif"
+            "ico"
+            "jpeg"
+            "jpg"
+            "png"
+            "webp"
+            "xcf"
+            "xbm"
+            "xpm"
+          ]
+      );
+      vectorImages = {
+        svg = {
+          Shell = ".svg";
+          ShellIgnoreCase = true;
+          Include = "vectorImage";
+        };
       };
-      xbm = {
-        Shell = ".xbm";
-        Include = "image";
+      includes = {
+        "Include/rasterImage" = {
+          Open = "${xdgOpen} %d/%p";
+          Edit = "${editRasterImage} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
+        "Include/vectorImage" = {
+          Open = "${xdgOpen} %d/%p";
+          Edit = "${editVectorImage} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
       };
-      xpm = {
-        Shell = ".xpm";
-        Include = "image";
-      };
-      ico = {
-        Shell = ".ico";
-        Include = "image";
-      };
-      svg = {
-        Shell = ".svg";
-        ShellIgnoreCase = true;
-        Include = "image";
-      };
-      webp = {
-        Shell = ".webp";
-        Include = "image";
-      };
-      djvu = {
-        Regex = ''\\.djvu?$'';
-        RegexIgnoreCase = true;
-        Open = "${xdgOpen} %d/%p";
-        View = "${xdgOpen} %d/%p";
-      };
-      ebook = {
-        Regex = ''\\.(epub|mobi|fb2)$'';
-        RegexIgnoreCase = true;
-        Open = "${xdgOpen} %d/%p";
-        View = "${xdgOpen} %d/%p";
-      };
-      pdf = {
-        Regex = ''\\.pdf?$'';
-        RegexIgnoreCase = true;
-        Open = "${xdgOpen} %d/%p";
-        View = "${xdgOpen} %d/%p";
-      };
-      "Include/image" = {
-        Open = "${xdgOpen} %d/%p";
-        Edit = "${editImage} %d/%p";
-        View = "${xdgOpen} %d/%p";
-      };
-      Default = {
-        Open = "${xdgOpen} %d/%p";
-        View = "${xdgOpen} %d/%p";
-      };
-    };
+    in
+    lib.generators.toINI { } (
+      {
+        "mc.ext.ini" = {
+          Version = 4.0;
+        };
+      }
+      // documents
+      // rasterImages
+      // vectorImages
+      // includes
+      // {
+        Default = {
+          Open = "${xdgOpen} %d/%p";
+          View = "${xdgOpen} %d/%p";
+        };
+      }
+    );
 }

@@ -27,7 +27,8 @@ in
       };
       configExtIni = lib.nih.gen.mc.mkExtIni {
         xdgOpen = "${pkgs.nih.nohup-xdg-open}/bin/nohup-xdg-open";
-        editImage = "gimp"; # TODO: value from config
+        editRasterImage = cfgPrograms.graphics.gimp.executable;
+        editVectorImage = cfgPrograms.graphics.inkscape.executable;
       };
       pathSkin = "${npins.catppuccin-mc}/catppuccin.ini";
     };

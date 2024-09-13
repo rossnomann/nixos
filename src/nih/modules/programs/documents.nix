@@ -40,6 +40,6 @@ in
         spawnOnTag = "documents";
       }
     ];
-    xdg.mime.documents = "org.pwmt.zathura.desktop";
+    nih.xdg.mime.documents = "org.pwmt.zathura.desktop";
   };
 }
