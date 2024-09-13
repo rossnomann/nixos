@@ -14,5 +14,11 @@ in
       pkgs.xarchiver
     ];
     nih.xdg.mime.archives = "xarchiver.desktop";
+    nih.x11.wm.windowRules = [
+      {
+        windowClass = "xarchiver";
+        spawnOnTag = "secondary";
+      }
+    ];
   };
 }
