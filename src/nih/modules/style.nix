@@ -100,10 +100,11 @@ in
       cfgStyle.packages.qt
       pkgs.libsForQt5.qtstyleplugin-kvantum
       pkgs.qt6Packages.qtstyleplugin-kvantum
+      pkgs.libsForQt5.qt5ct
+      pkgs.qt6Packages.qt6ct
     ];
     environment.variables = {
-      QT_QPA_PLATFORMTHEME = "gtk3";
-      QT_STYLE_OVERRIDE = "kvantum";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
     };
 
     fonts.packages = cfgStyle.fonts.packages;
@@ -128,6 +129,7 @@ in
     nih.style.packages.index = pkgs.nih.cursor-theme-default cfgStyle.cursors.name;
     nih.style.packages.qt = pkgs.nih.catppuccin.kvantum;
     nih.user.home.file = {
+
       ".config/Kvantum/kvantum.kvconfig".text = ''
         theme=${kvantum.themeName}
       '';
@@ -171,6 +173,8 @@ in
         iconThemeName = icons.name;
         themeName = gtk.themeName;
       };
+      ".config/qt5ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
+      ".config/qt6ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
       ".icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
       ".icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
       ".local/share/icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
