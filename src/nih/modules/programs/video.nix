@@ -11,18 +11,18 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.kdePackages.kdenlive
+      pkgs.pitivi
       pkgs.mpv
       pkgs.syncplay
     ];
     nih.x11.wm.windowRules = [
       {
-        windowClass = "kdenlive";
+        windowClass = "mpv";
+        spawnFullscreen = true;
         spawnOnTag = "main";
       }
       {
-        windowClass = "mpv";
-        spawnFullscreen = true;
+        windowClass = ".pitivi-wrapped";
         spawnOnTag = "main";
       }
       {
