@@ -7,27 +7,14 @@
 let
   cfg = config.nih;
   cfgStyle = cfg.style;
-  cursors = {
-    name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-cursors";
-    size = cfgStyle.cursors.size;
-  };
-  gtk = {
-    decorationLayout = ":";
-    fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
-    themeName = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
-  };
-  icons = {
-    name = cfgStyle.icons.name;
-  };
-  kvantum = {
-    themeName = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}";
-  };
 in
 {
   options.nih.style = {
     cursors = {
       name = lib.mkOption { type = lib.types.str; };
       size = lib.mkOption { type = lib.types.int; };
+      indexPackage = lib.mkOption { type = lib.types.package; };
+      themePackage = lib.mkOption { type = lib.types.package; };
     };
 
     fonts = {
@@ -60,11 +47,20 @@ in
       };
     };
 
-    packages = {
-      cursors = lib.mkOption { type = lib.types.package; };
-      gtk = lib.mkOption { type = lib.types.package; };
-      index = lib.mkOption { type = lib.types.package; };
-      qt = lib.mkOption { type = lib.types.package; };
+    gtk = {
+      decorationLayout = lib.mkOption { type = lib.types.str; };
+      fontName = lib.mkOption { type = lib.types.str; };
+      theme = {
+        name = lib.mkOption { type = lib.types.str; };
+        package = lib.mkOption { type = lib.types.package; };
+      };
+    };
+
+    qt = {
+      kvantum.theme = {
+        name = lib.mkOption { type = lib.types.str; };
+        package = lib.mkOption { type = lib.types.package; };
+      };
     };
   };
   config = lib.mkIf cfg.enable {
@@ -85,19 +81,19 @@ in
       };
     environment.sessionVariables = {
       GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
-      XCURSOR_SIZE = cursors.size;
-      XCURSOR_THEME = cursors.name;
+      XCURSOR_SIZE = cfgStyle.cursors.size;
+      XCURSOR_THEME = cfgStyle.cursors.name;
       XDG_DATA_DIRS = [
         "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.version}"
         "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
       ];
     };
     environment.systemPackages = [
+      cfgStyle.cursors.themePackage
+      cfgStyle.cursors.indexPackage
+      cfgStyle.gtk.theme.package
       cfgStyle.icons.package
-      cfgStyle.packages.cursors
-      cfgStyle.packages.gtk
-      cfgStyle.packages.index
-      cfgStyle.packages.qt
+      cfgStyle.qt.kvantum.theme.package
       pkgs.libsForQt5.qtstyleplugin-kvantum
       pkgs.qt6Packages.qtstyleplugin-kvantum
       pkgs.libsForQt5.qt5ct
@@ -117,28 +113,32 @@ in
       };
     };
 
-    nih.style.cursors.name = cursors.name;
-    nih.style.packages.cursors = pkgs.nih.catppuccin.cursors {
+    nih.style.cursors.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-cursors";
+    nih.style.cursors.indexPackage = pkgs.nih.cursor-theme-default cfgStyle.cursors.name;
+    nih.style.cursors.themePackage = pkgs.nih.catppuccin.cursors {
       accent = cfgStyle.palette.accent;
       variant = cfgStyle.palette.variant;
     };
-    nih.style.packages.gtk = pkgs.nih.catppuccin.gtk {
+    nih.style.gtk.decorationLayout = ":";
+    nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
+    nih.style.gtk.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
+    nih.style.gtk.theme.package = pkgs.nih.catppuccin.gtk {
       accent = cfgStyle.palette.accent;
       variant = cfgStyle.palette.variant;
     };
-    nih.style.packages.index = pkgs.nih.cursor-theme-default cfgStyle.cursors.name;
-    nih.style.packages.qt = pkgs.nih.catppuccin.kvantum;
-    nih.user.home.file = {
+    nih.style.qt.kvantum.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}";
+    nih.style.qt.kvantum.theme.package = pkgs.nih.catppuccin.kvantum;
 
+    nih.user.home.file = {
       ".config/Kvantum/kvantum.kvconfig".text = ''
-        theme=${kvantum.themeName}
+        theme=${cfgStyle.qt.kvantum.theme.name}
       '';
       ".config/gtk-2.0/gtkrc".text = lib.nih.gen.gtk.mkGtk2Settings {
-        cursorThemeName = cursors.name;
-        cursorThemeSize = cursors.size;
-        fontName = gtk.fontName;
-        iconThemeName = icons.name;
-        themeName = gtk.themeName;
+        cursorThemeName = cfgStyle.cursors.name;
+        cursorThemeSize = cfgStyle.cursors.size;
+        fontName = cfgStyle.gtk.fontName;
+        iconThemeName = cfgStyle.icons.name;
+        themeName = cfgStyle.gtk.theme.name;
       };
       ".config/gtk-3.0/gtk.css".text = ''
         * {
@@ -147,38 +147,38 @@ in
         }
       '';
       ".config/gtk-3.0/settings.ini".text = lib.nih.gen.gtk.mkGtk3Settings {
-        cursorThemeName = cursors.name;
-        cursorThemeSize = cursors.size;
-        decorationLayout = gtk.decorationLayout;
-        fontName = gtk.fontName;
-        iconThemeName = icons.name;
-        themeName = gtk.themeName;
+        cursorThemeName = cfgStyle.cursors.name;
+        cursorThemeSize = cfgStyle.cursors.size;
+        decorationLayout = cfgStyle.gtk.decorationLayout;
+        fontName = cfgStyle.gtk.fontName;
+        iconThemeName = cfgStyle.icons.name;
+        themeName = cfgStyle.gtk.theme.name;
       };
       ".config/gtk-4.0/gtk.css".text = ''
         /**
          * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
          * It does however respect user CSS, so import the theme from here.
         **/
-        @import url("file://${cfgStyle.packages.gtk}/share/themes/${gtk.themeName}/gtk-4.0/gtk.css");
+        @import url("file://${cfgStyle.gtk.theme.package}/share/themes/${cfgStyle.gtk.theme.name}/gtk-4.0/gtk.css");
         * {
           border-radius: 0 0 0 0;
           box-shadow: none;
         }
       '';
       ".config/gtk-4.0/settings.ini".text = lib.nih.gen.gtk.mkGtk4Settings {
-        cursorThemeName = cursors.name;
-        cursorThemeSize = cursors.size;
-        decorationLayout = gtk.decorationLayout;
-        fontName = gtk.fontName;
-        iconThemeName = icons.name;
-        themeName = gtk.themeName;
+        cursorThemeName = cfgStyle.cursors.name;
+        cursorThemeSize = cfgStyle.cursors.size;
+        decorationLayout = cfgStyle.gtk.decorationLayout;
+        fontName = cfgStyle.gtk.fontName;
+        iconThemeName = cfgStyle.icons.name;
+        themeName = cfgStyle.gtk.theme.name;
       };
       ".config/qt5ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
       ".config/qt6ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
-      ".icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
-      ".icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
-      ".local/share/icons/default/index.theme".source = "${cfgStyle.packages.index}/share/icons/default/index.theme";
-      ".local/share/icons/${cursors.name}".source = "${cfgStyle.packages.cursors}/share/icons/${cursors.name}";
+      ".icons/default/index.theme".source = "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
+      ".icons/${cfgStyle.cursors.name}".source = "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
+      ".local/share/icons/default/index.theme".source = "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
+      ".local/share/icons/${cfgStyle.cursors.name}".source = "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
     };
 
     programs.dconf = {
@@ -187,16 +187,17 @@ in
         {
           settings = {
             "org/gnome/desktop/interface" = {
-              cursor-size = lib.gvariant.mkUint32 cursors.size;
-              cursor-theme = cursors.name;
-              font-name = gtk.fontName;
-              gtk-theme = gtk.themeName;
-              icon-theme = icons.name;
+              cursor-size = lib.gvariant.mkUint32 cfgStyle.cursors.size;
+              cursor-theme = cfgStyle.cursors.name;
+              font-name = cfgStyle.gtk.fontName;
+              gtk-theme = cfgStyle.gtk.theme.name;
+              icon-theme = cfgStyle.icons.name;
             };
           };
         }
       ];
     };
+
     xdg.portal = {
       enable = true;
       config.common.default = [ "gtk" ];
