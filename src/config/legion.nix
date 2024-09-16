@@ -20,6 +20,7 @@
       verbose = false;
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_6_10;
+    kernelParams = [ "i8042.nopnp=1" ];
     kernelModules = [
       "kvm-intel"
       "v4l2loopback"
