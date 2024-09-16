@@ -1,5 +1,10 @@
 # Lenovo Legion 5 15IAH7H
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot = {
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
@@ -14,6 +19,7 @@
       ];
       verbose = false;
     };
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_10;
     kernelModules = [
       "kvm-intel"
       "v4l2loopback"
