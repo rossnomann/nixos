@@ -34,7 +34,15 @@ in
         powerKeyLongPress = "poweroff";
       };
     services.thermald.enable = true;
-    services.tlp.enable = true;
+    services.tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+      };
+    };
     systemd.sleep.extraConfig =
       let
         allow = if cfgPower.suspend.enable then "yes" else "no";
