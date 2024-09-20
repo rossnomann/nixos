@@ -16,8 +16,14 @@ in
       type = lib.types.int;
       default = 16;
     };
-    gap = lib.mkOption { type = lib.types.int; };
-    offset = lib.mkOption { type = lib.types.int; };
+    gap = lib.mkOption {
+      type = lib.types.int;
+      default = 12;
+    };
+    offset = lib.mkOption {
+      type = lib.types.int;
+      default = 24;
+    };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [

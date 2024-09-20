@@ -15,20 +15,23 @@ in
       pkgs.mpv
       pkgs.syncplay
     ];
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "mpv";
-        spawnFullscreen = true;
-        spawnOnTag = "main";
+        x11Class = "mpv";
+        waylandAppId = "mpv";
+        useWorkspace = "main";
+        useFullscreen = true;
       }
       {
-        windowClass = ".pitivi-wrapped";
-        spawnOnTag = "main";
+        x11Class = ".pitivi-wrapped";
+        waylandAppId = ".pitivi-wrapped";
+        useWorkspace = "main";
       }
       {
-        windowClass = ".syncplay-wrapped";
-        spawnFloating = true;
-        spawnOnTag = "secondary";
+        x11Class = ".syncplay-wrapped";
+        waylandAppId = "syncplay";
+        useWorkspace = "secondary";
+        useFloating = true;
       }
     ];
     nih.xdg.mime =

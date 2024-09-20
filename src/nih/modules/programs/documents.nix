@@ -22,22 +22,26 @@ in
         include ${npins.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
       '';
     };
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "libreoffice";
-        spawnOnTag = "documents";
+        x11Class = "libreoffice";
+        waylandAppId = "^libreoffice-.*";
+        useWorkspace = "documents";
       }
       {
-        windowClass = "obsidian";
-        spawnOnTag = "documents";
+        x11Class = "obsidian";
+        waylandAppId = "obsidian";
+        useWorkspace = "documents";
       }
       {
-        windowClass = "org.pwmt.zathura";
-        spawnOnTag = "documents";
+        x11Class = "org.pwmt.zathura";
+        waylandAppId = "org.pwmt.zathura";
+        useWorkspace = "documents";
       }
       {
-        windowClass = "simple-scan";
-        spawnOnTag = "documents";
+        x11Class = "simple-scan";
+        waylandAppId = "simple-scan";
+        useWorkspace = "documents";
       }
     ];
     nih.xdg.mime.documents = "org.pwmt.zathura.desktop";

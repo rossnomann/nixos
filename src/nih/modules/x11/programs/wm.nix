@@ -8,6 +8,7 @@ let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
+  cfgWindowRules = cfg.windowRules;
   cfgX11 = cfg.x11;
   package = pkgs.leftwm;
   executable = "${package}/bin/leftwm";
@@ -29,10 +30,6 @@ in
         type = lib.types.str;
         default = "${executable} command SoftReload";
       };
-    };
-    windowRules = lib.mkOption {
-      type = lib.types.listOf lib.types.attrs;
-      default = [ ];
     };
   };
   config = lib.mkIf (cfg.enable && cfgX11.enable) {
@@ -114,7 +111,15 @@ in
             "documents"
             "steam"
           ];
-          windowRules = cfgX11.wm.windowRules;
+          windowRules = (
+            map (x: {
+              windowClass = x.x11Class;
+              windowTitle = x.title;
+              spawnOnTag = x.useWorkspace;
+              spawnFullscreen = x.useFullscreen;
+              spawnFloating = x.useFloating;
+            }) cfgWindowRules
+          );
         };
         ".config/leftwm/down" = {
           executable = true;
@@ -127,7 +132,7 @@ in
         };
         ".config/leftwm/up" =
           let
-            wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
+            wallpaper = cfgStyle.wallpaper;
           in
           {
             executable = true;
@@ -153,7 +158,7 @@ in
             borderWidth = 1;
             defaultBorderColor = colors.overlay2;
             floatingBorderColor = colors.overlay1;
-            focusedBorderColor = colors.green;
+            focusedBorderColor = (lib.getAttr cfgStyle.palette.accent colors);
             gutterTop = cfgX11.wm.gutterSize;
             gutterRight = cfgX11.wm.gutterSize;
             gutterBottom = cfgX11.wm.gutterSize;
@@ -168,5 +173,10 @@ in
           '';
         };
       };
+    xdg.portal = {
+      enable = true;
+      config.common.default = [ "gtk" ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
   };
 }

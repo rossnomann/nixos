@@ -62,6 +62,8 @@ in
         package = lib.mkOption { type = lib.types.package; };
       };
     };
+
+    wallpaper = lib.mkOption { type = lib.types.path; };
   };
   config = lib.mkIf cfg.enable {
     environment.pathsToLink = [
@@ -128,6 +130,7 @@ in
     };
     nih.style.qt.kvantum.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}";
     nih.style.qt.kvantum.theme.package = pkgs.nih.catppuccin.kvantum;
+    nih.style.wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
 
     nih.user.home.file = {
       ".config/Kvantum/kvantum.kvconfig".text = ''
@@ -196,12 +199,6 @@ in
           };
         }
       ];
-    };
-
-    xdg.portal = {
-      enable = true;
-      config.common.default = [ "gtk" ];
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
 }

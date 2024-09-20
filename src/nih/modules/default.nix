@@ -4,6 +4,7 @@
     ./dev
     ./programs
     ./services
+    ./wayland
     ./x11
     ./audio.nix
     ./bluetooth.nix
@@ -16,6 +17,7 @@
     ./style.nix
     ./sync.nix
     ./user.nix
+    ./window-rules.nix
     ./xdg.nix
   ];
   options.nih = {

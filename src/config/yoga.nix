@@ -79,10 +79,10 @@
       suspend.enable = true;
     };
     style = {
-      cursors.size = 14;
+      cursors.size = 16;
       fonts =
         let
-          defaultSize = 8;
+          defaultSize = 10;
         in
         {
           monospace = {
@@ -138,36 +138,13 @@
         ];
       };
     };
-    x11 =
-      let
-        dpi = 144;
-      in
-      {
-        inherit dpi;
+    wayland = {
+      enable = true;
+      programs.rot8 = {
         enable = true;
-
-        autorandr.profiles = {
-          default = {
-            fingerprint = {
-              "eDP1" = "00ffffffffffff0009e5550800000000331c0104a51f117802ff35a756509f270e505400000001010101010101010101010101010101c0398018713828403020360035ae1000001a000000000000000000000000000000000000000000fe00424f452043510a202020202020000000fe004e5631343046484d2d4e36350a0086";
-            };
-            config = {
-              "eDP1" = {
-                crtc = 0;
-                inherit dpi;
-                mode = "1920x1080";
-                position = "0x0";
-                rate = "60.00";
-              };
-            };
-          };
-        };
-        tablet.enable = true;
-        wm = {
-          gutterSize = 6;
-          marginSize = 3;
-        };
+        device = "eDP-1";
       };
+    };
   };
   swapDevices = [
     {

@@ -89,14 +89,16 @@ in
         word_wrap = false;
       };
     };
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "sublime_text";
-        spawnOnTag = "main";
+        x11Class = "sublime_text";
+        waylandAppId = "sublime_text";
+        useWorkspace = "main";
       }
       {
-        windowClass = "sublime_merge";
-        spawnOnTag = "main";
+        x11Class = "sublime_merge";
+        waylandAppId = "sublime_merge";
+        useWorkspace = "main";
       }
     ];
     nih.xdg.mime.text = "sublime_text.desktop";

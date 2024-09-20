@@ -6,15 +6,19 @@
 }:
 let
   cfg = config.nih;
+  cfgPrograms = cfg.programs;
 in
 {
-  config = lib.mkIf cfg.enable {
+  options.nih.programs.games = {
+    enable = lib.mkEnableOption "games";
+  };
+  config = lib.mkIf (cfg.enable && cfgPrograms.games.enable) {
     environment.systemPackages = [ pkgs.steam ];
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "steam";
-        spawnFloating = true;
-        spawnOnTag = "steam";
+        x11Class = "steam";
+        useFloating = true;
+        useWorkspace = "steam";
       }
     ];
   };

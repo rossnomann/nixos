@@ -11,10 +11,11 @@ in
 {
   config = lib.mkIf (cfg.enable && cfgBluetooth.enable) {
     environment.systemPackages = [ pkgs.overskride ];
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "overskride";
-        spawnOnTag = "secondary";
+        x11Class = "overskride";
+        waylandAppId = "io.github.kaii_lb.Overskride";
+        useWorkspace = "secondary";
       }
     ];
   };

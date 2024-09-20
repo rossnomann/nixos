@@ -163,8 +163,8 @@ in
   mkExtIni =
     {
       xdgOpen,
-      editRasterImage,
-      editVectorImage,
+      editRasterImage ? null,
+      editVectorImage ? null,
     }:
     let
       documents = {
@@ -187,46 +187,54 @@ in
           View = "${xdgOpen} %d/%p";
         };
       };
-      rasterImages = builtins.listToAttrs (
-        map
-          (ext: {
-            name = ext;
-            value = {
-              Shell = ".${ext}";
-              Include = "rasterImage";
+      rasterImages =
+        if editRasterImage == null then
+          { }
+        else
+          (builtins.listToAttrs (
+            map
+              (ext: {
+                name = ext;
+                value = {
+                  Shell = ".${ext}";
+                  Include = "rasterImage";
+                };
+              })
+              [
+                "gif"
+                "ico"
+                "jpeg"
+                "jpg"
+                "png"
+                "webp"
+                "xcf"
+                "xbm"
+                "xpm"
+              ]
+          ))
+          // {
+            "Include/rasterImage" = {
+              Open = "${xdgOpen} %d/%p";
+              Edit = "${editRasterImage} %d/%p";
+              View = "${xdgOpen} %d/%p";
             };
-          })
-          [
-            "gif"
-            "ico"
-            "jpeg"
-            "jpg"
-            "png"
-            "webp"
-            "xcf"
-            "xbm"
-            "xpm"
-          ]
-      );
-      vectorImages = {
-        svg = {
-          Shell = ".svg";
-          ShellIgnoreCase = true;
-          Include = "vectorImage";
-        };
-      };
-      includes = {
-        "Include/rasterImage" = {
-          Open = "${xdgOpen} %d/%p";
-          Edit = "${editRasterImage} %d/%p";
-          View = "${xdgOpen} %d/%p";
-        };
-        "Include/vectorImage" = {
-          Open = "${xdgOpen} %d/%p";
-          Edit = "${editVectorImage} %d/%p";
-          View = "${xdgOpen} %d/%p";
-        };
-      };
+          };
+      vectorImages =
+        if editVectorImage == null then
+          { }
+        else
+          {
+            svg = {
+              Shell = ".svg";
+              ShellIgnoreCase = true;
+              Include = "vectorImage";
+            };
+            "Include/vectorImage" = {
+              Open = "${xdgOpen} %d/%p";
+              Edit = "${editVectorImage} %d/%p";
+              View = "${xdgOpen} %d/%p";
+            };
+          };
     in
     lib.generators.toINI { } (
       {
@@ -237,7 +245,6 @@ in
       // documents
       // rasterImages
       // vectorImages
-      // includes
       // {
         Default = {
           Open = "${xdgOpen} %d/%p";

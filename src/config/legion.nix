@@ -102,6 +102,25 @@
       powertop.enable = false;
       suspend.enable = false;
     };
+    programs = {
+      audio = {
+        ardour.enable = true;
+        hydrogen.enable = true;
+        plugins = {
+          ladspa.enable = true;
+          lv2.enable = true;
+        };
+      };
+      games.enable = true;
+      graphics = {
+        gimp.enable = true;
+        inkscape.enable = true;
+      };
+      im = {
+        discord.enable = true;
+        slack.enable = true;
+      };
+    };
     style = {
       cursors.size = 16;
       fonts =

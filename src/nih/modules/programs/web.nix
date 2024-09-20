@@ -125,15 +125,14 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ (pkgs.firefox.override { inherit extraPolicies; }) ];
-    nih.x11.wm.windowRules = [
+    environment.variables = {
+      MOZ_USE_XINPUT2 = "1";
+    };
+    nih.windowRules = [
       {
-        windowClass = "firefox";
-        spawnOnTag = "main";
-      }
-      {
-        windowTitle = "Picture-in-Picture";
-        spawnAsType = "Normal";
-        spawnSticky = true;
+        x11Class = "firefox";
+        waylandAppId = "firefox";
+        useWorkspace = "main";
       }
     ];
   };

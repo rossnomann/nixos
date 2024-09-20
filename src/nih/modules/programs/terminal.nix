@@ -45,10 +45,11 @@ in
           y = 10
         '';
     };
-    nih.x11.wm.windowRules = [
+    nih.windowRules = [
       {
-        windowClass = "Alacritty";
-        spawnOnTag = "alacritty";
+        x11Class = "Alacritty";
+        waylandAppId = "Alacritty";
+        useWorkspace = "alacritty";
       }
     ];
   };
