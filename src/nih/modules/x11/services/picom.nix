@@ -5,9 +5,10 @@
 }:
 let
   cfg = config.nih;
+  cfgX11 = cfg.x11;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfgX11.enable) {
     services.picom = {
       enable = true;
 

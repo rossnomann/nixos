@@ -35,7 +35,7 @@ in
       default = [ ];
     };
   };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfgX11.enable) {
     environment.systemPackages = [ package ];
     nih.services.dunst =
       let

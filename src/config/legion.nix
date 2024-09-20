@@ -169,6 +169,7 @@
       {
 
         inherit dpi;
+        enable = true;
         autorandr.profiles = {
           "desktop" = {
             fingerprint = {

@@ -15,7 +15,7 @@ in
     package = lib.mkOption { type = lib.types.package; };
     executable = lib.mkOption { type = lib.types.str; };
   };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfgX11.enable) {
     environment.systemPackages = [ cfgX11.programs.rlaunchx.package ];
     nih.x11.programs.rlaunchx.executable = "${cfgX11.programs.rlaunchx.package}/bin/rlaunchx";
     nih.x11.programs.rlaunchx.package =

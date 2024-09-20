@@ -9,7 +9,7 @@ let
   cfgX11 = cfg.x11;
 in
 {
-  config = lib.mkIf (cfg.enable && cfgX11.tablet.enable) {
+  config = lib.mkIf (cfg.enable && cfgX11.enable && cfgX11.tablet.enable) {
     environment.systemPackages = [
       pkgs.onboard
       pkgs.rot8

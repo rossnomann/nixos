@@ -14,7 +14,7 @@ in
     package = lib.mkOption { type = lib.types.package; };
     executable = lib.mkOption { type = lib.types.str; };
   };
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfgX11.enable) {
     environment.systemPackages = [ cfgX11.programs.screenshot.package ];
     nih.x11.programs.screenshot.executable = "${cfgX11.programs.screenshot.package}/bin/screenshot";
     nih.x11.programs.screenshot.package = pkgs.nih.x11-screenshot cfgPrograms.cli.nushell.executable;
