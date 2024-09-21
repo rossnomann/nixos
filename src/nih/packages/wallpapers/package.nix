@@ -1,6 +1,6 @@
 { stdenvNoCC }:
 stdenvNoCC.mkDerivation {
-  pname = "catppuccin-kvantum";
+  pname = "wallpapers";
   src = ./resources;
   version = "0.0.0";
   installPhase = ''
