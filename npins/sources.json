@@ -80,9 +80,9 @@
         "repo": "sublime-text"
       },
       "branch": "main",
-      "revision": "fc1e5005fdea1e74b0b872f85c7acaed49f8e102",
-      "url": "https://github.com/catppuccin/sublime-text/archive/fc1e5005fdea1e74b0b872f85c7acaed49f8e102.tar.gz",
-      "hash": "12v5q19w865i8hznhd3c7ldqjy1rbcwqvlbsc647ccvjjhmkan76"
+      "revision": "16099e0a34a17fc7cc6e600bffb0762219721466",
+      "url": "https://github.com/catppuccin/sublime-text/archive/16099e0a34a17fc7cc6e600bffb0762219721466.tar.gz",
+      "hash": "1bc5b5mrzl4gv67wz4bzfl1sfbid8ib7h2y9w2g6vc92lcilisgx"
     },
     "catppuccin-zathura": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre676884.9bb1e7571aad/nixexprs.tar.xz",
-      "hash": "1fxm0xyw4c7kjpxn1hvcxmxhpcnsdz77v2i3575j9yrz1pzj35hk"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre683804.a1d92660c6b3/nixexprs.tar.xz",
+      "hash": "0lzd1g9x7ihscdajc2g9f0jyykymw6r1lq2ir5g0shjzjf0jc5la"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -167,9 +167,9 @@
         "repo": "LSP"
       },
       "branch": "main",
-      "revision": "f4223d6d13eb941370c0ac40b47a185befa3a852",
-      "url": "https://github.com/sublimelsp/LSP/archive/f4223d6d13eb941370c0ac40b47a185befa3a852.tar.gz",
-      "hash": "07lfaf9rzj1fpmjykqkj37hqvkgafk0271cxnriagz2cwnbz7759"
+      "revision": "9b6ecb6056b82269594dd4bc49ac337be5dd476b",
+      "url": "https://github.com/sublimelsp/LSP/archive/9b6ecb6056b82269594dd4bc49ac337be5dd476b.tar.gz",
+      "hash": "0k6w8k3rnsy4pkhj98xjp05dpfcqbi6fgx8racdi340brzgpd18q"
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
@@ -179,9 +179,9 @@
         "repo": "MarkdownPreview"
       },
       "branch": "master",
-      "revision": "c94a1e0465188b4b526d95adeef773b88f72b928",
-      "url": "https://github.com/facelessuser/MarkdownPreview/archive/c94a1e0465188b4b526d95adeef773b88f72b928.tar.gz",
-      "hash": "0c9p8l92jdbb87k40ajz8k0z8qbmvmlgvymfn2sqaxabs92m4gpl"
+      "revision": "73560666fd8827b4423395664037ffe858dc7360",
+      "url": "https://github.com/facelessuser/MarkdownPreview/archive/73560666fd8827b4423395664037ffe858dc7360.tar.gz",
+      "hash": "099xp6412s7d62iapzg2c87frn9mmzn0025gggsfgk6cn9xrksqg"
     },
     "sublime-text-nix": {
       "type": "GitRelease",
