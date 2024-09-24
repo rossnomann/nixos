@@ -33,5 +33,18 @@ in
         After=graphical-session-pre.target nixos-activation.service
       '';
     };
+    systemd.user.units."wm-session-post.target" = {
+      name = "wm-session-post.target";
+      enable = true;
+      text = ''
+        [Unit]
+        Description=Session services which should run after the wm-session is brought up
+        Documentation=man:systemd.special(7)
+        Requires=basic.target
+        After=wm-session.target
+        RefuseManualStart=yes
+        StopWhenUnneeded=yes
+      '';
+    };
   };
 }

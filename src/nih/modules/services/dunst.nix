@@ -42,9 +42,8 @@ in
         Type=dbus
 
         [Unit]
-        After=graphical-session-pre.target
         Description=Dunst notification daemon
-        PartOf=graphical-session.target
+        After=wm-session-post.target
       '';
     };
     nih.user.home.file =
