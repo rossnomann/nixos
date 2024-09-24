@@ -34,7 +34,6 @@ in
             if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
                 eval $(dbus-launch --exit-with-session --sh-syntax)
             fi
-            systemctl --user start wm-session.target
             exec ${compositor} --session
           '';
       };
@@ -225,6 +224,9 @@ in
     };
     nih.wayland.compositor.executable = "${cfgWayland.compositor.package}/bin/niri";
     nih.wayland.compositor.package = pkgs.niri;
+    nih.wayland.compositor.spawnAtStartup = [
+      ''"systemctl" "--user" "start" "wm-session.target"''
+    ];
     xdg.portal = {
       enable = true;
       config.common.default = [ "gnome" ];
