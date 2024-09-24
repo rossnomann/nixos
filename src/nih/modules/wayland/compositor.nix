@@ -34,7 +34,7 @@ in
             if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
                 eval $(dbus-launch --exit-with-session --sh-syntax)
             fi
-            systemctl --user start compositor-session.target
+            systemctl --user start wm-session.target
             exec ${compositor} --session
           '';
       };
@@ -225,18 +225,6 @@ in
     };
     nih.wayland.compositor.executable = "${cfgWayland.compositor.package}/bin/niri";
     nih.wayland.compositor.package = pkgs.niri;
-    systemd.user.units."compositor-session.target" = {
-      name = "compositor-session.target";
-      enable = true;
-      text = ''
-        [Unit]
-        Description=A wayland compositor session
-        Documentation=man:systemd.special
-        BindsTo=graphical-session.target
-        Wants=graphical-session-pre.target
-        After=graphical-session-pre.target nixos-activation.service
-      '';
-    };
     xdg.portal = {
       enable = true;
       config.common.default = [ "gnome" ];

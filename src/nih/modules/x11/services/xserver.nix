@@ -90,17 +90,5 @@ in
         variant = "qwerty";
       };
     };
-    systemd.user.units."wm-session.target" = {
-      name = "wm-session.target";
-      enable = true;
-      text = ''
-        [Unit]
-        Description=A window manager session
-        Documentation=man:systemd.special
-        BindsTo=graphical-session.target
-        Wants=graphical-session-pre.target
-        After=graphical-session-pre.target nixos-activation.service
-      '';
-    };
   };
 }
