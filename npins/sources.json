@@ -44,9 +44,9 @@
         "repo": "Kvantum"
       },
       "branch": "main",
-      "revision": "128d4d233d3b8d678c3b7b5ac844c72420ca6e14",
-      "url": "https://github.com/catppuccin/Kvantum/archive/128d4d233d3b8d678c3b7b5ac844c72420ca6e14.tar.gz",
-      "hash": "18z7hsrpj3avayasah0a1zgy3s2fkqfmr5rv7sj1ffpgfcnng71v"
+      "revision": "bdaa531318d5756cea5674a750a99134dad0bbbc",
+      "url": "https://github.com/catppuccin/Kvantum/archive/bdaa531318d5756cea5674a750a99134dad0bbbc.tar.gz",
+      "hash": "15712pnlfkfh7pq9sgcy84n9zqnflb8qp42p7x8fr5rld3q75kiv"
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -80,9 +80,9 @@
         "repo": "sublime-text"
       },
       "branch": "main",
-      "revision": "16099e0a34a17fc7cc6e600bffb0762219721466",
-      "url": "https://github.com/catppuccin/sublime-text/archive/16099e0a34a17fc7cc6e600bffb0762219721466.tar.gz",
-      "hash": "1bc5b5mrzl4gv67wz4bzfl1sfbid8ib7h2y9w2g6vc92lcilisgx"
+      "revision": "88de6679ce970042c3beab44538a3566adef560d",
+      "url": "https://github.com/catppuccin/sublime-text/archive/88de6679ce970042c3beab44538a3566adef560d.tar.gz",
+      "hash": "1mdxcjlp35jl86jh3rsjh7agvsf39cz0bi7i1p75hnkl3qbmk2yw"
     },
     "catppuccin-zathura": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre688747.8bca501bf31b/nixexprs.tar.xz",
-      "hash": "10gzykf2kd82xf08blwlvcbndqb2bj3dw7slikp2bn6fxf3ip1sv"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre691017.b69de56fac8c/nixexprs.tar.xz",
+      "hash": "0z32pj0lh5ng2a6cn0qfmka8cynnygckn5615mkaxq2aplkvgzx3"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
