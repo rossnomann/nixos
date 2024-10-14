@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -129,7 +130,9 @@ in
       variant = cfgStyle.palette.variant;
     };
     nih.style.qt.kvantum.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}";
-    nih.style.qt.kvantum.theme.package = pkgs.nih.catppuccin.kvantum;
+    nih.style.qt.kvantum.theme.package = pkgs.nih.catppuccin.kvantum {
+      src = cfgSources.catppuccin-kvantum;
+    };
     nih.style.wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
 
     nih.user.home.file = {

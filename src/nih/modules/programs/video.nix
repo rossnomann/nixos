@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -45,7 +46,7 @@ in
     nih.user.home.file = {
       ".config/mpv/mpv.conf".source =
         let
-          package = pkgs.nih.catppuccin.mpv;
+          package = pkgs.nih.catppuccin.mpv { src = cfgSources.catppuccin-mpv; };
           palette = cfgStyle.palette;
         in
         "${package}/${palette.variant}/${palette.accent}.conf";

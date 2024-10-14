@@ -1,13 +1,13 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -34,7 +34,7 @@ in
         ".config/bat/config".text = ''
           --theme='${themeName}'
         '';
-        ".config/bat/themes/${themeName}.tmTheme".source = "${npins.catppuccin-bat}/themes/${themeName}.tmTheme";
+        ".config/bat/themes/${themeName}.tmTheme".source = "${cfgSources.catppuccin-bat}/themes/${themeName}.tmTheme";
       };
   };
 }

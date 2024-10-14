@@ -1,13 +1,13 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
   cfgUser = cfg.user;
 in
@@ -47,7 +47,7 @@ in
         gpg.program = cfgPrograms.cli.git.gpgProgram;
         pull.ff = "only";
         init.defaultBranch = "master";
-        include.path = "${npins.catppuccin-delta}/catppuccin.gitconfig";
+        include.path = "${cfgSources.catppuccin-delta}/catppuccin.gitconfig";
         delta.features = "catppuccin-${cfgStyle.palette.variant}";
       };
       ".config/git/ignore".text = lib.strings.concatStringsSep "\n" cfgPrograms.cli.git.ignore;

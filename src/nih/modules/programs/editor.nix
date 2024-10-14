@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -16,24 +16,24 @@ in
       pkgs.sublime-merge
     ];
     nih.user.home.file = {
-      ".config/sublime-text/Packages/Dockerfile".source = npins.sublime-text-docker;
-      ".config/sublime-text/Packages/FileIconsMono".source = npins.sublime-text-file-icons-mono;
-      ".config/sublime-text/Packages/GitGutter".source = npins.sublime-text-git-gutter;
-      ".config/sublime-text/Packages/Jinja2".source = npins.sublime-text-jinja;
-      ".config/sublime-text/Packages/LSP".source = npins.sublime-text-lsp;
-      ".config/sublime-text/Packages/MarkdownPreview".source = npins.sublime-text-markdown-preview;
-      ".config/sublime-text/Packages/Nix".source = npins.sublime-text-nix;
-      ".config/sublime-text/Packages/Nushell".source = npins.sublime-text-nushell;
-      ".config/sublime-text/Packages/ProjectManager".source = npins.sublime-text-project-manager;
-      ".config/sublime-text/Packages/RON".source = npins.sublime-text-ron;
-      ".config/sublime-text/Packages/RustEnhanced".source = npins.sublime-text-rust-enhanced;
-      ".config/sublime-text/Packages/TOML".source = npins.sublime-text-toml;
+      ".config/sublime-text/Packages/Dockerfile".source = cfgSources.sublime-text-docker;
+      ".config/sublime-text/Packages/FileIconsMono".source = cfgSources.sublime-text-file-icons-mono;
+      ".config/sublime-text/Packages/GitGutter".source = cfgSources.sublime-text-git-gutter;
+      ".config/sublime-text/Packages/Jinja2".source = cfgSources.sublime-text-jinja;
+      ".config/sublime-text/Packages/LSP".source = cfgSources.sublime-text-lsp;
+      ".config/sublime-text/Packages/MarkdownPreview".source = cfgSources.sublime-text-markdown-preview;
+      ".config/sublime-text/Packages/Nix".source = cfgSources.sublime-text-nix;
+      ".config/sublime-text/Packages/Nushell".source = cfgSources.sublime-text-nushell;
+      ".config/sublime-text/Packages/ProjectManager".source = cfgSources.sublime-text-project-manager;
+      ".config/sublime-text/Packages/RON".source = cfgSources.sublime-text-ron;
+      ".config/sublime-text/Packages/RustEnhanced".source = cfgSources.sublime-text-rust-enhanced;
+      ".config/sublime-text/Packages/TOML".source = cfgSources.sublime-text-toml;
       ".config/sublime-text/Packages/Catppuccin/catppuccin.sublime-color-scheme".source =
         let
           variant = lib.nih.strings.capitalize cfgStyle.palette.variant;
           themeName = "Catppuccin ${variant}.sublime-color-scheme";
         in
-        "${npins.catppuccin-sublime-text}/build/${themeName}";
+        "${cfgSources.catppuccin-sublime-text}/build/${themeName}";
       ".config/sublime-text/Packages/Catppuccin/Preferences.sublime-settings".text =
         let
           font = cfgStyle.fonts.monospace;

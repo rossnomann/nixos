@@ -13,7 +13,6 @@
       system = "x86_64-linux";
       pkgs = import inputs.nixpkgs { inherit system; };
       lib = pkgs.lib.extend (final: prev: (import ./src/nih/lib { lib = prev; }));
-      npins = import ./npins;
       nixosWorkspace =
         deviceName:
         inputs.nixpkgs.lib.nixosSystem {
@@ -25,11 +24,16 @@
             ./src/config
           ];
           specialArgs = {
-            inherit deviceName inputs npins;
+            inherit deviceName inputs;
           };
         };
     in
     {
+      devShells.${system}.default = pkgs.mkShell {
+        shellHook = ''
+          export NPINS_DIRECTORY=$PWD/src/nih/modules/sources/npins
+        '';
+      };
       nixosConfigurations = {
         legion = nixosWorkspace "legion";
         yoga = nixosWorkspace "yoga";

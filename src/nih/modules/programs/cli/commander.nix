@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgPrograms = cfg.programs;
 in
 {
@@ -30,7 +30,7 @@ in
         editRasterImage = cfgPrograms.graphics.gimp.executable;
         editVectorImage = cfgPrograms.graphics.inkscape.executable;
       };
-      pathSkin = "${npins.catppuccin-mc}/catppuccin.ini";
+      pathSkin = "${cfgSources.catppuccin-mc}/catppuccin.ini";
     };
     nih.xdg.mime.directories = "mc.desktop";
   };

@@ -4,6 +4,7 @@
     ./dev
     ./programs
     ./services
+    ./sources
     ./wayland
     ./x11
     ./audio.nix

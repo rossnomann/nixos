@@ -7,6 +7,8 @@ My NixOS config based on X11 and LeftWM.
 ## USAGE
 
 ```sh
+echo 'use flake' > .envrc
+direnv allow
 nixos-rebuild switch --flake '.#%device%'
 ```
 

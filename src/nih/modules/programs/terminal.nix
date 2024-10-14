@@ -1,13 +1,13 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -25,7 +25,7 @@ in
       ".config/alacritty/alacritty.toml".text =
         let
           fontMonospace = cfgStyle.fonts.monospace;
-          themePath = "${npins.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
+          themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
         in
         ''
           import = ["${themePath}"]

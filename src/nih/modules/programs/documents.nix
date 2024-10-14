@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  npins,
   pkgs,
   ...
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgStyle = cfg.style;
 in
 {
@@ -19,7 +19,7 @@ in
     ];
     nih.user.home.file = {
       ".config/zathura/zathurarc".text = ''
-        include ${npins.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
+        include ${cfgSources.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
       '';
     };
     nih.windowRules = [
