@@ -12,8 +12,8 @@
     let
       system = "x86_64-linux";
       pkgs = import inputs.nixpkgs { inherit system; };
-      lib = pkgs.lib.extend (final: prev: (import ./src/nih/lib { lib = prev; }));
-      nixosWorkspace =
+      lib = import ./src/nih/lib pkgs;
+      nixosSystem =
         deviceName:
         inputs.nixpkgs.lib.nixosSystem {
           inherit lib system;
@@ -21,10 +21,11 @@
             inputs.makky.nixosModules.default
             ./src/nih/packages
             ./src/nih/modules
-            ./src/config
+            ./src/config/base.nix
+            (./src/config + "/${deviceName}.nix")
           ];
           specialArgs = {
-            inherit deviceName inputs;
+            nixpkgs = inputs.nixpkgs;
           };
         };
     in
@@ -35,8 +36,8 @@
         '';
       };
       nixosConfigurations = {
-        legion = nixosWorkspace "legion";
-        yoga = nixosWorkspace "yoga";
+        legion = nixosSystem "legion";
+        yoga = nixosSystem "yoga";
       };
       templates = {
         rust = {

@@ -1,10 +1,5 @@
+{ pkgs, ... }:
 {
-  deviceName,
-  pkgs,
-  ...
-}:
-{
-  imports = [ (./. + "/${deviceName}.nix") ];
   config = {
     nih = {
       enable = true;

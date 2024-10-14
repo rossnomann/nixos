@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   lib,
+  nixpkgs,
   pkgs,
   ...
 }:
@@ -16,7 +16,7 @@ in
       pkgs.npins
     ];
     nix.gc.automatic = true;
-    nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
     nix.optimise.automatic = true;
     nix.settings.experimental-features = [
       "flakes"
