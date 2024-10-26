@@ -8,9 +8,9 @@
         "repo": "alacritty"
       },
       "branch": "main",
-      "revision": "343cf8d65459ac8f6449cc98dd3648bcbd7e3766",
-      "url": "https://github.com/catppuccin/alacritty/archive/343cf8d65459ac8f6449cc98dd3648bcbd7e3766.tar.gz",
-      "hash": "1nh29kkviqp0mz0w7cjmxcp5lgmd4hg5r67fzrvgkg9wgcfidig4"
+      "revision": "bb8746b0e656de7009a83330cb6b2b3167b240b8",
+      "url": "https://github.com/catppuccin/alacritty/archive/bb8746b0e656de7009a83330cb6b2b3167b240b8.tar.gz",
+      "hash": "01g965d5f8m143hjmwz4g1qvk855rzzcnqi8gjz9x8mfkmr5s1gx"
     },
     "catppuccin-bat": {
       "type": "Git",
@@ -20,9 +20,9 @@
         "repo": "bat"
       },
       "branch": "main",
-      "revision": "d3feec47b16a8e99eabb34cdfbaa115541d374fc",
-      "url": "https://github.com/catppuccin/bat/archive/d3feec47b16a8e99eabb34cdfbaa115541d374fc.tar.gz",
-      "hash": "1g73x0p8pbzb8d1g1x1fwhwf05sj3nzhbhb65811752p5178fh5k"
+      "revision": "d2bbee4f7e7d5bac63c054e4d8eca57954b31471",
+      "url": "https://github.com/catppuccin/bat/archive/d2bbee4f7e7d5bac63c054e4d8eca57954b31471.tar.gz",
+      "hash": "0v46lfx9fjg1a36w5n9q424j2v017vhf2gf2znqi985f4lyalp67"
     },
     "catppuccin-delta": {
       "type": "Git",
@@ -32,9 +32,9 @@
         "repo": "delta"
       },
       "branch": "main",
-      "revision": "5c2c59991b950ce230f48cb3f2546e37ca65597b",
-      "url": "https://github.com/catppuccin/delta/archive/5c2c59991b950ce230f48cb3f2546e37ca65597b.tar.gz",
-      "hash": "0fpv7vkbc70h4bds77amxqidwacgzf55mrqj615hnwk7l13v366q"
+      "revision": "0674ec5114c08393d808e2516d153c7e6df00d41",
+      "url": "https://github.com/catppuccin/delta/archive/0674ec5114c08393d808e2516d153c7e6df00d41.tar.gz",
+      "hash": "0cnp2ry78mz8l4cf4618gx9v23n26gn7k1w4k5h5nqmm0yy17y96"
     },
     "catppuccin-kvantum": {
       "type": "Git",
@@ -44,9 +44,9 @@
         "repo": "Kvantum"
       },
       "branch": "main",
-      "revision": "bdaa531318d5756cea5674a750a99134dad0bbbc",
-      "url": "https://github.com/catppuccin/Kvantum/archive/bdaa531318d5756cea5674a750a99134dad0bbbc.tar.gz",
-      "hash": "15712pnlfkfh7pq9sgcy84n9zqnflb8qp42p7x8fr5rld3q75kiv"
+      "revision": "a87694e0a3c97644dbb34f8835112d17b54ace68",
+      "url": "https://github.com/catppuccin/Kvantum/archive/a87694e0a3c97644dbb34f8835112d17b54ace68.tar.gz",
+      "hash": "0a04b7g4qxml2rx6bn5j5klwlw1j19x86k9rd8y8sbxyl1w882br"
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre691017.b69de56fac8c/nixexprs.tar.xz",
-      "hash": "0z32pj0lh5ng2a6cn0qfmka8cynnygckn5615mkaxq2aplkvgzx3"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre696854.41dea55321e5/nixexprs.tar.xz",
+      "hash": "0s917xf9aiz1855spzgkwshnprabp3b7azlz9iaj04fcz06wh21p"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -167,9 +167,9 @@
         "repo": "LSP"
       },
       "branch": "main",
-      "revision": "d71e11a9d428462a5994508f7891914c3fa74258",
-      "url": "https://github.com/sublimelsp/LSP/archive/d71e11a9d428462a5994508f7891914c3fa74258.tar.gz",
-      "hash": "03ab2hzqgwbvf0l4dwcrz7666p7kx2cv79kjhlil173j78bqi30h"
+      "revision": "fbbbd77022d517c3e2f9f20fea6ab6bd5f0559e9",
+      "url": "https://github.com/sublimelsp/LSP/archive/fbbbd77022d517c3e2f9f20fea6ab6bd5f0559e9.tar.gz",
+      "hash": "0rx3qz0pg9j918s5dgf3gh9b9addy93j7lqzfnif77zjnfgql0np"
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
