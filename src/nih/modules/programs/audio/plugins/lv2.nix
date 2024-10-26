@@ -18,7 +18,6 @@ in
         makeLv2Path = pkg: "${pkg}/lib/lv2";
         pluginsLv2 = [
           pkgs.calf
-          pkgs.distrho
           pkgs.eq10q
           pkgs.gxplugins-lv2
           pkgs.guitarix
