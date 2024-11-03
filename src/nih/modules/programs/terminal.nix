@@ -28,6 +28,7 @@ in
           themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
         in
         ''
+          [general]
           import = ["${themePath}"]
           [cursor.style]
           blinking = "Always"
