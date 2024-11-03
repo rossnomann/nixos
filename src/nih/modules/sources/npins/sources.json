@@ -8,9 +8,9 @@
         "repo": "alacritty"
       },
       "branch": "main",
-      "revision": "bb8746b0e656de7009a83330cb6b2b3167b240b8",
-      "url": "https://github.com/catppuccin/alacritty/archive/bb8746b0e656de7009a83330cb6b2b3167b240b8.tar.gz",
-      "hash": "01g965d5f8m143hjmwz4g1qvk855rzzcnqi8gjz9x8mfkmr5s1gx"
+      "revision": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7",
+      "url": "https://github.com/catppuccin/alacritty/archive/f6cb5a5c2b404cdaceaff193b9c52317f62c62f7.tar.gz",
+      "hash": "1r2z223hza63v5lmzlg3022mlar67j3a2gh41rsaiqwja2wyiihz"
     },
     "catppuccin-bat": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre696854.41dea55321e5/nixexprs.tar.xz",
-      "hash": "0s917xf9aiz1855spzgkwshnprabp3b7azlz9iaj04fcz06wh21p"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-24.11pre699031.2d2a9ddbe3f2/nixexprs.tar.xz",
+      "hash": "1vx044c8gdg1c8zmabzbi9xrgjgaz2bfqbl47xsgh517f580bycx"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -167,9 +167,9 @@
         "repo": "LSP"
       },
       "branch": "main",
-      "revision": "fbbbd77022d517c3e2f9f20fea6ab6bd5f0559e9",
-      "url": "https://github.com/sublimelsp/LSP/archive/fbbbd77022d517c3e2f9f20fea6ab6bd5f0559e9.tar.gz",
-      "hash": "0rx3qz0pg9j918s5dgf3gh9b9addy93j7lqzfnif77zjnfgql0np"
+      "revision": "d8fe83cf23c7b516eb13e34cd7f18fb68d768c51",
+      "url": "https://github.com/sublimelsp/LSP/archive/d8fe83cf23c7b516eb13e34cd7f18fb68d768c51.tar.gz",
+      "hash": "067gz333dfgkp88sfw2nvsbag9amkf8dxbfsy7f1k50xv3c7za37"
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
