@@ -118,6 +118,7 @@ in
               spawnOnTag = x.useWorkspace;
               spawnFullscreen = x.useFullscreen;
               spawnFloating = x.useFloating;
+              spawnAsType = x.spawnAsType;
             }) cfgWindowRules
           );
         };

@@ -31,6 +31,21 @@
             type = lib.types.nullOr lib.types.bool;
             default = null;
           };
+          spawnAsType = lib.mkOption {
+            type = lib.types.nullOr (
+              lib.types.enum [
+                "Desktop"
+                "Dialog"
+                "Dock"
+                "Menu"
+                "Normal"
+                "Splash"
+                "Toolbar"
+                "Utility"
+              ]
+            );
+            default = null;
+          };
         };
       }
     );

@@ -21,6 +21,7 @@ in
         x11Class = "^ardour\\\\-[\\\\.\\\\d]+$";
         waylandAppId = "ardour";
         useWorkspace = "audio";
+        spawnAsType = "Normal";
       }
       {
         x11Class = "ardour_ardour";
