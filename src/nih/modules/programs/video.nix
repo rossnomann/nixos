@@ -24,12 +24,12 @@ in
         useFullscreen = true;
       }
       {
-        x11Class = ".pitivi-wrapped";
+        x11Class = "\\\\.pitivi\\\\-wrapped";
         waylandAppId = ".pitivi-wrapped";
         useWorkspace = "main";
       }
       {
-        x11Class = ".syncplay-wrapped";
+        x11Class = "\\\\.syncplay\\\\-wrapped";
         waylandAppId = "syncplay";
         useWorkspace = "secondary";
         useFloating = true;

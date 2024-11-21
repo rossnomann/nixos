@@ -18,7 +18,7 @@ in
     nih.programs.audio.ardour.package = pkgs.ardour;
     nih.windowRules = [
       {
-        x11Class = "ardour-8.4.0";
+        x11Class = "^ardour\\\\-[\\\\.\\\\d]+$";
         waylandAppId = "ardour";
         useWorkspace = "audio";
       }

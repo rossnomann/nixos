@@ -26,7 +26,7 @@ in
     nih.programs.graphics.inkscape.package = pkgs.inkscape;
     nih.windowRules = [
       {
-        x11Class = "org.inkscape.Inkscape";
+        x11Class = "org\\\\.inkscape\\\\.Inkscape";
         waylandAppId = "org.inkscape.Inkscape";
         useWorkspace = "graphics";
       }

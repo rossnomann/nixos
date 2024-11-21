@@ -34,12 +34,12 @@ in
         useWorkspace = "documents";
       }
       {
-        x11Class = "org.pwmt.zathura";
+        x11Class = "org\\\\.pwmt\\\\.zathura";
         waylandAppId = "org.pwmt.zathura";
         useWorkspace = "documents";
       }
       {
-        x11Class = "simple-scan";
+        x11Class = "simple\\\\-scan";
         waylandAppId = "simple-scan";
         useWorkspace = "documents";
       }

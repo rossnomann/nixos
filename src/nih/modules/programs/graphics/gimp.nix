@@ -25,7 +25,7 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = ".gimp-2.10-wrapped_";
+        x11Class = "\\\\.gimp.*";
         waylandAppId = ".gimp-2.10-wrapped_";
         useWorkspace = "graphics";
       }
