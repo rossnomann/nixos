@@ -25,6 +25,7 @@ in
       in
       pkgs.nih.rlaunchx {
         arguments = lib.escapeShellArgs [
+          "-p"
           "-f"
           "${font.family}:size=${builtins.toString (font.defaultSize - 2)}"
           "--color0"
