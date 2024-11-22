@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
+    ./ardour
     ./plugins
-    ./ardour.nix
     ./deadbeef.nix
     ./easyeffects.nix
     ./helvum.nix

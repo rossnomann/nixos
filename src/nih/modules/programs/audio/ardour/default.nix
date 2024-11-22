@@ -16,6 +16,9 @@ in
   config = lib.mkIf (cfg.enable && cfgPrograms.audio.ardour.enable) {
     environment.systemPackages = [ cfgPrograms.audio.ardour.package ];
     nih.programs.audio.ardour.package = pkgs.ardour;
+    nih.user.home.file = {
+      ".config/ardour8/my-dark-ardour-8.8.colors".source = ./resources/catppuccin-ardour.colors;
+    };
     nih.windowRules = [
       {
         x11Class = "^ardour\\\\-[\\\\.\\\\d]+$";
