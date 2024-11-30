@@ -58,7 +58,7 @@ in
           focusBehaviour = "Sloppy";
           focusNewWindows = true;
           insertBehaviour = "Bottom";
-          sloppyMouseFollowsFocus = true;
+          sloppyMouseFollowsFocus = false;
           statePath = "None";
           keybind =
             let
