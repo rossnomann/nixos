@@ -23,11 +23,8 @@ in
           pkgs.guitarix
           pkgs.kapitonov-plugins-pack
           pkgs.lsp-plugins
-          pkgs.neural-amp-modeler-lv2
           pkgs.noise-repellent
-          pkgs.rkrlv2
           pkgs.x42-avldrums
-          pkgs.x42-plugins
         ];
       in
       {

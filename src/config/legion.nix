@@ -107,7 +107,6 @@
         ardour.enable = true;
         hydrogen.enable = true;
         plugins = {
-          ladspa.enable = true;
           lv2.enable = true;
         };
       };
