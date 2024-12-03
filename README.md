@@ -27,7 +27,6 @@ npins update
 
 - Ardour: Mocha only.
 - DeaDBeeF: configure manually
-- Hydrogen: configure manually
 - Firefox: https://github.com/catppuccin/firefox
 - Sonic Visualiser: Does not take qt6ct settings into account.
 - Sublime Merge: No theme.

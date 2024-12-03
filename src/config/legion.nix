@@ -105,7 +105,6 @@
     programs = {
       audio = {
         ardour.enable = true;
-        hydrogen.enable = true;
         plugins = {
           lv2.enable = true;
         };
