@@ -19,11 +19,12 @@ in
         pluginsLv2 = [
           pkgs.calf
           pkgs.eq10q
-          pkgs.gxplugins-lv2
           pkgs.guitarix
+          pkgs.gxplugins-lv2
           pkgs.kapitonov-plugins-pack
           pkgs.lsp-plugins
           pkgs.noise-repellent
+          pkgs.sfizz
           pkgs.x42-avldrums
         ];
       in
