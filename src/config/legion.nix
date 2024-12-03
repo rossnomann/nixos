@@ -109,6 +109,7 @@
         plugins = {
           lv2.enable = true;
         };
+        vamp.enable = true;
       };
       games.enable = true;
       graphics = {

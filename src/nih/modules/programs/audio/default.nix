@@ -9,5 +9,6 @@
     ./hydrogen.nix
     ./lame.nix
     ./pavucontrol.nix
+    ./vamp.nix
   ];
 }
