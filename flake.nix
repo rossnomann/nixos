@@ -2,6 +2,10 @@
   description = "NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    fretboard = {
+      url = "github:rossnomann/fretboard";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     makky = {
       url = "github:rossnomann/makky";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +23,7 @@
           inherit lib system;
           modules = [
             inputs.makky.nixosModules.default
+            inputs.fretboard.nixosModules.default
             ./src/nih/packages
             ./src/nih/modules
             ./src/config/base.nix
