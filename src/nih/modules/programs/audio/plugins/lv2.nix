@@ -17,7 +17,9 @@ in
       let
         makeLv2Path = pkg: "${pkg}/lib/lv2";
         pluginsLv2 = [
+          pkgs.airwindows-lv2
           pkgs.calf
+          pkgs.drumgizmo
           pkgs.eq10q
           pkgs.guitarix
           pkgs.gxplugins-lv2
