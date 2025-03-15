@@ -89,5 +89,6 @@ in
       (attrsToString xcursor)
       (attrsToString xft)
       (attrsToString colors)
+      ""
     ];
 }
