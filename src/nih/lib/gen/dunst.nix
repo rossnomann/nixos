@@ -53,7 +53,7 @@ lib: {
       frame_color="${frameColor}"
       frame_width=${builtins.toString frameWidth}
       gap_size=${builtins.toString gapSize}
-      offset="${builtins.toString offsetX}x${builtins.toString offsetY}"
+      offset="(${builtins.toString offsetX}, ${builtins.toString offsetY})"
       origin="${origin}"
       icon_path="${iconPath}"
       [urgency_critical]
