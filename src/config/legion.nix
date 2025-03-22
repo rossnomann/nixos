@@ -19,7 +19,7 @@
       ];
       verbose = false;
     };
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
     kernelParams = [
       "i8042.nopnp=1"
       "pcie_aspm=off"
