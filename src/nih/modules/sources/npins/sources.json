@@ -80,9 +80,9 @@
         "repo": "sublime-text"
       },
       "branch": "main",
-      "revision": "925e8294fb7e2d6a6045ad5a19d5db1b4cf275ad",
-      "url": "https://github.com/catppuccin/sublime-text/archive/925e8294fb7e2d6a6045ad5a19d5db1b4cf275ad.tar.gz",
-      "hash": "1nq5i7gyiwcdnlsr7k5s428g6yn9zivagmmiksp6glg8ygckqlfd"
+      "revision": "1fe1e4709f9ba4df34ec610aaa204cd933ee57ca",
+      "url": "https://github.com/catppuccin/sublime-text/archive/1fe1e4709f9ba4df34ec610aaa204cd933ee57ca.tar.gz",
+      "hash": "1dbivj39vldv8g7pa40pdk3pvc720bql59f18x4dig4v2n8mxvah"
     },
     "catppuccin-zathura": {
       "type": "Git",
@@ -99,8 +99,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre771533.94c4dbe77c07/nixexprs.tar.xz",
-      "hash": "1nwh04drfjp7cfj4xk6mc3ikabrp0rnl8dzf3n1nj8566yn6nrn4"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre777917.b7ba7f9f45c5/nixexprs.tar.xz",
+      "hash": "0jb6b7sv66bn06pchj2l88z0i5dlz0c2vb3z6pjjlq2p8q11zigg"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
