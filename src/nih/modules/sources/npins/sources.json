@@ -8,6 +8,7 @@
         "repo": "alacritty"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7",
       "url": "https://github.com/catppuccin/alacritty/archive/f6cb5a5c2b404cdaceaff193b9c52317f62c62f7.tar.gz",
       "hash": "1r2z223hza63v5lmzlg3022mlar67j3a2gh41rsaiqwja2wyiihz"
@@ -20,6 +21,7 @@
         "repo": "bat"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "699f60fc8ec434574ca7451b444b880430319941",
       "url": "https://github.com/catppuccin/bat/archive/699f60fc8ec434574ca7451b444b880430319941.tar.gz",
       "hash": "1lirgwgh2hnz6j60py19bbmhvgaqs7i6wf6702k6n83lgw4aixg9"
@@ -32,6 +34,7 @@
         "repo": "delta"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "e9e21cffd98787f1b59e6f6e42db599f9b8ab399",
       "url": "https://github.com/catppuccin/delta/archive/e9e21cffd98787f1b59e6f6e42db599f9b8ab399.tar.gz",
       "hash": "1d172w2y99gm598mk3z2qaa52zrgm2z2hp6jc4kcnm6v1v86i2nk"
@@ -44,6 +47,7 @@
         "repo": "Kvantum"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "a87694e0a3c97644dbb34f8835112d17b54ace68",
       "url": "https://github.com/catppuccin/Kvantum/archive/a87694e0a3c97644dbb34f8835112d17b54ace68.tar.gz",
       "hash": "0a04b7g4qxml2rx6bn5j5klwlw1j19x86k9rd8y8sbxyl1w882br"
@@ -56,6 +60,7 @@
         "repo": "mc"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "f1c78f183764cd43e6dd4e325513ef5547a8f28f",
       "url": "https://github.com/catppuccin/mc/archive/f1c78f183764cd43e6dd4e325513ef5547a8f28f.tar.gz",
       "hash": "0fkjs2fdb52dq61jg6lgrdr4gfjk7kzdd1jsnl9qjqgr1p8hx8wv"
@@ -68,6 +73,7 @@
         "repo": "mpv"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "d7eeccdcc855d1d892fb065af3bc939159208402",
       "url": "https://github.com/catppuccin/mpv/archive/d7eeccdcc855d1d892fb065af3bc939159208402.tar.gz",
       "hash": "1qa9hrn994vnn7y5a5ak71as86jz47008425m7ax1xx9736aq21y"
@@ -80,6 +86,7 @@
         "repo": "sublime-text"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "1fe1e4709f9ba4df34ec610aaa204cd933ee57ca",
       "url": "https://github.com/catppuccin/sublime-text/archive/1fe1e4709f9ba4df34ec610aaa204cd933ee57ca.tar.gz",
       "hash": "1dbivj39vldv8g7pa40pdk3pvc720bql59f18x4dig4v2n8mxvah"
@@ -92,6 +99,7 @@
         "repo": "zathura"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
       "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
       "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
@@ -99,8 +107,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre777917.b7ba7f9f45c5/nixexprs.tar.xz",
-      "hash": "0jb6b7sv66bn06pchj2l88z0i5dlz0c2vb3z6pjjlq2p8q11zigg"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.05pre781834.d19cf9dfc633/nixexprs.tar.xz",
+      "hash": "1nlhpzl8lz4h1fw418yf4l2kkmjvgll1pzw6diqh3h3s0hqj4p0v"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -112,6 +120,7 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "v1.6.5",
       "revision": "c001fb280561d7c16f0f2837d76af493cf6c3bf8",
       "url": "https://api.github.com/repos/asbjornenge/Docker.tmbundle/tarball/v1.6.5",
@@ -125,6 +134,7 @@
         "repo": "FileIcons"
       },
       "branch": "mono",
+      "submodules": false,
       "revision": "3f003394c526809713b027a8bac426d2bf8fef9c",
       "url": "https://github.com/braver/FileIcons/archive/3f003394c526809713b027a8bac426d2bf8fef9c.tar.gz",
       "hash": "0ax70npqlh1ib1fx0axd3wmb3csjq0rycysq9f53g3nbc68vq7x3"
@@ -139,6 +149,7 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "1.11.12",
       "revision": "2749dea35db751ea304314b2324e25874646be2a",
       "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.12",
@@ -154,6 +165,7 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "v1.1.0",
       "revision": "6a5d96b2e48f8f227cebbb04a12b0c97e829e7f0",
       "url": "https://api.github.com/repos/Sublime-Instincts/BetterJinja/tarball/v1.1.0",
@@ -167,9 +179,10 @@
         "repo": "LSP"
       },
       "branch": "main",
-      "revision": "c853c2ab70efaf5a5a02dac92031498fb3219b5f",
-      "url": "https://github.com/sublimelsp/LSP/archive/c853c2ab70efaf5a5a02dac92031498fb3219b5f.tar.gz",
-      "hash": "12wdlnlgb27jh99901hrw3hnscsfxnxxrkwv3mpj5f87c5n0q025"
+      "submodules": false,
+      "revision": "177ae9b25c8242e697fc96767cf32363329958f1",
+      "url": "https://github.com/sublimelsp/LSP/archive/177ae9b25c8242e697fc96767cf32363329958f1.tar.gz",
+      "hash": "006i8qar3sbgd64bdw7lbgy31m0bb6f223pd704pki27vq6q2jif"
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
@@ -179,6 +192,7 @@
         "repo": "MarkdownPreview"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "cdf09b49097a52b502ee947e4a5e9aa8462248c0",
       "url": "https://github.com/facelessuser/MarkdownPreview/archive/cdf09b49097a52b502ee947e4a5e9aa8462248c0.tar.gz",
       "hash": "19hvaa01s4k5f8mbb0krvp7sc34l34wvln94z4nxcv46wx7x1sy0"
@@ -193,6 +207,7 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "V2.4.0",
       "revision": "48c497c709c66a2fb118c534a8de8e4e1c4c401d",
       "url": "https://api.github.com/repos/wmertens/sublime-nix/tarball/V2.4.0",
@@ -208,6 +223,7 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "v1.11.0",
       "revision": "66b00ff639dc8cecb688a0e1d81d13613b772f66",
       "url": "https://api.github.com/repos/stevenxxiu/sublime_text_nushell/tarball/v1.11.0",
@@ -221,6 +237,7 @@
         "repo": "ProjectManager"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "968867263c0b085c0840dc476f0ee25b81670c51",
       "url": "https://github.com/randy3k/ProjectManager/archive/968867263c0b085c0840dc476f0ee25b81670c51.tar.gz",
       "hash": "1g4anw963bz486xpdhvz7wda5h0xpsjnig3lnzr7qlp05bvh9c83"
@@ -233,6 +250,7 @@
         "repo": "sublime-ron"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "41e3e37db9febbf9dfc4efad015934c61b3c8ef1",
       "url": "https://github.com/ron-rs/sublime-ron/archive/41e3e37db9febbf9dfc4efad015934c61b3c8ef1.tar.gz",
       "hash": "18gl395j3jrqr1jb6xxlig75zgvrchq3gdx71048l65ki2jhpcmp"
@@ -245,6 +263,7 @@
         "repo": "rust-enhanced"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "b5774b474c13961d2161c8fed20e0c38e6bd97d9",
       "url": "https://github.com/rust-lang/rust-enhanced/archive/b5774b474c13961d2161c8fed20e0c38e6bd97d9.tar.gz",
       "hash": "1mf6291var2xgmnwvxzmkn0dax12cs0pk6p5r2065n1zcaz538jp"
@@ -259,11 +278,12 @@
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
+      "submodules": false,
       "version": "v2.6.0",
       "revision": "f5a57e8bff694a4e6c52a491dae579aabc7427cf",
       "url": "https://api.github.com/repos/jasonwilliams/sublime_toml_highlighting/tarball/v2.6.0",
       "hash": "08p4qb9rqd81zy98w451sjagjjbx8bmyzyrl5rc73gj9xnlxfhrm"
     }
   },
-  "version": 3
+  "version": 5
 }
