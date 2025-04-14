@@ -22,6 +22,5 @@ in
         };
       };
     };
-    systemd.services.bluetooth.serviceConfig.ConfigurationDirectoryMode = 755;
   };
 }
