@@ -211,7 +211,7 @@
                 inherit dpi;
                 enable = true;
                 mode = "2560x1440";
-                position = "0x1440";
+                position = "2560x0";
                 rate = "165.00";
               };
             };
