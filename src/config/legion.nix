@@ -65,6 +65,11 @@
       enable32Bit = true;
     };
     nvidia = {
+      # Dynamic Boost balances power between the CPU and the GPU
+      # for improved performance on supported laptops using the nvidia-powerd daemon.
+      # https://download.nvidia.com/XFree86/Linux-x86_64/530.30.02/README/dynamicboost.html
+      dynamicBoost.enable = true;
+
       modesetting.enable = true;
 
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
