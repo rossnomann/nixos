@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  lightly,
   pkgs,
   ...
 }:
@@ -8,6 +9,7 @@ let
   cfg = config.nih;
   cfgSources = cfg.sources;
   cfgStyle = cfg.style;
+  cfgUser = cfg.user;
 in
 {
   options.nih.style = {
@@ -57,18 +59,10 @@ in
       };
     };
 
-    qt = {
-      kvantum.theme = {
-        name = lib.mkOption { type = lib.types.str; };
-        package = lib.mkOption { type = lib.types.package; };
-      };
-    };
-
     wallpaper = lib.mkOption { type = lib.types.path; };
   };
   config = lib.mkIf cfg.enable {
     environment.pathsToLink = [
-      "/share/Kvantum"
       "/share/gsettings-schemas"
     ];
     environment.profileRelativeSessionVariables =
@@ -96,11 +90,10 @@ in
       cfgStyle.cursors.indexPackage
       cfgStyle.gtk.theme.package
       cfgStyle.icons.package
-      cfgStyle.qt.kvantum.theme.package
-      pkgs.libsForQt5.qtstyleplugin-kvantum
-      pkgs.qt6Packages.qtstyleplugin-kvantum
       pkgs.libsForQt5.qt5ct
       pkgs.qt6Packages.qt6ct
+      lightly.packages.${pkgs.system}.darkly-qt5
+      lightly.packages.${pkgs.system}.darkly-qt6
     ];
     environment.variables = {
       QT_QPA_PLATFORMTHEME = "qt5ct";
@@ -124,20 +117,32 @@ in
     };
     nih.style.gtk.decorationLayout = ":";
     nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
-    nih.style.gtk.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
+    nih.style.gtk.theme.name =
+      "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
     nih.style.gtk.theme.package = pkgs.nih.catppuccin.gtk {
       accent = cfgStyle.palette.accent;
       variant = cfgStyle.palette.variant;
     };
-    nih.style.qt.kvantum.theme.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}";
-    nih.style.qt.kvantum.theme.package = pkgs.nih.catppuccin.kvantum {
-      src = cfgSources.catppuccin-kvantum;
-    };
     nih.style.wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
 
     nih.user.home.file = {
-      ".config/Kvantum/kvantum.kvconfig".text = ''
-        theme=${cfgStyle.qt.kvantum.theme.name}
+      ".config/darklyrc".text = ''
+        [Common]
+        ButtonSize=-2
+        CornerRadius=1
+        OutlineCloseButton=false
+        ShadowSize=ShadowNone
+
+        [Style]
+        AnimationsEnabled=false
+        RoundedRubberBandFrame=false
+        TabsHeight=-20
+        WidgetDrawShadow=false
+
+        [Windeco]
+        AnimationsEnabled=false
+        ButtonSize=ButtonSmall
+        DrawBackgroundGradient=false
       '';
       ".config/gtk-2.0/gtkrc".text = lib.nih.gen.gtk.mkGtk2Settings {
         cursorThemeName = cfgStyle.cursors.name;
@@ -179,12 +184,80 @@ in
         iconThemeName = cfgStyle.icons.name;
         themeName = cfgStyle.gtk.theme.name;
       };
-      ".config/qt5ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
-      ".config/qt6ct/colors/catppuccin.conf".text = lib.nih.gen.qtct.mkColors cfgStyle.palette.colors;
-      ".icons/default/index.theme".source = "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
-      ".icons/${cfgStyle.cursors.name}".source = "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
-      ".local/share/icons/default/index.theme".source = "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
-      ".local/share/icons/${cfgStyle.cursors.name}".source = "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
+      ".config/qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        color_scheme_path=${cfgUser.home.root}/.config/qt5ct/colors/catppuccin.conf
+        custom_palette=true
+        icon_theme=${cfgStyle.icons.name}
+        standard_dialogs=xdgdesktopportal
+        style=Darkly
+
+        [Fonts]
+        fixed="${cfgStyle.fonts.monospace.family},${builtins.toString cfgStyle.fonts.monospace.defaultSize},-1,5,50,0,0,0,0,0"
+        general="${cfgStyle.fonts.sansSerif.family},${builtins.toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,50,0,0,0,0,0"
+
+        [Interface]
+        activate_item_on_single_click=1
+        buttonbox_layout=3
+        cursor_flash_time=1200
+        dialog_buttons_have_icons=1
+        double_click_interval=400
+        gui_effects=@Invalid()
+        keyboard_scheme=2
+        menus_have_icons=false
+        show_shortcuts_in_context_menus=true
+        stylesheets=@Invalid()
+        toolbutton_style=4
+        underline_shortcut=1
+        wheel_scroll_lines=3
+
+        [Troubleshooting]
+        force_raster_widgets=1
+        ignored_applications=@Invalid()
+      '';
+      ".config/qt5ct/colors/catppuccin.conf".source =
+        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}.conf";
+      ".config/qt6ct/qt6ct.conf".text = ''
+        [Appearance]
+        color_scheme_path=${cfgUser.home.root}/.config/qt6ct/colors/catppuccin.conf
+        custom_palette=true
+        icon_theme=${cfgStyle.icons.name}
+        standard_dialogs=xdgdesktopportal
+        style=Darkly
+
+        [Fonts]
+        fixed="${cfgStyle.fonts.monospace.family},${builtins.toString cfgStyle.fonts.monospace.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+        general="${cfgStyle.fonts.sansSerif.family},${builtins.toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+
+        [Interface]
+        activate_item_on_single_click=1
+        buttonbox_layout=3
+        cursor_flash_time=1200
+        dialog_buttons_have_icons=1
+        double_click_interval=400
+        gui_effects=@Invalid()
+        keyboard_scheme=2
+        menus_have_icons=false
+        show_shortcuts_in_context_menus=true
+        stylesheets=@Invalid()
+        toolbutton_style=4
+        underline_shortcut=1
+        wheel_scroll_lines=3
+
+        [Troubleshooting]
+        force_raster_widgets=1
+        ignored_applications=@Invalid()
+      '';
+      ".config/qt6ct/colors/catppuccin.conf".source =
+        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}.conf";
+      ".icons/default/index.theme".source =
+        "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
+      ".icons/${cfgStyle.cursors.name}".source =
+        "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
+      ".local/share/icons/default/index.theme".source =
+        "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
+      ".local/share/icons/${cfgStyle.cursors.name}".source =
+        "${cfgStyle.cursors.themePackage}/share/icons/${cfgStyle.cursors.name}";
     };
 
     programs.dconf = {

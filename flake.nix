@@ -2,12 +2,16 @@
   description = "NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    fretboard = {
-      url = "github:rossnomann/fretboard";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     makky = {
       url = "github:rossnomann/makky";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lightly = {
+      url = "github:Bali10050/Darkly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fretboard = {
+      url = "github:rossnomann/fretboard";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -31,6 +35,7 @@
           ];
           specialArgs = {
             nixpkgs = inputs.nixpkgs;
+            lightly = inputs.lightly;
           };
         };
     in

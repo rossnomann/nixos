@@ -39,19 +39,6 @@
       "url": "https://github.com/catppuccin/delta/archive/e9e21cffd98787f1b59e6f6e42db599f9b8ab399.tar.gz",
       "hash": "1d172w2y99gm598mk3z2qaa52zrgm2z2hp6jc4kcnm6v1v86i2nk"
     },
-    "catppuccin-kvantum": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "Kvantum"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "a87694e0a3c97644dbb34f8835112d17b54ace68",
-      "url": "https://github.com/catppuccin/Kvantum/archive/a87694e0a3c97644dbb34f8835112d17b54ace68.tar.gz",
-      "hash": "0a04b7g4qxml2rx6bn5j5klwlw1j19x86k9rd8y8sbxyl1w882br"
-    },
     "catppuccin-mc": {
       "type": "Git",
       "repository": {
@@ -77,6 +64,19 @@
       "revision": "d7eeccdcc855d1d892fb065af3bc939159208402",
       "url": "https://github.com/catppuccin/mpv/archive/d7eeccdcc855d1d892fb065af3bc939159208402.tar.gz",
       "hash": "1qa9hrn994vnn7y5a5ak71as86jz47008425m7ax1xx9736aq21y"
+    },
+    "catppuccin-qtct": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "qt5ct"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "cb585307edebccf74b8ae8f66ea14f21e6666535",
+      "url": "https://github.com/catppuccin/qt5ct/archive/cb585307edebccf74b8ae8f66ea14f21e6666535.tar.gz",
+      "hash": "0z7kpg2aywbigc1g7yfk6aq5v0bxcaikzl7l28p26hwb1n8zlf60"
     },
     "catppuccin-sublime-text": {
       "type": "Git",

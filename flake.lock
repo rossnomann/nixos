@@ -40,6 +40,26 @@
         "type": "github"
       }
     },
+    "lightly": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744506952,
+        "narHash": "sha256-u+LNOIPvc1w3rDycpy6Ysg6bJRN7shAhHKpNHuZB5dA=",
+        "owner": "Bali10050",
+        "repo": "Darkly",
+        "rev": "8ece7de1b9efe488f505ddb57bdfa992daca1f6d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Bali10050",
+        "repo": "Darkly",
+        "type": "github"
+      }
+    },
     "makky": {
       "inputs": {
         "nixpkgs": [
@@ -96,6 +116,7 @@
     "root": {
       "inputs": {
         "fretboard": "fretboard",
+        "lightly": "lightly",
         "makky": "makky",
         "nixpkgs": "nixpkgs_2"
       }
