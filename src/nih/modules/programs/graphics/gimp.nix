@@ -20,13 +20,13 @@ in
   config = lib.mkIf (cfg.enable && cfgPrograms.graphics.gimp.enable) {
     environment.systemPackages = [ cfgPrograms.graphics.gimp.package ];
     nih.programs.graphics.gimp.executable = "${cfgPrograms.graphics.gimp.package}/bin/gimp";
-    nih.programs.graphics.gimp.package = pkgs.gimp-with-plugins.override {
-      plugins = [ pkgs.gimpPlugins.gmic ];
+    nih.programs.graphics.gimp.package = pkgs.gimp3-with-plugins.override {
+      plugins = [ pkgs.gimp3Plugins.gmic ];
     };
     nih.windowRules = [
       {
-        x11Class = "\\\\.gimp.*";
-        waylandAppId = ".gimp-2.10-wrapped_";
+        x11Class = "gimp";
+        waylandAppId = "gimp";
         useWorkspace = "graphics";
       }
       {
