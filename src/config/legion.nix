@@ -238,8 +238,8 @@
           };
         };
         wm = {
-          gutterSize = 12;
-          marginSize = 6;
+          gutterSize = 0;
+          marginSize = 1;
         };
       };
   };
