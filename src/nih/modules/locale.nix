@@ -22,7 +22,7 @@ in
       LC_TELEPHONE = cfgLocale.extra;
       LC_TIME = cfgLocale.extra;
     };
-    i18n.extraLocales = [ "all" ];
+    i18n.extraLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
     time.timeZone = cfgLocale.timeZone;
   };
 }
