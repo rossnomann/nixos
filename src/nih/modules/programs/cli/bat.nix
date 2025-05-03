@@ -20,7 +20,8 @@ in
     environment.systemPackages = [ cfgPrograms.cli.bat.package ];
     nih.programs.cli.bat.executable = lib.getExe pkgs.bat;
     nih.programs.cli.bat.package = pkgs.bat;
-    nih.programs.cli.bat.themeName = "Catppuccin ${lib.nih.strings.capitalize cfgStyle.palette.variant}";
+    nih.programs.cli.bat.themeName =
+      "Catppuccin ${lib.nih.strings.capitalize cfgStyle.palette.variant}";
     system.userActivationScripts.batCache = ''
       echo "Rebuilding bat theme cache $XDG_CACHE_HOME"
       cd "${pkgs.emptyDirectory}"
@@ -34,7 +35,8 @@ in
         ".config/bat/config".text = ''
           --theme='${themeName}'
         '';
-        ".config/bat/themes/${themeName}.tmTheme".source = "${cfgSources.catppuccin-bat}/themes/${themeName}.tmTheme";
+        ".config/bat/themes/${themeName}.tmTheme".source =
+          "${cfgSources.catppuccin-bat}/themes/${themeName}.tmTheme";
       };
   };
 }
