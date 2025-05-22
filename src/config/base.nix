@@ -5,8 +5,8 @@
       enable = true;
 
       locale = {
-        default = "en_US.UTF-8/UTF-8";
-        extra = "ru_RU.UTF-8/UTF-8";
+        default = "en_US.UTF-8";
+        extra = "ru_RU.UTF-8";
         timeZone = "Europe/Bratislava";
       };
       style = {
