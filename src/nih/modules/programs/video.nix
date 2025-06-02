@@ -44,12 +44,16 @@ in
         videos = entry;
       };
     nih.user.home.file = {
-      ".config/mpv/mpv.conf".source =
+      ".config/mpv/mpv.conf".text =
         let
           package = pkgs.nih.catppuccin.mpv { src = cfgSources.catppuccin-mpv; };
           palette = cfgStyle.palette;
+          theme = builtins.readFile "${package}/${palette.variant}/${palette.accent}.conf";
         in
-        "${package}/${palette.variant}/${palette.accent}.conf";
+        ''
+          ${theme}
+          gpu-api=opengl
+        '';
     };
   };
 }
