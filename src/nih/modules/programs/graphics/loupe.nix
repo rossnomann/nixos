@@ -18,7 +18,7 @@ in
     nih.windowRules = [
       {
         x11Class = "loupe";
-        waylandAppId = "loupe";
+        waylandAppId = "org.gnome.Loupe";
         useWorkspace = "graphics";
       }
     ];
