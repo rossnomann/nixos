@@ -5,6 +5,6 @@
     ./gimp.nix
     ./imagemagick.nix
     ./inkscape.nix
-    ./qview.nix
+    ./loupe.nix
   ];
 }
