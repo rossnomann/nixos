@@ -52,7 +52,6 @@ in
         in
         ''
           ${theme}
-          gpu-api=opengl
         '';
     };
   };
