@@ -9,7 +9,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.python312Full ];
+    environment.systemPackages = [ pkgs.python313Full ];
     environment.variables = {
       PYTHONSTARTUP = "$XDG_CONFIG_HOME/python/pythonrc";
       PYTHON_HISTORY = "$XDG_DATA_HOME/python/history";
