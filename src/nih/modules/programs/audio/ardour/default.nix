@@ -17,7 +17,7 @@ in
     environment.systemPackages = [ cfgPrograms.audio.ardour.package ];
     nih.programs.audio.ardour.package = pkgs.ardour;
     nih.user.home.file = {
-      ".config/ardour8/my-dark-ardour-8.11.colors".source = ./resources/catppuccin-ardour.colors;
+      ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/catppuccin-ardour.colors;
     };
     nih.windowRules = [
       {
