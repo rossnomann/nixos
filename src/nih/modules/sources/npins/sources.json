@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e9e21cffd98787f1b59e6f6e42db599f9b8ab399",
-      "url": "https://github.com/catppuccin/delta/archive/e9e21cffd98787f1b59e6f6e42db599f9b8ab399.tar.gz",
-      "hash": "1d172w2y99gm598mk3z2qaa52zrgm2z2hp6jc4kcnm6v1v86i2nk"
+      "revision": "313b3ac74c44c0f5264b974bf8bc0cec0e3382f9",
+      "url": "https://github.com/catppuccin/delta/archive/313b3ac74c44c0f5264b974bf8bc0cec0e3382f9.tar.gz",
+      "hash": "0kpsgv3qhfjml1dqls04disggaixmy2cnfiliwqkrzxpgyf28m83"
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -107,8 +107,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre816812.5395fb3ab3f9/nixexprs.tar.xz",
-      "hash": "0kr5vs8w3jnajkbzsr81kjp56j2pmfkwqqi1d3bp0v5dc6ynbhqv"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre821946.80d50fc87924/nixexprs.tar.xz",
+      "hash": "035g1x65302bkgsggfx2j7pvdbv2gpgsi3f9wgw8a50w4a6pyl4g"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
