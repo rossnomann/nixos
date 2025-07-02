@@ -107,6 +107,7 @@
         };
         vamp.enable = true;
       };
+      cli.git.ignore = [ ".env" ];
       games.enable = true;
       graphics = {
         gimp.enable = true;
