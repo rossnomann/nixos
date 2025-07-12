@@ -45,6 +45,14 @@ in
       };
       audio.enable = true;
       enable = true;
+      extraConfig.pipewire."10-clock-rate" = {
+        "context.properties" = {
+          "default.clock.allowed-rates" = [
+            44100
+            48000
+          ];
+        };
+      };
       jack.enable = true;
       pulse.enable = true;
       wireplumber.enable = true;
