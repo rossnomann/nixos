@@ -107,8 +107,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre827015.2a2130494ad6/nixexprs.tar.xz",
-      "hash": "03y2pli0a4dq1s9dvycxnsgpsw2ncv5rap2f2psh6j4djb5gzvw0"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre832020.6b4955211758/nixexprs.tar.xz",
+      "hash": "128piyf6sw0r07bxhix6i998h30zqqgaz1sknzrgy6yvh8jgawaz"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -180,8 +180,8 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4a6dc060e01444412d172e404e99d31bfe1549cc",
-      "url": "https://github.com/sublimelsp/LSP/archive/4a6dc060e01444412d172e404e99d31bfe1549cc.tar.gz",
+      "revision": "b9102b8fb2cff92d01b29a939a6f83aede6d3e86",
+      "url": "https://github.com/sublimelsp/LSP/archive/b9102b8fb2cff92d01b29a939a6f83aede6d3e86.tar.gz",
       "hash": "006i8qar3sbgd64bdw7lbgy31m0bb6f223pd704pki27vq6q2jif"
     },
     "sublime-text-markdown-preview": {
