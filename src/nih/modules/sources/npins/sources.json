@@ -107,8 +107,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre832020.6b4955211758/nixexprs.tar.xz",
-      "hash": "128piyf6sw0r07bxhix6i998h30zqqgaz1sknzrgy6yvh8jgawaz"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre834555.0d00f23f023b/nixexprs.tar.xz",
+      "hash": "1yz6zpkra0s1q0xmhr0z7pfwp627d8px45szh6zwr5a7y75fn44h"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
