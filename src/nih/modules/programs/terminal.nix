@@ -19,7 +19,18 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.terminal.package ];
     nih.programs.terminal.executable = "${cfgPrograms.terminal.package}/bin/alacritty";
-    nih.programs.terminal.package = pkgs.alacritty;
+    nih.programs.terminal.package = (
+      pkgs.alacritty.overrideAttrs (oldAttrs: {
+        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
+          pkgs.mesa
+          pkgs.libglvnd
+        ];
+        postInstall = (oldAttrs.postInstall or "") + ''
+          wrapProgram $out/bin/alacritty \
+            --set LD_LIBRARY_PATH "${pkgs.libglvnd}/lib:${pkgs.mesa}/lib"
+        '';
+      })
+    );
     nih.programs.terminal.runCommand = "${cfgPrograms.terminal.executable} --command";
     nih.user.home.file = {
       ".config/alacritty/alacritty.toml".text =
