@@ -19,13 +19,11 @@ mc.overrideAttrs (
     '';
   in
   {
-    postInstall =
-      (old.postInstall or "")
-      + ''
-        install -Dm444 ${pathConfigIni} $out/etc/mc/mc.ini
-        install -Dm444 ${pathConfigExtIni} $out/etc/mc/mc.ext.ini
-        install -Dm444 ${pathSkin} $out/share/mc/skins/catppuccin.ini
-        install -Dm444 ${pathDesktopEntry} $out/share/applications/mc.desktop
-      '';
+    postInstall = (old.postInstall or "") + ''
+      install -Dm444 ${pathConfigIni} $out/etc/mc/mc.ini
+      install -Dm444 ${pathConfigExtIni} $out/etc/mc/mc.ext.ini
+      install -Dm444 ${pathSkin} $out/share/mc/skins/catppuccin.ini
+      install -Dm444 ${pathDesktopEntry} $out/share/applications/mc.desktop
+    '';
   }
 )
