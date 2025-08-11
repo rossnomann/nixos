@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "313b3ac74c44c0f5264b974bf8bc0cec0e3382f9",
-      "url": "https://github.com/catppuccin/delta/archive/313b3ac74c44c0f5264b974bf8bc0cec0e3382f9.tar.gz",
-      "hash": "0kpsgv3qhfjml1dqls04disggaixmy2cnfiliwqkrzxpgyf28m83"
+      "revision": "7b06b1f174c03f53ff68da1ae1666ca3ef7683ad",
+      "url": "https://github.com/catppuccin/delta/archive/7b06b1f174c03f53ff68da1ae1666ca3ef7683ad.tar.gz",
+      "hash": "1qkqchyj4dn0w4wq5xhc86dpj0vlmn94n814nzzif8y7rj3g8w0w"
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -61,9 +61,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "d7eeccdcc855d1d892fb065af3bc939159208402",
-      "url": "https://github.com/catppuccin/mpv/archive/d7eeccdcc855d1d892fb065af3bc939159208402.tar.gz",
-      "hash": "1qa9hrn994vnn7y5a5ak71as86jz47008425m7ax1xx9736aq21y"
+      "revision": "08e90daf511eee2c10c98f0031b51bb9de240d60",
+      "url": "https://github.com/catppuccin/mpv/archive/08e90daf511eee2c10c98f0031b51bb9de240d60.tar.gz",
+      "hash": "0h6vz1xbcml11q3a7n7ihy5g8r9xzb0jp9296jh1xnd4slj5wj51"
     },
     "catppuccin-qtct": {
       "type": "Git",
@@ -100,15 +100,15 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
-      "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
-      "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
+      "revision": "9f29c2c1622c70436f0e0b98fea9735863596c1e",
+      "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
+      "hash": "0bw3jyf8xdnra9zj18fzqzgv0y5rbza2agw3a95driwjhdrrz75s"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre837798.e7eabdc701d7/nixexprs.tar.xz",
-      "hash": "1d2wx8lx1sai5bpxh7gf4h7qf65617f27fias2vl3sdfqy16yn6d"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre842025.641d909c4a75/nixexprs.tar.xz",
+      "hash": "18v19r7qg2lfz90bvkf5b1sb97jd6xxcr69lrjgny3jf9pwk3p3q"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -150,10 +150,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "1.11.12",
-      "revision": "2749dea35db751ea304314b2324e25874646be2a",
-      "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.12",
-      "hash": "01andiyjpbsp2c9dkwwql5z7qsj20lzpl7bv8md8imd7baarvygc"
+      "version": "1.11.13",
+      "revision": "9fc5dad00eb03435f632b9fb54e833ed8ed9e8d0",
+      "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.13",
+      "hash": "0w63xvi6jannhc74n9pir585rjmkbcf8d9ghp1zg513c6dlalcm0"
     },
     "sublime-text-jinja": {
       "type": "GitRelease",
