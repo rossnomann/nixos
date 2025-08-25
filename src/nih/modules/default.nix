@@ -5,7 +5,6 @@
     ./programs
     ./services
     ./sources
-    ./wayland
     ./x11
     ./audio.nix
     ./bluetooth.nix

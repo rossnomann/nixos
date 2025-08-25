@@ -47,7 +47,6 @@
       };
       nixosConfigurations = {
         legion = nixosSystem "legion";
-        yoga = nixosSystem "yoga";
       };
       templates = {
         rust = {

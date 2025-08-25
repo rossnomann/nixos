@@ -27,4 +27,4 @@ jobs:
       - name: Update
         run: nix flake update
       - name: Build
-        run: for host in legion yoga; do nix build .#nixosConfigurations."$host".config.system.build.toplevel; done
+        run: nix build .#nixosConfigurations.legion.config.system.build.toplevel

@@ -1,5 +1,4 @@
 lib: {
-  niri = import ./niri lib;
   dunst = import ./dunst.nix lib;
   gtk = import ./gtk.nix;
   leftwm = import ./leftwm.nix lib;
