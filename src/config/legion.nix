@@ -144,7 +144,7 @@
           autoAcceptFolders = false;
         };
         "yoga" = {
-          id = "KLZAHUM-6HCYKBW-UVKYQSM-L5PMTUN-W6UHD5R-M5VZIRC-2JGZ3OM-AYPP2QO";
+          id = "CLCF7RW-LFQQ6VG-ET5OAQX-ASAT3VT-3WRNRBP-WRZYDQM-VG6KYXI-TG4JAAP";
           name = "Yoga";
           autoAcceptFolders = false;
         };
