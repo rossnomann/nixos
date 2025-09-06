@@ -19,7 +19,7 @@ in
     services.logind.settings.Login = {
       HandleLidSwitch = if cfgPower.suspend.enable then "suspend-then-hibernate" else "ignore";
       HandleLidSwitchDocked = "ignore";
-      HandlelidSwitchExternalPower = if cfgPower.suspend.enable then "suspend" else "ignore";
+      HandleLidSwitchExternalPower = if cfgPower.suspend.enable then "suspend" else "ignore";
       HandlePowerKey = "ignore";
       HandlePowerKeyLongPress = "poweroff";
       IdleAction = "ignore";
