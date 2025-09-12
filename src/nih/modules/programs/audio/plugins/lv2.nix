@@ -23,7 +23,6 @@ in
           pkgs.eq10q
           pkgs.guitarix
           pkgs.gxplugins-lv2
-          pkgs.kapitonov-plugins-pack
           pkgs.lsp-plugins
           pkgs.noise-repellent
           pkgs.sfizz
