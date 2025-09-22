@@ -30,12 +30,9 @@ in
       videos = lib.mkOption { type = lib.types.str; };
     };
   };
-  config = lib.mkIf cfg.enable {
-    environment.etc = {
-      "xdg/user-dirs.conf".text = ''
-        enabled=False
-      '';
-      "xdg/user-dirs.defaults".text = ''
+  config =
+    let
+      userDirs = ''
         XDG_DESKTOP_DIR="${cfgXdg.userDirs.desktop}"
         XDG_DOCUMENTS_DIR="${cfgXdg.userDirs.documents}"
         XDG_DOWNLOAD_DIR="${cfgXdg.userDirs.download}"
@@ -45,40 +42,47 @@ in
         XDG_TEMPLATES_DIR="${cfgXdg.userDirs.templates}"
         XDG_VIDEOS_DIR="${cfgXdg.userDirs.videos}"
       '';
-    };
-    environment.sessionVariables = {
-      XDG_CACHE_HOME = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME = "$HOME/.local/share";
-      XDG_STATE_HOME = "$HOME/.local/state";
-      XDG_DESKTOP_DIR = cfgXdg.userDirs.desktop;
-      XDG_DOCUMENTS_DIR = cfgXdg.userDirs.documents;
-      XDG_DOWNLOAD_DIR = cfgXdg.userDirs.download;
-      XDG_MUSIC_DIR = cfgXdg.userDirs.music;
-      XDG_PICTURES_DIR = cfgXdg.userDirs.pictures;
-      XDG_PUBLICSHARE_DIR = cfgXdg.userDirs.publicShare;
-      XDG_TEMPLATES_DIR = cfgXdg.userDirs.templates;
-      XDG_VIDEOS_DIR = cfgXdg.userDirs.videos;
-    };
-    xdg.mime =
-      let
-        associations = lib.nih.mime.mkAssociations {
-          inherit (cfgXdg.mime)
-            archives
-            audio
-            directories
-            documents
-            images
-            text
-            torrents
-            videos
-            ;
-        };
-      in
-      {
-        enable = true;
-        addedAssociations = associations;
-        defaultApplications = associations;
+    in
+    lib.mkIf cfg.enable {
+      environment.etc = {
+        "xdg/user-dirs.defaults".text = userDirs;
       };
-  };
+      environment.sessionVariables = {
+        XDG_CACHE_HOME = "$HOME/.cache";
+        XDG_CONFIG_HOME = "$HOME/.config";
+        XDG_DATA_HOME = "$HOME/.local/share";
+        XDG_STATE_HOME = "$HOME/.local/state";
+        XDG_DESKTOP_DIR = cfgXdg.userDirs.desktop;
+        XDG_DOCUMENTS_DIR = cfgXdg.userDirs.documents;
+        XDG_DOWNLOAD_DIR = cfgXdg.userDirs.download;
+        XDG_MUSIC_DIR = cfgXdg.userDirs.music;
+        XDG_PICTURES_DIR = cfgXdg.userDirs.pictures;
+        XDG_PUBLICSHARE_DIR = cfgXdg.userDirs.publicShare;
+        XDG_TEMPLATES_DIR = cfgXdg.userDirs.templates;
+        XDG_VIDEOS_DIR = cfgXdg.userDirs.videos;
+      };
+      nih.user.home.file = {
+        ".config/user-dirs.dirs".text = userDirs;
+      };
+      xdg.mime =
+        let
+          associations = lib.nih.mime.mkAssociations {
+            inherit (cfgXdg.mime)
+              archives
+              audio
+              directories
+              documents
+              images
+              text
+              torrents
+              videos
+              ;
+          };
+        in
+        {
+          enable = true;
+          addedAssociations = associations;
+          defaultApplications = associations;
+        };
+    };
 }
