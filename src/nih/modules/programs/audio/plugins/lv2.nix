@@ -20,7 +20,6 @@ in
           pkgs.airwindows-lv2
           pkgs.calf
           pkgs.drumgizmo
-          pkgs.eq10q
           pkgs.guitarix
           pkgs.gxplugins-lv2
           pkgs.lsp-plugins
