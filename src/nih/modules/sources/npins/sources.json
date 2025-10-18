@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7b06b1f174c03f53ff68da1ae1666ca3ef7683ad",
-      "url": "https://github.com/catppuccin/delta/archive/7b06b1f174c03f53ff68da1ae1666ca3ef7683ad.tar.gz",
-      "hash": "1qkqchyj4dn0w4wq5xhc86dpj0vlmn94n814nzzif8y7rj3g8w0w"
+      "revision": "74b47a345638a2f19b3e5bdb9d7e4984066f9ac7",
+      "url": "https://github.com/catppuccin/delta/archive/74b47a345638a2f19b3e5bdb9d7e4984066f9ac7.tar.gz",
+      "hash": "1hs63516hwpdarn9jx182n6iyhv5j74957k26nidpaa7y03slfin"
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -107,8 +107,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre868091.e3a3b32cc234/nixexprs.tar.xz",
-      "hash": "090w419li9948m49kgiqq8jk8cwkz5wb52kfplhz1y31v23viddl"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-25.11pre878433.3cbe716e2346/nixexprs.tar.xz",
+      "hash": "01x1ld0i3y5w9982ynxznisxynm8nhbw2d3qkr0ljfbwfr8389hk"
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -150,10 +150,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "1.11.13",
-      "revision": "9fc5dad00eb03435f632b9fb54e833ed8ed9e8d0",
-      "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.13",
-      "hash": "0w63xvi6jannhc74n9pir585rjmkbcf8d9ghp1zg513c6dlalcm0"
+      "version": "1.11.14",
+      "revision": "401acba3ff21fa7704f14af010ec3a42a377ee86",
+      "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.14",
+      "hash": "1pby34m9rh0pg7sjdnjfhkl3amfxbvqrv6763fp2ll261cvxdsfr"
     },
     "sublime-text-jinja": {
       "type": "GitRelease",
@@ -180,9 +180,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "88138119735ffc4c808666f3295c9d4874098547",
-      "url": "https://github.com/sublimelsp/LSP/archive/88138119735ffc4c808666f3295c9d4874098547.tar.gz",
-      "hash": "0xk4nypacl62kz9vzv36vriyg63ni372v3hzwz2253xy7n24980w"
+      "revision": "aec423a51dda1c12a9c44aef834133a5abd732c5",
+      "url": "https://github.com/sublimelsp/LSP/archive/aec423a51dda1c12a9c44aef834133a5abd732c5.tar.gz",
+      "hash": "0qb31g5m8czcjlxbfr4xp2pf6s3mkpkhzyqyg7iabirx1j9qha5d"
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
@@ -193,9 +193,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "10f2c615fc1776cb29a6a68dd9ab0276951e3adc",
-      "url": "https://github.com/facelessuser/MarkdownPreview/archive/10f2c615fc1776cb29a6a68dd9ab0276951e3adc.tar.gz",
-      "hash": "07y9532d6c4bbdf16fsbqqlr1qdmwlppb6j2xm9b4z9jn3rl8241"
+      "revision": "a6d9b13e194ddc24e6ae48192756ce425546d32c",
+      "url": "https://github.com/facelessuser/MarkdownPreview/archive/a6d9b13e194ddc24e6ae48192756ce425546d32c.tar.gz",
+      "hash": "017f9mg3aln1xlzccqnb1ycais6d3gn97gry65ha6xr1h8qzcshk"
     },
     "sublime-text-nix": {
       "type": "GitRelease",
@@ -264,8 +264,8 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "dec2e1132517945b8e6c07fa7f0a10d13c1f976d",
-      "url": "https://github.com/rust-lang/rust-enhanced/archive/dec2e1132517945b8e6c07fa7f0a10d13c1f976d.tar.gz",
+      "revision": "01a2578a2aa269059fa96781e784009ef52d554a",
+      "url": "https://github.com/rust-lang/rust-enhanced/archive/01a2578a2aa269059fa96781e784009ef52d554a.tar.gz",
       "hash": "1mf6291var2xgmnwvxzmkn0dax12cs0pk6p5r2065n1zcaz538jp"
     },
     "sublime-text-toml": {
