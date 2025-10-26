@@ -12,7 +12,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.nixd
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt-tree
       pkgs.npins
     ];
     nix.gc.automatic = true;
