@@ -12,6 +12,7 @@
     ./less.nix
     ./lshw.nix
     ./macchina.nix
+    ./mergiraf.nix
     ./nushell.nix
     ./pciutils.nix
     ./trash.nix
