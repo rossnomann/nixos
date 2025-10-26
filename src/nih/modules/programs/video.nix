@@ -12,7 +12,6 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      pkgs.pitivi
       pkgs.mpv
       pkgs.syncplay
     ];
@@ -22,11 +21,6 @@ in
         waylandAppId = "mpv";
         useWorkspace = "main";
         useFullscreen = true;
-      }
-      {
-        x11Class = "\\\\.pitivi\\\\-wrapped";
-        waylandAppId = ".pitivi-wrapped";
-        useWorkspace = "main";
       }
       {
         x11Class = "\\\\.syncplay\\\\-wrapped";
