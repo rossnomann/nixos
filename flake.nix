@@ -24,7 +24,7 @@
       nixosSystem =
         deviceName:
         inputs.nixpkgs.lib.nixosSystem {
-          inherit lib system;
+          inherit lib;
           modules = [
             inputs.makky.nixosModules.default
             inputs.fretboard.nixosModules.default
