@@ -200,7 +200,7 @@
                 inherit dpi;
                 enable = true;
                 mode = "2560x1440";
-                position = "0x0";
+                position = "2560x0";
                 primary = true;
                 rate = "59.95";
               };
@@ -209,7 +209,7 @@
                 inherit dpi;
                 enable = true;
                 mode = "2560x1440";
-                position = "2560x0";
+                position = "0x0";
                 rate = "165.00";
               };
             };
