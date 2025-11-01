@@ -19,7 +19,7 @@
     inputs:
     let
       system = "x86_64-linux";
-      pkgs = import inputs.nixpkgs { inherit system; };
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       lib = import ./src/nih/lib pkgs;
       nixosSystem =
         deviceName:
