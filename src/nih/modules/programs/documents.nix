@@ -16,7 +16,7 @@ in
         obsidianHook = pkgs.writeTextFile {
           name = "obsidian-hook";
           text = ''
-            #!${pkgs.python313}/bin/python
+            #!${pkgs.python314}/bin/python
             import json
             from pathlib import Path
 
