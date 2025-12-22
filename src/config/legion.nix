@@ -7,6 +7,7 @@
 }:
 {
   boot = {
+    blacklistedKernelModules = [ "nova_core" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     initrd = {
       availableKernelModules = [
