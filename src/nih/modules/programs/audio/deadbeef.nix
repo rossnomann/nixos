@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  pkgs20251111,
   ...
 }:
 let
@@ -14,7 +14,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.audio.deadbeef.package ];
-    nih.programs.audio.deadbeef.package = pkgs.deadbeef;
+    nih.programs.audio.deadbeef.package = pkgs20251111.deadbeef;
     nih.windowRules = [
       {
         x11Class = "deadbeef";
