@@ -139,11 +139,6 @@
     };
     sync = {
       devices = {
-        "pixel" = {
-          id = "NWMRLOG-ZLN76CU-HOOHCNS-5PG7IAO-G7EQMYJ-CNKX6LM-7GXC6YP-2PD7IQT";
-          name = "Pixel";
-          autoAcceptFolders = false;
-        };
         "yoga" = {
           id = "CLCF7RW-LFQQ6VG-ET5OAQX-ASAT3VT-3WRNRBP-WRZYDQM-VG6KYXI-TG4JAAP";
           name = "Yoga";
@@ -151,32 +146,14 @@
         };
       };
       folders = {
-        backup = [
-          "pixel"
-          "yoga"
-        ];
-        books = [
-          "pixel"
-          "yoga"
-        ];
-        documents = [
-          "pixel"
-          "yoga"
-        ];
+        backup = [ "yoga" ];
+        books = [ "yoga" ];
+        documents = [ "yoga" ];
         music = [ "yoga" ];
-        obsidian = [
-          "pixel"
-          "yoga"
-        ];
-        pictures = [
-          "pixel"
-          "yoga"
-        ];
+        obsidian = [ "yoga" ];
+        pictures = [ "yoga" ];
         exchange = [ "yoga" ];
-        videos = [
-          "pixel"
-          "yoga"
-        ];
+        videos = [ "yoga" ];
       };
     };
     x11 =
