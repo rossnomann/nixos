@@ -14,7 +14,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     services.getty = {
-      greetingLine = "\l ${config.system.nixos.label}";
+      greetingLine = ''\l ${config.system.nixos.label}'';
       helpLine = "";
     };
     services.greetd =
