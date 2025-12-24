@@ -1,0 +1,120 @@
+binds {
+  Ctrl+Alt+End { quit; }
+  Mod+Ctrl+O { power-off-monitors; }
+
+  Mod+O repeat=false { toggle-overview; }
+
+  Mod+Left { focus-column-left; }
+  Mod+Right { focus-column-right; }
+  Mod+End { focus-column-last; }
+  Mod+Home { focus-column-first; }
+
+  Mod+Up { focus-window-up; }
+  Mod+Down { focus-window-down; }
+
+  Mod+Page_Down { focus-workspace-down; }
+  Mod+Page_Up { focus-workspace-up; }
+  Mod+W { focus-workspace-previous; }
+
+  Mod+Ctrl+Left { focus-monitor-left; }
+  Mod+Ctrl+Down { focus-monitor-down; }
+  Mod+Ctrl+Up { focus-monitor-up; }
+  Mod+Ctrl+Right { focus-monitor-right; }
+
+  Mod+Shift+Q { close-window; }
+
+  Mod+Shift+BracketLeft  { consume-or-expel-window-left; }
+  Mod+Shift+BracketRight { consume-or-expel-window-right; }
+
+  Mod+Shift+Down { move-window-down; }
+  Mod+Shift+Up { move-window-up; }
+  Mod+Shift+Left { move-column-left; }
+  Mod+Shift+Right { move-column-right; }
+  Mod+Shift+Home { move-column-to-first; }
+  Mod+Shift+End { move-column-to-last; }
+
+  Mod+Ctrl+Shift+Down { move-workspace-to-monitor-down; }
+  Mod+Ctrl+Shift+Left { move-workspace-to-monitor-left; }
+  Mod+Ctrl+Shift+Right { move-workspace-to-monitor-right; }
+  Mod+Ctrl+Shift+Up { move-workspace-to-monitor-up; }
+
+  Mod+Shift+A { toggle-column-tabbed-display; }
+  Mod+Shift+C { center-visible-columns; }
+  Mod+Shift+E { expand-column-to-available-width; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+Shift+H { switch-preset-window-height; }
+  Mod+Shift+M { maximize-column; }
+  Mod+Shift+R { reset-window-height; }
+  Mod+Shift+T { toggle-window-floating; }
+  Mod+Shift+V { center-column; }
+  Mod+Shift+W { switch-preset-column-width; }
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+}
+
+environment {
+  NIXOS_OZONE_WL "1"
+  QT_QPA_PLATFORM "wayland"
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+input {
+  keyboard {
+    xkb {
+      layout "us,ru,sk"
+      options "grp:win_space_toggle"
+      variant ","
+    }
+    track-layout "global"
+  }
+
+  touchpad {
+    dwt
+    dwtp
+    middle-emulation
+    scroll-method "two-finger"
+    tap
+  }
+
+  warp-mouse-to-focus
+}
+
+layout {
+  center-focused-column "on-overflow"
+
+  default-column-width {
+    proportion 1.0
+  }
+
+  focus-ring {
+    off
+  }
+
+  gaps 0
+
+  preset-column-widths {
+    proportion 1.0
+    proportion 0.5
+  }
+
+  preset-window-heights {
+    proportion 1.0
+    proportion 0.5
+  }
+
+  struts {
+    bottom 0
+    top 0
+    left 0
+    right 0
+  }
+}
+
+prefer-no-csd
+
+screenshot-path null

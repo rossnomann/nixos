@@ -54,6 +54,7 @@
       fsType = "ext4";
     };
   };
+  environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
   environment.variables = {
     __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
     CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -213,6 +214,25 @@
           marginSize = 1;
         };
       };
+    wayland = {
+      enable = true;
+      niri = {
+        outputs = [
+          {
+            name = "eDP-1";
+            mode = ''"2560x1440@165.003"'';
+            position = "x=0 y=0";
+            focusAtStartup = true;
+          }
+          {
+            name = "HDMI-A-1";
+            scale = "1.5";
+            position = "x=1706 y=0";
+            focusAtStartup = false;
+          }
+        ];
+      };
+    };
   };
   services = {
     fstrim.enable = true;
