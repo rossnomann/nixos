@@ -10,7 +10,7 @@ let
   cfgStyle = cfg.style;
   cfgWayland = cfg.wayland;
   cfgWindowRules = cfg.windowRules;
-  pkgNiri = pkgs.niri;
+  package = pkgs.niri;
   niri = import ./generators.nix { inherit lib; };
 in
 {
@@ -26,14 +26,28 @@ in
   };
   config = lib.mkIf (cfg.enable && cfgWayland.enable) {
     environment.systemPackages = [
-      pkgNiri
+      package
       pkgs.xwayland-satellite
     ];
     services.dbus.packages = [ pkgs.nautilus ];
-    services.displayManager.sessionPackages = [ pkgNiri ];
+    services.displayManager.sessionPackages = [ package ];
     services.gnome.gnome-keyring.enable = true;
     services.graphical-desktop.enable = true;
-    systemd.packages = [ pkgNiri ];
+    systemd.packages = [ package ];
+    systemd.user.units."swaybg.service" = {
+      text = ''
+        [Unit]
+        PartOf=graphical-session.target
+        After=graphical-session.target
+        Requisite=graphical-session.target
+
+
+        [Service]
+        ExecStart=${pkgs.swaybg}/bin/swaybg -i ${cfgStyle.wallpaper}
+        Restart=on-failure
+      '';
+      wantedBy = [ "niri.service" ];
+    };
     xdg.portal = {
       enable = true;
       config.niri = {
@@ -113,8 +127,5 @@ in
           ${niri.mkWorkspaces workspaces}
         '';
     };
-    nih.wayland.niri.spawnAtStartup = [
-      ''"${pkgs.swaybg}/bin/swaybg" "-i" "${cfgStyle.wallpaper}"''
-    ];
   };
 }
