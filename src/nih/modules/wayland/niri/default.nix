@@ -11,7 +11,6 @@ let
   cfgWayland = cfg.wayland;
   cfgWindowRules = cfg.windowRules;
   package = pkgs.niri;
-  niri = import ./generators.nix { inherit lib; };
 in
 {
   options.nih.wayland.niri = {
@@ -65,11 +64,14 @@ in
     };
 
     nih.user.home.file = {
-      ".config/niri/base.kdl".source = ./base.kdl;
+      ".config/niri/base.kdl".source = ./config.kdl;
       ".config/niri/config.kdl".text =
         let
           colors = cfgStyle.palette.colors;
-          accentColor = lib.getAttr cfgStyle.palette.accent colors;
+        in
+        (import ./config.nix {
+          inherit lib colors;
+          outputs = cfgWayland.niri.outputs;
           workspaces = [
             "terminal"
             "main"
@@ -78,53 +80,14 @@ in
             "graphics"
             "documents"
           ];
-          workspacesIndexed =
-            let
-              indexes = map builtins.toString (lib.range 1 (lib.lists.length workspaces));
-            in
-            lib.lists.zipListsWith (a: b: {
-              idx = a;
-              name = b;
-            }) indexes workspaces;
-        in
-        ''
-          include "base.kdl"
-
-          binds {
-            ${niri.mkBindSpawn "Mod+Return" ''"${cfgPrograms.terminal.executable}"''}
-            ${niri.mkBindSpawn "Mod+R" (
-              lib.strings.concatStringsSep " " (map (x: ''"${x}"'') cfgPrograms.rofi.cmdShow)
-            )}
-            ${niri.mkBindsWorkspaces workspacesIndexed}
-          }
-
-          cursor {
-            xcursor-theme "${cfgStyle.cursors.name}"
-            xcursor-size ${builtins.toString cfgStyle.cursors.size}
-          }
-
-          layout {
-            border {
-              active-color "${accentColor}"
-              inactive-color "${colors.overlay2}"
-              width 2
-            }
-
-            insert-hint { color "${colors.blue}"; }
-          }
-
-          overview { backdrop-color "${colors.crust}"; }
-
-          recent-windows { off; }
-
-          ${niri.mkOutputs cfgWayland.niri.outputs colors.crust}
-
-          ${niri.mkSpawnAtStartup cfgWayland.niri.spawnAtStartup}
-
-          ${niri.mkWindowRules cfgWindowRules}
-
-          ${niri.mkWorkspaces workspaces}
-        '';
+          windowRules = cfgWindowRules;
+          spawnAtStartup = cfgWayland.niri.spawnAtStartup;
+          cmdTerminal = ''"${cfgPrograms.terminal.executable}"'';
+          cmdLauncher = (lib.strings.concatStringsSep " " (map (x: ''"${x}"'') cfgPrograms.rofi.cmdShow));
+          accentColor = lib.getAttr cfgStyle.palette.accent colors;
+          xcursorTheme = cfgStyle.cursors.name;
+          xcursorSize = cfgStyle.cursors.size;
+        });
     };
   };
 }

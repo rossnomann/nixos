@@ -1,4 +1,16 @@
-{ lib }:
+{
+  lib,
+  outputs,
+  workspaces,
+  windowRules,
+  spawnAtStartup,
+  cmdTerminal,
+  cmdLauncher,
+  colors,
+  accentColor,
+  xcursorTheme,
+  xcursorSize,
+}:
 let
   concat = x: lib.strings.concatStringsSep "\n" x;
   optionalNode = name: value: lib.optionalString (!isNull value) ''${name} ${value}'';
@@ -49,9 +61,6 @@ let
       ''backdrop-color "${backdropColor}"''
       "hot-corners { off; }"
     ];
-in
-{
-  inherit concat;
   mkBindSpawn = bind: command: mkSection bind [ "spawn ${command};" ];
   mkBindsWorkspaces = items: concat (map mkBindsWorkspace items);
   mkSpawnAtStartup = items: concat (map (item: ''spawn-at-startup ${item}'') items);
@@ -59,4 +68,48 @@ in
   mkWorkspaces = items: concat (map (item: ''workspace "${item}"'') items);
   mkOutputs =
     items: backdropColor: concat (map (item: mkOutput (item // { inherit backdropColor; })) items);
-}
+  workspacesIndexed =
+    let
+      indexes = map builtins.toString (lib.range 1 (lib.lists.length workspaces));
+    in
+    lib.lists.zipListsWith (a: b: {
+      idx = a;
+      name = b;
+    }) indexes workspaces;
+in
+''
+  ${mkWorkspaces workspaces}
+
+  include "base.kdl"
+
+  binds {
+    ${mkBindSpawn "Mod+Return" cmdTerminal}
+    ${mkBindSpawn "Mod+R" cmdLauncher}
+    ${mkBindsWorkspaces workspacesIndexed}
+  }
+
+  cursor {
+    xcursor-theme "${xcursorTheme}"
+    xcursor-size ${builtins.toString xcursorSize}
+  }
+
+  layout {
+    border {
+      active-color "${accentColor}"
+      inactive-color "${colors.overlay2}"
+      width 2
+    }
+
+    insert-hint { color "${colors.blue}"; }
+  }
+
+  overview { backdrop-color "${colors.crust}"; }
+
+  recent-windows { off; }
+
+  ${mkOutputs outputs colors.crust}
+
+  ${mkSpawnAtStartup spawnAtStartup}
+
+  ${mkWindowRules windowRules}
+''
