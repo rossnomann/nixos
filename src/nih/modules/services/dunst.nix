@@ -32,6 +32,14 @@ in
     ];
     services.dbus.packages = [ package ];
     systemd.packages = [ package ];
+    systemd.user.units."dunst.service" = {
+      overrideStrategy = "asDropin";
+      text = ''
+        [Unit]
+        Requires=graphical-session.target
+        After=graphical-session.target
+      '';
+    };
     nih.user.home.file =
       let
         colors = cfgStyle.palette.colors;
