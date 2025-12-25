@@ -109,7 +109,6 @@ in
         '';
     };
     nih.wayland.niri.spawnAtStartup = [
-      ''"systemctl" "--user" "start" "wm-session.target"'' # TODO: remove the wm-session.target
       ''"${pkgs.swaybg}/bin/swaybg" "-i" "${cfgStyle.wallpaper}"''
     ];
   };

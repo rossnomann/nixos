@@ -30,26 +30,11 @@ in
       package
       pkgs.toastify
     ];
-    systemd.user.units."dunst.service" = {
-      name = "dunst.service";
-      enable = true;
-      wantedBy = [ "graphical-session.target" ];
-      text = ''
-        [Service]
-        BusName=org.freedesktop.Notifications
-        Environment=
-        ExecStart='${package}/bin/dunst'
-        Type=dbus
-
-        [Unit]
-        Description=Dunst notification daemon
-        After=wm-session-post.target
-      '';
-    };
+    services.dbus.packages = [ package ];
+    systemd.packages = [ package ];
     nih.user.home.file =
       let
         colors = cfgStyle.palette.colors;
-        dbusServicePath = "${package}/share/dbus-1/services/org.knopwob.dunst.service";
       in
       {
         ".config/dunst/dunstrc".text =
@@ -80,7 +65,6 @@ in
                 "${size}x${size}";
             };
           };
-        ".local/share/dbus-1/services/org.knopwob.dunst.service".source = dbusServicePath;
       };
   };
 }

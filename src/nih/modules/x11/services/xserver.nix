@@ -28,7 +28,6 @@ in
             systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
             dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
             xrdb -merge ~/.config/sx/xresources
-            systemctl --user start wm-session.target
             exec ${wm}
           '';
       };
