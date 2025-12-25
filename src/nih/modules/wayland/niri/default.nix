@@ -31,7 +31,6 @@ in
     ];
     services.dbus.packages = [ pkgs.nautilus ];
     services.displayManager.sessionPackages = [ package ];
-    services.gnome.gnome-keyring.enable = true;
     services.graphical-desktop.enable = true;
     systemd.packages = [ package ];
     systemd.user.units."swaybg.service" = {
