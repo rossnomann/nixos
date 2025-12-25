@@ -64,6 +64,8 @@ hotkey-overlay {
 }
 
 input {
+  focus-follows-mouse max-scroll-amount="10%"
+
   keyboard {
     xkb {
       layout "us,ru,sk"
@@ -85,7 +87,7 @@ input {
 }
 
 layout {
-  center-focused-column "on-overflow"
+  center-focused-column "always"
 
   default-column-width {
     proportion 1.0
@@ -95,7 +97,7 @@ layout {
     off
   }
 
-  gaps 0
+  gaps 8
 
   preset-column-widths {
     proportion 1.0
