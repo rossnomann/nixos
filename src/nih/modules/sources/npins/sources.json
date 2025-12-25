@@ -78,6 +78,19 @@
       "url": "https://github.com/catppuccin/qt5ct/archive/cb585307edebccf74b8ae8f66ea14f21e6666535.tar.gz",
       "hash": "0z7kpg2aywbigc1g7yfk6aq5v0bxcaikzl7l28p26hwb1n8zlf60"
     },
+    "catppuccin-rofi": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "rofi"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "71fb15577ccb091df2f4fc1f65710edbc61b5a53",
+      "url": "https://github.com/catppuccin/rofi/archive/71fb15577ccb091df2f4fc1f65710edbc61b5a53.tar.gz",
+      "hash": "03gmrw70m8nm58p30n4v2p18756lx69r25l1ij7idzhc7hb9wmzk"
+    },
     "catppuccin-sublime-text": {
       "type": "Git",
       "repository": {

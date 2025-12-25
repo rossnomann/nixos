@@ -11,6 +11,7 @@
     ./documents.nix
     ./editor.nix
     ./games.nix
+    ./rofi.nix
     ./terminal.nix
     ./torrents.nix
     ./video.nix

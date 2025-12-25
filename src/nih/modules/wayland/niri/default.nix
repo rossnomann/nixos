@@ -25,7 +25,10 @@ in
     };
   };
   config = lib.mkIf (cfg.enable && cfgWayland.enable) {
-    environment.systemPackages = [ pkgNiri pkgs.xwayland-satellite ];
+    environment.systemPackages = [
+      pkgNiri
+      pkgs.xwayland-satellite
+    ];
     services.dbus.packages = [ pkgs.nautilus ];
     services.displayManager.sessionPackages = [ pkgNiri ];
     services.gnome.gnome-keyring.enable = true;
@@ -76,7 +79,9 @@ in
 
           binds {
             ${niri.mkBindSpawn "Mod+Return" ''"${cfgPrograms.terminal.executable}"''}
-            ${niri.mkBindSpawn "Mod+R" ''"${cfgWayland.kickoff.executable}"''}
+            ${niri.mkBindSpawn "Mod+R" (
+              lib.strings.concatStringsSep " " (map (x: ''"${x}"'') cfgPrograms.rofi.cmdShow)
+            )}
             ${niri.mkBindsWorkspaces workspacesIndexed}
           }
 
