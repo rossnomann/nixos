@@ -222,13 +222,13 @@
             name = "eDP-1";
             mode = ''"2560x1440@165.003"'';
             position = "x=0 y=0";
-            focusAtStartup = true;
+            focusAtStartup = false;
           }
           {
             name = "HDMI-A-1";
             scale = "1.5";
-            position = "x=1706 y=0";
-            focusAtStartup = false;
+            position = "x=1707 y=0";
+            focusAtStartup = true;
           }
         ];
       };
