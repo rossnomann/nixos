@@ -1,115 +1,226 @@
-{
-  lib,
-  outputs,
-  workspaces,
-  windowRules,
-  spawnAtStartup,
-  cmdTerminal,
-  cmdLauncher,
-  colors,
-  accentColor,
-  xcursorTheme,
-  xcursorSize,
-}:
+{ config, lib, ... }:
 let
-  concat = x: lib.strings.concatStringsSep "\n" x;
-  optionalNode = name: value: lib.optionalString (!isNull value) ''${name} ${value}'';
-  optionalNodeBoolean = name: value: lib.optionalString (value == true) name;
-  optionalProperty = name: value: lib.optionalString (!isNull value) ''${name}="${value}"'';
-  mkSection = name: body: ''
-    ${name} {
-      ${concat body}
-    }
-  '';
-  mkBindsWorkspace =
-    { idx, name }:
-    ''
-      ${mkSection "Mod+${idx}" [ ''focus-workspace "${name}";'' ]}
-      ${mkSection "Mod+Shift+${idx}" [ ''move-window-to-workspace "${name}";'' ]}
-    '';
-  mkWindowRule =
-    {
-      waylandAppId,
-      title,
-      useFullscreen,
-      useWorkspace,
-      ...
-    }:
-    let
-      matchAppId = optionalProperty "app-id" waylandAppId;
-      matchTitle = optionalProperty "title" title;
-    in
-    mkSection "window-rule" [
-      "match ${matchAppId} ${matchTitle}"
-      (lib.optionalString (useFullscreen == true) "open-fullscreen true")
-      (lib.optionalString (!isNull useWorkspace) ''open-on-workspace "${useWorkspace}"'')
-    ];
-  mkOutput =
-    {
-      name,
-      mode ? null,
-      scale ? null,
-      position ? null,
-      focusAtStartup ? false,
-      backdropColor,
-    }:
-    mkSection ''output "${name}"'' [
-      (optionalNode "mode" mode)
-      (optionalNode "scale" scale)
-      (optionalNode "position" position)
-      (optionalNodeBoolean "focus-at-startup" focusAtStartup)
-      ''backdrop-color "${backdropColor}"''
-      "hot-corners { off; }"
-    ];
-  mkBindSpawn = bind: command: mkSection bind [ "spawn ${command};" ];
-  mkBindsWorkspaces = items: concat (map mkBindsWorkspace items);
-  mkSpawnAtStartup = items: concat (map (item: ''spawn-at-startup ${item}'') items);
-  mkWindowRules = items: concat (map mkWindowRule items);
-  mkWorkspaces = items: concat (map (item: ''workspace "${item}"'') items);
-  mkOutputs =
-    items: backdropColor: concat (map (item: mkOutput (item // { inherit backdropColor; })) items);
-  workspacesIndexed =
-    let
-      indexes = map builtins.toString (lib.range 1 (lib.lists.length workspaces));
-    in
-    lib.lists.zipListsWith (a: b: {
-      idx = a;
-      name = b;
-    }) indexes workspaces;
+  cfg = config.nih;
+  cfgPrograms = cfg.programs;
+  cfgStyle = cfg.style;
+  cfgWayland = cfg.wayland;
+  cfgWindowRules = cfg.windowRules;
+  kdl = import ./kdl.nix lib;
 in
-''
-  ${mkWorkspaces workspaces}
-
-  include "base.kdl"
-
-  binds {
-    ${mkBindSpawn "Mod+Return" cmdTerminal}
-    ${mkBindSpawn "Mod+R" cmdLauncher}
-    ${mkBindsWorkspaces workspacesIndexed}
-  }
-
-  cursor {
-    xcursor-theme "${xcursorTheme}"
-    xcursor-size ${builtins.toString xcursorSize}
-  }
-
-  layout {
-    border {
-      active-color "${accentColor}"
-      inactive-color "${colors.overlay2}"
-      width 2
-    }
-
-    insert-hint { color "${colors.blue}"; }
-  }
-
-  overview { backdrop-color "${colors.crust}"; }
-
-  recent-windows { off; }
-
-  ${mkOutputs outputs colors.crust}
-
-  ${mkSpawnAtStartup spawnAtStartup}
-
-  ${mkWindowRules windowRules}
-''
+{
+  options.nih.wayland.niri.config = lib.mkOption {
+    type = lib.types.submodule {
+      options = {
+        outputs = lib.mkOption {
+          type = lib.types.listOf (
+            lib.types.submodule {
+              options = {
+                name = lib.mkOption { type = lib.types.str; };
+                backdropColor = lib.mkOption {
+                  type = lib.types.nullOr lib.types.str;
+                  default = null;
+                };
+                focusAtStartup = lib.mkOption {
+                  type = lib.types.nullOr lib.types.bool;
+                  default = null;
+                };
+                mode = lib.mkOption {
+                  type = lib.types.nullOr lib.types.str;
+                  default = null;
+                };
+                position = lib.mkOption {
+                  type = lib.types.nullOr (
+                    lib.types.submodule {
+                      options = {
+                        x = lib.mkOption { type = lib.types.int; };
+                        y = lib.mkOption { type = lib.types.int; };
+                      };
+                    }
+                  );
+                  default = null;
+                };
+                scale = lib.mkOption {
+                  type = lib.types.nullOr lib.types.float;
+                  default = null;
+                };
+                hotCorners = lib.mkOption {
+                  type = lib.types.nullOr (
+                    lib.types.submodule {
+                      options = {
+                        enabled = lib.mkOption { type = lib.types.bool; };
+                      };
+                    }
+                  );
+                  default = {
+                    enabled = false;
+                  };
+                };
+              };
+            }
+          );
+          default = [ ];
+        };
+        spawnAtStartup = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
+          default = [ ];
+        };
+        workspaces = lib.mkOption {
+          type = lib.types.submodule {
+            options = builtins.listToAttrs (
+              map (name: {
+                inherit name;
+                value = lib.mkOption {
+                  type = lib.types.nullOr (
+                    lib.types.submodule {
+                      options = {
+                        name = lib.mkOption {
+                          type = lib.types.str;
+                          default = name;
+                        };
+                        openOnOutput = lib.mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          default = null;
+                        };
+                      };
+                    }
+                  );
+                  default = null;
+                };
+              }) lib.nih.workspaces
+            );
+          };
+        };
+      };
+    };
+  };
+  config = {
+    nih.user.home.file = {
+      ".config/niri/binds.kdl".source = ./binds.kdl;
+      ".config/niri/config.kdl".text =
+        let
+          c = cfgWayland.niri.config;
+          colors = cfgStyle.palette.colors;
+          accentColor = lib.getAttr cfgStyle.palette.accent colors;
+        in
+        kdl.mkConfig {
+          inherit (c) workspaces spawnAtStartup outputs;
+          includes = [ "binds.kdl" ];
+          bindsSpawn = [
+            [
+              "Mod+Return"
+              [ cfgPrograms.terminal.executable ]
+            ]
+            [
+              "Mod+R"
+              cfgPrograms.rofi.cmdShow
+            ]
+          ];
+          bindsWorkspaces = lib.nih.workspaces;
+          cursor = {
+            xcursorTheme = cfgStyle.cursors.name;
+            xcursorSize = cfgStyle.cursors.size;
+          };
+          environment = {
+            "NIXOS_OZONE_WL" = "1";
+            "QT_QPA_PLATFORM" = "wayland";
+          };
+          hotkeyOverlay.skipAtStartup = true;
+          input = {
+            focusFollowsMouse.maxScrollAmount = "10%";
+            keyboard = {
+              xkb = {
+                layout = "us,ru,sk";
+                options = "grp:win_space_toggle";
+                variant = ",";
+              };
+              trackLayout = "global";
+            };
+            touchpad = {
+              dwt = true;
+              dwtp = true;
+              middleEmulation = true;
+              scrollMethod = "two-finger";
+              tap = true;
+            };
+            warpMouseToFocus = true;
+          };
+          layout = {
+            border = {
+              activeColor = accentColor;
+              inactiveColor = colors.overlay2;
+              urgentColor = colors.mauve;
+              width = 2;
+            };
+            centerFocusedColumn = "always";
+            defaultColumnWidth = [
+              "proportion"
+              1.0
+            ];
+            focusRing.enabled = false;
+            gaps = 8;
+            insertHint.color = colors.blue;
+            presetColumnWidths = [
+              [
+                "proportion"
+                1.0
+              ]
+              [
+                "proportion"
+                0.5
+              ]
+            ];
+            presetWindowHeights = [
+              [
+                "proportion"
+                1.0
+              ]
+              [
+                "proportion"
+                0.5
+              ]
+            ];
+            struts = {
+              bottom = 0;
+              top = 0;
+              left = 0;
+              right = 0;
+            };
+          };
+          overview.backdropColor = colors.crust;
+          recentWindows.enabled = false;
+          screenshotPath = null;
+          windowRules = (
+            [
+              { openMaximizedToEdges = true; }
+              {
+                matches.isActive = false;
+                opacity = 0.95;
+              }
+              {
+                matches.isFloating = true;
+                shadow.enabled = true;
+              }
+              {
+                matches.isWindowCastTarget = true;
+                border = {
+                  activeColor = colors.red;
+                  inactiveColor = colors.pink;
+                  urgentColor = colors.peach;
+                  width = 2;
+                };
+              }
+            ]
+            ++ (map (x: {
+              matches = {
+                appId = x.appId;
+                title = x.title;
+              };
+              openOnWorkspace = x.workspace;
+              openFullscreen = x.fullscreen;
+              openFloating = x.floating;
+            }) cfgWindowRules)
+          );
+        };
+    };
+  };
+}

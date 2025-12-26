@@ -107,7 +107,6 @@
         plugins = {
           lv2.enable = true;
         };
-        vamp.enable = true;
       };
       cli.git.ignore = [ ".env" ];
       games.enable = true;
@@ -216,21 +215,34 @@
       };
     wayland = {
       enable = true;
-      niri = {
+      niri.config = {
         outputs = [
           {
             name = "eDP-1";
-            mode = ''"2560x1440@165.003"'';
-            position = "x=0 y=0";
+            mode = "2560x1440@165.003";
+            position = {
+              x = 0;
+              y = 0;
+            };
             focusAtStartup = false;
           }
           {
             name = "HDMI-A-1";
-            scale = "1.5";
-            position = "x=1707 y=0";
+            scale = 1.5;
+            position = {
+              x = 1707;
+              y = 0;
+            };
             focusAtStartup = true;
           }
         ];
+        workspaces = {
+          audio.openOnOutput = "HDMI-A-1";
+          games.openOnOutput = "HDMI-A-1";
+          main.openOnOutput = "HDMI-A-1";
+          secondary.openOnOutput = "eDP-1";
+          terminal.openOnOutput = "eDP-1";
+        };
       };
     };
   };
