@@ -1,6 +1,6 @@
 lib:
 let
-  kdl = lib.nih.gen.kdl;
+  kdl = lib.nih.kdl;
   on = kdl.mkNode "on" { };
   off = kdl.mkNode "off" { };
   mkBindsWorkspace =
