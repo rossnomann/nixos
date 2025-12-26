@@ -14,7 +14,7 @@ in
   };
   config = lib.mkIf (cfg.enable && cfgPrograms.games.enable) {
     environment.systemPackages = [ pkgs.steam ];
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^steam'';
         fullscreen = true;

@@ -9,7 +9,6 @@ let
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
   cfgGraphicalSession = cfg.graphicalSession;
-  cfgWindowRules = cfg.windowRules;
   kdl = import ./kdl.nix lib;
 in
 {
@@ -251,7 +250,7 @@ in
               openOnWorkspace = x.workspace;
               openFullscreen = x.fullscreen;
               openFloating = x.floating;
-            }) cfgWindowRules)
+            }) cfgGraphicalSession.windowRules)
           );
         };
     };

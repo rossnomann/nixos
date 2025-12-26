@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.audio.helvum.package ];
     nih.programs.audio.helvum.package = pkgs.helvum;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^org\\.pipewire\\.Helvum'';
         workspace = "audio";

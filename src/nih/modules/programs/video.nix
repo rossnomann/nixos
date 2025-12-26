@@ -15,7 +15,7 @@ in
       pkgs.mpv
       pkgs.syncplay
     ];
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^mpv'';
         workspace = "main";

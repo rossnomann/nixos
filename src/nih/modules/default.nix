@@ -17,7 +17,6 @@
     ./style.nix
     ./sync.nix
     ./user.nix
-    ./window-rules.nix
     ./xdg.nix
   ];
   options.nih = {

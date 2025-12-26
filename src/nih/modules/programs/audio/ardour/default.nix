@@ -19,7 +19,7 @@ in
     nih.user.home.file = {
       ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/catppuccin-ardour.colors;
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^Ardour'';
         workspace = "audio";

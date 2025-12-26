@@ -23,7 +23,7 @@ in
     nih.programs.graphics.gimp.package = pkgs.gimp3-with-plugins.override {
       plugins = [ pkgs.gimp3Plugins.gmic ];
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^gimp'';
         workspace = "main";

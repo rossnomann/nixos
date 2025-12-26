@@ -10,7 +10,7 @@ in
 {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.transmission_4-gtk ];
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^transmission'';
         workspace = "main";

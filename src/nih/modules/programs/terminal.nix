@@ -57,7 +57,7 @@ in
           y = 10
         '';
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^Alacritty'';
         workspace = "terminal";

@@ -128,7 +128,7 @@ in
     environment.variables = {
       MOZ_USE_XINPUT2 = "1";
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^firefox'';
         workspace = "main";

@@ -89,7 +89,7 @@ in
         word_wrap = false;
       };
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^sublime_text'';
         workspace = "main";

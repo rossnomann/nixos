@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.im.telegram.package ];
     nih.programs.im.telegram.package = pkgs.telegram-desktop;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^org\\.telegram\\.desktop'';
         workspace = "secondary";

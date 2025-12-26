@@ -15,7 +15,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.audio.deadbeef.package ];
     nih.programs.audio.deadbeef.package = pkgs20251111.deadbeef;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^deadbeef'';
         workspace = "secondary";

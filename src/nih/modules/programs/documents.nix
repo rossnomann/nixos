@@ -49,7 +49,7 @@ in
         include ${cfgSources.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
       '';
     };
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^libreoffice'';
         workspace = "main";

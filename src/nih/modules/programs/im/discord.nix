@@ -16,7 +16,7 @@ in
   config = lib.mkIf (cfg.enable && cfgPrograms.im.discord.enable) {
     environment.systemPackages = [ cfgPrograms.im.discord.package ];
     nih.programs.im.discord.package = pkgs.discord;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^discord'';
         workspace = "secondary";

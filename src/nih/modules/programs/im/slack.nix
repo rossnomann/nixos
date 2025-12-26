@@ -16,7 +16,7 @@ in
   config = lib.mkIf (cfg.enable && cfgPrograms.im.slack.enable) {
     environment.systemPackages = [ cfgPrograms.im.slack.package ];
     nih.programs.im.slack.package = pkgs.slack;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^Slack'';
         workspace = "secondary";

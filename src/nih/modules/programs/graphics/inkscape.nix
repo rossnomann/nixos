@@ -24,7 +24,7 @@ in
     ];
     nih.programs.graphics.inkscape.executable = "${cfgPrograms.graphics.inkscape.package}/bin/inkscape";
     nih.programs.graphics.inkscape.package = pkgs.inkscape;
-    nih.windowRules = [
+    nih.graphicalSession.windowRules = [
       {
         appId = ''^org\\.inkscape\\.Inkscape'';
         workspace = "main";
