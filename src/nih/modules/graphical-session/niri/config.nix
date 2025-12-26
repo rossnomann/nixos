@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
@@ -97,7 +102,7 @@ in
       };
     };
   };
-  config = {
+  config = lib.mkIf cfg.enable {
     nih.user.home.file = {
       ".config/niri/binds.kdl".source = ./binds.kdl;
       ".config/niri/config.kdl".text =
@@ -105,10 +110,20 @@ in
           c = cfgGraphicalSession.niri.config;
           colors = cfgStyle.palette.colors;
           accentColor = lib.getAttr cfgStyle.palette.accent colors;
+          swapWorkspaces = pkgs.writeTextFile {
+            name = "niri-swap-workspaces";
+            destination = "/bin/niri-swap-workspaces";
+            text = builtins.readFile ./swap-workspaces;
+            executable = true;
+          };
         in
         kdl.mkConfig {
           inherit (c) workspaces spawnAtStartup outputs;
           includes = [ "binds.kdl" ];
+          animations = {
+            enabled = true;
+            slowdown = 0.5;
+          };
           bindsSpawn = [
             [
               "Mod+Return"
@@ -117,6 +132,10 @@ in
             [
               "Mod+R"
               cfgPrograms.rofi.cmdShow
+            ]
+            [
+              "Mod+W"
+              [ "${swapWorkspaces}/bin/niri-swap-workspaces" ]
             ]
           ];
           bindsWorkspaces = lib.nih.workspaces;
@@ -195,13 +214,23 @@ in
           screenshotPath = null;
           windowRules = (
             [
-              { openMaximizedToEdges = true; }
+              {
+                clipToGeometry = true;
+                drawBorderWithBackground = false;
+              }
+              {
+                matches.isFloating = false;
+                openMaximized = true;
+                tiledState = true;
+              }
               {
                 matches.isActive = false;
                 opacity = 0.95;
               }
               {
                 matches.isFloating = true;
+                maxHeight = 800;
+                maxWidth = 1000;
                 shadow.enabled = true;
               }
               {

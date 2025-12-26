@@ -14,7 +14,6 @@ binds {
 
   Mod+Page_Down { focus-workspace-down; }
   Mod+Page_Up { focus-workspace-up; }
-  Mod+W { focus-workspace-previous; }
 
   Mod+Ctrl+Left { focus-monitor-left; }
   Mod+Ctrl+Down { focus-monitor-down; }

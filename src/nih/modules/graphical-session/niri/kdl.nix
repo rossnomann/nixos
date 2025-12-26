@@ -44,6 +44,18 @@ let
       (lib.mapNullable (mkColor "inactive") inactiveColor)
       (lib.mapNullable (mkColor "urgent") urgentColor)
     ];
+  mkAnimations =
+    {
+      enabled,
+      slowdown ? null,
+    }:
+    let
+      mkSlowdown = x: kdl.mkNodeWithArgs "slowdown" [ (kdl.types.mkFloat x) ];
+    in
+    kdl.mkNodeWithChildren "animations" [
+      (if enabled then on else off)
+      (lib.mapNullable mkSlowdown slowdown)
+    ];
   mkBorder = data: mkRing "border" data;
   mkBackdropColor = x: kdl.mkNodeWithArgs "backdrop-color" [ (kdl.types.mkString x) ];
   mkFocusRing = data: mkRing "focus-ring" data;
@@ -271,29 +283,47 @@ let
           "title" = kdl.types.mkString title;
         };
       mkOpacity = x: kdl.mkNodeWithArgs "opacity" [ (kdl.types.mkFloat x) ];
-      mkOpenBool = name: value: kdl.mkNodeWithArgs "open-${name}" [ (kdl.types.mkBool value) ];
+      mkBool = name: value: kdl.mkNodeWithArgs name [ (kdl.types.mkBool value) ];
+      mkOpenBool = name: mkBool "open-${name}";
       mkOpenOnWorkspace = x: kdl.mkNodeWithArgs "open-on-workspace" [ (kdl.types.mkString x) ];
       mkShadow = { enabled }: kdl.mkNodeWithChildren "shadow" [ (if enabled then on else off) ];
+      mkSize = name: value: kdl.mkNodeWithArgs name [ (kdl.types.mkInteger value) ];
     in
     {
       matches ? null,
       border ? null,
+      clipToGeometry ? null,
+      drawBorderWithBackground ? null,
+      maxHeight ? null,
+      maxWidth ? null,
+      minHeight ? null,
+      minWidth ? null,
       opacity ? null,
       openFloating ? null,
       openFullscreen ? null,
+      openMaximized ? null,
       openMaximizedToEdges ? null,
       openOnWorkspace ? null,
       shadow ? null,
+      tiledState ? null,
     }:
     kdl.mkNodeWithChildren "window-rule" [
       (lib.mapNullable mkMatch matches)
       (lib.mapNullable mkBorder border)
+      (lib.mapNullable (mkBool "clip-to-geometry") clipToGeometry)
+      (lib.mapNullable (mkBool "draw-border-with-background") drawBorderWithBackground)
+      (lib.mapNullable (mkSize "max-height") maxHeight)
+      (lib.mapNullable (mkSize "max-width") maxWidth)
+      (lib.mapNullable (mkSize "min-height") minHeight)
+      (lib.mapNullable (mkSize "min-width") minWidth)
       (lib.mapNullable mkOpacity opacity)
       (lib.mapNullable (mkOpenBool "floating") openFloating)
       (lib.mapNullable (mkOpenBool "fullscreen") openFullscreen)
+      (lib.mapNullable (mkOpenBool "maximized") openMaximized)
       (lib.mapNullable (mkOpenBool "maximized-to-edges") openMaximizedToEdges)
       (lib.mapNullable mkOpenOnWorkspace openOnWorkspace)
       (lib.mapNullable mkShadow shadow)
+      (lib.mapNullable (mkBool "tiled-state") tiledState)
     ];
   mkWorkspace =
     {
@@ -332,6 +362,7 @@ in
       ++ (mkSpawnAtStartup data.spawnAtStartup)
       ++ (map mkInclude data.includes)
       ++ [
+        (mkAnimations data.animations)
         (mkBinds (
           (map (
             x:
