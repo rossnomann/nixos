@@ -18,9 +18,8 @@ in
     nih.programs.im.discord.package = pkgs.discord;
     nih.windowRules = [
       {
-        x11Class = "discord";
-        waylandAppId = "Discord";
-        useWorkspace = "secondary";
+        appId = ''^discord'';
+        workspace = "secondary";
       }
     ];
   };

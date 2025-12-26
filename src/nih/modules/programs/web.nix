@@ -130,9 +130,8 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "firefox";
-        waylandAppId = "firefox";
-        useWorkspace = "main";
+        appId = ''^firefox'';
+        workspace = "main";
       }
     ];
   };

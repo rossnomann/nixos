@@ -17,9 +17,8 @@ in
     nih.programs.audio.deadbeef.package = pkgs20251111.deadbeef;
     nih.windowRules = [
       {
-        x11Class = "deadbeef";
-        waylandAppId = "deadbeef";
-        useWorkspace = "audio";
+        appId = ''^deadbeef'';
+        workspace = "secondary";
       }
     ];
   };

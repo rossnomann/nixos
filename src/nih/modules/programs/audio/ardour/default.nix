@@ -21,15 +21,8 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "^ardour\\\\-[\\\\.\\\\d]+$";
-        waylandAppId = "ardour";
-        useWorkspace = "audio";
-        spawnAsType = "Normal";
-      }
-      {
-        x11Class = "ardour_ardour";
-        waylandAppId = "ardour_ardour";
-        useWorkspace = "audio";
+        appId = ''^Ardour'';
+        workspace = "audio";
       }
     ];
   };

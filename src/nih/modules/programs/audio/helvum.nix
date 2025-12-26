@@ -17,9 +17,8 @@ in
     nih.programs.audio.helvum.package = pkgs.helvum;
     nih.windowRules = [
       {
-        x11Class = "helvum";
-        waylandAppId = "org.pipewire.Helvum";
-        useWorkspace = "audio";
+        appId = ''^org\\.pipewire\\.Helvum'';
+        workspace = "audio";
       }
     ];
   };

@@ -51,24 +51,20 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "libreoffice";
-        waylandAppId = "^libreoffice-.*";
-        useWorkspace = "documents";
+        appId = ''^libreoffice'';
+        workspace = "main";
       }
       {
-        x11Class = "obsidian";
-        waylandAppId = "obsidian";
-        useWorkspace = "documents";
+        appId = ''^obsidian'';
+        workspace = "main";
       }
       {
-        x11Class = "org\\\\.pwmt\\\\.zathura";
-        waylandAppId = "org.pwmt.zathura";
-        useWorkspace = "documents";
+        appId = ''^org\\.pwmt\\.zathura'';
+        workspace = "main";
       }
       {
-        x11Class = "simple\\\\-scan";
-        waylandAppId = "simple-scan";
-        useWorkspace = "documents";
+        appId = ''^org\\.gnome\\.SimpleScan'';
+        workspace = "main";
       }
     ];
     nih.xdg.mime.documents = "org.pwmt.zathura.desktop";

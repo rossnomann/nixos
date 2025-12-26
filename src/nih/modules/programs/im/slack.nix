@@ -18,9 +18,8 @@ in
     nih.programs.im.slack.package = pkgs.slack;
     nih.windowRules = [
       {
-        x11Class = "slack";
-        waylandAppId = "Slack";
-        useWorkspace = "secondary";
+        appId = ''^Slack'';
+        workspace = "secondary";
       }
     ];
   };

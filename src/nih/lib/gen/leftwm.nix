@@ -62,7 +62,7 @@ let
       modkey,
       mousekey,
       tags,
-      windowRules,
+      windowRules ? [ ],
     }:
     let
       mkWindowRule = (mkWindowRuleBase tags);

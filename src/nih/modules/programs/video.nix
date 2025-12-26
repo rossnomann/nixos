@@ -17,16 +17,14 @@ in
     ];
     nih.windowRules = [
       {
-        x11Class = "mpv";
-        waylandAppId = "mpv";
-        useWorkspace = "main";
-        useFullscreen = true;
+        appId = ''^mpv'';
+        workspace = "main";
+        fullscreen = true;
       }
       {
-        x11Class = "\\\\.syncplay\\\\-wrapped";
-        waylandAppId = "syncplay";
-        useWorkspace = "secondary";
-        useFloating = true;
+        appId = ''^syncplay'';
+        workspace = "main";
+        floating = true;
       }
     ];
     nih.xdg.mime =

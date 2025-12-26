@@ -15,12 +15,5 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.audio.pavucontrol.package ];
     nih.programs.audio.pavucontrol.package = pkgs.pavucontrol;
-    nih.windowRules = [
-      {
-        x11Class = "pavucontrol";
-        waylandAppId = "org.pulseaudio.pavucontrol";
-        useWorkspace = "audio";
-      }
-    ];
   };
 }

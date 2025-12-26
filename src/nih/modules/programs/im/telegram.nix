@@ -17,9 +17,8 @@ in
     nih.programs.im.telegram.package = pkgs.telegram-desktop;
     nih.windowRules = [
       {
-        x11Class = "Telegram";
-        waylandAppId = "org.telegram.desktop";
-        useWorkspace = "secondary";
+        appId = ''^org\\.telegram\\.desktop'';
+        workspace = "secondary";
       }
     ];
     xdg.mime =

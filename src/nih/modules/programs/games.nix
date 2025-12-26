@@ -16,9 +16,9 @@ in
     environment.systemPackages = [ pkgs.steam ];
     nih.windowRules = [
       {
-        x11Class = "steam";
-        useFloating = true;
-        useWorkspace = "steam";
+        appId = ''^steam'';
+        fullscreen = true;
+        workspace = "games";
       }
     ];
   };

@@ -15,13 +15,6 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ cfgPrograms.graphics.loupe.package ];
     nih.programs.graphics.loupe.package = pkgs.loupe;
-    nih.windowRules = [
-      {
-        x11Class = "loupe";
-        waylandAppId = "org.gnome.Loupe";
-        useWorkspace = "graphics";
-      }
-    ];
     nih.xdg.mime.images = "org.gnome.Loupe.desktop";
   };
 }

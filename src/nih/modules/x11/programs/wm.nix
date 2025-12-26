@@ -8,7 +8,6 @@ let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
-  cfgWindowRules = cfg.windowRules;
   cfgX11 = cfg.x11;
   package = pkgs.leftwm;
   executable = "${package}/bin/leftwm";
@@ -111,16 +110,6 @@ in
             "documents"
             "steam"
           ];
-          windowRules = (
-            map (x: {
-              windowClass = x.x11Class;
-              windowTitle = x.title;
-              spawnOnTag = x.useWorkspace;
-              spawnFullscreen = x.useFullscreen;
-              spawnFloating = x.useFloating;
-              spawnAsType = x.spawnAsType;
-            }) cfgWindowRules
-          );
         };
         ".config/leftwm/down" = {
           executable = true;

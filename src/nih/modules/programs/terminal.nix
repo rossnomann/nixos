@@ -59,9 +59,8 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "Alacritty";
-        waylandAppId = "Alacritty";
-        useWorkspace = "alacritty";
+        appId = ''^Alacritty'';
+        workspace = "terminal";
       }
     ];
   };

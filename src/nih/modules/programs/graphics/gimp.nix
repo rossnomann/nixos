@@ -25,14 +25,12 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "gimp";
-        waylandAppId = "gimp";
-        useWorkspace = "graphics";
+        appId = ''^gimp'';
+        workspace = "main";
       }
       {
-        x11Class = "gmic_qt";
-        waylandAppId = "gmic_qt";
-        useWorkspace = "graphics";
+        appId = ''^fr\\.greyc\\.$'';
+        workspace = "main";
       }
     ];
   };

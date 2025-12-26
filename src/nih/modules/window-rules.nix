@@ -7,11 +7,7 @@
     type = lib.types.listOf (
       lib.types.submodule {
         options = {
-          x11Class = lib.mkOption {
-            type = lib.types.nullOr lib.types.str;
-            default = null;
-          };
-          waylandAppId = lib.mkOption {
+          appId = lib.mkOption {
             type = lib.types.nullOr lib.types.str;
             default = null;
           };
@@ -19,31 +15,16 @@
             type = lib.types.nullOr lib.types.str;
             default = null;
           };
-          useWorkspace = lib.mkOption {
-            type = lib.types.nullOr lib.types.str;
+          workspace = lib.mkOption {
+            type = lib.types.nullOr (lib.types.enum lib.nih.workspaces);
             default = null;
           };
-          useFullscreen = lib.mkOption {
+          fullscreen = lib.mkOption {
             type = lib.types.nullOr lib.types.bool;
             default = null;
           };
-          useFloating = lib.mkOption {
+          floating = lib.mkOption {
             type = lib.types.nullOr lib.types.bool;
-            default = null;
-          };
-          spawnAsType = lib.mkOption {
-            type = lib.types.nullOr (
-              lib.types.enum [
-                "Desktop"
-                "Dialog"
-                "Dock"
-                "Menu"
-                "Normal"
-                "Splash"
-                "Toolbar"
-                "Utility"
-              ]
-            );
             default = null;
           };
         };

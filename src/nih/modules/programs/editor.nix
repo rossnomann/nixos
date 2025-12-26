@@ -91,14 +91,12 @@ in
     };
     nih.windowRules = [
       {
-        x11Class = "sublime_text";
-        waylandAppId = "sublime_text";
-        useWorkspace = "main";
+        appId = ''^sublime_text'';
+        workspace = "main";
       }
       {
-        x11Class = "sublime_merge";
-        waylandAppId = "sublime_merge";
-        useWorkspace = "main";
+        appId = ''^sublime_merge'';
+        workspace = "main";
       }
     ];
     nih.xdg.mime.text = "sublime_text.desktop";
