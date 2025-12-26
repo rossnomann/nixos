@@ -309,12 +309,26 @@ let
         (lib.mapNullable mkOpenOnOutput openOnOutput)
       ];
     };
+  mkWorkspaces =
+    data:
+    let
+      items = lib.attrsets.mapAttrsToList (_: lib.trivial.id) data;
+      sorted = lib.lists.sortOn (x: x.order) items;
+    in
+    map (
+      {
+        name,
+        openOnOutput ? null,
+        ...
+      }:
+      mkWorkspace { inherit name openOnOutput; }
+    ) sorted;
 in
 {
   mkConfig =
     data:
     kdl.mkDocument (
-      (lib.attrsets.mapAttrsToList (_: mkWorkspace) data.workspaces)
+      (mkWorkspaces data.workspaces)
       ++ (mkSpawnAtStartup data.spawnAtStartup)
       ++ (map mkInclude data.includes)
       ++ [

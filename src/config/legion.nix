@@ -180,11 +180,26 @@
           }
         ];
         workspaces = {
-          audio.openOnOutput = "HDMI-A-1";
-          games.openOnOutput = "HDMI-A-1";
-          main.openOnOutput = "HDMI-A-1";
-          secondary.openOnOutput = "eDP-1";
-          terminal.openOnOutput = "eDP-1";
+          main = {
+            openOnOutput = "HDMI-A-1";
+            order = 1;
+          };
+          audio = {
+            openOnOutput = "HDMI-A-1";
+            order = 2;
+          };
+          games = {
+            openOnOutput = "HDMI-A-1";
+            order = 3;
+          };
+          terminal = {
+            openOnOutput = "eDP-1";
+            order = 4;
+          };
+          secondary = {
+            openOnOutput = "eDP-1";
+            order = 5;
+          };
         };
       };
     };

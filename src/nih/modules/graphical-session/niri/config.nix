@@ -81,6 +81,10 @@ in
                           type = lib.types.nullOr lib.types.str;
                           default = null;
                         };
+                        order = lib.mkOption {
+                          type = lib.types.int;
+                          default = -1;
+                        };
                       };
                     }
                   );
