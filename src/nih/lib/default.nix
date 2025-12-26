@@ -5,7 +5,6 @@ pkgs.lib.extend (
       gen = import ./gen prev;
       catppuccin = import ./catppuccin.nix;
       mime = import ./mime.nix;
-      strings = import ./strings.nix prev;
       workspaces = import ./workspaces.nix;
     };
   }

@@ -30,7 +30,7 @@ in
       ".config/sublime-text/Packages/TOML".source = cfgSources.sublime-text-toml;
       ".config/sublime-text/Packages/Catppuccin/catppuccin.sublime-color-scheme".source =
         let
-          variant = lib.nih.strings.capitalize cfgStyle.palette.variant;
+          variant = lib.strings.toSentenceCase cfgStyle.palette.variant;
           themeName = "Catppuccin ${variant}.sublime-color-scheme";
         in
         "${cfgSources.catppuccin-sublime-text}/build/${themeName}";

@@ -4,4 +4,4 @@
   variant,
   catppuccin-cursors,
 }:
-lib.getAttr "${variant}${lib.nih.strings.capitalize accent}" catppuccin-cursors
+lib.getAttr "${variant}${lib.strings.toSentenceCase accent}" catppuccin-cursors

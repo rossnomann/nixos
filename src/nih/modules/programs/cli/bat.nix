@@ -21,7 +21,7 @@ in
     nih.programs.cli.bat.executable = lib.getExe pkgs.bat;
     nih.programs.cli.bat.package = pkgs.bat;
     nih.programs.cli.bat.themeName =
-      "Catppuccin ${lib.nih.strings.capitalize cfgStyle.palette.variant}";
+      "Catppuccin ${lib.strings.toSentenceCase cfgStyle.palette.variant}";
     system.userActivationScripts.batCache = ''
       echo "Rebuilding bat theme cache $XDG_CACHE_HOME"
       cd "${pkgs.emptyDirectory}"
