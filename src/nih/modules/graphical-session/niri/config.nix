@@ -108,7 +108,6 @@ in
         let
           c = cfgGraphicalSession.niri.config;
           colors = cfgStyle.palette.colors;
-          accentColor = lib.getAttr cfgStyle.palette.accent colors;
           swapWorkspaces = pkgs.writeTextFile {
             name = "niri-swap-workspaces";
             destination = "/bin/niri-swap-workspaces";
@@ -168,7 +167,7 @@ in
           };
           layout = {
             border = {
-              activeColor = accentColor;
+              activeColor = cfgStyle.palette.accentColor;
               inactiveColor = colors.overlay2;
               urgentColor = colors.mauve;
               width = 2;
