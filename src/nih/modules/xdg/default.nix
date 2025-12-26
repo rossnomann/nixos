@@ -6,6 +6,7 @@
 let
   cfg = config.nih;
   cfgXdg = cfg.xdg;
+  mime = import ./mime.nix;
 in
 {
   options.nih.xdg = {
@@ -66,7 +67,7 @@ in
       };
       xdg.mime =
         let
-          associations = lib.nih.mime.mkAssociations {
+          associations = mime.mkAssociations {
             inherit (cfgXdg.mime)
               archives
               audio

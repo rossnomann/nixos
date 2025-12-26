@@ -2,6 +2,7 @@
 {
   imports = [
     ./dev
+    ./xdg
     ./graphical-session
     ./programs
     ./sources
@@ -17,7 +18,6 @@
     ./style.nix
     ./sync.nix
     ./user.nix
-    ./xdg.nix
   ];
   options.nih = {
     enable = lib.mkEnableOption "NIH";
