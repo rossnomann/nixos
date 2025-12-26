@@ -207,5 +207,6 @@
   services = {
     fstrim.enable = true;
     hardware.bolt.enable = true;
+    xserver.videoDrivers = [ "nvidia" ];
   };
 }
