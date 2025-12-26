@@ -2,7 +2,6 @@
 {
   imports = [
     ./bat.nix
-    ./commander.nix
     ./curl.nix
     ./direnv.nix
     ./file.nix

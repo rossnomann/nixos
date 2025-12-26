@@ -5,6 +5,7 @@
     ./cli
     ./graphics
     ./im
+    ./mc
     ./android.nix
     ./archives.nix
     ./bluetooth.nix
