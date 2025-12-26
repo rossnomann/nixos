@@ -3,12 +3,12 @@ let
   cfg = config.nih;
   cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
-  cfgWayland = cfg.wayland;
+  cfgGraphicalSession = cfg.graphicalSession;
   cfgWindowRules = cfg.windowRules;
   kdl = import ./kdl.nix lib;
 in
 {
-  options.nih.wayland.niri.config = lib.mkOption {
+  options.nih.graphicalSession.niri.config = lib.mkOption {
     type = lib.types.submodule {
       options = {
         outputs = lib.mkOption {
@@ -98,7 +98,7 @@ in
       ".config/niri/binds.kdl".source = ./binds.kdl;
       ".config/niri/config.kdl".text =
         let
-          c = cfgWayland.niri.config;
+          c = cfgGraphicalSession.niri.config;
           colors = cfgStyle.palette.colors;
           accentColor = lib.getAttr cfgStyle.palette.accent colors;
         in

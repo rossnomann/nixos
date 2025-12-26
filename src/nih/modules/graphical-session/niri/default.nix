@@ -6,15 +6,12 @@
 }:
 let
   cfg = config.nih;
-  cfgPrograms = cfg.programs;
   cfgStyle = cfg.style;
-  cfgWayland = cfg.wayland;
-  cfgWindowRules = cfg.windowRules;
   package = pkgs.niri;
 in
 {
   imports = [ ./config.nix ];
-  config = lib.mkIf (cfg.enable && cfgWayland.enable) {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       package
       pkgs.xwayland-satellite
@@ -46,7 +43,6 @@ in
         ];
         "org.freedesktop.impl.portal.Access" = "gtk";
         "org.freedesktop.impl.portal.Notification" = "gtk";
-        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
       };
       extraPortals = [
         pkgs.xdg-desktop-portal-gnome

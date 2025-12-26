@@ -2,11 +2,10 @@
 {
   imports = [
     ./dev
+    ./graphical-session
     ./programs
     ./services
     ./sources
-    ./x11
-    ./wayland
     ./audio.nix
     ./bluetooth.nix
     ./console.nix
