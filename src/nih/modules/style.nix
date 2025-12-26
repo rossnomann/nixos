@@ -146,27 +146,28 @@ in
         ButtonSize=ButtonSmall
         DrawBackgroundGradient=false
       '';
-      ".config/gtk-2.0/gtkrc".text = lib.nih.gen.gtk.mkGtk2Settings {
-        cursorThemeName = cfgStyle.cursors.name;
-        cursorThemeSize = cfgStyle.cursors.size;
-        fontName = cfgStyle.gtk.fontName;
-        iconThemeName = cfgStyle.icons.name;
-        themeName = cfgStyle.gtk.theme.name;
-      };
+      ".config/gtk-2.0/gtkrc".text = ''
+        gtk-cursor-theme-name = "${cfgStyle.cursors.name}"
+        gtk-cursor-theme-size = ${builtins.toString cfgStyle.cursors.size}
+        gtk-font-name = "${cfgStyle.gtk.fontName}"
+        gtk-icon-theme-name = "${cfgStyle.icons.name}"
+        gtk-theme-name = "${cfgStyle.gtk.theme.name}"
+      '';
       ".config/gtk-3.0/gtk.css".text = ''
         * {
           border-radius: 0 0 0 0;
           box-shadow: none;
         }
       '';
-      ".config/gtk-3.0/settings.ini".text = lib.nih.gen.gtk.mkGtk3Settings {
-        cursorThemeName = cfgStyle.cursors.name;
-        cursorThemeSize = cfgStyle.cursors.size;
-        decorationLayout = cfgStyle.gtk.decorationLayout;
-        fontName = cfgStyle.gtk.fontName;
-        iconThemeName = cfgStyle.icons.name;
-        themeName = cfgStyle.gtk.theme.name;
-      };
+      ".config/gtk-3.0/settings.ini".text = ''
+        [Settings]
+          gtk-cursor-theme-name=${cfgStyle.cursors.name}
+          gtk-cursor-theme-size=${builtins.toString cfgStyle.cursors.size}
+          gtk-decoration-layout=${cfgStyle.gtk.decorationLayout}
+          gtk-font-name=${cfgStyle.gtk.fontName}
+          gtk-icon-theme-name=${cfgStyle.icons.name}
+          gtk-theme-name=${cfgStyle.gtk.theme.name}
+      '';
       ".config/gtk-4.0/gtk.css".text = ''
         /**
          * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
@@ -178,14 +179,15 @@ in
           box-shadow: none;
         }
       '';
-      ".config/gtk-4.0/settings.ini".text = lib.nih.gen.gtk.mkGtk4Settings {
-        cursorThemeName = cfgStyle.cursors.name;
-        cursorThemeSize = cfgStyle.cursors.size;
-        decorationLayout = cfgStyle.gtk.decorationLayout;
-        fontName = cfgStyle.gtk.fontName;
-        iconThemeName = cfgStyle.icons.name;
-        themeName = cfgStyle.gtk.theme.name;
-      };
+      ".config/gtk-4.0/settings.ini".text = ''
+        [Settings]
+          gtk-cursor-theme-name=${cfgStyle.cursors.name}
+          gtk-cursor-theme-size=${builtins.toString cfgStyle.cursors.size}
+          gtk-decoration-layout=${cfgStyle.gtk.decorationLayout}
+          gtk-font-name=${cfgStyle.gtk.fontName}
+          gtk-icon-theme-name=${cfgStyle.icons.name}
+          gtk-theme-name=${cfgStyle.gtk.theme.name}
+      '';
       ".config/qt5ct/qt5ct.conf".text = ''
         [Appearance]
         color_scheme_path=${cfgUser.home.root}/.config/qt5ct/colors/catppuccin.conf
