@@ -4,7 +4,6 @@
     ./dev
     ./graphical-session
     ./programs
-    ./services
     ./sources
     ./audio.nix
     ./bluetooth.nix
@@ -14,6 +13,7 @@
     ./net.nix
     ./nixos.nix
     ./power.nix
+    ./services.nix
     ./style.nix
     ./sync.nix
     ./user.nix

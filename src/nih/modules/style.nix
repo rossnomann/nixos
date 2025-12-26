@@ -44,7 +44,7 @@ in
     palette = {
       variant = lib.mkOption { type = lib.types.str; };
       accent = lib.mkOption { type = lib.types.str; };
-      accentColor = lib.mkOption {type = lib.types.str; };
+      accentColor = lib.mkOption { type = lib.types.str; };
       colors = lib.mkOption {
         type = lib.types.attrs;
         default = lib.getAttr cfgStyle.palette.variant lib.nih.catppuccin.colors;
