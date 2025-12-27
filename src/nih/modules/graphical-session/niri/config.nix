@@ -151,7 +151,6 @@ in
             keyboard = {
               xkb = {
                 layout = "us,ru,sk";
-                options = "grp:win_space_toggle";
                 variant = ",";
               };
               trackLayout = "global";

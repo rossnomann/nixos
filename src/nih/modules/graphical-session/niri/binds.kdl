@@ -2,6 +2,9 @@ binds {
   Ctrl+Alt+End { quit; }
   Mod+Ctrl+O { power-off-monitors; }
 
+  Mod+Space { switch-layout "next"; }
+  Mod+Shift+Space { switch-layout "prev"; }
+
   Mod+O repeat=false { toggle-overview; }
 
   Mod+Left { focus-column-left; }

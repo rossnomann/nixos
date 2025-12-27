@@ -115,10 +115,13 @@ let
               options ? null,
               variant ? null,
             }:
+            let
+              mkString = name: value: (kdl.mkNodeWithArgs name [ (kdl.types.mkString value) ]);
+            in
             kdl.mkNodeWithChildren "xkb" [
-              (kdl.mkNodeWithArgs "layout" [ (kdl.types.mkString layout) ])
-              (kdl.mkNodeWithArgs "options" [ (kdl.types.mkString options) ])
-              (kdl.mkNodeWithArgs "variant" [ (kdl.types.mkString variant) ])
+              (lib.mapNullable (mkString "layout") layout)
+              (lib.mapNullable (mkString "options") options)
+              (lib.mapNullable (mkString "variant") variant)
             ];
           mkTrackLayout = x: kdl.mkNodeWithArgs "track-layout" [ (kdl.types.mkString x) ];
         in
