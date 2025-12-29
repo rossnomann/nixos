@@ -1,6 +1,8 @@
 {
   config,
+  fretboard,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -9,6 +11,7 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ fretboard.packages.${pkgs.stdenv.hostPlatform.system}.default ];
     nih.user.home.file = {
       ".config/fretboard/config.toml".text = ''
         default_frets = 24
