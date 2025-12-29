@@ -19,13 +19,19 @@ let
           };
         }
       );
-      pathConfigExtIni = pkgs.writeText "mc.ext.ini" (
-        c.mkExtIni {
-          xdgOpen = "${pkgs.nih.nohup-xdg-open}/bin/nohup-xdg-open";
-          editRasterImage = cfgPrograms.graphics.gimp.executable;
-          editVectorImage = cfgPrograms.graphics.inkscape.executable;
-        }
-      );
+      pathConfigExtIni =
+        let
+          nohupXdgOpen = pkgs.writeShellScriptBin "nohup-xdg-open" ''
+            ${pkgs.coreutils}/bin/nohup ${pkgs.xdg-utils}/bin/xdg-open "$@" >/dev/null 2>&1 &
+          '';
+        in
+        pkgs.writeText "mc.ext.ini" (
+          c.mkExtIni {
+            xdgOpen = "${nohupXdgOpen}/bin/nohup-xdg-open";
+            editRasterImage = cfgPrograms.graphics.gimp.executable;
+            editVectorImage = cfgPrograms.graphics.inkscape.executable;
+          }
+        );
       pathDesktopEntry = pkgs.writeText "mc.desktop" ''
         [Desktop Entry]
         Type=Application

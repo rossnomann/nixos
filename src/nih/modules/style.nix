@@ -111,17 +111,34 @@ in
     };
 
     nih.style.cursors.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-cursors";
-    nih.style.cursors.indexPackage = pkgs.nih.cursor-theme-default cfgStyle.cursors.name;
-    nih.style.cursors.themePackage = pkgs.nih.catppuccin.cursors {
-      accent = cfgStyle.palette.accent;
-      variant = cfgStyle.palette.variant;
-    };
+    nih.style.cursors.indexPackage =
+      let
+        inherits = cfgStyle.cursors.name;
+      in
+      pkgs.writeTextFile {
+        name = "index.theme";
+        destination = "/share/icons/default/index.theme";
+        # https://wiki.archlinux.org/title/Cursor_themes#XDG_specification
+        text = ''
+          [Icon Theme]
+          Name=Default
+          Comment=Default Cursor Theme
+          Inherits=${inherits}
+        '';
+      };
+    nih.style.cursors.themePackage =
+      let
+        name = "${cfgStyle.palette.variant}${lib.strings.toSentenceCase cfgStyle.palette.accent}";
+      in
+      lib.getAttr name pkgs.catppuccin-cursors;
     nih.style.gtk.decorationLayout = ":";
     nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
     nih.style.gtk.theme.name =
       "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
-    nih.style.gtk.theme.package = pkgs.nih.catppuccin.gtk {
-      accent = cfgStyle.palette.accent;
+    nih.style.gtk.theme.package = pkgs.catppuccin-gtk.override {
+      accents = [ cfgStyle.palette.accent ];
+      size = "compact";
+      tweaks = [ "rimless" ];
       variant = cfgStyle.palette.variant;
     };
     nih.style.palette.accentColor = lib.getAttr cfgStyle.palette.accent cfgStyle.palette.colors;
