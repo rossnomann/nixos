@@ -35,11 +35,14 @@ in
       pkgs.slack
       pkgs.scrcpy
       pkgs.simple-scan
-      pkgs.steam
       pkgs.syncplay
       pkgs.transmission_4-gtk
       pkgs.xarchiver
     ];
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
     nih.graphicalSession.windowRules = [
       {
         appId = ''^deadbeef'';
