@@ -29,13 +29,13 @@
           inherit lib;
           modules = [
             inputs.makky.nixosModules.default
-            inputs.fretboard.nixosModules.default
             ./src/nih/packages
             ./src/nih/modules
             ./src/config/base.nix
             (./src/config + "/${deviceName}.nix")
           ];
           specialArgs = {
+            fretboard = inputs.fretboard;
             nixpkgs = inputs.nixpkgs;
             pkgs20251111 = pkgs20251111;
             lightly = inputs.lightly;

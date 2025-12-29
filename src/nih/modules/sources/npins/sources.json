@@ -11,7 +11,7 @@
       "submodules": false,
       "revision": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7",
       "url": "https://github.com/catppuccin/alacritty/archive/f6cb5a5c2b404cdaceaff193b9c52317f62c62f7.tar.gz",
-      "hash": "1r2z223hza63v5lmzlg3022mlar67j3a2gh41rsaiqwja2wyiihz"
+      "hash": "sha256-H8bouVCS46h0DgQ+oYY8JitahQDj0V9p2cOoD4cQX+Q="
     },
     "catppuccin-bat": {
       "type": "Git",
@@ -24,7 +24,7 @@
       "submodules": false,
       "revision": "6810349b28055dce54076712fc05fc68da4b8ec0",
       "url": "https://github.com/catppuccin/bat/archive/6810349b28055dce54076712fc05fc68da4b8ec0.tar.gz",
-      "hash": "1y5sfi7jfr97z1g6vm2mzbsw59j1jizwlmbadvmx842m0i5ak5ll"
+      "hash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg="
     },
     "catppuccin-delta": {
       "type": "Git",
@@ -37,7 +37,7 @@
       "submodules": false,
       "revision": "74b47a345638a2f19b3e5bdb9d7e4984066f9ac7",
       "url": "https://github.com/catppuccin/delta/archive/74b47a345638a2f19b3e5bdb9d7e4984066f9ac7.tar.gz",
-      "hash": "1hs63516hwpdarn9jx182n6iyhv5j74957k26nidpaa7y03slfin"
+      "hash": "sha256-NjqqB/BHqduiNWKeksiRZUMfjRUodJlsVu1yaEIZRsM="
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -50,7 +50,7 @@
       "submodules": false,
       "revision": "f1c78f183764cd43e6dd4e325513ef5547a8f28f",
       "url": "https://github.com/catppuccin/mc/archive/f1c78f183764cd43e6dd4e325513ef5547a8f28f.tar.gz",
-      "hash": "0fkjs2fdb52dq61jg6lgrdr4gfjk7kzdd1jsnl9qjqgr1p8hx8wv"
+      "hash": "sha256-m6MO0Q35YYkTtVqG1v48U7pHcsuPmieDwU2U1ZzQcjo="
     },
     "catppuccin-mpv": {
       "type": "Git",
@@ -63,7 +63,7 @@
       "submodules": false,
       "revision": "08e90daf511eee2c10c98f0031b51bb9de240d60",
       "url": "https://github.com/catppuccin/mpv/archive/08e90daf511eee2c10c98f0031b51bb9de240d60.tar.gz",
-      "hash": "0h6vz1xbcml11q3a7n7ihy5g8r9xzb0jp9296jh1xnd4slj5wj51"
+      "hash": "sha256-oUheJNWk2R6gNEmkK8H6PWX0iofx2KMGDoFWtnr420A="
     },
     "catppuccin-qtct": {
       "type": "Git",
@@ -76,7 +76,7 @@
       "submodules": false,
       "revision": "cb585307edebccf74b8ae8f66ea14f21e6666535",
       "url": "https://github.com/catppuccin/qt5ct/archive/cb585307edebccf74b8ae8f66ea14f21e6666535.tar.gz",
-      "hash": "0z7kpg2aywbigc1g7yfk6aq5v0bxcaikzl7l28p26hwb1n8zlf60"
+      "hash": "sha256-wDj6kQ2LQyMuEvTQP6NifYFdsDLT+fMCe3Fxr8S783w="
     },
     "catppuccin-rofi": {
       "type": "Git",
@@ -89,7 +89,7 @@
       "submodules": false,
       "revision": "71fb15577ccb091df2f4fc1f65710edbc61b5a53",
       "url": "https://github.com/catppuccin/rofi/archive/71fb15577ccb091df2f4fc1f65710edbc61b5a53.tar.gz",
-      "hash": "03gmrw70m8nm58p30n4v2p18756lx69r25l1ij7idzhc7hb9wmzk"
+      "hash": "sha256-81eeFjwM/haPjIEWkZPp1JSDwhWbWDAuKtWiCg7P9Q0="
     },
     "catppuccin-sublime-text": {
       "type": "Git",
@@ -102,7 +102,7 @@
       "submodules": false,
       "revision": "3cbaf58c39d1b1fddb8d7d816ecd71977e542b7d",
       "url": "https://github.com/catppuccin/sublime-text/archive/3cbaf58c39d1b1fddb8d7d816ecd71977e542b7d.tar.gz",
-      "hash": "127z0m7a2m3va37xy5iviwwisf87271sjmr204h74rrhkjnk3690"
+      "hash": "sha256-IJkxrZwwZ3IgASJXqcMRBzkdOY87Ft/PUHtUoU4F/4g="
     },
     "catppuccin-zathura": {
       "type": "Git",
@@ -115,13 +115,13 @@
       "submodules": false,
       "revision": "9f29c2c1622c70436f0e0b98fea9735863596c1e",
       "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
-      "hash": "0bw3jyf8xdnra9zj18fzqzgv0y5rbza2agw3a95driwjhdrrz75s"
+      "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8="
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre914780.306ea70f9eb0/nixexprs.tar.xz",
-      "hash": "1xx42m8amnda6z8nbm2ksv0plpzcdqxzymb1qqnp0xnf0k2bz2d1"
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre917540.5c2bc52fb9f8/nixexprs.tar.xz",
+      "hash": "sha256-g5DRB9fAyEv6Xf41Bj9RpVl9th0Zz+v1jgvJVg51W3w="
     },
     "sublime-text-docker": {
       "type": "GitRelease",
@@ -137,7 +137,7 @@
       "version": "v1.6.5",
       "revision": "c001fb280561d7c16f0f2837d76af493cf6c3bf8",
       "url": "https://api.github.com/repos/asbjornenge/Docker.tmbundle/tarball/v1.6.5",
-      "hash": "06ykjmq8cmqx0j6viwdp282c1dd6ydzwr10cikx9mn8z33445fw8"
+      "hash": "sha256-iLtCyBgf2Zr6jAyEzH/zprXABBK38biNBB1XhnCV0xs="
     },
     "sublime-text-file-icons-mono": {
       "type": "Git",
@@ -148,9 +148,9 @@
       },
       "branch": "mono",
       "submodules": false,
-      "revision": "3f003394c526809713b027a8bac426d2bf8fef9c",
-      "url": "https://github.com/braver/FileIcons/archive/3f003394c526809713b027a8bac426d2bf8fef9c.tar.gz",
-      "hash": "0ax70npqlh1ib1fx0axd3wmb3csjq0rycysq9f53g3nbc68vq7x3"
+      "revision": "a8f37a57d7277272a54d5e0ceb34d451de3ec968",
+      "url": "https://github.com/braver/FileIcons/archive/a8f37a57d7277272a54d5e0ceb34d451de3ec968.tar.gz",
+      "hash": "sha256-yf53tdFePFOlSX0zZGDQ1DnBjDGszrFawrYeCpNXFc4="
     },
     "sublime-text-git-gutter": {
       "type": "GitRelease",
@@ -166,7 +166,7 @@
       "version": "1.11.14",
       "revision": "401acba3ff21fa7704f14af010ec3a42a377ee86",
       "url": "https://api.github.com/repos/jisaacks/GitGutter/tarball/1.11.14",
-      "hash": "1pby34m9rh0pg7sjdnjfhkl3amfxbvqrv6763fp2ll261cvxdsfr"
+      "hash": "sha256-2enWNwtGUCquG+aYnfFe3VU16IRO2ib1eRfAnCoZft0="
     },
     "sublime-text-jinja": {
       "type": "GitRelease",
@@ -182,7 +182,7 @@
       "version": "v1.1.0",
       "revision": "6a5d96b2e48f8f227cebbb04a12b0c97e829e7f0",
       "url": "https://api.github.com/repos/Sublime-Instincts/BetterJinja/tarball/v1.1.0",
-      "hash": "1xaa8vrjf9n669b3x2jmd2ym8s7dr2d5jgmwfzkc4dnf15zlyinc"
+      "hash": "sha256-zEZPfwnONsLmd7w+WZrI7WhUvWhVij5WMsYmJ/NGSvU="
     },
     "sublime-text-lsp": {
       "type": "Git",
@@ -195,7 +195,7 @@
       "submodules": false,
       "revision": "ba7959ba85890f6f57458c1bb5b96c0d962dbc54",
       "url": "https://github.com/sublimelsp/LSP/archive/ba7959ba85890f6f57458c1bb5b96c0d962dbc54.tar.gz",
-      "hash": "0m543agpa26l4w500r24s8bby3hjhyd9iaf5s0rrf6zsplcydvy4"
+      "hash": "sha256-xO/mGb36G5cz0MWpmJqHEg6/FtJEZAAKJ9QIdZ8apFQ="
     },
     "sublime-text-markdown-preview": {
       "type": "Git",
@@ -208,7 +208,7 @@
       "submodules": false,
       "revision": "37ec271fab63caa4d312ce1d469eb98ed965a38b",
       "url": "https://github.com/facelessuser/MarkdownPreview/archive/37ec271fab63caa4d312ce1d469eb98ed965a38b.tar.gz",
-      "hash": "1da7318snf5rbcphsvl4q2bk189jjzzbz8qahr1xzh7ghfsw08dg"
+      "hash": "sha256-ryHAtYPvwN9Dhgqjv/6XMqEwl8CEbg0vW7k4q1EYR7U="
     },
     "sublime-text-nix": {
       "type": "GitRelease",
@@ -224,7 +224,7 @@
       "version": "V2.4.0",
       "revision": "48c497c709c66a2fb118c534a8de8e4e1c4c401d",
       "url": "https://api.github.com/repos/wmertens/sublime-nix/tarball/V2.4.0",
-      "hash": "1fxam48g6ga6dxblik9yiyax11y94blhv3r829icrn4q50am94c1"
+      "hash": "sha256-gZFUFSiY2MxiEiiPDekiyYfQlY8+zUhXb0Y98xCpqrs="
     },
     "sublime-text-nushell": {
       "type": "GitRelease",
@@ -240,7 +240,7 @@
       "version": "v1.11.0",
       "revision": "66b00ff639dc8cecb688a0e1d81d13613b772f66",
       "url": "https://api.github.com/repos/stevenxxiu/sublime_text_nushell/tarball/v1.11.0",
-      "hash": "1n5xw7m7lm1v64xcslrjlm65rrqpxghr7fsnkv3drylgzrjb59m5"
+      "hash": "sha256-paayZP6P+tzGnla7k+HrF+dcTKUyU806MTtUeurhvdg="
     },
     "sublime-text-project-manager": {
       "type": "Git",
@@ -253,7 +253,7 @@
       "submodules": false,
       "revision": "968867263c0b085c0840dc476f0ee25b81670c51",
       "url": "https://github.com/randy3k/ProjectManager/archive/968867263c0b085c0840dc476f0ee25b81670c51.tar.gz",
-      "hash": "1g4anw963bz486xpdhvz7wda5h0xpsjnig3lnzr7qlp05bvh9c83"
+      "hash": "sha256-A7EE9yrgUnzyt3S8aKW+HcCiGj9/w3a7QeSvYRK3irw="
     },
     "sublime-text-ron": {
       "type": "Git",
@@ -266,7 +266,7 @@
       "submodules": false,
       "revision": "41e3e37db9febbf9dfc4efad015934c61b3c8ef1",
       "url": "https://github.com/ron-rs/sublime-ron/archive/41e3e37db9febbf9dfc4efad015934c61b3c8ef1.tar.gz",
-      "hash": "18gl395j3jrqr1jb6xxlig75zgvrchq3gdx71048l65ki2jhpcmp"
+      "hash": "sha256-t7ILpYizGIoICKe3NzBkeb9fzou0d7NkyDjLIUsa9KE="
     },
     "sublime-text-rust-enhanced": {
       "type": "Git",
@@ -279,7 +279,7 @@
       "submodules": false,
       "revision": "01a2578a2aa269059fa96781e784009ef52d554a",
       "url": "https://github.com/rust-lang/rust-enhanced/archive/01a2578a2aa269059fa96781e784009ef52d554a.tar.gz",
-      "hash": "1mf6291var2xgmnwvxzmkn0dax12cs0pk6p5r2065n1zcaz538jp"
+      "hash": "sha256-V6JRvmI/2GKAyOWaeYFmInTVgJ31981tfV1ktUMSxtU="
     },
     "sublime-text-toml": {
       "type": "GitRelease",
@@ -295,8 +295,8 @@
       "version": "v2.6.0",
       "revision": "f5a57e8bff694a4e6c52a491dae579aabc7427cf",
       "url": "https://api.github.com/repos/jasonwilliams/sublime_toml_highlighting/tarball/v2.6.0",
-      "hash": "08p4qb9rqd81zy98w451sjagjjbx8bmyzyrl5rc73gj9xnlxfhrm"
+      "hash": "sha256-NUPXqe1JvnFYLjT77+tCfUn5lNShEI6S/wE1nNPC5CI="
     }
   },
-  "version": 5
+  "version": 7
 }
