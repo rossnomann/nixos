@@ -186,6 +186,7 @@
       };
     };
   };
+  programs.steam.gamescopeSession.args = [ "-O HDMI-A-1" ];
   services = {
     fstrim.enable = true;
     hardware.bolt.enable = true;
