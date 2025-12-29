@@ -6,15 +6,13 @@
 }:
 let
   cfg = config.nih;
-  cfgPrograms = cfg.programs;
 in
 {
   options.nih.programs.im.telegram = {
     package = lib.mkOption { type = lib.types.package; };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfgPrograms.im.telegram.package ];
-    nih.programs.im.telegram.package = pkgs.telegram-desktop;
+    environment.systemPackages = [ pkgs.telegram-desktop ];
     nih.graphicalSession.windowRules = [
       {
         appId = ''^org\\.telegram\\.desktop'';

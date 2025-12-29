@@ -1,21 +1,38 @@
-{ ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.nih;
+in
 {
   imports = [
+    ./mc
     ./bat.nix
-    ./curl.nix
     ./direnv.nix
-    ./file.nix
     ./git.nix
     ./gnupg.nix
-    ./htop.nix
     ./less.nix
-    ./lshw.nix
     ./macchina.nix
-    ./mergiraf.nix
-    ./nushell.nix
-    ./pciutils.nix
-    ./trash.nix
-    ./usbutils.nix
-    ./wget.nix
   ];
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      pkgs.android-tools
+      pkgs.curl
+      pkgs.exiftool
+      pkgs.file
+      pkgs.htop
+      pkgs.imagemagick
+      pkgs.lame
+      pkgs.lshw
+      pkgs.mergiraf
+      pkgs.pciutils
+      pkgs.trash-cli
+      pkgs.unrar
+      pkgs.usbutils
+      pkgs.wget
+    ];
+  };
 }

@@ -6,8 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgSources = cfg.sources;
-  cfgStyle = cfg.style;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -35,38 +33,17 @@ in
         };
       in
       [
-        pkgs.libreoffice
         (pkgs.obsidian.overrideAttrs (x: {
           postInstall = ''
             sed -i '1 a ${obsidianHook}' $out/bin/obsidian
           '';
         }))
-        pkgs.simple-scan
-        pkgs.zathura
       ];
-    nih.user.home.file = {
-      ".config/zathura/zathurarc".text = ''
-        include ${cfgSources.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
-      '';
-    };
     nih.graphicalSession.windowRules = [
-      {
-        appId = ''^libreoffice'';
-        workspace = "main";
-      }
       {
         appId = ''^obsidian'';
         workspace = "main";
       }
-      {
-        appId = ''^org\\.pwmt\\.zathura'';
-        workspace = "main";
-      }
-      {
-        appId = ''^org\\.gnome\\.SimpleScan'';
-        workspace = "main";
-      }
     ];
-    nih.xdg.mime.documents = "org.pwmt.zathura.desktop";
   };
 }

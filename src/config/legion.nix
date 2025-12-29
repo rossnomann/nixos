@@ -95,30 +95,12 @@
   };
   networking.useDHCP = lib.mkDefault true;
   nih = {
-    bluetooth.enable = true;
     net.host = "legion";
     power = {
       powertop.enable = false;
       suspend.enable = false;
     };
-    programs = {
-      audio = {
-        ardour.enable = true;
-        plugins = {
-          lv2.enable = true;
-        };
-      };
-      cli.git.ignore = [ ".env" ];
-      games.enable = true;
-      graphics = {
-        gimp.enable = true;
-        inkscape.enable = true;
-      };
-      im = {
-        discord.enable = true;
-        slack.enable = true;
-      };
-    };
+    programs.cli.git.ignore = [ ".env" ];
     style = {
       cursors.size = 16;
       fonts =

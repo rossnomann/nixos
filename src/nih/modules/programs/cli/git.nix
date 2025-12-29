@@ -13,15 +13,11 @@ let
 in
 {
   options.nih.programs.cli.git = {
-    package = lib.mkOption { type = lib.types.package; };
-    executable = lib.mkOption { type = lib.types.str; };
     gpgProgram = lib.mkOption { type = lib.types.str; };
     ignore = lib.mkOption { type = lib.types.listOf lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfgPrograms.cli.git.package ];
-    nih.programs.cli.git.executable = "${cfgPrograms.cli.git.package}/bin/git";
-    nih.programs.cli.git.package = pkgs.git;
+    environment.systemPackages = [ pkgs.git ];
     nih.user.home.file = {
       ".config/git/config".text = lib.generators.toGitINI {
         user = {

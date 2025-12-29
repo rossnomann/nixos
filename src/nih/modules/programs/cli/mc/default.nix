@@ -30,7 +30,7 @@ let
         [Desktop Entry]
         Type=Application
         Name=Midnight Commander
-        Exec=${cfgPrograms.terminal.runCommand} mc %U
+        Exec=${cfgPrograms.desktop.alacritty.runCommand} mc %U
       '';
     in
     {

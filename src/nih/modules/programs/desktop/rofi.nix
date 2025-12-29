@@ -12,12 +12,12 @@ let
   executable = "${package}/bin/rofi";
 in
 {
-  options.nih.programs.rofi = {
+  options.nih.programs.desktop.rofi = {
     cmdShow = lib.mkOption { type = lib.types.listOf lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ package ];
-    nih.programs.rofi.cmdShow = [
+    nih.programs.desktop.rofi.cmdShow = [
       executable
       "-show"
       "combi"

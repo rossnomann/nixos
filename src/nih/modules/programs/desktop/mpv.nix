@@ -11,20 +11,12 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.mpv
-      pkgs.syncplay
-    ];
+    environment.systemPackages = [ pkgs.mpv ];
     nih.graphicalSession.windowRules = [
       {
         appId = ''^mpv'';
         workspace = "main";
         fullscreen = true;
-      }
-      {
-        appId = ''^syncplay'';
-        workspace = "main";
-        floating = true;
       }
     ];
     nih.xdg.mime =

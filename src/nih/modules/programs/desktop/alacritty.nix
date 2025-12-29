@@ -9,29 +9,26 @@ let
   cfgPrograms = cfg.programs;
   cfgSources = cfg.sources;
   cfgStyle = cfg.style;
+  package = pkgs.alacritty.overrideAttrs (oldAttrs: {
+    buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
+      pkgs.mesa
+      pkgs.libglvnd
+    ];
+    postInstall = (oldAttrs.postInstall or "") + ''
+      wrapProgram $out/bin/alacritty \
+        --set LD_LIBRARY_PATH "${pkgs.libglvnd}/lib:${pkgs.mesa}/lib"
+    '';
+  });
 in
 {
-  options.nih.programs.terminal = {
-    package = lib.mkOption { type = lib.types.package; };
+  options.nih.programs.desktop.alacritty = {
     executable = lib.mkOption { type = lib.types.str; };
     runCommand = lib.mkOption { type = lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfgPrograms.terminal.package ];
-    nih.programs.terminal.executable = "${cfgPrograms.terminal.package}/bin/alacritty";
-    nih.programs.terminal.package = (
-      pkgs.alacritty.overrideAttrs (oldAttrs: {
-        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
-          pkgs.mesa
-          pkgs.libglvnd
-        ];
-        postInstall = (oldAttrs.postInstall or "") + ''
-          wrapProgram $out/bin/alacritty \
-            --set LD_LIBRARY_PATH "${pkgs.libglvnd}/lib:${pkgs.mesa}/lib"
-        '';
-      })
-    );
-    nih.programs.terminal.runCommand = "${cfgPrograms.terminal.executable} --command";
+    environment.systemPackages = [ package ];
+    nih.programs.desktop.alacritty.executable = "${package}/bin/alacritty";
+    nih.programs.desktop.alacritty.runCommand = "${cfgPrograms.desktop.alacritty.executable} --command";
     nih.user.home.file = {
       ".config/alacritty/alacritty.toml".text =
         let

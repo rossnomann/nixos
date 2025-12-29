@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./android.nix
     ./docker.nix
     ./postgres.nix
     ./python.nix

@@ -5,13 +5,9 @@
 }:
 let
   cfg = config.nih;
-  cfgBluetooth = cfg.bluetooth;
 in
 {
-  options.nih.bluetooth = {
-    enable = lib.mkEnableOption "bluetooth";
-  };
-  config = lib.mkIf (cfg.enable && cfgBluetooth.enable) {
+  config = lib.mkIf cfg.enable {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = false;
