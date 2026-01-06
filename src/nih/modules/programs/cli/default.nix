@@ -14,6 +14,7 @@ in
     ./direnv.nix
     ./git.nix
     ./gnupg.nix
+    ./helix.nix
     ./less.nix
     ./macchina.nix
   ];

@@ -39,6 +39,19 @@
       "url": "https://github.com/catppuccin/delta/archive/74b47a345638a2f19b3e5bdb9d7e4984066f9ac7.tar.gz",
       "hash": "sha256-NjqqB/BHqduiNWKeksiRZUMfjRUodJlsVu1yaEIZRsM="
     },
+    "catppuccin-helix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "helix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "1f13d5e7c72b064699e2c8761f603e4ddd48db8a",
+      "url": "https://github.com/catppuccin/helix/archive/1f13d5e7c72b064699e2c8761f603e4ddd48db8a.tar.gz",
+      "hash": "sha256-l9R3wMBLf2jofboGIaH39VnpjxP0lbWvhlexdNXq2co="
+    },
     "catppuccin-mc": {
       "type": "Git",
       "repository": {
