@@ -152,7 +152,6 @@ in
               xkb = {
                 layout = "fsk,ru";
                 variant = ",";
-                file = "~/.config/xkb/symbols/fsk";
               };
               trackLayout = "global";
             };
