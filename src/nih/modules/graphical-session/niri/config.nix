@@ -150,8 +150,9 @@ in
             focusFollowsMouse.maxScrollAmount = "10%";
             keyboard = {
               xkb = {
-                layout = "us,ru,sk";
+                layout = "fsk,ru";
                 variant = ",";
+                file = "~/.config/xkb/symbols/fsk";
               };
               trackLayout = "global";
             };

@@ -114,6 +114,7 @@ let
               layout ? null,
               options ? null,
               variant ? null,
+              file ? null,
             }:
             let
               mkString = name: value: (kdl.mkNodeWithArgs name [ (kdl.types.mkString value) ]);
@@ -122,6 +123,7 @@ let
               (lib.mapNullable (mkString "layout") layout)
               (lib.mapNullable (mkString "options") options)
               (lib.mapNullable (mkString "variant") variant)
+              (lib.mapNullable (mkString "file") file)
             ];
           mkTrackLayout = x: kdl.mkNodeWithArgs "track-layout" [ (kdl.types.mkString x) ];
         in

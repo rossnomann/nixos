@@ -2,6 +2,7 @@
 {
   imports = [
     ./niri
+    ./xkb.nix
     ./xresources.nix
   ];
   options = {
