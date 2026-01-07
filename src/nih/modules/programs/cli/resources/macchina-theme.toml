@@ -1,0 +1,28 @@
+key_color = "Green"
+hide_ascii = true
+padding = 2
+separator = ":"
+separator_color = "White"
+spacing = 2
+
+[palette]
+type = "Full"
+visible = false
+
+[bar]
+glyph = "ߋ"
+hide_delimiters = true
+symbol_open = '['
+symbol_close = ']'
+visible = true
+
+[box]
+visible = true
+
+[box.inner_margin]
+x = 0
+y = 0
+
+[randomize]
+key_color = false
+separator_color = false

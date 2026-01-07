@@ -100,7 +100,11 @@
       powertop.enable = false;
       suspend.enable = false;
     };
-    programs.cli.git.ignore = [ ".env" ];
+    programs.cli.git.ignore = [
+      ".env"
+      ".direnv"
+      ".envrc"
+    ];
     style = {
       cursors.size = 16;
       fonts =
