@@ -114,12 +114,12 @@ in
           warn_timeout = 0
         '';
         ".config/direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
-        ".config/helix/config.toml".text = import ./resources/helix.nix palette;
+        ".config/helix/config.toml".text = import ./resources/cli/helix.nix palette;
         ".config/helix/themes/catppuccin-${palette.variant}.toml".source =
           "${cfgSources.catppuccin-helix}/themes/default/catppuccin_${palette.variant}.toml";
-        ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
-        ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
-        ".config/mc/ini".source = ./resources/mc.ini;
+        ".config/macchina/macchina.toml".source = ./resources/cli/macchina-config.toml;
+        ".config/macchina/themes/default.toml".source = ./resources/cli/macchina-theme.toml;
+        ".config/mc/ini".source = ./resources/cli/mc.ini;
         ".config/mc/mc.ext.ini".text =
           let
             xdgOpen = "${p.nohupXdgOpen}/bin/nohup-xdg-open";

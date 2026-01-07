@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./cli
-    ./desktop
+    ./cli.nix
+    ./desktop.nix
   ];
 }

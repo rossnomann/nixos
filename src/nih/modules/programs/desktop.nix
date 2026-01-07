@@ -21,7 +21,9 @@ let
           --set LD_LIBRARY_PATH "${pkgs.libglvnd}/lib:${pkgs.mesa}/lib"
       '';
     });
-    firefox = (pkgs.firefox.override { extraPolicies = import ./resources/firefox-policies.nix; });
+    firefox = (
+      pkgs.firefox.override { extraPolicies = import ./resources/desktop/firefox-policies.nix; }
+    );
     fretboard = fretboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
     gimp = pkgs.gimp3-with-plugins.override {
       plugins = [ pkgs.gimp3Plugins.gmic ];
@@ -213,12 +215,12 @@ in
       in
       {
 
-        ".config/alacritty/alacritty.toml".text = import ./resources/alacritty.nix {
+        ".config/alacritty/alacritty.toml".text = import ./resources/desktop/alacritty.nix {
           fontMonospace = cfgStyle.fonts.monospace;
           themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
         };
-        ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/ardour.colors;
-        ".config/fretboard/config.toml".text = import ./resources/fretboard.nix palette;
+        ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/desktop/ardour.colors;
+        ".config/fretboard/config.toml".text = import ./resources/desktop/fretboard.nix palette;
         ".config/mpv/mpv.conf".text =
           let
             theme = builtins.readFile "${p.mpvCatppuccin}/${palette.variant}/${palette.accent}.conf";
@@ -226,7 +228,8 @@ in
           ''
             ${theme}
           '';
-        ".config/rofi/config.rasi".text = import ./resources/rofi.nix cfgStyle.fonts.monospace.defaultSize;
+        ".config/rofi/config.rasi".text =
+          import ./resources/desktop/rofi.nix cfgStyle.fonts.monospace.defaultSize;
         ".config/rofi/theme.rasi".source = "${cfgSources.catppuccin-rofi}/catppuccin-default.rasi";
         ".config/rofi/palette.rasi".source =
           "${cfgSources.catppuccin-rofi}/themes/catppuccin-${cfgStyle.palette.variant}.rasi";
