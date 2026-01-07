@@ -23,7 +23,6 @@ in
     mime = {
       archives = lib.mkOption { type = lib.types.str; };
       audio = lib.mkOption { type = lib.types.str; };
-      directories = lib.mkOption { type = lib.types.str; };
       documents = lib.mkOption { type = lib.types.str; };
       images = lib.mkOption { type = lib.types.str; };
       text = lib.mkOption { type = lib.types.str; };
@@ -71,7 +70,6 @@ in
             inherit (cfgXdg.mime)
               archives
               audio
-              directories
               documents
               images
               text

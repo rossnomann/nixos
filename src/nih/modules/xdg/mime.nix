@@ -42,7 +42,6 @@ let
       "audio/mpeg"
       "audio/vnd.wave"
     ];
-    directories = [ "inode/directory" ];
     documents = [
       "application/epub+zip"
       "application/pdf"
@@ -128,7 +127,6 @@ in
     {
       archives,
       audio,
-      directories,
       documents,
       images,
       text,
@@ -142,10 +140,6 @@ in
     // (mkAssociation {
       entry = audio;
       types = types.audio;
-    })
-    // (mkAssociation {
-      entry = directories;
-      types = types.directories;
     })
     // (mkAssociation {
       entry = documents;

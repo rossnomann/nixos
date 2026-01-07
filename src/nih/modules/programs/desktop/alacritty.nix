@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.nih;
-  cfgPrograms = cfg.programs;
   cfgSources = cfg.sources;
   cfgStyle = cfg.style;
   package = pkgs.alacritty.overrideAttrs (oldAttrs: {
@@ -23,12 +22,10 @@ in
 {
   options.nih.programs.desktop.alacritty = {
     executable = lib.mkOption { type = lib.types.str; };
-    runCommand = lib.mkOption { type = lib.types.str; };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ package ];
     nih.programs.desktop.alacritty.executable = "${package}/bin/alacritty";
-    nih.programs.desktop.alacritty.runCommand = "${cfgPrograms.desktop.alacritty.executable} --command";
     nih.user.home.file = {
       ".config/alacritty/alacritty.toml".text =
         let
@@ -42,7 +39,7 @@ in
           blinking = "Always"
           shape = "Beam"
           [font]
-          size = ${builtins.toString fontMonospace.defaultSize}
+          size = ${toString fontMonospace.defaultSize}
           [font.normal]
           family = "${fontMonospace.family}"
           [scrolling]

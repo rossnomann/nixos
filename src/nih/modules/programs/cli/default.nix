@@ -9,7 +9,6 @@ let
 in
 {
   imports = [
-    ./mc
     ./bat.nix
     ./direnv.nix
     ./git.nix
@@ -17,6 +16,7 @@ in
     ./helix.nix
     ./less.nix
     ./macchina.nix
+    ./mc.nix
   ];
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
