@@ -8,9 +8,6 @@ let
   cfg = config.nih;
 in
 {
-  options.nih.programs.im.telegram = {
-    package = lib.mkOption { type = lib.types.package; };
-  };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.telegram-desktop ];
     nih.graphicalSession.windowRules = [
