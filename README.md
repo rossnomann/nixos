@@ -2,8 +2,6 @@
 
 My NixOS config.
 
-![preview](./resources/preview.png)
-
 ## USAGE
 
 ```sh
