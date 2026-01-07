@@ -98,7 +98,7 @@ in
     {
       mkString = lib.mapNullable mkString;
       mkBool = lib.mapNullable lib.boolToString;
-      mkFloat = lib.mapNullable builtins.toString;
-      mkInteger = lib.mapNullable builtins.toString;
+      mkFloat = lib.mapNullable toString;
+      mkInteger = lib.mapNullable toString;
     };
 }

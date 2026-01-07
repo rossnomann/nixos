@@ -116,7 +116,7 @@ in
               themeName = iconTheme.name;
               iconsSize =
                 let
-                  size = builtins.toString cfgServices.dunst.iconSize;
+                  size = toString cfgServices.dunst.iconSize;
                 in
                 "${size}x${size}";
             };
@@ -125,12 +125,12 @@ in
             [global]
             background="${colors.base}"
             follow=keyboard
-            font="${font.family} ${builtins.toString font.defaultSize}"
+            font="${font.family} ${toString font.defaultSize}"
             foreground="${colors.text}"
             frame_color="${colors.green}"
             frame_width=1
-            gap_size=${builtins.toString cfgServices.dunst.gap}
-            offset="(${builtins.toString cfgServices.dunst.offset}, ${builtins.toString cfgServices.dunst.offset})"
+            gap_size=${toString cfgServices.dunst.gap}
+            offset="(${toString cfgServices.dunst.offset}, ${toString cfgServices.dunst.offset})"
             origin="top-right"
             icon_path="${iconPath}"
             [urgency_critical]

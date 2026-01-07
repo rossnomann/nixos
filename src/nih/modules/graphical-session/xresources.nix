@@ -31,7 +31,7 @@ in
         colors = cfgStyle.palette.colors;
         mkClassResource =
           className: resourceName: value:
-          ''${className}.${resourceName}: ${builtins.toString value}'';
+          ''${className}.${resourceName}: ${toString value}'';
         mkClassResources =
           className: attrs: builtins.mapAttrs (name: value: mkClassResource className name value) attrs;
         mkGlobalResource = resourceName: value: ''*${resourceName}: ${value}'';

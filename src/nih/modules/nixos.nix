@@ -12,6 +12,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       pkgs.nixd
+      pkgs.nixf-diagnose
       pkgs.nixfmt-tree
       pkgs.npins
     ];

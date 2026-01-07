@@ -132,7 +132,7 @@ in
       in
       lib.getAttr name pkgs.catppuccin-cursors;
     nih.style.gtk.decorationLayout = ":";
-    nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${builtins.toString cfgStyle.fonts.sansSerif.defaultSize}";
+    nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
     nih.style.gtk.theme.name =
       "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
     nih.style.gtk.theme.package = pkgs.catppuccin-gtk.override {
@@ -165,7 +165,7 @@ in
       '';
       ".config/gtk-2.0/gtkrc".text = ''
         gtk-cursor-theme-name = "${cfgStyle.cursors.name}"
-        gtk-cursor-theme-size = ${builtins.toString cfgStyle.cursors.size}
+        gtk-cursor-theme-size = ${toString cfgStyle.cursors.size}
         gtk-font-name = "${cfgStyle.gtk.fontName}"
         gtk-icon-theme-name = "${cfgStyle.icons.name}"
         gtk-theme-name = "${cfgStyle.gtk.theme.name}"
@@ -179,7 +179,7 @@ in
       ".config/gtk-3.0/settings.ini".text = ''
         [Settings]
           gtk-cursor-theme-name=${cfgStyle.cursors.name}
-          gtk-cursor-theme-size=${builtins.toString cfgStyle.cursors.size}
+          gtk-cursor-theme-size=${toString cfgStyle.cursors.size}
           gtk-decoration-layout=${cfgStyle.gtk.decorationLayout}
           gtk-font-name=${cfgStyle.gtk.fontName}
           gtk-icon-theme-name=${cfgStyle.icons.name}
@@ -199,7 +199,7 @@ in
       ".config/gtk-4.0/settings.ini".text = ''
         [Settings]
           gtk-cursor-theme-name=${cfgStyle.cursors.name}
-          gtk-cursor-theme-size=${builtins.toString cfgStyle.cursors.size}
+          gtk-cursor-theme-size=${toString cfgStyle.cursors.size}
           gtk-decoration-layout=${cfgStyle.gtk.decorationLayout}
           gtk-font-name=${cfgStyle.gtk.fontName}
           gtk-icon-theme-name=${cfgStyle.icons.name}
@@ -214,8 +214,8 @@ in
         style=Darkly
 
         [Fonts]
-        fixed="${cfgStyle.fonts.monospace.family},${builtins.toString cfgStyle.fonts.monospace.defaultSize},-1,5,50,0,0,0,0,0"
-        general="${cfgStyle.fonts.sansSerif.family},${builtins.toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,50,0,0,0,0,0"
+        fixed="${cfgStyle.fonts.monospace.family},${toString cfgStyle.fonts.monospace.defaultSize},-1,5,50,0,0,0,0,0"
+        general="${cfgStyle.fonts.sansSerif.family},${toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,50,0,0,0,0,0"
 
         [Interface]
         activate_item_on_single_click=1
@@ -247,8 +247,8 @@ in
         style=Darkly
 
         [Fonts]
-        fixed="${cfgStyle.fonts.monospace.family},${builtins.toString cfgStyle.fonts.monospace.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-        general="${cfgStyle.fonts.sansSerif.family},${builtins.toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+        fixed="${cfgStyle.fonts.monospace.family},${toString cfgStyle.fonts.monospace.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
+        general="${cfgStyle.fonts.sansSerif.family},${toString cfgStyle.fonts.sansSerif.defaultSize},-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
 
         [Interface]
         activate_item_on_single_click=1

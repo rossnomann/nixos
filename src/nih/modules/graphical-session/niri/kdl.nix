@@ -68,7 +68,7 @@ let
   mkBindsWorkspaces =
     workspaces:
     let
-      indexes = map builtins.toString (lib.range 1 (lib.lists.length workspaces));
+      indexes = map toString (lib.range 1 (lib.lists.length workspaces));
     in
     lib.lists.flatten (lib.lists.zipListsWith mkBindsWorkspace indexes workspaces);
   mkCursor =
@@ -87,7 +87,7 @@ let
     kdl.mkNodeWithChildren "hotkey-overlay" [
       (if skipAtStartup then (kdl.mkNode "skip-at-startup" { }) else null)
     ];
-  mkInclude = path: kdl.mkNodeWithArgs "include" [ (kdl.types.mkString path) ];
+  mkInclude = p: kdl.mkNodeWithArgs "include" [ (kdl.types.mkString p) ];
   mkInput =
     {
       focusFollowsMouse ? null,
@@ -256,9 +256,9 @@ let
   mkRecentWindows =
     { enabled }: kdl.mkNodeWithChildren "recent-windows" [ (if enabled then on else off) ];
   mkScreenshotPath =
-    path:
+    p:
     kdl.mkNodeWithArgs "screenshot-path" [
-      (if path == null then "null" else kdl.types.mkString path)
+      (if p == null then "null" else kdl.types.mkString p)
     ];
   mkSpawnAtStartup = commands: map (item: kdl.mkNodeWithArgs "spawn-at-startup" [ item ]) commands;
   mkSpawnCommand = args: lib.strings.concatStringsSep " " (map (x: ''"${x}"'') args);
