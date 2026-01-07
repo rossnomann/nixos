@@ -50,7 +50,7 @@ in
             key <AC06>  { [            h,           H,     NoSymbol,        NoSymbol ] };
             key <AC07>  { [            j,           J,     NoSymbol,        NoSymbol ] };
             key <AC08>  { [            k,           K,     NoSymbol,        NoSymbol ] };
-            key <AC09>  { [            l,           L,       lacute,          Lacute ] };
+            key <AC09>  { [            l,           L,       lcaron,          Lcaron ] };
 
             key <AC10>  { [    semicolon,       colon,     NoSymbol,        NoSymbol ] };
             key <AC11>  { [   apostrophe,    quotedbl, guillemetleft, guillemetright ] };
