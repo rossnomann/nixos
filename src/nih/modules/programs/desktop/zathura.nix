@@ -14,7 +14,7 @@ in
     environment.systemPackages = [ pkgs.zathura ];
     nih.user.home.file = {
       ".config/zathura/zathurarc".text = ''
-        include ${cfgSources.catppuccin-zathura}/src/catppuccin-${cfgStyle.palette.variant}
+        include ${cfgSources.catppuccin-zathura}/themes/catppuccin-${cfgStyle.palette.variant}
       '';
     };
     nih.graphicalSession.windowRules = [
