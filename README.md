@@ -28,7 +28,6 @@ npins update
 - Ardour: Mocha only.
 - DeaDBeeF: configure manually
 - Firefox: https://github.com/catppuccin/firefox
-- Sublime Merge: No theme.
 - Telegram:
     - https://t.me/addtheme/ctplatteimproved
     - https://t.me/addtheme/ctpfrappeimproved

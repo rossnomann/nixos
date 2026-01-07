@@ -19,7 +19,6 @@ in
     ./mpv.nix
     ./obsidian.nix
     ./rofi.nix
-    ./sublime.nix
     ./telegram.nix
     ./zathura.nix
   ];

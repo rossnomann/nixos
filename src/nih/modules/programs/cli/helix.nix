@@ -47,5 +47,6 @@ in
           tab = "all"
         '';
       };
+    nih.xdg.mime.text = "Helix.desktop";
   };
 }
