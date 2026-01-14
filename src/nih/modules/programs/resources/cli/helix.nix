@@ -1,6 +1,7 @@
 palette: ''
   theme = "catppuccin_${palette.variant}"
   [editor]
+  clipboard-provider = "wayland"
   cursorline = true
   gutters = [ "line-numbers", "spacer", "diagnostics", "spacer", "diff", "spacer" ]
   trim-final-newlines = true
