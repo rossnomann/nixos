@@ -14,6 +14,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       package
+      pkgs.wl-clipboard-rs
       pkgs.xwayland-satellite
     ];
     services.dbus.packages = [ pkgs.nautilus ];
