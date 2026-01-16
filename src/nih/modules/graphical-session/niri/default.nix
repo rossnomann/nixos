@@ -12,6 +12,9 @@ in
 {
   imports = [ ./config.nix ];
   config = lib.mkIf cfg.enable {
+    environment.sessionVariables = {
+      GTK_USE_PORTAL = 1;
+    };
     environment.systemPackages = [
       package
       pkgs.wl-clipboard-rs
