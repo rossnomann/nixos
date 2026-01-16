@@ -48,9 +48,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1f13d5e7c72b064699e2c8761f603e4ddd48db8a",
-      "url": "https://github.com/catppuccin/helix/archive/1f13d5e7c72b064699e2c8761f603e4ddd48db8a.tar.gz",
-      "hash": "sha256-l9R3wMBLf2jofboGIaH39VnpjxP0lbWvhlexdNXq2co="
+      "revision": "0f2e597bee08f536675e1068eda0f6d22b3e5f7d",
+      "url": "https://github.com/catppuccin/helix/archive/0f2e597bee08f536675e1068eda0f6d22b3e5f7d.tar.gz",
+      "hash": "sha256-8ciLJNmAcpSt2enmwgDRKYikzCWGk/gtZd27Brvevvg="
     },
     "catppuccin-mc": {
       "type": "Git",
@@ -120,8 +120,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre917540.5c2bc52fb9f8/nixexprs.tar.xz",
-      "hash": "sha256-g5DRB9fAyEv6Xf41Bj9RpVl9th0Zz+v1jgvJVg51W3w="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre927565.13868c071cc7/nixexprs.tar.xz",
+      "hash": "sha256-wufp5c0nWh/87f9eK7xy1eZXms5zd4yl6S4SR+LfA08="
     }
   },
   "version": 7
