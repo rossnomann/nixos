@@ -26,8 +26,7 @@ let
       urgentColor ? null,
     }:
     let
-      mkColor =
-        colorType: value: kdl.mkNodeWithArgs ''${colorType}-color'' [ (kdl.types.mkString value) ];
+      mkColor = colorType: value: kdl.mkNodeWithArgs "${colorType}-color" [ (kdl.types.mkString value) ];
       mkWidth = x: kdl.mkNodeWithArgs "width" [ (kdl.types.mkFloat width) ];
     in
     kdl.mkNodeWithChildren name [

@@ -126,27 +126,27 @@ in
       };
     nih.graphicalSession.windowRules = [
       {
-        appId = ''^Alacritty'';
+        appId = "^Alacritty";
         workspace = "terminal";
       }
       {
-        appId = ''^Ardour'';
+        appId = "^Ardour";
         workspace = "audio";
       }
       {
-        appId = ''^deadbeef'';
+        appId = "^deadbeef";
         workspace = "secondary";
       }
       {
-        appId = ''^discord'';
+        appId = "^discord";
         workspace = "secondary";
       }
       {
-        appId = ''^firefox'';
+        appId = "^firefox";
         workspace = "main";
       }
       {
-        appId = ''^gimp'';
+        appId = "^gimp";
         workspace = "main";
       }
       {
@@ -162,29 +162,29 @@ in
         workspace = "main";
       }
       {
-        appId = ''^libreoffice'';
+        appId = "^libreoffice";
         workspace = "main";
       }
       {
-        appId = ''^mpv'';
+        appId = "^mpv";
         workspace = "main";
         fullscreen = true;
       }
       {
-        appId = ''^obsidian'';
+        appId = "^obsidian";
         workspace = "main";
       }
       {
-        appId = ''^Slack'';
+        appId = "^Slack";
         workspace = "secondary";
       }
       {
-        appId = ''^steam'';
+        appId = "^steam";
         fullscreen = true;
         workspace = "games";
       }
       {
-        appId = ''^syncplay'';
+        appId = "^syncplay";
         workspace = "main";
         floating = true;
       }
@@ -193,7 +193,7 @@ in
         workspace = "secondary";
       }
       {
-        appId = ''^transmission'';
+        appId = "^transmission";
         workspace = "main";
       }
       {
