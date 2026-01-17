@@ -171,7 +171,7 @@ in
               urgentColor = colors.mauve;
               width = 2;
             };
-            centerFocusedColumn = "always";
+            centerFocusedColumn = "never";
             defaultColumnWidth = [
               "proportion"
               1.0
@@ -182,21 +182,33 @@ in
             presetColumnWidths = [
               [
                 "proportion"
-                1.0
+                0.75
               ]
               [
                 "proportion"
                 0.5
+              ]
+              [
+                "proportion"
+                0.25
               ]
             ];
             presetWindowHeights = [
               [
                 "proportion"
-                1.0
+                0.75
               ]
               [
                 "proportion"
                 0.5
+              ]
+              [
+                "proportion"
+                0.25
+              ]
+              [
+                "proportion"
+                1.0
               ]
             ];
             struts = {
