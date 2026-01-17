@@ -15,6 +15,10 @@
       url = "github:rossnomann/fretboard";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-ws = {
+      url = "github:rossnomann/niri-ws";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs:
@@ -29,6 +33,7 @@
           inherit lib;
           modules = [
             inputs.makky.nixosModules.default
+            inputs.niri-ws.nixosModules.default
             ./src/nih/packages
             ./src/nih/modules
             ./src/config/base.nix

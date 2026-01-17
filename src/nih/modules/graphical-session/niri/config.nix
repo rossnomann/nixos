@@ -108,12 +108,6 @@ in
         let
           c = cfgGraphicalSession.niri.config;
           colors = cfgStyle.palette.colors;
-          swapWorkspaces = pkgs.writeTextFile {
-            name = "niri-swap-workspaces";
-            destination = "/bin/niri-swap-workspaces";
-            text = builtins.readFile ./swap-workspaces;
-            executable = true;
-          };
         in
         kdl.mkConfig {
           inherit (c) workspaces spawnAtStartup outputs;
@@ -133,7 +127,7 @@ in
             ]
             [
               "Mod+W"
-              [ "${swapWorkspaces}/bin/niri-swap-workspaces" ]
+              [ "niri-ws" ]
             ]
           ];
           bindsWorkspaces = lib.nih.workspaces;

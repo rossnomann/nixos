@@ -20,6 +20,7 @@ in
       pkgs.wl-clipboard-rs
       pkgs.xwayland-satellite
     ];
+    niri-ws.enable = true;
     services.dbus.packages = [ pkgs.nautilus ];
     services.displayManager.sessionPackages = [ package ];
     services.graphical-desktop.enable = true;
