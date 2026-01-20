@@ -11,16 +11,7 @@ let
   cfgSources = cfg.sources;
   cfgStyle = cfg.style;
   p = {
-    alacritty = pkgs.alacritty.overrideAttrs (oldAttrs: {
-      buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
-        pkgs.mesa
-        pkgs.libglvnd
-      ];
-      postInstall = (oldAttrs.postInstall or "") + ''
-        wrapProgram $out/bin/alacritty \
-          --set LD_LIBRARY_PATH "${pkgs.libglvnd}/lib:${pkgs.mesa}/lib"
-      '';
-    });
+    alacritty = pkgs.alacritty;
     firefox = (
       pkgs.firefox.override { extraPolicies = import ./resources/desktop/firefox-policies.nix; }
     );
