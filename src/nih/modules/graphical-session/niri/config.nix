@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -147,7 +146,7 @@ in
                 layout = "fsk,ru";
                 variant = ",";
               };
-              trackLayout = "global";
+              trackLayout = "window";
             };
             touchpad = {
               dwt = true;
