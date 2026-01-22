@@ -88,7 +88,6 @@ in
       pkgs.loupe
       pkgs.mpv
       pkgs.overskride
-      pkgs.pavucontrol
       pkgs.slack
       pkgs.scrcpy
       pkgs.simple-scan

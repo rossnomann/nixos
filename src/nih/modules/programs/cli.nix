@@ -45,6 +45,7 @@ in
       pkgs.unrar
       pkgs.usbutils
       pkgs.wget
+      pkgs.wiremix
     ];
     environment.variables = {
       GNUPGHOME = "$XDG_DATA_HOME/gnupg";
