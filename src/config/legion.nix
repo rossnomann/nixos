@@ -95,16 +95,16 @@
   };
   networking.useDHCP = lib.mkDefault true;
   nih = {
+    dev.git.ignore = [
+      ".env"
+      ".direnv"
+      ".envrc"
+    ];
     net.host = "legion";
     power = {
       powertop.enable = false;
       suspend.enable = false;
     };
-    programs.cli.git.ignore = [
-      ".env"
-      ".direnv"
-      ".envrc"
-    ];
     style = {
       cursors.size = 16;
       fonts =
