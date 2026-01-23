@@ -75,7 +75,7 @@
         executable = true;
       };
     in
-    (pkgs.obsidian.overrideAttrs (x: {
+    (pkgs.obsidian.overrideAttrs (_: {
       postInstall = ''
         sed -i '1 a ${obsidianHook}' $out/bin/obsidian
       '';

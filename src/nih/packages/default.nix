@@ -1,7 +1,7 @@
 { ... }:
 {
   nixpkgs.overlays = [
-    (final: prev: {
+    (_: prev: {
       nih = {
         wallpapers = import ./wallpapers { inherit prev; };
       };
