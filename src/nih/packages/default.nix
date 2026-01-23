@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   nixpkgs.overlays = [
     (_: prev: {
       nih = {

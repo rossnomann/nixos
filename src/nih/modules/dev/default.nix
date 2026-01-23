@@ -76,7 +76,7 @@ in
 
     nih.user.home.file =
       let
-        palette = cfgStyle.palette;
+        inherit (cfgStyle) palette;
         batThemeName = "Catppuccin ${lib.strings.toSentenceCase palette.variant}";
       in
       {

@@ -10,6 +10,7 @@ let
   cfgSources = cfg.sources;
   cfgStyle = cfg.style;
   cfgUser = cfg.user;
+  inherit (cfgStyle) palette;
 in
 {
   options.nih.style = {
@@ -47,7 +48,7 @@ in
       accentColor = lib.mkOption { type = lib.types.str; };
       colors = lib.mkOption {
         type = lib.types.attrs;
-        default = lib.getAttr cfgStyle.palette.variant lib.nih.catppuccin.colors;
+        default = lib.getAttr palette.variant lib.nih.catppuccin.colors;
       };
     };
 
@@ -63,43 +64,44 @@ in
     wallpaper = lib.mkOption { type = lib.types.path; };
   };
   config = lib.mkIf cfg.enable {
-    environment.pathsToLink = [
-      "/share/gsettings-schemas"
-    ];
-    environment.profileRelativeSessionVariables =
-      let
-        qtVersions = [
-          pkgs.qt5
-          pkgs.qt6
-        ];
-      in
-      {
-        QT_PLUGIN_PATH = map (qt: "/${qt.qtbase.qtPluginPrefix}") qtVersions;
-        QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
-      };
-    environment.sessionVariables = {
-      GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
-      XCURSOR_SIZE = cfgStyle.cursors.size;
-      XCURSOR_THEME = cfgStyle.cursors.name;
-      XDG_DATA_DIRS = [
-        "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.version}"
-        "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
+    environment = {
+      pathsToLink = [
+        "/share/gsettings-schemas"
       ];
+      profileRelativeSessionVariables =
+        let
+          qtVersions = [
+            pkgs.qt5
+            pkgs.qt6
+          ];
+        in
+        {
+          QT_PLUGIN_PATH = map (qt: "/${qt.qtbase.qtPluginPrefix}") qtVersions;
+          QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
+        };
+      sessionVariables = {
+        GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
+        XCURSOR_SIZE = cfgStyle.cursors.size;
+        XCURSOR_THEME = cfgStyle.cursors.name;
+        XDG_DATA_DIRS = [
+          "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.version}"
+          "${pkgs.gtk3}/share/gsettings-schemas/gtk+3-${pkgs.gtk3.version}"
+        ];
+      };
+      systemPackages = [
+        cfgStyle.cursors.themePackage
+        cfgStyle.cursors.indexPackage
+        cfgStyle.gtk.theme.package
+        cfgStyle.icons.package
+        pkgs.libsForQt5.qt5ct
+        pkgs.qt6Packages.qt6ct
+        lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5
+        lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt6
+      ];
+      variables = {
+        QT_QPA_PLATFORMTHEME = "qt5ct";
+      };
     };
-    environment.systemPackages = [
-      cfgStyle.cursors.themePackage
-      cfgStyle.cursors.indexPackage
-      cfgStyle.gtk.theme.package
-      cfgStyle.icons.package
-      pkgs.libsForQt5.qt5ct
-      pkgs.qt6Packages.qt6ct
-      lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5
-      lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt6
-    ];
-    environment.variables = {
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-    };
-
     fonts.packages = cfgStyle.fonts.packages;
     fonts.fontconfig = {
       enable = true;
@@ -110,39 +112,46 @@ in
       };
     };
 
-    nih.style.cursors.name = "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-cursors";
-    nih.style.cursors.indexPackage =
-      let
-        inherits = cfgStyle.cursors.name;
-      in
-      pkgs.writeTextFile {
-        name = "index.theme";
-        destination = "/share/icons/default/index.theme";
-        # https://wiki.archlinux.org/title/Cursor_themes#XDG_specification
-        text = ''
-          [Icon Theme]
-          Name=Default
-          Comment=Default Cursor Theme
-          Inherits=${inherits}
-        '';
+    nih.style = {
+      cursors = {
+        name = "catppuccin-${palette.variant}-${palette.accent}-cursors";
+        indexPackage =
+          let
+            inherits = cfgStyle.cursors.name;
+          in
+          pkgs.writeTextFile {
+            name = "index.theme";
+            destination = "/share/icons/default/index.theme";
+            # https://wiki.archlinux.org/title/Cursor_themes#XDG_specification
+            text = ''
+              [Icon Theme]
+              Name=Default
+              Comment=Default Cursor Theme
+              Inherits=${inherits}
+            '';
+          };
+        themePackage =
+          let
+            name = "${palette.variant}${lib.strings.toSentenceCase palette.accent}";
+          in
+          lib.getAttr name pkgs.catppuccin-cursors;
       };
-    nih.style.cursors.themePackage =
-      let
-        name = "${cfgStyle.palette.variant}${lib.strings.toSentenceCase cfgStyle.palette.accent}";
-      in
-      lib.getAttr name pkgs.catppuccin-cursors;
-    nih.style.gtk.decorationLayout = ":";
-    nih.style.gtk.fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
-    nih.style.gtk.theme.name =
-      "catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}-compact+rimless";
-    nih.style.gtk.theme.package = pkgs.catppuccin-gtk.override {
-      accents = [ cfgStyle.palette.accent ];
-      size = "compact";
-      tweaks = [ "rimless" ];
-      variant = cfgStyle.palette.variant;
+      gtk = {
+        decorationLayout = ":";
+        fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
+        theme = {
+          name = "catppuccin-${palette.variant}-${palette.accent}-compact+rimless";
+          package = pkgs.catppuccin-gtk.override {
+            accents = [ palette.accent ];
+            size = "compact";
+            tweaks = [ "rimless" ];
+            inherit (palette) variant;
+          };
+        };
+      };
+      palette.accentColor = lib.getAttr palette.accent cfgStyle.palette.colors;
+      wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
     };
-    nih.style.palette.accentColor = lib.getAttr cfgStyle.palette.accent cfgStyle.palette.colors;
-    nih.style.wallpaper = "${pkgs.nih.wallpapers}/share/wallpapers/nih/default.jpg";
 
     nih.user.home.file = {
       ".config/darklyrc".text = ''
@@ -237,7 +246,7 @@ in
         ignored_applications=@Invalid()
       '';
       ".config/qt5ct/colors/catppuccin.conf".source =
-        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}.conf";
+        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${palette.variant}-${palette.accent}.conf";
       ".config/qt6ct/qt6ct.conf".text = ''
         [Appearance]
         color_scheme_path=${cfgUser.home.root}/.config/qt6ct/colors/catppuccin.conf
@@ -270,7 +279,7 @@ in
         ignored_applications=@Invalid()
       '';
       ".config/qt6ct/colors/catppuccin.conf".source =
-        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${cfgStyle.palette.variant}-${cfgStyle.palette.accent}.conf";
+        "${cfgSources.catppuccin-qtct}/themes/catppuccin-${palette.variant}-${palette.accent}.conf";
       ".icons/default/index.theme".source =
         "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
       ".icons/${cfgStyle.cursors.name}".source =

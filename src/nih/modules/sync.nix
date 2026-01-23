@@ -30,7 +30,7 @@ in
       overrideFolders = true;
       systemService = true;
       settings = {
-        devices = cfgSync.devices;
+        inherit (cfgSync) devices;
         folders = {
           "backup" = {
             enable = true;

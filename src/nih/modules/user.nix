@@ -100,7 +100,7 @@ in
     };
     security.sudo.wheelNeedsPassword = false;
     users.users.${cfgUser.name} = {
-      description = cfgUser.description;
+      inherit (cfgUser) description;
       extraGroups = [ "wheel" ];
       isNormalUser = true;
       shell = pkgs.nushell;

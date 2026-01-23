@@ -38,7 +38,7 @@
     xarchiver
     zathura
     ;
-  deadbeef = pkgs20251111.deadbeef;
+  inherit (pkgs20251111) deadbeef;
   firefox =
     let
       extraPolicies = import ./resources/firefox-policies.nix;
@@ -75,9 +75,9 @@
         executable = true;
       };
     in
-    (pkgs.obsidian.overrideAttrs (_: {
+    pkgs.obsidian.overrideAttrs (_: {
       postInstall = ''
         sed -i '1 a ${obsidianHook}' $out/bin/obsidian
       '';
-    }));
+    });
 }

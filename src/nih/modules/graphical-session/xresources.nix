@@ -8,7 +8,7 @@ let
   cfg = config.nih;
   cfgStyle = cfg.style;
   cfgGraphicalSession = cfg.graphicalSession;
-  xrdb = pkgs.xorg.xrdb;
+  inherit (pkgs.xorg) xrdb;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -28,7 +28,7 @@ in
     };
     environment.etc."X11/Xresources".text =
       let
-        colors = cfgStyle.palette.colors;
+        inherit (cfgStyle.palette) colors;
         mkClassResource =
           className: resourceName: value:
           "${className}.${resourceName}: ${toString value}";
@@ -121,22 +121,24 @@ in
       in
       mkXresources {
         xcursor = mkXcursor {
-          size = cfgStyle.cursors.size;
+          inherit (cfgStyle.cursors) size;
           theme = cfgStyle.cursors.name;
         };
-        xft = mkXft { dpi = cfgGraphicalSession.dpi; };
+        xft = mkXft { inherit (cfgGraphicalSession) dpi; };
         colors = mkColors {
+          inherit (colors)
+            red
+            green
+            yellow
+            blue
+            ;
           background = colors.base;
           foreground = colors.text;
           black = colors.surface1;
           blackBold = colors.surface2;
-          red = colors.red;
           redBold = colors.red;
-          green = colors.green;
           greenBold = colors.green;
-          yellow = colors.yellow;
           yellowBold = colors.yellow;
-          blue = colors.blue;
           blueBold = colors.blue;
           magenta = colors.pink;
           magentaBold = colors.pink;

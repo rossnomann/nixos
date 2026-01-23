@@ -47,35 +47,37 @@ in
       };
       saned.enable = true;
     };
-    systemd.packages = [ pkgDunst ];
-    systemd.user.units."batsignal.service" = {
-      name = "batsignal.service";
-      enable = true;
-      wantedBy = [ "graphical-session.target" ];
-      text = ''
-        [Service]
-        ExecStart=${pkgs.batsignal}/bin/batsignal
-        Restart=on-failure
-        RestartSec=1
-        Type=simple
+    systemd = {
+      packages = [ pkgDunst ];
+      user.units."batsignal.service" = {
+        name = "batsignal.service";
+        enable = true;
+        wantedBy = [ "graphical-session.target" ];
+        text = ''
+          [Service]
+          ExecStart=${pkgs.batsignal}/bin/batsignal
+          Restart=on-failure
+          RestartSec=1
+          Type=simple
 
-        [Unit]
-        After=graphical-session-pre.target
-        Description=batsignal - battery monitor daemon
-        PartOf=graphical-session.target
-      '';
-    };
-    systemd.user.units."dunst.service" = {
-      overrideStrategy = "asDropin";
-      text = ''
-        [Unit]
-        Requires=graphical-session.target
-        After=graphical-session.target
-      '';
+          [Unit]
+          After=graphical-session-pre.target
+          Description=batsignal - battery monitor daemon
+          PartOf=graphical-session.target
+        '';
+      };
+      user.units."dunst.service" = {
+        overrideStrategy = "asDropin";
+        text = ''
+          [Unit]
+          Requires=graphical-session.target
+          After=graphical-session.target
+        '';
+      };
     };
     nih.user.home.file =
       let
-        colors = cfgStyle.palette.colors;
+        inherit (cfgStyle.palette) colors;
       in
       {
         ".config/dunst/dunstrc".text =

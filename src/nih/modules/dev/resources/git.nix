@@ -9,7 +9,7 @@
 }:
 lib.generators.toGitINI {
   user = {
-    email = cfgUser.email;
+    inherit (cfgUser) email;
     name = cfgUser.description;
     signingkey = cfgUser.gpg_signing_key;
   };

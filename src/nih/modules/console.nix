@@ -5,13 +5,15 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
-    boot.initrd.verbose = false;
-    boot.kernelParams = [
-      "splash"
-      "quiet"
-      "udev.log_level=3"
-    ];
-    boot.consoleLogLevel = 3;
+    boot = {
+      initrd.verbose = false;
+      kernelParams = [
+        "splash"
+        "quiet"
+        "udev.log_level=3"
+      ];
+      consoleLogLevel = 3;
+    };
     console =
       let
         getColor = value: builtins.substring 1 (-1) value;

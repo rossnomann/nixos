@@ -106,7 +106,7 @@ in
       ".config/niri/config.kdl".text =
         let
           c = cfgGraphicalSession.niri.config;
-          colors = cfgStyle.palette.colors;
+          inherit (cfgStyle.palette) colors;
         in
         kdl.mkConfig {
           inherit (c) workspaces spawnAtStartup outputs;
@@ -214,47 +214,44 @@ in
           overview.backdropColor = colors.crust;
           recentWindows.enabled = false;
           screenshotPath = null;
-          windowRules = (
-            [
-              {
-                clipToGeometry = true;
-                drawBorderWithBackground = false;
-              }
-              {
-                matches.isFloating = false;
-                openMaximized = true;
-                tiledState = true;
-              }
-              {
-                matches.isActive = false;
-                opacity = 0.95;
-              }
-              {
-                matches.isFloating = true;
-                maxHeight = 800;
-                maxWidth = 1000;
-                shadow.enabled = true;
-              }
-              {
-                matches.isWindowCastTarget = true;
-                border = {
-                  activeColor = colors.red;
-                  inactiveColor = colors.pink;
-                  urgentColor = colors.peach;
-                  width = 2;
-                };
-              }
-            ]
-            ++ (map (x: {
-              matches = {
-                appId = x.appId;
-                title = x.title;
+          windowRules = [
+            {
+              clipToGeometry = true;
+              drawBorderWithBackground = false;
+            }
+            {
+              matches.isFloating = false;
+              openMaximized = true;
+              tiledState = true;
+            }
+            {
+              matches.isActive = false;
+              opacity = 0.95;
+            }
+            {
+              matches.isFloating = true;
+              maxHeight = 800;
+              maxWidth = 1000;
+              shadow.enabled = true;
+            }
+            {
+              matches.isWindowCastTarget = true;
+              border = {
+                activeColor = colors.red;
+                inactiveColor = colors.pink;
+                urgentColor = colors.peach;
+                width = 2;
               };
-              openOnWorkspace = x.workspace;
-              openFullscreen = x.fullscreen;
-              openFloating = x.floating;
-            }) cfgGraphicalSession.windowRules)
-          );
+            }
+          ]
+          ++ (map (x: {
+            matches = {
+              inherit (x) appId title;
+            };
+            openOnWorkspace = x.workspace;
+            openFullscreen = x.fullscreen;
+            openFloating = x.floating;
+          }) cfgGraphicalSession.windowRules);
         };
     };
   };

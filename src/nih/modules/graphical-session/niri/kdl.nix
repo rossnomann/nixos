@@ -1,6 +1,6 @@
 lib:
 let
-  kdl = lib.nih.kdl;
+  inherit (lib.nih) kdl;
   on = kdl.mkNode "on" { };
   off = kdl.mkNode "off" { };
   mkBindsWorkspace =
@@ -100,7 +100,7 @@ let
           maxScrollAmount ? null,
         }:
         kdl.mkNodeWithProps "focus-follows-mouse" {
-          "max-scroll-amount" = (kdl.types.mkString maxScrollAmount);
+          "max-scroll-amount" = kdl.types.mkString maxScrollAmount;
         };
       mkKeyboard =
         {
@@ -130,7 +130,7 @@ let
           (lib.mapNullable mkXkb xkb)
           (lib.mapNullable mkTrackLayout trackLayout)
         ];
-      mkFlag = name: value: if value == true then kdl.mkNode name { } else null;
+      mkFlag = name: value: if value then kdl.mkNode name { } else null;
       mkTouchpad =
         {
           dwt ? null,

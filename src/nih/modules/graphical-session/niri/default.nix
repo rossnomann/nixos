@@ -21,9 +21,11 @@ in
       pkgs.xwayland-satellite
     ];
     niri-ws.enable = true;
-    services.dbus.packages = [ pkgs.nautilus ];
-    services.displayManager.sessionPackages = [ package ];
-    services.graphical-desktop.enable = true;
+    services = {
+      dbus.packages = [ pkgs.nautilus ];
+      displayManager.sessionPackages = [ package ];
+      graphical-desktop.enable = true;
+    };
     systemd.packages = [ package ];
     systemd.user.units."swaybg.service" = {
       text = ''

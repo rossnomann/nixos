@@ -120,65 +120,67 @@ in
         workspace = "main";
       }
     ];
-    nih.programs.desktop = {
-      alacritty.executable = "${p.alacritty}/bin/alacritty";
-      rofi.cmdShow = [
-        "${p.rofi}/bin/rofi"
-        "-show"
-        "combi"
-      ];
-    };
-    nih.user.home.file =
-      let
-        palette = cfgStyle.palette;
-      in
-      {
-
-        ".config/alacritty/alacritty.toml".text = import ./resources/alacritty.nix {
-          fontMonospace = cfgStyle.fonts.monospace;
-          themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
-        };
-        ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/ardour.colors;
-        ".config/fretboard/config.toml".text = import ./resources/fretboard.nix palette;
-        ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
-        ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
-        ".config/mc/ini".source = ./resources/mc.ini;
-        ".config/mc/mc.ext.ini".text =
-          let
-            xdgOpen = "${p.nohupXdgOpen}/bin/nohup-xdg-open";
-          in
-          lib.generators.toINI { } {
-            "mc.ext.ini" = {
-              Version = 4.0;
-            };
-            Default = {
-              Open = "${xdgOpen} %d/%p";
-              View = "${xdgOpen} %d/%p";
-            };
-          };
-        ".config/mpv/mpv.conf".text =
-          let
-            theme = builtins.readFile "${p.mpvCatppuccin}/${palette.variant}/${palette.accent}.conf";
-          in
-          ''
-            ${theme}
-          '';
-        ".config/rofi/config.rasi".text = import ./resources/rofi.nix cfgStyle.fonts.monospace.defaultSize;
-        ".config/rofi/theme.rasi".source = "${cfgSources.catppuccin-rofi}/catppuccin-default.rasi";
-        ".config/rofi/palette.rasi".source =
-          "${cfgSources.catppuccin-rofi}/themes/catppuccin-${cfgStyle.palette.variant}.rasi";
-        ".config/zathura/zathurarc".text = ''
-          include ${cfgSources.catppuccin-zathura}/themes/catppuccin-${cfgStyle.palette.variant}
-        '';
-        ".local/share/mc/skins/catppuccin.ini".source = "${cfgSources.catppuccin-mc}/catppuccin.ini";
+    nih = {
+      programs.desktop = {
+        alacritty.executable = "${p.alacritty}/bin/alacritty";
+        rofi.cmdShow = [
+          "${p.rofi}/bin/rofi"
+          "-show"
+          "combi"
+        ];
       };
-    nih.xdg.mime = {
-      archives = "xarchiver.desktop";
-      audio = "mpv.desktop";
-      documents = "org.pwmt.zathura.desktop";
-      images = "org.gnome.Loupe.desktop";
-      torrents = "transmission-gtk.desktop";
-      videos = "mpv.desktop";
+      user.home.file =
+        let
+          inherit (cfgStyle) palette;
+        in
+        {
+
+          ".config/alacritty/alacritty.toml".text = import ./resources/alacritty.nix {
+            fontMonospace = cfgStyle.fonts.monospace;
+            themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
+          };
+          ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/ardour.colors;
+          ".config/fretboard/config.toml".text = import ./resources/fretboard.nix palette;
+          ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
+          ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
+          ".config/mc/ini".source = ./resources/mc.ini;
+          ".config/mc/mc.ext.ini".text =
+            let
+              xdgOpen = "${p.nohupXdgOpen}/bin/nohup-xdg-open";
+            in
+            lib.generators.toINI { } {
+              "mc.ext.ini" = {
+                Version = 4.0;
+              };
+              Default = {
+                Open = "${xdgOpen} %d/%p";
+                View = "${xdgOpen} %d/%p";
+              };
+            };
+          ".config/mpv/mpv.conf".text =
+            let
+              theme = builtins.readFile "${p.mpvCatppuccin}/${palette.variant}/${palette.accent}.conf";
+            in
+            ''
+              ${theme}
+            '';
+          ".config/rofi/config.rasi".text = import ./resources/rofi.nix cfgStyle.fonts.monospace.defaultSize;
+          ".config/rofi/theme.rasi".source = "${cfgSources.catppuccin-rofi}/catppuccin-default.rasi";
+          ".config/rofi/palette.rasi".source =
+            "${cfgSources.catppuccin-rofi}/themes/catppuccin-${cfgStyle.palette.variant}.rasi";
+          ".config/zathura/zathurarc".text = ''
+            include ${cfgSources.catppuccin-zathura}/themes/catppuccin-${cfgStyle.palette.variant}
+          '';
+          ".local/share/mc/skins/catppuccin.ini".source = "${cfgSources.catppuccin-mc}/catppuccin.ini";
+        };
+      xdg.mime = {
+        archives = "xarchiver.desktop";
+        audio = "mpv.desktop";
+        documents = "org.pwmt.zathura.desktop";
+        images = "org.gnome.Loupe.desktop";
+        torrents = "transmission-gtk.desktop";
+        videos = "mpv.desktop";
+      };
     };
   };
 }
