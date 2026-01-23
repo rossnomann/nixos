@@ -11,17 +11,25 @@ let
   cfgStyle = cfg.style;
   cfgUser = cfg.user;
   p = {
-    android-tools = pkgs.android-tools;
-    bat = pkgs.bat;
-    curl = pkgs.curl;
-    direnv = pkgs.direnv;
-    git = pkgs.git;
-    gnupg = pkgs.gnupg;
-    helix = pkgs.helix;
-    mergiraf = pkgs.mergiraf;
-    python314 = pkgs.python314;
-    sqlite = pkgs.sqlite;
-    wget = pkgs.wget;
+    inherit (pkgs)
+      android-tools
+      bat
+      curl
+      deadnix
+      direnv
+      git
+      gnupg
+      helix
+      mergiraf
+      nixd
+      nixf-diagnose
+      nixfmt
+      nixfmt-tree
+      python314
+      sqlite
+      statix
+      wget
+      ;
   };
   editor = "${p.helix}/bin/hx";
 in
