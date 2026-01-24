@@ -108,7 +108,7 @@ in
         ".config/git/ignore".text = lib.strings.concatStringsSep "\n" cfgDev.git.ignore;
         ".config/direnv/direnv.toml".source = ./resources/direnv.toml;
         ".config/direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
-        ".config/helix/config.toml".text = import ./resources/helix.nix palette;
+        ".config/helix/config.toml".text = import ./resources/helix-config.nix palette;
         ".config/helix/themes/catppuccin-${palette.variant}.toml".source =
           "${cfgSources.catppuccin-helix}/themes/default/catppuccin_${palette.variant}.toml";
         ".config/python/pythonrc" = {
