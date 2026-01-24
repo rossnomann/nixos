@@ -21,6 +21,7 @@ let
       git
       gnupg
       helix
+      jq
       mergiraf
       nixd
       nixf-diagnose
