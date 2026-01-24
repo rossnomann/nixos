@@ -40,10 +40,8 @@
             (./src/config + "/${deviceName}.nix")
           ];
           specialArgs = {
-            fretboard = inputs.fretboard;
-            nixpkgs = inputs.nixpkgs;
-            pkgs20251111 = pkgs20251111;
-            lightly = inputs.lightly;
+            inherit (inputs) fretboard nixpkgs lightly;
+            inherit pkgs20251111;
           };
         };
     in
