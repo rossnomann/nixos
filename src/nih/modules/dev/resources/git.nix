@@ -23,8 +23,18 @@ lib.generators.toGitINI {
     ci = "commit";
   };
   gpg.program = gpg;
+  format.pretty = "fuller";
   pull.ff = "only";
   init.defaultBranch = "master";
   include.path = "${cfgSources.catppuccin-delta}/catppuccin.gitconfig";
-  delta.features = "catppuccin-${cfgStyle.palette.variant}";
+  log.showSignature = true;
+  delta = {
+    features = "catppuccin-${cfgStyle.palette.variant}";
+    hyperlinks = true;
+    line-numbers = true;
+    navigate = true;
+    relative-paths = true;
+    side-by-side = true;
+  };
+  merge.conflictStyle = "zdiff3";
 }
