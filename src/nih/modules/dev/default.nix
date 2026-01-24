@@ -27,6 +27,7 @@ let
       nixfmt
       nixfmt-tree
       python314
+      ripgrep
       sqlite
       statix
       wget
