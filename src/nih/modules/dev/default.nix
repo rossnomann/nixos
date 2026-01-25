@@ -22,6 +22,7 @@ let
       gnupg
       helix
       jq
+      marksman
       mergiraf
       nixd
       nixf-diagnose
@@ -31,6 +32,8 @@ let
       ripgrep
       sqlite
       statix
+      tombi
+      yaml-language-server
       wget
       ;
   };
