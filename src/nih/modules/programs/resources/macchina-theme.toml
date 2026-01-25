@@ -12,8 +12,8 @@ visible = false
 [bar]
 glyph = "ߋ"
 hide_delimiters = true
-symbol_open = '['
-symbol_close = ']'
+symbol_open = "["
+symbol_close = "]"
 visible = true
 
 [box]

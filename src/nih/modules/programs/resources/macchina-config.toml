@@ -4,4 +4,13 @@ long_shell = false
 long_uptime = false
 physical_cores = true
 theme = "default"
-show = ["Battery", "Backlight", "Host", "Kernel", "Memory", "Processor", "ProcessorLoad", "Uptime"]
+show = [
+  "Battery",
+  "Backlight",
+  "Host",
+  "Kernel",
+  "Memory",
+  "Processor",
+  "ProcessorLoad",
+  "Uptime"
+]
