@@ -35,6 +35,7 @@ let
       tombi
       yaml-language-server
       wget
+      zellij
       ;
   };
   exe = {
@@ -118,6 +119,7 @@ in
           executable = true;
           source = ./resources/pythonrc;
         };
+        ".config/zellij/config.kdl".source = ./resources/zellij-config.kdl;
         ".local/share/gnupg/gpg.conf".source = ./resources/gpg.conf;
       };
     nih.xdg.mime.text = "Helix.desktop";
