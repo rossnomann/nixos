@@ -121,6 +121,7 @@ in
         };
         ".config/zellij/config.kdl".source = ./resources/zellij-config.kdl;
         ".config/zellij/layouts/hx.kdl".source = ./resources/zellij-layouts/hx.kdl;
+        ".config/zellij/layouts/nixos.kdl".source = ./resources/zellij-layouts/nixos.kdl;
         ".local/share/gnupg/gpg.conf".source = ./resources/gpg.conf;
       };
     nih.xdg.mime.text = "Helix.desktop";
