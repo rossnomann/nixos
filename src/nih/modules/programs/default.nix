@@ -1,9 +1,7 @@
 {
   config,
-  fretboard,
   lib,
   pkgs,
-  pkgs20251111,
   ...
 }:
 let
@@ -12,9 +10,7 @@ let
   cfgStyle = cfg.style;
   p = import ./packages.nix {
     inherit
-      fretboard
       pkgs
-      pkgs20251111
       cfgSources
       ;
   };
@@ -140,7 +136,7 @@ in
             themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
           };
           ".config/ardour8/my-dark-ardour-8.12.colors".source = ./resources/ardour.colors;
-          ".config/fretboard/config.toml".text = import ./resources/fretboard.nix palette;
+          ".config/fretboard/config.kdl".text = import ./resources/fretboard.nix palette;
           ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
           ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
           ".config/mc/ini".source = ./resources/mc.ini;

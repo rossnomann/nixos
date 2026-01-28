@@ -1,16 +1,16 @@
 {
-  fretboard,
   pkgs,
-  pkgs20251111,
   cfgSources,
 }:
 {
   inherit (pkgs)
     alacritty
     ardour
+    deadbeef
     discord
     exiftool
     file
+    fretboard
     helvum
     htop
     imagemagick
@@ -38,13 +38,11 @@
     xarchiver
     zathura
     ;
-  inherit (pkgs20251111) deadbeef;
   firefox =
     let
       extraPolicies = import ./resources/firefox-policies.nix;
     in
     pkgs.firefox.override { inherit extraPolicies; };
-  fretboard = fretboard.packages.${pkgs.stdenv.hostPlatform.system}.default;
   gimp = pkgs.gimp3-with-plugins.override {
     plugins = [ pkgs.gimp3Plugins.gmic ];
   };

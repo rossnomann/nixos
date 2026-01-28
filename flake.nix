@@ -7,7 +7,7 @@
       url = "github:rossnomann/makky";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lightly = {
+    darkly = {
       url = "github:Bali10050/Darkly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -25,8 +25,8 @@
     let
       system = "x86_64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      pkgs20251111 = inputs.nixpkgs20251111.legacyPackages.${system};
       lib = import ./src/nih/lib pkgs;
+      overlays = import ./src/nih/packages { inherit inputs system; };
       nixosSystem =
         deviceName:
         inputs.nixpkgs.lib.nixosSystem {
@@ -34,14 +34,13 @@
           modules = [
             inputs.makky.nixosModules.default
             inputs.niri-ws.nixosModules.default
-            ./src/nih/packages
+            overlays
             ./src/nih/modules
             ./src/config/base.nix
             (./src/config + "/${deviceName}.nix")
           ];
           specialArgs = {
-            inherit (inputs) fretboard nixpkgs lightly;
-            inherit pkgs20251111;
+            inherit (inputs) nixpkgs;
           };
         };
     in

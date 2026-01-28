@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  lightly,
   pkgs,
   ...
 }:
@@ -95,8 +94,8 @@ in
         cfgStyle.icons.package
         pkgs.libsForQt5.qt5ct
         pkgs.qt6Packages.qt6ct
-        lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5
-        lightly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt6
+        pkgs.darkly-qt5
+        pkgs.darkly-qt6
       ];
       variables = {
         QT_QPA_PLATFORMTHEME = "qt5ct";
