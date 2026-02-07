@@ -80,7 +80,7 @@ in
       ".config/nushell/env.nu".text = ''
         def create_left_prompt [] {
             let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
-            let path_dir = match (do { $env.PWD | path relative-to $nu.home-path }) {
+            let path_dir = match (do { $env.PWD | path relative-to $nu.home-dir }) {
                 null => $env.PWD
                 ''' => '~'
                 $relative_pwd => ([~ $relative_pwd] | path join)
