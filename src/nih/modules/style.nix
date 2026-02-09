@@ -139,16 +139,12 @@ in
         decorationLayout = ":";
         fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
         theme = {
-          name = "Colloid-Green-Dark-Compact-Catppuccin";
-          package = pkgs.colloid-gtk-theme.override {
-            colorVariants = [ (if palette.variant == "mocha" then "dark" else "light") ];
-            sizeVariants = [ "compact" ];
-            themeVariants = [ palette.accent ];
-            tweaks = [
-              "catppuccin"
-              "rimless"
-            ]
-            ++ (if palette.variant == "mocha" then [ "black" ] else [ ]);
+          name = "catppuccin-${palette.variant}-${palette.accent}-compact+rimless";
+          package = pkgs.catppuccin-gtk.override {
+            accents = [ palette.accent ];
+            size = "compact";
+            tweaks = [ "rimless" ];
+            inherit (palette) variant;
           };
         };
       };
