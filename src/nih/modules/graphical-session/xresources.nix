@@ -8,7 +8,7 @@ let
   cfg = config.nih;
   cfgStyle = cfg.style;
   cfgGraphicalSession = cfg.graphicalSession;
-  inherit (pkgs.xorg) xrdb;
+  inherit (pkgs) xrdb;
 in
 {
   config = lib.mkIf cfg.enable {
