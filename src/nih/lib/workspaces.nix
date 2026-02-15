@@ -1,5 +1,4 @@
 [
-
   "terminal"
   "main"
   "secondary"
