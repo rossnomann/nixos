@@ -6,7 +6,7 @@
 
       locale = {
         default = "en_US.UTF-8";
-        extra = "ru_RU.UTF-8";
+        extra = "en_IE.UTF-8";
         timeZone = "Europe/Bratislava";
       };
       style = {
