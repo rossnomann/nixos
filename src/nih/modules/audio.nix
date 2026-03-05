@@ -17,7 +17,6 @@ in
           pkgs.airwindows-lv2
           pkgs.calf
           pkgs.drumgizmo
-          pkgs.guitarix
           pkgs.gxplugins-lv2
           pkgs.lsp-plugins
           pkgs.noise-repellent
