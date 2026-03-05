@@ -4,50 +4,58 @@
     <Color name="alert:blue" value="89b4faff"/>
     <Color name="alert:cyan" value="94e2d5ff"/>
     <Color name="alert:green" value="a6e3a1ff"/>
-    <Color name="alert:greenish" value="f9e2afff"/>
+    <Color name="alert:greenish" value="a6e3a1ff"/>
     <Color name="alert:orange" value="fab387ff"/>
     <Color name="alert:red" value="f38ba8ff"/>
-    <Color name="alert:ruddy" value="cba6f7ff"/>
+    <Color name="alert:ruddy" value="eba0acff"/>
     <Color name="alert:yellow" value="f9e2afff"/>
-    <Color name="meter color0" value="89b4faff"/>
-    <Color name="meter color1" value="74c7ecff"/>
-    <Color name="meter color2" value="89dcebff"/>
-    <Color name="meter color3" value="94e2d5ff"/>
-    <Color name="meter color4" value="a6e3a1ff"/>
-    <Color name="meter color5" value="f9e2afff"/>
-    <Color name="meter color6" value="fab387ff"/>
-    <Color name="meter color7" value="eba0acff"/>
-    <Color name="meter color8" value="f38ba8ff"/>
-    <Color name="meter color9" value="cba6f7ff"/>
+    <Color name="meter color0" value="89dcebff"/>
+    <Color name="meter color1" value="94e2d5ff"/>
+    <Color name="meter color2" value="a6e3a1ff"/>
+    <Color name="meter color3" value="f9e2afff"/>
+    <Color name="meter color4" value="fab387ff"/>
+    <Color name="meter color5" value="eba0acff"/>
+    <Color name="meter color6" value="f38ba8ff"/>
+    <Color name="meter color7" value="cba6f7ff"/>
+    <Color name="meter color8" value="f5c2e7ff"/>
+    <Color name="meter color9" value="f2cdcdff"/>
     <Color name="midi meter 52" value="a6e3a1ff"/>
     <Color name="midi meter 53" value="f9e2afff"/>
     <Color name="midi meter 54" value="fab387ff"/>
     <Color name="midi meter 55" value="eba0acff"/>
     <Color name="midi meter 56" value="f38ba8ff"/>
-    <Color name="neutral:background" value="181825ff"/>
-    <Color name="neutral:background2" value="1e1e2eff"/>
+    <Color name="neutral:background" value="1e1e2eff"/>
+    <Color name="neutral:background2" value="313244ff"/>
     <Color name="neutral:backgroundest" value="11111bff"/>
-    <Color name="neutral:foreground" value="bac2deff"/>
-    <Color name="neutral:foreground2" value="a6adc8ff"/>
-    <Color name="neutral:foregroundest" value="cdd6f4ff"/>
-    <Color name="neutral:midground" value="313244ff"/>
-    <Color name="theme:bg" value="181825ff"/>
-    <Color name="theme:bg1" value="1e1e2eff"/>
-    <Color name="theme:bg2" value="1e1e2eff"/>
-    <Color name="theme:contrasting" value="f5c2e7ff"/>
-    <Color name="theme:contrasting alt" value="f2cdcdff"/>
+    <Color name="neutral:foreground" value="f1f3f5ff"/>
+    <Color name="neutral:foreground2" value="cdd6f4ff"/>
+    <Color name="neutral:foregroundest" value="f8f9faff"/>
+    <Color name="neutral:midground" value="45475aff"/>
+    <Color name="pianoroll: insensitive bender line" value="b4befe83"/>
+    <Color name="pianoroll: insensitive expression line" value="f9e2af83"/>
+    <Color name="pianoroll: insensitive modulation line" value="a6e3a183"/>
+    <Color name="pianoroll: insensitive pressure line" value="94e2d584"/>
+    <Color name="pianoroll: user1 line" value="eba0ac84"/>
+    <Color name="pianoroll: user2 line" value="cba6f784"/>
+    <Color name="pianoroll: user3 line" value="b4befe84"/>
+    <Color name="pianoroll: velocity" value="fab387ff"/>
+    <Color name="theme:bg" value="1e1e2eff"/>
+    <Color name="theme:bg1" value="313244ff"/>
+    <Color name="theme:bg2" value="11111bff"/>
+    <Color name="theme:contrasting" value="f38ba8ff"/>
+    <Color name="theme:contrasting alt" value="fab387ff"/>
     <Color name="theme:contrasting clock" value="a6e3a1ff"/>
-    <Color name="theme:contrasting less" value="313244ff"/>
-    <Color name="theme:contrasting selection" value="313244ff"/>
-    <Color name="widget:bg" value="313244ff"/>
+    <Color name="theme:contrasting less" value="eba0acff"/>
+    <Color name="theme:contrasting selection" value="a6e3a1ff"/>
+    <Color name="widget:bg" value="45475aff"/>
     <Color name="widget:blue" value="89b4faff"/>
-    <Color name="widget:blue darker" value="b4befeff"/>
+    <Color name="widget:blue darker" value="585b70ff"/>
     <Color name="widget:blue lighter" value="74c7ecff"/>
-    <Color name="widget:gray" value="cdd6f4ff"/>
-    <Color name="widget:green" value="a6e3a1ff"/>
-    <Color name="widget:green darker" value="94e2d5ff"/>
+    <Color name="widget:gray" value="f5e0dcff"/>
+    <Color name="widget:green" value="cba6f7ff"/>
+    <Color name="widget:green darker" value="313244ff"/>
     <Color name="widget:orange" value="fab387ff"/>
-    <Color name="widget:ruddy" value="eba0acff"/>
+    <Color name="widget:ruddy" value="a6e3a1fe"/>
     <Color name="widget:yellow" value="f9e2afff"/>
   </Colors>
   <ColorAliases>
@@ -61,6 +69,7 @@
     <ColorAlias name="audio master bus base" alias="neutral:backgroundest"/>
     <ColorAlias name="audio track base" alias="neutral:background"/>
     <ColorAlias name="automation line" alias="alert:greenish"/>
+    <ColorAlias name="automation line insensitive" alias="neutral:foreground2"/>
     <ColorAlias name="automation track outline" alias="theme:bg2"/>
     <ColorAlias name="big clock active: background" alias="neutral:backgroundest"/>
     <ColorAlias name="big clock active: cursor" alias="theme:contrasting alt"/>
@@ -90,7 +99,11 @@
     <ColorAlias name="crossfade editor point outline" alias="alert:blue"/>
     <ColorAlias name="crossfade editor wave" alias="neutral:foregroundest"/>
     <ColorAlias name="crossfade line" alias="neutral:backgroundest"/>
-    <ColorAlias name="edit point" alias="alert:cyan"/>
+    <ColorAlias name="cue editor end rect fill" alias="neutral:midground"/>
+    <ColorAlias name="cue editor end rect outline" alias="alert:orange"/>
+    <ColorAlias name="cue editor start rect fill" alias="neutral:midground"/>
+    <ColorAlias name="cue editor start rect outline" alias="alert:orange"/>
+    <ColorAlias name="edit point" alias="alert:blue"/>
     <ColorAlias name="entered automation line" alias="widget:orange"/>
     <ColorAlias name="entered gain line" alias="widget:orange"/>
     <ColorAlias name="entered marker" alias="widget:orange"/>
@@ -122,16 +135,17 @@
     <ColorAlias name="ghost track wave clip" alias="neutral:background"/>
     <ColorAlias name="ghost track wave fill" alias="neutral:midground"/>
     <ColorAlias name="ghost track zero line" alias="neutral:backgroundest"/>
-    <ColorAlias name="grid line major" alias="neutral:foregroundest"/>
-    <ColorAlias name="grid line micro" alias="neutral:midground"/>
+    <ColorAlias name="grid line major" alias="neutral:foreground2"/>
+    <ColorAlias name="grid line micro" alias="neutral:background2"/>
     <ColorAlias name="grid line minor" alias="neutral:midground"/>
+    <ColorAlias name="group tab base" alias="theme:bg2"/>
     <ColorAlias name="gtk_arm" alias="alert:red"/>
     <ColorAlias name="gtk_audio_bus" alias="neutral:background"/>
     <ColorAlias name="gtk_audio_track" alias="theme:bg1"/>
     <ColorAlias name="gtk_automation_track_header" alias="theme:bg"/>
     <ColorAlias name="gtk_background" alias="theme:bg"/>
     <ColorAlias name="gtk_bases" alias="theme:bg2"/>
-    <ColorAlias name="gtk_bg_selected" alias="theme:contrasting selection"/>
+    <ColorAlias name="gtk_bg_selected" alias="widget:blue darker"/>
     <ColorAlias name="gtk_bg_tooltip" alias="neutral:backgroundest"/>
     <ColorAlias name="gtk_bright_color" alias="widget:blue darker"/>
     <ColorAlias name="gtk_bright_indicator" alias="alert:red"/>
@@ -161,13 +175,14 @@
     <ColorAlias name="gtk_processor_postfader_frame" alias="widget:green"/>
     <ColorAlias name="gtk_processor_prefader" alias="widget:ruddy"/>
     <ColorAlias name="gtk_processor_prefader_frame" alias="widget:ruddy"/>
+    <ColorAlias name="gtk_scrollbar_slider" alias="neutral:midground"/>
     <ColorAlias name="gtk_send_bg" alias="theme:bg1"/>
     <ColorAlias name="gtk_send_fg" alias="widget:blue"/>
     <ColorAlias name="gtk_solo" alias="alert:green"/>
     <ColorAlias name="gtk_somewhat_bright_indicator" alias="theme:contrasting alt"/>
     <ColorAlias name="gtk_texts" alias="neutral:foreground"/>
     <ColorAlias name="gtk_track_header_inactive" alias="theme:bg"/>
-    <ColorAlias name="gtk_track_header_selected" alias="theme:contrasting less"/>
+    <ColorAlias name="gtk_track_header_selected" alias="widget:blue darker"/>
     <ColorAlias name="image track" alias="neutral:foreground2"/>
     <ColorAlias name="inactive crossfade" alias="theme:contrasting"/>
     <ColorAlias name="inactive fade handle" alias="neutral:foreground2"/>
@@ -184,6 +199,7 @@
     <ColorAlias name="location marker" alias="alert:yellow"/>
     <ColorAlias name="location punch" alias="alert:red"/>
     <ColorAlias name="location range" alias="alert:greenish"/>
+    <ColorAlias name="location session" alias="alert:greenish"/>
     <ColorAlias name="lock button: fill active" alias="widget:bg"/>
     <ColorAlias name="lock button: led active" alias="alert:red"/>
     <ColorAlias name="lua action button: fill" alias="widget:bg"/>
@@ -323,7 +339,7 @@
     <ColorAlias name="pluginui toggle: fill" alias="widget:bg"/>
     <ColorAlias name="pluginui toggle: fill active" alias="widget:blue"/>
     <ColorAlias name="preference highlight" alias="alert:yellow"/>
-    <ColorAlias name="processor automation line" alias="theme:bg1"/>
+    <ColorAlias name="processor automation line" alias="alert:greenish"/>
     <ColorAlias name="processor auxfeedback: fill" alias="theme:contrasting alt"/>
     <ColorAlias name="processor auxfeedback: led active" alias="alert:green"/>
     <ColorAlias name="processor control button: fill" alias="neutral:background"/>
@@ -371,6 +387,8 @@
     <ColorAlias name="route button: fill active" alias="theme:bg2"/>
     <ColorAlias name="route button: led active" alias="alert:green"/>
     <ColorAlias name="route rec button: led active" alias="alert:red"/>
+    <ColorAlias name="rta freeze button: fill" alias="widget:bg"/>
+    <ColorAlias name="rta freeze button: fill active" alias="alert:yellow"/>
     <ColorAlias name="rubber band rect" alias="neutral:foreground2"/>
     <ColorAlias name="rude audition: fill" alias="widget:bg"/>
     <ColorAlias name="rude audition: fill active" alias="alert:ruddy"/>
@@ -393,10 +411,10 @@
     <ColorAlias name="secondary delta clock: edited text" alias="theme:contrasting alt"/>
     <ColorAlias name="secondary delta clock: text" alias="theme:contrasting alt"/>
     <ColorAlias name="selected midi note frame" alias="alert:ruddy"/>
-    <ColorAlias name="selected region base" alias="alert:blue"/>
+    <ColorAlias name="selected region base" alias="alert:ruddy"/>
     <ColorAlias name="selected time axis frame" alias="alert:ruddy"/>
-    <ColorAlias name="selected waveform fill" alias="alert:green"/>
-    <ColorAlias name="selected waveform outline" alias="neutral:backgroundest"/>
+    <ColorAlias name="selected waveform fill" alias="alert:orange"/>
+    <ColorAlias name="selected waveform outline" alias="theme:bg2"/>
     <ColorAlias name="selection" alias="alert:red"/>
     <ColorAlias name="selection clock: background" alias="theme:bg2"/>
     <ColorAlias name="selection clock: cursor" alias="alert:ruddy"/>
@@ -439,6 +457,9 @@
     <ColorAlias name="stretch clock: edited text" alias="theme:contrasting alt"/>
     <ColorAlias name="stretch clock: text" alias="theme:contrasting clock"/>
     <ColorAlias name="sync mark" alias="theme:contrasting clock"/>
+    <ColorAlias name="tab button: fill" alias="widget:bg"/>
+    <ColorAlias name="tab button: fill active" alias="neutral:midground"/>
+    <ColorAlias name="tab button: led active" alias="alert:red"/>
     <ColorAlias name="tempo bar" alias="neutral:background2"/>
     <ColorAlias name="tempo curve" alias="widget:blue"/>
     <ColorAlias name="tempo marker" alias="widget:orange"/>
@@ -450,14 +471,14 @@
     <ColorAlias name="tracknumber label: fill" alias="theme:bg"/>
     <ColorAlias name="tracknumber label: fill active" alias="neutral:background2"/>
     <ColorAlias name="tracknumber label: led active" alias="alert:red"/>
-    <ColorAlias name="transport active option button: fill" alias="widget:bg"/>
+    <ColorAlias name="transport active option button: fill" alias="theme:contrasting selection"/>
     <ColorAlias name="transport active option button: fill active" alias="alert:green"/>
     <ColorAlias name="transport active option button: led active" alias="alert:green"/>
     <ColorAlias name="transport button: fill" alias="widget:bg"/>
     <ColorAlias name="transport button: fill active" alias="alert:green"/>
     <ColorAlias name="transport button: led active" alias="alert:green"/>
     <ColorAlias name="transport clock: background" alias="theme:bg2"/>
-    <ColorAlias name="transport clock: cursor" alias="theme:contrasting alt"/>
+    <ColorAlias name="transport clock: cursor" alias="alert:green"/>
     <ColorAlias name="transport clock: edited text" alias="theme:contrasting alt"/>
     <ColorAlias name="transport clock: text" alias="theme:contrasting clock"/>
     <ColorAlias name="transport delta clock: background" alias="theme:bg2"/>
@@ -468,7 +489,7 @@
     <ColorAlias name="transport loop rect" alias="alert:green"/>
     <ColorAlias name="transport marker bar" alias="neutral:background2"/>
     <ColorAlias name="transport option button: fill" alias="widget:bg"/>
-    <ColorAlias name="transport option button: fill active" alias="widget:bg"/>
+    <ColorAlias name="transport option button: fill active" alias="alert:greenish"/>
     <ColorAlias name="transport option button: led active" alias="alert:green"/>
     <ColorAlias name="transport punch rect" alias="widget:ruddy"/>
     <ColorAlias name="transport recenable button: fill" alias="widget:bg"/>
@@ -498,6 +519,7 @@
     <Modifier name="automation track fill" modifier="= alpha:0.5"/>
     <Modifier name="covered region base" modifier="= alpha:0.69999999999999996"/>
     <Modifier name="crossfade alpha" modifier="= alpha:0.20000000000000001"/>
+    <Modifier name="cue boundary alpha" modifier="= alpha:0.29999999999999999"/>
     <Modifier name="dragging region" modifier="= alpha:0.5"/>
     <Modifier name="editable region" modifier="= alpha:0.10000000000000001"/>
     <Modifier name="gain line inactive" modifier="= alpha:0.80000000000000004"/>
