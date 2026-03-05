@@ -39,16 +39,18 @@ in
         };
       };
     };
-    systemd.sleep.extraConfig =
+    systemd.sleep.settings =
       let
         allow = if cfgPower.suspend.enable then "yes" else "no";
       in
-      ''
-        AllowSuspend=${allow}
-        AllowHibernation=${allow}
-        AllowHybridSleep=${allow}
-        AllowSuspendThenHibernate=${allow}
-        HibernateMode=shutdown
-      '';
+      {
+        Sleep = {
+          AllowSuspend = allow;
+          AllowHibernation = allow;
+          AllowHybridSleep = allow;
+          AllowSuspendThenHibernate = allow;
+          HibernateMode = "shutdown";
+        };
+      };
   };
 }
