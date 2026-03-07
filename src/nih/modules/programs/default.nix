@@ -69,10 +69,6 @@ in
         workspace = "main";
       }
       {
-        appId = ''^org\\.pipewire\\.Helvum'';
-        workspace = "audio";
-      }
-      {
         appId = ''^org\\.inkscape\\.Inkscape'';
         workspace = "main";
       }

@@ -11,7 +11,6 @@
     exiftool
     file
     fretboard
-    helvum
     htop
     imagemagick
     inkscape
