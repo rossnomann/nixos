@@ -131,7 +131,7 @@ in
             fontMonospace = cfgStyle.fonts.monospace;
             themePath = "${cfgSources.catppuccin-alacritty}/catppuccin-${cfgStyle.palette.variant}.toml";
           };
-          ".config/ardour9/my-xcolors-ardour-9.0.colors".source = ./resources/ardour.colors;
+          ".config/ardour9/my-xcolors-ardour-9.2.colors".source = ./resources/ardour.colors;
           ".config/fretboard/config.kdl".text = import ./resources/fretboard.nix palette;
           ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
           ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
