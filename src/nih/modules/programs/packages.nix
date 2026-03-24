@@ -36,6 +36,7 @@
     wiremix
     xarchiver
     zathura
+    zoom-us
     ;
   firefox =
     let
