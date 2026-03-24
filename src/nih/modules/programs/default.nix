@@ -16,7 +16,7 @@ let
   };
 in
 {
-  options.nih.programs.desktop = {
+  options.nih.programs = {
     alacritty.executable = lib.mkOption { type = lib.types.str; };
     rofi.cmdShow = lib.mkOption { type = lib.types.listOf lib.types.str; };
   };
@@ -113,7 +113,7 @@ in
       }
     ];
     nih = {
-      programs.desktop = {
+      programs = {
         alacritty.executable = "${p.alacritty}/bin/alacritty";
         rofi.cmdShow = [
           "${p.rofi}/bin/rofi"

@@ -118,11 +118,11 @@ in
           bindsSpawn = [
             [
               "Mod+Return"
-              [ cfgPrograms.desktop.alacritty.executable ]
+              [ cfgPrograms.alacritty.executable ]
             ]
             [
               "Mod+R"
-              cfgPrograms.desktop.rofi.cmdShow
+              cfgPrograms.rofi.cmdShow
             ]
             [
               "Mod+W"
