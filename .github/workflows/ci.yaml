@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Maximize build space
-        uses: AdityaGarg8/remove-unwanted-software@v3
+        uses: AdityaGarg8/remove-unwanted-software@v5
         with:
           remove-android: true
           remove-cached-tools: true
@@ -19,9 +19,9 @@ jobs:
           remove-large-packages: true
           remove-swapfile: false
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Install nix
-        uses: cachix/install-nix-action@v31.1.0
+        uses: cachix/install-nix-action@v31.10.3
         with:
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Update
