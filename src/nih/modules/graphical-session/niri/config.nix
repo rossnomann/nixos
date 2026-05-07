@@ -211,6 +211,16 @@ in
               right = 0;
             };
           };
+          layerRules = [
+            {
+              matches.namespace = "^rofi$";
+              shadow = {
+                enabled = true;
+                color = colors.sapphire;
+                softness = 900;
+              };
+            }
+          ];
           overview.backdropColor = colors.crust;
           recentWindows.enabled = false;
           screenshotPath = null;
@@ -226,7 +236,8 @@ in
             }
             {
               matches.isActive = false;
-              opacity = 0.95;
+              backgroundEffect.blur = true;
+              opacity = 0.9;
             }
             {
               matches.isFloating = true;

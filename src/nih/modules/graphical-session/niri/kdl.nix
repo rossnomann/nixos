@@ -3,6 +3,37 @@ let
   inherit (lib.nih) kdl;
   on = kdl.mkNode "on" { };
   off = kdl.mkNode "off" { };
+  mkEnabled = value: if value then on else off;
+  mkEnabledOpt =
+    value:
+    (
+      if value == null then
+        null
+      else if value then
+        on
+      else
+        off
+    );
+  mkBackgroundEffect =
+    {
+
+      blur ? null,
+      noise ? null,
+      saturation ? null,
+      xray ? null,
+    }:
+    let
+      mkBlur = value: kdl.mkNodeWithArgs "blur" [ (kdl.types.mkBool value) ];
+      mkNoise = value: kdl.mkNodeWithArgs "noise" [ (kdl.types.mkFloat value) ];
+      mkSaturation = value: kdl.mkNodeWithArgs "saturation" [ (kdl.types.mkInteger value) ];
+      mkXray = value: kdl.mkNodeWithArgs "xray" [ (kdl.types.mkBool value) ];
+    in
+    kdl.mkNodeWithChildren "background-effect" [
+      (lib.mapNullable mkBlur blur)
+      (lib.mapNullable mkNoise noise)
+      (lib.mapNullable mkSaturation saturation)
+      (lib.mapNullable mkXray xray)
+    ];
   mkBindsWorkspace =
     idx: name:
     let
@@ -30,14 +61,7 @@ let
       mkWidth = x: kdl.mkNodeWithArgs "width" [ (kdl.types.mkFloat x) ];
     in
     kdl.mkNodeWithChildren name [
-      (
-        if enabled == null then
-          null
-        else if enabled then
-          on
-        else
-          off
-      )
+      (mkEnabledOpt enabled)
       (lib.mapNullable mkWidth width)
       (lib.mapNullable (mkColor "active") activeColor)
       (lib.mapNullable (mkColor "inactive") inactiveColor)
@@ -52,7 +76,7 @@ let
       mkSlowdown = x: kdl.mkNodeWithArgs "slowdown" [ (kdl.types.mkFloat x) ];
     in
     kdl.mkNodeWithChildren "animations" [
-      (if enabled then on else off)
+      (mkEnabled enabled)
       (lib.mapNullable mkSlowdown slowdown)
     ];
   mkBorder = data: mkRing "border" data;
@@ -212,10 +236,92 @@ let
       (lib.mapNullable (mkSize "preset-window-heights") presetWindowHeights)
       (lib.mapNullable mkStruts struts)
     ];
+  mkLayerRule =
+    {
+      backgroundEffect ? null,
+      blockOutFrom ? null,
+      geometryCornerRadius ? null,
+      matches ? null,
+      opacity ? null,
+      placeWithinBackdrop ? null,
+      popups ? null,
+      shadow ? null,
+    }:
+    let
+      mkBlockOutFrom = value: kdl.mkNodeWithArgs "block-out-from" [ (kdl.types.mkString value) ];
+      mkGeometryCornerRadius =
+        value: kdl.mkNodeWithArgs "geometry-corner-radius" [ (kdl.types.mkInteger value) ];
+      mkMatch =
+        {
+          atStartup ? null,
+          layer ? null,
+          namespace ? null,
+        }:
+        kdl.mkNodeWithProps "match" {
+          "at-startup" = kdl.types.mkBool atStartup;
+          "layer" = kdl.types.mkString layer;
+          "namespace" = kdl.types.mkString namespace;
+        };
+      mkOpacity = value: kdl.mkNodeWithArgs "opacity" [ (kdl.types.mkFloat value) ];
+      mkPlaceWithinBackdrop =
+        value: kdl.mkNodeWithArgs "place-within-backdrop" [ (kdl.types.mkBool value) ];
+      mkPopups =
+        {
+          backgroundEffect ? null,
+          geometryCornerRadius ? null,
+          opacity ? null,
+        }:
+        kdl.mkNodeWithChildren "popups" [
+          (lib.mapNullable mkBackgroundEffect backgroundEffect)
+          (lib.mapNullable mkGeometryCornerRadius geometryCornerRadius)
+          (lib.mapNullable mkOpacity opacity)
+        ];
+      mkShadow =
+        {
+          enabled ? null,
+          color ? null,
+          drawBehindWindow ? null,
+          inactiveColor ? null,
+          offset ? null,
+          softness ? null,
+          spread ? null,
+        }:
+        let
+          mkColor = value: kdl.mkNodeWithArgs "color" [ (kdl.types.mkString value) ];
+          mkDrawBehindWindow = value: kdl.mkNodeWithArgs "draw-behind-window" [ (kdl.types.mkBool value) ];
+          mkInactiveColor = value: kdl.mkNodeWithArgs "inactive-color" [ (kdl.types.mkString value) ];
+          mkOffset =
+            { x, y }:
+            kdl.mkNodeWithProps "offset" {
+              x = kdl.types.mkInteger x;
+              y = kdl.types.mkInteger y;
+            };
+          mkSoftness = value: kdl.mkNodeWithArgs "softness" [ (kdl.types.mkFloat value) ];
+          mkSpread = value: kdl.mkNodeWithArgs "spread" [ (kdl.types.mkInteger value) ];
+        in
+        kdl.mkNodeWithChildren "shadow" [
+          (mkEnabledOpt enabled)
+          (lib.mapNullable mkColor color)
+          (lib.mapNullable mkDrawBehindWindow drawBehindWindow)
+          (lib.mapNullable mkInactiveColor inactiveColor)
+          (lib.mapNullable mkOffset offset)
+          (lib.mapNullable mkSoftness softness)
+          (lib.mapNullable mkSpread spread)
+        ];
+    in
+    kdl.mkNodeWithChildren "layer-rule" [
+      (lib.mapNullable mkBackgroundEffect backgroundEffect)
+      (lib.mapNullable mkBlockOutFrom blockOutFrom)
+      (lib.mapNullable mkGeometryCornerRadius geometryCornerRadius)
+      (lib.mapNullable mkMatch matches)
+      (lib.mapNullable mkOpacity opacity)
+      (lib.mapNullable mkPlaceWithinBackdrop placeWithinBackdrop)
+      (lib.mapNullable mkPopups popups)
+      (lib.mapNullable mkShadow shadow)
+    ];
   mkOutput =
     let
-      mkHotCorners =
-        { enabled }: (kdl.mkNodeWithChildren "hot-corners" [ (if enabled then on else off) ]);
+      mkHotCorners = { enabled }: (kdl.mkNodeWithChildren "hot-corners" [ (mkEnabled enabled) ]);
       mkMode = x: kdl.mkNodeWithArgs "mode" [ (kdl.types.mkString x) ];
       mkPosition =
         { x, y }:
@@ -252,8 +358,7 @@ let
     kdl.mkNodeWithChildren "overview" [
       (lib.mapNullable mkBackdropColor backdropColor)
     ];
-  mkRecentWindows =
-    { enabled }: kdl.mkNodeWithChildren "recent-windows" [ (if enabled then on else off) ];
+  mkRecentWindows = { enabled }: kdl.mkNodeWithChildren "recent-windows" [ (mkEnabled enabled) ];
   mkScreenshotPath =
     p:
     kdl.mkNodeWithArgs "screenshot-path" [
@@ -290,11 +395,12 @@ let
       mkBool = name: value: kdl.mkNodeWithArgs name [ (kdl.types.mkBool value) ];
       mkOpenBool = name: mkBool "open-${name}";
       mkOpenOnWorkspace = x: kdl.mkNodeWithArgs "open-on-workspace" [ (kdl.types.mkString x) ];
-      mkShadow = { enabled }: kdl.mkNodeWithChildren "shadow" [ (if enabled then on else off) ];
+      mkShadow = { enabled }: kdl.mkNodeWithChildren "shadow" [ (mkEnabled enabled) ];
       mkSize = name: value: kdl.mkNodeWithArgs name [ (kdl.types.mkInteger value) ];
     in
     {
       matches ? null,
+      backgroundEffect ? null,
       border ? null,
       clipToGeometry ? null,
       drawBorderWithBackground ? null,
@@ -313,6 +419,7 @@ let
     }:
     kdl.mkNodeWithChildren "window-rule" [
       (lib.mapNullable mkMatch matches)
+      (lib.mapNullable mkBackgroundEffect backgroundEffect)
       (lib.mapNullable mkBorder border)
       (lib.mapNullable (mkBool "clip-to-geometry") clipToGeometry)
       (lib.mapNullable (mkBool "draw-border-with-background") drawBorderWithBackground)
@@ -388,6 +495,7 @@ in
         (mkScreenshotPath data.screenshotPath)
       ]
       ++ (map mkOutput data.outputs)
+      ++ (map mkLayerRule data.layerRules)
       ++ (map mkWindowRule data.windowRules)
     );
 }
