@@ -7,10 +7,6 @@
       url = "github:rossnomann/makky";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darkly = {
-      url = "github:Bali10050/Darkly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     fretboard = {
       url = "github:rossnomann/fretboard";
       inputs.nixpkgs.follows = "nixpkgs";

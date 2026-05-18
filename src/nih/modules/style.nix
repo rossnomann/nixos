@@ -94,8 +94,7 @@ in
         cfgStyle.icons.package
         pkgs.libsForQt5.qt5ct
         pkgs.qt6Packages.qt6ct
-        pkgs.darkly-qt5
-        pkgs.darkly-qt6
+        pkgs.darkly
       ];
       variables = {
         QT_QPA_PLATFORMTHEME = "qt5ct";
