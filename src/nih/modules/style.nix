@@ -267,7 +267,7 @@ in
         keyboard_scheme=2
         menus_have_icons=false
         show_shortcuts_in_context_menus=true
-        stylesheets=@Invalid()
+        stylesheets=${cfgUser.home.root}/.config/qt6ct/stylesheets/fixes.qss
         toolbutton_style=4
         underline_shortcut=1
         wheel_scroll_lines=3
@@ -278,6 +278,29 @@ in
       '';
       ".config/qt6ct/colors/catppuccin.conf".source =
         "${cfgSources.catppuccin-qtct}/themes/catppuccin-${palette.variant}-${palette.accent}.conf";
+      ".config/qt6ct/stylesheets/fixes.qss".text = ''
+        QMenuBar, QStatusBar {
+          color: palette(text);
+        }
+        QMenuBar, QMenu, QToolBar, QStatusBar, QFrame, QScrollBar {
+            border: none;
+        }
+        QMenuBar::item:selected {
+            color: palette(dark);
+        }
+        QTabBar::tab:selected {
+            color: palette(bright-text);
+        }
+        QScrollBar {
+            background: palette(dark);
+        }
+        QScrollBar::handle {
+            background: palette(highlight);
+        }
+        QScrollBar::add-line, QScrollBar::sub-line {
+            background: palette(window);
+        }
+      '';
       ".icons/default/index.theme".source =
         "${cfgStyle.cursors.indexPackage}/share/icons/default/index.theme";
       ".icons/${cfgStyle.cursors.name}".source =
