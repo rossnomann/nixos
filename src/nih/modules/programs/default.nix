@@ -45,6 +45,10 @@ in
         workspace = "terminal";
       }
       {
+        appId = "^Anki";
+        workspace = "main";
+      }
+      {
         appId = "^Ardour";
         workspace = "audio";
       }

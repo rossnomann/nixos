@@ -5,6 +5,7 @@
 {
   inherit (pkgs)
     alacritty
+    anki-bin
     ardour
     deadbeef
     discord
