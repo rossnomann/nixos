@@ -12,6 +12,7 @@
     exiftool
     file
     fretboard
+    goldendict-ng
     htop
     imagemagick
     inkscape
