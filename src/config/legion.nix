@@ -73,6 +73,9 @@
       dynamicBoost.enable = true;
 
       modesetting.enable = true;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       # Nvidia power management.
       # Experimental
@@ -80,17 +83,6 @@
       # Fine-grained power management turns off GPU when not in use.
       powerManagement.enable = false;
       powerManagement.finegrained = false;
-
-      # It is suggested to use the open source kernel modules on Turing or later GPUs (RTX series, GTX 16xx),
-      # and the closed source modules otherwise.
-      open = true;
-
-      # Enable the Nvidia settings menu,
-      # accessible via `nvidia-settings`.
-      nvidiaSettings = true;
-
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
   networking.useDHCP = lib.mkDefault true;
