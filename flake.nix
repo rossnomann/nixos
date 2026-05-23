@@ -42,6 +42,7 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
+        buildInputs = [ pkgs.just ];
         shellHook = ''
           export NPINS_DIRECTORY=$PWD/src/nih/modules/sources/npins
         '';
