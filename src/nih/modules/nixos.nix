@@ -14,9 +14,15 @@ in
       pkgs.npins
     ];
     nix = {
-      gc.automatic = true;
+      gc = {
+        automatic = true;
+        dates = [ "Sat" ];
+      };
       nixPath = [ "nixpkgs=${nixpkgs}" ];
-      optimise.automatic = true;
+      optimise = {
+        automatic = true;
+        dates = [ "Sat" ];
+      };
       settings.experimental-features = [
         "flakes"
         "nix-command"
