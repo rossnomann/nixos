@@ -8,7 +8,6 @@ in
     boot = {
       initrd.verbose = false;
       kernelParams = [
-        "splash"
         "quiet"
         "udev.log_level=3"
       ];
