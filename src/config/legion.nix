@@ -67,10 +67,10 @@
       enable32Bit = true;
     };
     nvidia = {
-      dynamicBoost.enable = false;
+      dynamicBoost.enable = true;
       modesetting.enable = true;
-      open = true;
       nvidiaSettings = true;
+      open = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
       powerManagement.enable = true;
       powerManagement.finegrained = false;
@@ -85,7 +85,6 @@
     ];
     net.host = "legion";
     power = {
-      powertop.enable = false;
       suspend.enable = false;
     };
     style = {

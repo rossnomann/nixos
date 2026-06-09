@@ -10,12 +10,10 @@ let
 in
 {
   options.nih.power = {
-    powertop.enable = lib.mkEnableOption "powertop";
     suspend.enable = lib.mkEnableOption "suspend";
   };
   config = lib.mkIf cfg.enable {
-    environment = lib.mkIf cfgPower.powertop.enable { systemPackages = [ pkgs.powertop ]; };
-    powerManagement.powertop.enable = cfgPower.powertop.enable;
+    environment.systemPackages = [ pkgs.power-profiles-daemon ];
     services = {
       logind.settings.Login = {
         HandleLidSwitch = if cfgPower.suspend.enable then "suspend-then-hibernate" else "ignore";
@@ -26,18 +24,8 @@ in
         IdleAction = "ignore";
         KillUserProcesses = true;
       };
+      power-profiles-daemon.enable = true;
       thermald.enable = true;
-      tlp = {
-        enable = true;
-        settings = {
-          CPU_SCALING_GOVERNOR_ON_AC = "performance";
-          CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
-          CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-          CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
-          START_CHARGE_THRESH_BAT0 = 45;
-          STOP_CHARGE_TRESH_BAT0 = 50;
-        };
-      };
     };
     systemd.sleep.settings =
       let
