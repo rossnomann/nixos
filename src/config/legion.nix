@@ -67,21 +67,12 @@
       enable32Bit = true;
     };
     nvidia = {
-      # Dynamic Boost balances power between the CPU and the GPU
-      # for improved performance on supported laptops using the nvidia-powerd daemon.
-      # https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/dynamicboost.html
-      dynamicBoost.enable = true;
-
+      dynamicBoost.enable = false;
       modesetting.enable = true;
       open = true;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
-
-      # Nvidia power management.
-      # Experimental
-      # https://download.nvidia.com/XFree86/Linux-x86_64/575.64/README/powermanagement.html
-      # Fine-grained power management turns off GPU when not in use.
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
     };
   };
