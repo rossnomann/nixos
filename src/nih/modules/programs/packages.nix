@@ -7,7 +7,6 @@
     alacritty
     anki-bin
     ardour
-    crush
     deadbeef
     discord
     exiftool
@@ -24,7 +23,6 @@
     macchina
     mc
     mpv
-    ollama-cuda
     overskride
     pciutils
     rofi
