@@ -178,4 +178,10 @@
     hardware.bolt.enable = true;
     xserver.videoDrivers = [ "nvidia" ];
   };
+  swapDevices = [
+    {
+      device = "/var/swap";
+      size = 2 * 1024;
+    }
+  ];
 }
