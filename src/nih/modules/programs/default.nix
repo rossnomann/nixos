@@ -166,6 +166,8 @@ in
             "${cfgSources.catppuccin-rofi}/themes/catppuccin-${cfgStyle.palette.variant}.rasi";
           ".config/zathura/zathurarc".text = ''
             include ${cfgSources.catppuccin-zathura}/themes/catppuccin-${cfgStyle.palette.variant}
+            map j scroll smooth-down
+            map k scroll smooth-up
           '';
           ".local/share/mc/skins/catppuccin.ini".source = "${cfgSources.catppuccin-mc}/catppuccin.ini";
         };
