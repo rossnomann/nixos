@@ -32,6 +32,7 @@ in
       config.allowUnfree = true;
       hostPlatform = lib.mkDefault "x86_64-linux";
     };
+    programs.nix-ld.enable = true;
     system.stateVersion = "23.11";
   };
 }
