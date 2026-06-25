@@ -77,29 +77,38 @@ in
             }
         }
       '';
-      ".config/nushell/env.nu".text = ''
+      ".config/nushell/env.nu".text =
+        let
+          nu_scripts = "${pkgs.nu_scripts}/share/nu_scripts";
+        in
+        ''
 
-        use ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/git/git-completions.nu *
+          use ${nu_scripts}/custom-completions/bat/bat-completions.nu *
+          use ${nu_scripts}/custom-completions/git/git-completions.nu *
+          use ${nu_scripts}/custom-completions/less/less-completions.nu *
+          use ${nu_scripts}/custom-completions/make/make-completions.nu *
+          use ${nu_scripts}/custom-completions/rg/rg-completions.nu *
+          use ${nu_scripts}/custom-completions/tar/tar-completions.nu *
 
-        def create_left_prompt [] {
-            let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
-            let path_dir = match (do { $env.PWD | path relative-to $nu.home-dir }) {
-                null => $env.PWD
-                ''' => '~'
-                $relative_pwd => ([~ $relative_pwd] | path join)
-            }
-            let path_segment = $"($path_color)($path_dir)"
-            let exit_code_color = ansi magenta_bold
-            let exit_code_segment = $"($exit_code_color)[ ($env.LAST_EXIT_CODE) ]"
-            let time_color = ansi green_bold
-            let time_value = (date now | format date '%H:%M:%S')
-            let time_segment = $"($time_color)[ ($time_value) ]"
-            $"($time_segment) ($path_segment) ($exit_code_segment) "
-        }
+          def create_left_prompt [] {
+              let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
+              let path_dir = match (do { $env.PWD | path relative-to $nu.home-dir }) {
+                  null => $env.PWD
+                  ''' => '~'
+                  $relative_pwd => ([~ $relative_pwd] | path join)
+              }
+              let path_segment = $"($path_color)($path_dir)"
+              let exit_code_color = ansi magenta_bold
+              let exit_code_segment = $"($exit_code_color)[ ($env.LAST_EXIT_CODE) ]"
+              let time_color = ansi green_bold
+              let time_value = (date now | format date '%H:%M:%S')
+              let time_segment = $"($time_color)[ ($time_value) ]"
+              $"($time_segment) ($path_segment) ($exit_code_segment) "
+          }
 
-        $env.PROMPT_COMMAND = {|| create_left_prompt }
-        $env.PROMPT_COMMAND_RIGHT = {|| }
-      '';
+          $env.PROMPT_COMMAND = {|| create_left_prompt }
+          $env.PROMPT_COMMAND_RIGHT = {|| }
+        '';
     };
     security.sudo.wheelNeedsPassword = false;
     users.users.${cfgUser.name} = {
