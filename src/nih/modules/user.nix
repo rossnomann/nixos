@@ -6,6 +6,7 @@
 }:
 let
   cfg = config.nih;
+  cfgSources = cfg.sources;
   cfgUser = cfg.user;
 in
 {
@@ -79,16 +80,16 @@ in
       '';
       ".config/nushell/env.nu".text =
         let
-          nu_scripts = "${pkgs.nu_scripts}/share/nu_scripts";
+          scripts = "${cfgSources.nu-scripts}";
         in
         ''
 
-          use ${nu_scripts}/custom-completions/bat/bat-completions.nu *
-          use ${nu_scripts}/custom-completions/git/git-completions.nu *
-          use ${nu_scripts}/custom-completions/less/less-completions.nu *
-          use ${nu_scripts}/custom-completions/make/make-completions.nu *
-          use ${nu_scripts}/custom-completions/rg/rg-completions.nu *
-          use ${nu_scripts}/custom-completions/tar/tar-completions.nu *
+          use ${scripts}/custom-completions/bat/bat-completions.nu *
+          use ${scripts}/custom-completions/git/git-completions.nu *
+          use ${scripts}/custom-completions/less/less-completions.nu *
+          use ${scripts}/custom-completions/make/make-completions.nu *
+          use ${scripts}/custom-completions/rg/rg-completions.nu *
+          use ${scripts}/custom-completions/tar/tar-completions.nu *
 
           def create_left_prompt [] {
               let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
