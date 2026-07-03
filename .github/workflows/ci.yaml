@@ -24,6 +24,8 @@ jobs:
         uses: cachix/install-nix-action@v31.10.3
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: Cache
+        uses: Mic92/hestia@v1
       - name: Update
         run: nix flake update
       - name: Build
