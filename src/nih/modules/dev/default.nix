@@ -35,6 +35,7 @@ let
       tombi
       yaml-language-server
       wget
+      zuban
       ;
   };
   exe = {
@@ -112,6 +113,7 @@ in
         ".config/direnv/direnv.toml".source = ./resources/direnv.toml;
         ".config/direnv/lib/nix-direnv.sh".source = "${pkgs.nix-direnv}/share/nix-direnv/direnvrc";
         ".config/helix/config.toml".text = import ./resources/helix-config.nix palette;
+        ".config/helix/languages.toml".source = ./resources/helix-languages.toml;
         ".config/helix/themes/catppuccin-${palette.variant}.toml".source =
           "${cfgSources.catppuccin-helix}/themes/default/catppuccin_${palette.variant}.toml";
         ".config/python/pythonrc" = {

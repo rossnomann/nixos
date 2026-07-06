@@ -1,0 +1,16 @@
+[[language]]
+name = "python"
+language-servers = ["zuban"]
+
+[language-server.zuban]
+command = "zuban"
+args = ["server"]
+
+[[language-server.rust-analyzer.config]]
+check.command = "clippy"
+check.features = "all"
+completion.fullFunctionSignatures.enable = true
+hover.actions.references.enable = true
+inlayHints.bindingModeHints.enable = true
+inlayHints.closingBraceHints.minLines = 1
+interpret.tests = true
