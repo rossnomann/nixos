@@ -368,6 +368,15 @@ let
   mkSpawnCommand = args: lib.strings.concatStringsSep " " (map (x: ''"${x}"'') args);
   mkWindowRule =
     let
+      mkProportion = value: kdl.mkNodeWithArgs "proportion" [ (kdl.types.mkFloat value) ];
+      mkFixed = value: kdl.mkNodeWithArgs "fixed" [ (kdl.types.mkInteger value) ];
+      mkDefaultSize =
+        name:
+        {
+          fixed ? false,
+          value,
+        }:
+        kdl.mkNodeWithChildren name [ (if fixed then mkFixed value else mkProportion value) ];
       mkMatch =
         {
           appId ? null,
@@ -403,6 +412,8 @@ let
       backgroundEffect ? null,
       border ? null,
       clipToGeometry ? null,
+      defaultHeight ? null,
+      defaultWidth ? null,
       drawBorderWithBackground ? null,
       maxHeight ? null,
       maxWidth ? null,
@@ -422,6 +433,8 @@ let
       (lib.mapNullable mkBackgroundEffect backgroundEffect)
       (lib.mapNullable mkBorder border)
       (lib.mapNullable (mkBool "clip-to-geometry") clipToGeometry)
+      (lib.mapNullable (mkDefaultSize "default-window-height") defaultHeight)
+      (lib.mapNullable (mkDefaultSize "default-column-width") defaultWidth)
       (lib.mapNullable (mkBool "draw-border-with-background") drawBorderWithBackground)
       (lib.mapNullable (mkSize "max-height") maxHeight)
       (lib.mapNullable (mkSize "max-width") maxWidth)

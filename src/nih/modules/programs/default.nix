@@ -50,11 +50,14 @@ in
       }
       {
         appId = "^Ardour";
-        workspace = "audio";
+        workspace = "main";
       }
       {
         appId = "^deadbeef";
         workspace = "secondary";
+        defaultWidth = {
+          value = 0.5;
+        };
       }
       {
         appId = "^discord";
@@ -91,12 +94,12 @@ in
       }
       {
         appId = "^Slack";
-        workspace = "secondary";
+        workspace = "main";
       }
       {
         appId = "^steam";
         fullscreen = true;
-        workspace = "games";
+        workspace = "main";
       }
       {
         appId = "^syncplay";
@@ -106,6 +109,9 @@ in
       {
         appId = ''^org\\.telegram\\.desktop'';
         workspace = "secondary";
+        defaultWidth = {
+          value = 0.5;
+        };
       }
       {
         appId = "^transmission";

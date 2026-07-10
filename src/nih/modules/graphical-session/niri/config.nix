@@ -231,7 +231,6 @@ in
             }
             {
               matches.isFloating = false;
-              openMaximized = true;
               tiledState = true;
             }
             {
@@ -259,6 +258,7 @@ in
             matches = {
               inherit (x) appId title;
             };
+            inherit (x) defaultHeight defaultWidth;
             openOnWorkspace = x.workspace;
             openFullscreen = x.fullscreen;
             openFloating = x.floating;
