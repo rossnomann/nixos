@@ -14,6 +14,7 @@ let
       else
         off
     );
+  mkFlag = name: value: if value then kdl.mkNode name { } else null;
   mkBackgroundEffect =
     {
 
@@ -154,7 +155,6 @@ let
           (lib.mapNullable mkXkb xkb)
           (lib.mapNullable mkTrackLayout trackLayout)
         ];
-      mkFlag = name: value: if value then kdl.mkNode name { } else null;
       mkTouchpad =
         {
           dwt ? null,
@@ -182,6 +182,7 @@ let
     ];
   mkLayout =
     {
+      alwaysCenterSingleColumn ? null,
       border ? null,
       centerFocusedColumn ? null,
       defaultColumnWidth ? null,
@@ -226,6 +227,7 @@ let
         ];
     in
     kdl.mkNodeWithChildren "layout" [
+      (lib.mapNullable (mkFlag "always-center-single-column") alwaysCenterSingleColumn)
       (lib.mapNullable mkBorder border)
       (lib.mapNullable mkCenterFocusedColumn centerFocusedColumn)
       (lib.mapNullable (mkSize "default-column-width") [ defaultColumnWidth ])

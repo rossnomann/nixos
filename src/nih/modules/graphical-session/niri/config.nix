@@ -158,13 +158,14 @@ in
             warpMouseToFocus = true;
           };
           layout = {
+            alwaysCenterSingleColumn = true;
             border = {
               activeColor = cfgStyle.palette.accentColor;
               inactiveColor = colors.overlay2;
               urgentColor = colors.mauve;
               width = 2;
             };
-            centerFocusedColumn = "never";
+            centerFocusedColumn = "on-overflow";
             defaultColumnWidth = [
               "proportion"
               1.0
