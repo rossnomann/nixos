@@ -8,7 +8,6 @@
     anki-bin
     ardour
     deadbeef
-    discord
     exiftool
     file
     fretboard
