@@ -139,12 +139,30 @@ in
         fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
         theme = {
           name = "catppuccin-${palette.variant}-${palette.accent}-compact+rimless";
-          package = pkgs.catppuccin-gtk.override {
-            accents = [ palette.accent ];
-            size = "compact";
-            tweaks = [ "rimless" ];
-            inherit (palette) variant;
-          };
+          package =
+            (pkgs.catppuccin-gtk.overrideAttrs (
+              final: prev: {
+                nativeBuildInputs = [
+                  pkgs.gtk3
+                  pkgs.sassc
+                  pkgs.git
+                  (pkgs.python313.withPackages (ps: [
+                    (ps.catppuccin.overridePythonAttrs (
+                      _final: _prev: {
+                        optional-dependencies = { };
+                        nativeCheckInputs = [ ];
+                      }
+                    ))
+                  ]))
+                ];
+              }
+            )).override
+              {
+                accents = [ palette.accent ];
+                size = "compact";
+                tweaks = [ "rimless" ];
+                inherit (palette) variant;
+              };
         };
       };
       palette.accentColor = lib.getAttr palette.accent cfgStyle.palette.colors;
