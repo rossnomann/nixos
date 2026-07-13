@@ -111,6 +111,17 @@ in
           $env.PROMPT_COMMAND_RIGHT = {|| }
         '';
     };
+    security.polkit.extraConfig =
+    ''
+      polkit.addRule(function (action, subject) {
+        if (
+          action.id == "org.freedesktop.locale1.set-keyboard" &&
+          subject.user == "${cfgUser.name}"
+        ) {
+          return polkit.Result.YES;
+        }
+      })
+    '';
     security.sudo.wheelNeedsPassword = false;
     users.users.${cfgUser.name} = {
       inherit (cfgUser) description;

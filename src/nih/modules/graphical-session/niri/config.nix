@@ -142,10 +142,6 @@ in
           input = {
             focusFollowsMouse.maxScrollAmount = "10%";
             keyboard = {
-              xkb = {
-                layout = "fsk,ru";
-                variant = ",";
-              };
               trackLayout = "window";
             };
             touchpad = {

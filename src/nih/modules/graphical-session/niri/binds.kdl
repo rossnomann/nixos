@@ -1,5 +1,14 @@
 binds {
   Ctrl+Alt+End { quit; }
+  Ctrl+Alt+R {
+    spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "us,ru"
+  }
+  Ctrl+Alt+S {
+    spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "sk,ru"
+  }
+  Ctrl+Alt+G {
+    spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "ge,ru,us"
+  }
   Mod+Ctrl+O { power-off-monitors; }
 
   Mod+Space { switch-layout "next"; }
