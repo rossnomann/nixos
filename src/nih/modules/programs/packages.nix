@@ -7,6 +7,7 @@
     alacritty
     anki-bin
     ardour
+    deadbeef
     exiftool
     file
     fretboard
@@ -37,35 +38,6 @@
     xarchiver
     zathura
     ;
-  deadbeef = pkgs.deadbeef.overrideAttrs (
-    final: prev: {
-      buildInputs = [
-        pkgs.jansson
-        (pkgs.swift-corelibs-libdispatch.override { useSwift = false; })
-        pkgs.gtk3
-        pkgs.gsettings-desktop-schemas
-        pkgs.libvorbis
-        pkgs.libmad
-        pkgs.flac
-        pkgs.libsndfile
-        pkgs.libcdio
-        pkgs.libcddb
-        pkgs.faad2
-        pkgs.opusfile
-        pkgs.libzip
-        pkgs.ffmpeg
-        pkgs.yasm
-        pkgs.imlib2
-        pkgs.libx11
-        pkgs.dbus
-        pkgs.pipewire
-        pkgs.libsamplerate
-        pkgs.zlib
-        pkgs.wavpack
-        pkgs.curl
-      ];
-    }
-  );
   firefox =
     let
       extraPolicies = import ./resources/firefox-policies.nix;
