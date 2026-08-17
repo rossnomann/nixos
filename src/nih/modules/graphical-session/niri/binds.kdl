@@ -12,25 +12,22 @@ binds {
   Mod+Ctrl+O { power-off-monitors; }
 
   Mod+Space { switch-layout "next"; }
-  Mod+Shift+Space { switch-layout "prev"; }
 
   Mod+O repeat=false { toggle-overview; }
 
-  Mod+Left { focus-column-left; }
-  Mod+Right { focus-column-right; }
-  Mod+End { focus-column-last; }
-  Mod+Home { focus-column-first; }
+  Mod+J { focus-column-left; }
+  Mod+K { focus-column-right; }
+  Mod+L { focus-column-last; }
+  Mod+H { focus-column-first; }
 
-  Mod+Up { focus-window-up; }
-  Mod+Down { focus-window-down; }
+  Mod+U { focus-window-up; }
+  Mod+M { focus-window-down; }
 
-  Mod+Page_Down { focus-workspace-down; }
-  Mod+Page_Up { focus-workspace-up; }
+  Mod+N { focus-workspace-down; }
+  Mod+Y { focus-workspace-up; }
 
-  Mod+Ctrl+Left { focus-monitor-left; }
-  Mod+Ctrl+Down { focus-monitor-down; }
-  Mod+Ctrl+Up { focus-monitor-up; }
-  Mod+Ctrl+Right { focus-monitor-right; }
+  Mod+Ctrl+J { focus-monitor-left; }
+  Mod+Ctrl+K { focus-monitor-right; }
 
   Mod+Shift+Q { close-window; }
 
