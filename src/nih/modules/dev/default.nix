@@ -33,6 +33,7 @@ let
       sqlite
       statix
       tombi
+      vscode-json-languageserver
       yaml-language-server
       wget
       zuban
