@@ -34,6 +34,7 @@
     trash-cli
     unrar
     usbutils
+    vial
     wiremix
     xarchiver
     zathura
