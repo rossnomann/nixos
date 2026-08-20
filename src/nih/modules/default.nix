@@ -17,7 +17,6 @@
     ./services.nix
     ./style.nix
     ./sync.nix
-    ./udev.nix
     ./user.nix
   ];
   options.nih = {

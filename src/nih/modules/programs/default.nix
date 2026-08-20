@@ -186,5 +186,8 @@ in
         videos = "mpv.desktop";
       };
     };
+    services.udev.packages = [
+      p.vial
+    ];
   };
 }
