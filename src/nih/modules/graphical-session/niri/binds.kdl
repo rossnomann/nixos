@@ -26,8 +26,8 @@ binds {
   Mod+N { focus-workspace-down; }
   Mod+Y { focus-workspace-up; }
 
-  Mod+Ctrl+J { focus-monitor-left; }
-  Mod+Ctrl+K { focus-monitor-right; }
+  Mod+Ctrl+J { focus-monitor-previous; }
+  Mod+Ctrl+K { focus-monitor-next; }
 
   Mod+Shift+Q { close-window; }
 
