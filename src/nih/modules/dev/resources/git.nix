@@ -30,7 +30,6 @@ lib.generators.toGitINI {
   log.showSignature = true;
   delta = {
     features = "catppuccin-${cfgStyle.palette.variant}";
-    hyperlinks = true;
     line-numbers = true;
     navigate = true;
     relative-paths = true;
