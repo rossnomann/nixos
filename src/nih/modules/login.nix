@@ -15,12 +15,7 @@ in
     };
     services.greetd =
       let
-        sessionDirs = lib.strings.concatStringsSep ":" (
-          map (
-            p: "${p}/share/xsessions:${p}/share/wayland-sessions"
-          ) config.services.displayManager.sessionPackages
-        );
-        tuigreet = "${pkgs.tuigreet}/bin/tuigreet --remember-session -s ${sessionDirs}";
+        tuigreet = "${pkgs.tuigreet}/bin/tuigreet --remember-session";
       in
       {
         enable = true;
