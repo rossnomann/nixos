@@ -24,6 +24,8 @@
     mpv
     overskride
     pciutils
+    qmk
+    qmk-udev-rules
     rofi
     scrcpy
     simple-scan

@@ -187,6 +187,7 @@ in
       };
     };
     services.udev.packages = [
+      p.qmk-udev-rules
       p.vial
     ];
   };
