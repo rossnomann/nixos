@@ -9,7 +9,6 @@ binds {
   Ctrl+Alt+G {
     spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "ge,ru,us"
   }
-  Mod+Ctrl+O { power-off-monitors; }
 
   Mod+Space { switch-layout "next"; }
 
@@ -28,24 +27,17 @@ binds {
 
   Mod+Ctrl+J { focus-monitor-previous; }
   Mod+Ctrl+K { focus-monitor-next; }
+  Mod+Ctrl+O { power-off-monitors; }
 
   Mod+Shift+Q { close-window; }
-
   Mod+Shift+BracketLeft  { consume-or-expel-window-left; }
   Mod+Shift+BracketRight { consume-or-expel-window-right; }
-
   Mod+Shift+Down { move-window-down; }
   Mod+Shift+Up { move-window-up; }
   Mod+Shift+Left { move-column-left; }
   Mod+Shift+Right { move-column-right; }
   Mod+Shift+Home { move-column-to-first; }
   Mod+Shift+End { move-column-to-last; }
-
-  Mod+Ctrl+Shift+Down { move-workspace-to-monitor-down; }
-  Mod+Ctrl+Shift+Left { move-workspace-to-monitor-left; }
-  Mod+Ctrl+Shift+Right { move-workspace-to-monitor-right; }
-  Mod+Ctrl+Shift+Up { move-workspace-to-monitor-up; }
-
   Mod+Shift+A { toggle-column-tabbed-display; }
   Mod+Shift+C { center-visible-columns; }
   Mod+Shift+E { expand-column-to-available-width; }
