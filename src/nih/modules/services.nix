@@ -46,6 +46,10 @@ in
         cups-pdf.enable = true;
       };
       saned.enable = true;
+      udisks2 = {
+        enable = true;
+        mountOnMedia = true;
+      };
     };
     systemd = {
       packages = [ pkgDunst ];
