@@ -14,37 +14,21 @@ binds {
 
   Mod+O repeat=false { toggle-overview; }
 
-  Mod+J { focus-column-left; }
-  Mod+K { focus-column-right; }
-  Mod+L { focus-column-last; }
-  Mod+H { focus-column-first; }
+  Mod+J { focus-column-or-monitor-left; }
+  Mod+K { focus-column-or-monitor-right; }
+  Mod+I { focus-window-or-workspace-down; }
+  Mod+U { focus-window-or-workspace-up; }
 
-  Mod+U { focus-window-up; }
-  Mod+M { focus-window-down; }
-
-  Mod+N { focus-workspace-down; }
-  Mod+Y { focus-workspace-up; }
-
-  Mod+Ctrl+J { focus-monitor-previous; }
   Mod+Ctrl+K { focus-monitor-next; }
-  Mod+Ctrl+O { power-off-monitors; }
+  Mod+Ctrl+I { power-off-monitors; }
 
   Mod+Shift+Q { close-window; }
-  Mod+Shift+BracketLeft  { consume-or-expel-window-left; }
-  Mod+Shift+BracketRight { consume-or-expel-window-right; }
-  Mod+Shift+Down { move-window-down; }
-  Mod+Shift+Up { move-window-up; }
-  Mod+Shift+Left { move-column-left; }
-  Mod+Shift+Right { move-column-right; }
-  Mod+Shift+Home { move-column-to-first; }
-  Mod+Shift+End { move-column-to-last; }
-  Mod+Shift+A { toggle-column-tabbed-display; }
+  Mod+Shift+U { move-column-left; }
+  Mod+Shift+J { move-column-right; }
   Mod+Shift+C { center-visible-columns; }
   Mod+Shift+E { expand-column-to-available-width; }
   Mod+Shift+F { fullscreen-window; }
-  Mod+Shift+H { switch-preset-window-height; }
-  Mod+Shift+M { maximize-column; }
-  Mod+Shift+R { reset-window-height; }
+  Mod+Shift+A { maximize-column; }
   Mod+Shift+T { toggle-window-floating; }
   Mod+Shift+V { center-column; }
   Mod+Shift+W { switch-preset-column-width; }

@@ -125,7 +125,7 @@ in
               cfgPrograms.rofi.cmdShow
             ]
             [
-              "Mod+W"
+              "Mod+M"
               [ "niri-ws" ]
             ]
           ];
@@ -172,29 +172,7 @@ in
             presetColumnWidths = [
               [
                 "proportion"
-                0.75
-              ]
-              [
-                "proportion"
                 0.5
-              ]
-              [
-                "proportion"
-                0.25
-              ]
-            ];
-            presetWindowHeights = [
-              [
-                "proportion"
-                0.75
-              ]
-              [
-                "proportion"
-                0.5
-              ]
-              [
-                "proportion"
-                0.25
               ]
               [
                 "proportion"
