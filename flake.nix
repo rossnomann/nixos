@@ -15,6 +15,10 @@
       url = "github:rossnomann/niri-ws";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xkb = {
+      url = "github:rossnomann/xkb";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs:

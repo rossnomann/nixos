@@ -5,6 +5,7 @@ _: {
     (_: prev: {
       nih = {
         wallpapers = import ./wallpapers { inherit prev; };
+        xkb = inputs.xkb.packages.${system}.default;
       };
     })
   ];

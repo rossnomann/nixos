@@ -1,7 +1,7 @@
 binds {
   Ctrl+Alt+End { quit; }
   Ctrl+Alt+R {
-    spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "us,ru"
+    spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "custom_lat,custom_cyr"
   }
   Ctrl+Alt+S {
     spawn "localectl" "set-x11-keymap" "--no-ask-password" "--no-convert" "sk,ru"
