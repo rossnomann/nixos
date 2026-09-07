@@ -36,6 +36,7 @@
     unrar
     usbutils
     vial
+    vifm
     wiremix
     xarchiver
     zathura

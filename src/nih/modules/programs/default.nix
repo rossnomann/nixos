@@ -170,6 +170,8 @@ in
           ".config/rofi/theme.rasi".source = "${cfgSources.catppuccin-rofi}/catppuccin-default.rasi";
           ".config/rofi/palette.rasi".source =
             "${cfgSources.catppuccin-rofi}/themes/catppuccin-${cfgStyle.palette.variant}.rasi";
+          ".config/vifm/vifmrc".source = ./resources/vifm-config;
+          ".config/vifm/colors/Default.vifm".source = ./resources/vifm-colors;
           ".config/zathura/zathurarc".text = ''
             include ${cfgSources.catppuccin-zathura}/themes/catppuccin-${cfgStyle.palette.variant}
             map j scroll smooth-down
