@@ -9,6 +9,7 @@
     ardour
     deadbeef
     exiftool
+    fd
     file
     fretboard
     goldendict-ng
