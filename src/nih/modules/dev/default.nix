@@ -19,6 +19,7 @@ let
       delta
       direnv
       git
+      glab
       gnupg
       helix
       jq
@@ -33,6 +34,7 @@ let
       sqlite
       statix
       tombi
+      tuicr
       vscode-json-languageserver
       yaml-language-server
       wget
