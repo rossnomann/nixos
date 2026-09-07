@@ -138,31 +138,18 @@ in
         decorationLayout = ":";
         fontName = "${cfgStyle.fonts.sansSerif.family} ${toString cfgStyle.fonts.sansSerif.defaultSize}";
         theme = {
-          name = "catppuccin-${palette.variant}-${palette.accent}-compact+rimless";
+          name = "Colloid-${lib.strings.toSentenceCase palette.accent}-Dark-Compact-Catppuccin";
           package =
-            (pkgs.catppuccin-gtk.overrideAttrs (
-              final: prev: {
-                nativeBuildInputs = [
-                  pkgs.gtk3
-                  pkgs.sassc
-                  pkgs.git
-                  (pkgs.python313.withPackages (ps: [
-                    (ps.catppuccin.overridePythonAttrs (
-                      _final: _prev: {
-                        optional-dependencies = { };
-                        nativeCheckInputs = [ ];
-                      }
-                    ))
-                  ]))
-                ];
-              }
-            )).override
-              {
-                accents = [ palette.accent ];
-                size = "compact";
-                tweaks = [ "rimless" ];
-                inherit (palette) variant;
-              };
+            pkgs.colloid-gtk-theme.override {
+              colorVariants = [ (if palette.variant == "mocha" then "dark" else "light") ];
+              sizeVariants = [ "compact" ];
+              themeVariants = [ palette.accent ];
+              tweaks = [
+                "catppuccin"
+                "rimless"
+              ]
+              ++ (if palette.variant == "mocha" then [ "black" ] else [ ]);
+            };
         };
       };
       palette.accentColor = lib.getAttr palette.accent cfgStyle.palette.colors;
