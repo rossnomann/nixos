@@ -269,11 +269,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789367522,
-        "narHash": "sha256-0n3XNYENj5y5OU5xuLsCK14f+CSBNj+mAjSQntM81ms=",
+        "lastModified": 1789827856,
+        "narHash": "sha256-kYo9qWVt+1teRH7nDUcc73gG/pUv3VNu4zNNcwHIc50=",
         "owner": "rossnomann",
         "repo": "xkb",
-        "rev": "21a75de95f370ad5bd8d457316015f51caa4c9cd",
+        "rev": "b75a8a199eb5c0c91200106d027ee1d3814fd044",
         "type": "github"
       },
       "original": {
