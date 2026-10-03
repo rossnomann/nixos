@@ -18,15 +18,17 @@ in
         automatic = true;
         dates = [ "Sat" ];
       };
-      nixPath = [ "nixpkgs=${nixpkgs}" ];
       optimise = {
         automatic = true;
         dates = [ "Sat" ];
       };
-      settings.experimental-features = [
-        "flakes"
-        "nix-command"
-      ];
+      settings = {
+        experimental-features = [
+          "flakes"
+          "nix-command"
+        ];
+        nix-path = [ "nixpkgs=${nixpkgs}" ];
+      };
     };
     nixpkgs = {
       config.allowUnfree = true;
