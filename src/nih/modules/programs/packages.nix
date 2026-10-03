@@ -25,6 +25,7 @@
     mpv
     overskride
     pciutils
+    restic
     rofi
     scrcpy
     simple-scan
