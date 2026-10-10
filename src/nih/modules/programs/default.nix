@@ -145,20 +145,6 @@ in
           ".config/fretboard/config.kdl".text = import ./resources/fretboard.nix palette;
           ".config/macchina/macchina.toml".source = ./resources/macchina-config.toml;
           ".config/macchina/themes/default.toml".source = ./resources/macchina-theme.toml;
-          ".config/mc/ini".source = ./resources/mc.ini;
-          ".config/mc/mc.ext.ini".text =
-            let
-              xdgOpen = "${p.nohupXdgOpen}/bin/nohup-xdg-open";
-            in
-            lib.generators.toINI { } {
-              "mc.ext.ini" = {
-                Version = 4.0;
-              };
-              Default = {
-                Open = "${xdgOpen} %d/%p";
-                View = "${xdgOpen} %d/%p";
-              };
-            };
           ".config/mpv/mpv.conf".text =
             let
               theme = builtins.readFile "${p.mpvCatppuccin}/${palette.variant}/${palette.accent}.conf";
@@ -177,7 +163,6 @@ in
             map j scroll smooth-down
             map k scroll smooth-up
           '';
-          ".local/share/mc/skins/catppuccin.ini".source = "${cfgSources.catppuccin-mc}/catppuccin.ini";
         };
       xdg.mime = {
         archives = "xarchiver.desktop";

@@ -21,7 +21,6 @@
     loupe
     lshw
     macchina
-    mc
     mpv
     overskride
     pciutils

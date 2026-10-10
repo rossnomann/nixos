@@ -52,19 +52,6 @@
       "url": "https://github.com/catppuccin/helix/archive/91e071bf9b9b2b8ae176a5581fcb61c789c55cab.tar.gz",
       "hash": "sha256-F05ohJp7c9Pdnjq8+srfhAt1ogHjjBz50k1ftHOHGVg="
     },
-    "catppuccin-mc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "mc"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "f1c78f183764cd43e6dd4e325513ef5547a8f28f",
-      "url": "https://github.com/catppuccin/mc/archive/f1c78f183764cd43e6dd4e325513ef5547a8f28f.tar.gz",
-      "hash": "sha256-m6MO0Q35YYkTtVqG1v48U7pHcsuPmieDwU2U1ZzQcjo="
-    },
     "catppuccin-mpv": {
       "type": "Git",
       "repository": {
