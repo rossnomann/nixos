@@ -18,6 +18,7 @@ set smartcase
 set nohlsearch
 set incsearch
 set scrolloff=4
+set shell=/bin/sh
 if !has('win')
     set slowfs=curlftpfs
 endif
