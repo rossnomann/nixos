@@ -6,7 +6,6 @@ in
 {
   config = lib.mkIf cfg.enable {
     boot = {
-      initrd.verbose = false;
       kernelParams = [
         "quiet"
         "udev.log_level=3"
