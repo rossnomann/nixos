@@ -18,7 +18,6 @@
         "usb_storage"
         "sd_mod"
       ];
-      verbose = false;
     };
     kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
     kernelParams = [
