@@ -19,7 +19,7 @@
         "sd_mod"
       ];
     };
-    kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
+    kernelPackages = pkgs.linuxKernel.packages.linux_7_3;
     kernelParams = [
       "i8042.nopnp=1"
       "pcie_aspm=off"
