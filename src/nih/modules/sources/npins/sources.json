@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f6cb5a5c2b404cdaceaff193b9c52317f62c62f7",
-      "url": "https://github.com/catppuccin/alacritty/archive/f6cb5a5c2b404cdaceaff193b9c52317f62c62f7.tar.gz",
-      "hash": "sha256-H8bouVCS46h0DgQ+oYY8JitahQDj0V9p2cOoD4cQX+Q="
+      "revision": "3471f96779050275eacc173b540e2d47e7b8820f",
+      "url": "https://github.com/catppuccin/alacritty/archive/3471f96779050275eacc173b540e2d47e7b8820f.tar.gz",
+      "hash": "sha256-zazXTzO3Jwuhlt82IysHiRbmDPEB1xvNc291nONmvHA="
     },
     "catppuccin-bat": {
       "type": "Git",
@@ -108,8 +108,8 @@
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1118975.2074cc672349/nixexprs.tar.xz",
-      "hash": "sha256-QG/HY0t5t3sfT2ozW/Ikis5Klqf0X4nfTuLvFaBpNno="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1125912.93a9ed0a8660/nixexprs.tar.xz",
+      "hash": "sha256-tFvjrdir1xJuUxdmsv+yK9PiZ4IMnFCeT8z0iayTlso="
     },
     "nu-scripts": {
       "type": "Git",
@@ -120,9 +120,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7541123b229e599671b3f8da80747a7224cf95af",
-      "url": "https://github.com/nushell/nu_scripts/archive/7541123b229e599671b3f8da80747a7224cf95af.tar.gz",
-      "hash": "sha256-CK9DPyEQvAA8gCkto7gXCbF9SvU8ztXyNn13lVoRH3o="
+      "revision": "9bd0c65b9eee45ee748bfba00b2ac50c2fb62c10",
+      "url": "https://github.com/nushell/nu_scripts/archive/9bd0c65b9eee45ee748bfba00b2ac50c2fb62c10.tar.gz",
+      "hash": "sha256-fmqsDDtvHYPl72LA/pYJ9tWEUjQtHxA/U8m/OQnVhYQ="
     }
   },
   "version": 8
