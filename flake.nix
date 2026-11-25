@@ -2,7 +2,6 @@
   description = "NixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs20251111.url = "github:NixOS/nixpkgs?rev=9da7f1cf7f8a6e2a7cb3001b048546c92a8258b4";
     makky = {
       url = "github:rossnomann/makky";
       inputs.nixpkgs.follows = "nixpkgs";
